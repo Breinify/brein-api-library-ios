@@ -9,7 +9,6 @@ Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right 
 </p>
 
 
-
 [![Version](https://img.shields.io/cocoapods/v/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
 [![License](https://img.shields.io/cocoapods/l/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
@@ -80,3 +79,132 @@ In order to use the library you need a valid API-key, which you can get for free
 
 
 ### Step 2: Configure the Library
+
+```Swift
+// this is the valid api-key
+let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6";
+
+// this is the URL of the Breinify service
+let baseUrl = "https://api.breinify.com"
+
+// create the configuration object
+let breinConfig = try BreinConfig(apiKey: validApiKey,
+      baseUrl: baseUrl, 
+      breinEngineType: .ALAMOFIRE)
+            
+// set configuration
+Breinify.setConfig(breinConfig)
+```
+
+#### Step 3: Start using the library
+
+##### Placing activity triggers
+
+The engine powering the DigitalDNA API provides two endpoints. The first endpoint is used to inform the engine about the activities performed by visitors of your site. The activities are used to understand the user's current interest and infer the intent. It becomes more and more accurate across different users and verticals as more activities are collected. It should be noted, that any personal information is not stored within the engine, thus each individual's privacy is well protected. The engine understands several different activities performed by a user, e.g., landing, login, search, item selection, or logout.
+
+The engine is informed of an activity by executing *Breinify.activity(...)*. 
+
+```Swift
+// create a user you are interested in with his email (mandatory field)
+let breinUser = BreinUser(email: "user.anywhere@email.com")
+
+typealias apiSuccess = (result:BreinResult?) -> Void
+typealias apiFailure = (error:NSDictionary?) -> Void
+
+let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
+    print ("Api Success : result is:\n \(result!)")
+    self.resultView.text = "Succes!"
+}
+
+let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
+    print ("Api Failure : error is:\n \(error)")
+    self.resultView.text = "Failure: \(error)"
+}
+
+// set additional user information
+breinUser.setFirstName("Fred")
+breinUser.setLastName("Firestone")
+
+// invoke activity call
+do {
+   try Breinify.activity(breinUser,
+          activityType: .LOGIN,
+          category: .HOME,
+          description: "Login-Description",
+          sign: false,
+          success: successBlock,
+                  failure: failureBlock)
+} catch {
+   print("Error is: \(error)")
+}
+
+```
+
+That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
+
+
+##### Placing look-up triggers
+
+Look-ups are used to retrieve dedicated information for a given user. 
+
+```swift
+// define an array of subjects of interest
+let dimensions: [String] = ["firstname", "gender", "age", "agegroup", "digitalfootprint", "images"]
+
+// wrap this array into BreinDimension
+let breinDimension = BreinDimension(dimensionFields: dimensions)
+
+// invoke the lookup
+let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
+     print ("Api Success!")
+                   
+     if let dataFirstname = result!.get("firstname") {
+        print ("Firstname is: \(dataFirstname)")
+        self.output = self.output + "Firstname is: \(dataFirstname)"
+     }
+
+     if let dataGender = result!.get("gender") {
+        print ("Gender is: \(dataGender)")
+        self.output = self.output + "Gender is: \(dataGender)"            
+     }
+
+     if let dataAge = result!.get("age") {
+        print ("Age is: \(dataAge)")
+        self.output = self.output + "Age is: \(dataAge)"
+     }
+
+     if let dataAgeGroup = result!.get("agegroup") {
+        print ("AgeGroup is: \(dataAgeGroup)")
+        self.output = self.output + "AgeGroup is: \(dataAgeGroup)"
+     }
+
+     if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
+        print ("DigitalFootprinting is: \  
+        (dataDigitalFootprinting)")
+        self.output = self.output 
+        + "DigitalFootprinting is: 
+        + \(dataDigitalFootprinting)"
+            }
+
+     if let dataImages = result!.get("images") {
+        print ("DataImages is: \(dataImages)")
+        self.output = self.output + "DataImages is: \(dataImages)"
+     }
+            
+}
+        
+let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
+     print ("Api Failure : error is:\n \(error)")
+}
+
+do {
+   try Breinify.lookup(breinUser,
+        dimension: breinDimension,
+             sign: false,
+          success: successBlock,
+          failure: failureBlock)
+} catch {
+   print("Error is: \(error)")
+}
+
+```
