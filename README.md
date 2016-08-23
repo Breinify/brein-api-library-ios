@@ -22,7 +22,7 @@ pod "BreinApi"
 
 ## Author
 
-Marco, marco.recchioni@inform-ac.com
+Marco, marco.recchioni@breinify.com
 
 ## License
 
