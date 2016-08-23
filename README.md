@@ -1,7 +1,7 @@
 #BreinApi
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/documentation/img/logo.png" alt="Breinify API iOS Library" width="250">
+ <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/logo.png" alt="Breinify API Java Library" width="250">
 </p>
 
 <p align="center">
