@@ -160,35 +160,26 @@ let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
                    
      if let dataFirstname = result!.get("firstname") {
         print ("Firstname is: \(dataFirstname)")
-        self.output = self.output + "Firstname is: \(dataFirstname)"
      }
 
      if let dataGender = result!.get("gender") {
         print ("Gender is: \(dataGender)")
-        self.output = self.output + "Gender is: \(dataGender)"            
      }
 
      if let dataAge = result!.get("age") {
         print ("Age is: \(dataAge)")
-        self.output = self.output + "Age is: \(dataAge)"
      }
 
      if let dataAgeGroup = result!.get("agegroup") {
         print ("AgeGroup is: \(dataAgeGroup)")
-        self.output = self.output + "AgeGroup is: \(dataAgeGroup)"
      }
 
      if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-        print ("DigitalFootprinting is: \  
-        (dataDigitalFootprinting)")
-        self.output = self.output 
-        + "DigitalFootprinting is: 
-        + \(dataDigitalFootprinting)"
-            }
+        print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
+      }
 
      if let dataImages = result!.get("images") {
         print ("DataImages is: \(dataImages)")
-        self.output = self.output + "DataImages is: \(dataImages)"
      }
             
 }
