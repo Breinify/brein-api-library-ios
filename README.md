@@ -468,7 +468,6 @@ The BreinifyAPI provides two exceptions. These are:
 1. BreinException
 2. BreinInvalidConfigurationException
 
- 
 BreiException will be thrown for instance when an activity call fails. BreinInvalidConfigurationException will only be thrown in case of an invalid BreinConfig. This is the case when a wrong URL is configured.
 
  
