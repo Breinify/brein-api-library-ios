@@ -10,15 +10,15 @@ public class BreinResult {
 
     var dic = NSDictionary()
 
-    init(dictResponse: NSDictionary) {
+    public init(dictResponse: NSDictionary) {
         dic = dictResponse
     }
 
-    func get(key: String) -> AnyObject! {
+    public func get(key: String) -> AnyObject! {
         return dic.objectForKey(key)
     }
 
-    func getDictionary() -> NSDictionary {
+    public func getDictionary() -> NSDictionary {
         return dic
     }
 }

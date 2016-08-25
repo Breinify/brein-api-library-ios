@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '071E38A2BBF78FD78B242B7E'
+               BlueprintIdentifier = '4C138071D298BE28F04797CF'
                BlueprintName = 'Pods-BreinApi_Tests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_BreinApi_Tests.framework'>

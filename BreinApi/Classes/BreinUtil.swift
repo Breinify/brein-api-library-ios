@@ -10,7 +10,7 @@ import IDZSwiftCommonCrypto
 public class BreinUtil {
 
 
-    static func generateSignature(message: String!, secret: String!) throws -> String {
+    static public func generateSignature(message: String!, secret: String!) throws -> String {
 
         if message == nil || secret == nil {
             throw BreinError.BreinRuntimeError("Illegal value for message or secret in method generateSignature")
@@ -19,7 +19,7 @@ public class BreinUtil {
        return message.digestHMac256(secret)
     }
 
-    static func isUrlValid(url: String!) -> Bool {
+    static public func isUrlValid(url: String!) -> Bool {
         return true;
 
     }

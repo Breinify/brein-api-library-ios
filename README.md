@@ -1,4 +1,4 @@
-#BreinApi
+#BreinifyApi
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/logo.png" alt="Breinify API Java Library" width="250">
@@ -9,9 +9,9 @@ Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right 
 </p>
 
 
-[![Version](https://img.shields.io/cocoapods/v/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
-[![License](https://img.shields.io/cocoapods/l/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
-[![Platform](https://img.shields.io/cocoapods/p/BreinApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
+[![Version](https://img.shields.io/cocoapods/v/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
+[![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
+[![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinApi)
 
 
 ### Step By Step Introduction
@@ -42,7 +42,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 $ gem install cocoapods
 ```
 
-To integrate BreinApi into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -50,7 +50,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'BreinApi'
+    pod 'BreinifyApi'
 end
 ```
 
@@ -60,20 +60,20 @@ Then, run the following command:
 $ pod install
 ```
 
-The BreinApi Dependency will be added and a XCode workspace will be generated. This workspace file bundles your original Xcode project, the BreinApi library, and its dependencies.
+The BreinifyApi Dependency will be added and a XCode workspace will be generated. This workspace file bundles your original Xcode project, the BreinifyApi library, and its dependencies.
 
 So from now on, you have to use <ProjectName>.xcworkspace instead of <ProjectName>.xcodeproj.
 
 ## Dependencies
 
-BreinApi includes the following two libraries:
+BreinifyApi includes the following two libraries:
 
 - Alamofire
 - IDZSwiftCommonCrypto
 
 ## License
 
-BreinApi is available under the MIT license. See the LICENSE file for more info.
+BreinifyApi is available under the MIT license. See the LICENSE file for more info.
 
 
 ## Usage
@@ -85,10 +85,10 @@ In order to use the library you need a valid API-key, which you can get for free
 **772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6**
 
 
-### Step 2: Include the BreinApi module
+### Step 2: Include the BreinifyApi module
 
 ```Swift
-import BreinApi
+import BreinifyApi
 
 ```
 
@@ -229,7 +229,7 @@ Let’s navigate back to Xcode and inside the IDE, go to ViewController.swift. T
 
 ```swift
 import UIKit
-import BreinApi
+import BreinifyApi
 
 class ViewController: UIViewController {
 
@@ -260,8 +260,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
+  
         do {
 
             breinConfig = try BreinConfig(apiKey: validApiKey, 

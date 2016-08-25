@@ -1,64 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="CIDR_MODULE" version="4">
   <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.2/DerivedData/BreinApi-hcrswgqidvtdrdhfhyhttcfmzzvr/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/DerivedSources" />
+    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.2/DerivedData/BreinApi-hcrswgqidvtdrdhfhyhttcfmzzvr/Build/Intermediates/Pods.build/Debug-iphoneos/BreinApi.build/DerivedSources" />
+    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.2/DerivedData/BreinApi-hcrswgqidvtdrdhfhyhttcfmzzvr/Build/Intermediates/Pods.build/Debug-iphoneos/IDZSwiftCommonCrypto.build/DerivedSources" />
+    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.2/DerivedData/BreinApi-hcrswgqidvtdrdhfhyhttcfmzzvr/Build/Intermediates/Pods.build/Debug-iphoneos/Pods-BreinApi_Tests.build/DerivedSources" />
     <content url="file://$MODULE_DIR$/..">
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinError.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinActivity.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/IRestEngineExtension.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinActivityType.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinifyExecutor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinCategoryType.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinifyApi-Bridging-Header.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/ISecretStrategy.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinDimension.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/IRestEngine.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/LocationManager.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/IRestEngineExtension.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinResult.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinLookup.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinLocationManager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/AlamofireEngine.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinUser.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/Breinify.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinifyExecutor.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinActivityType.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/IRestEngine.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinEngineType.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinBase.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/StringExtension.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinEngine.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinConfig.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../BreinApi/Classes/BreinUtil.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../BreinApi.podspec" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../README.md" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../LICENSE" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Tests/Tests.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Tests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Validation.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestDomain.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestExecutor.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestApi.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestConfig.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestEngine.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestSecret.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/TestLocation.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Response.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Error.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Stream.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Validation.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ServerTrustPolicy.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Result.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Upload.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Manager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Download.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/NetworkReachabilityManager.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Request.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Notifications.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Response.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Upload.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/BreinApi/BreinApi-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Pods-BreinApi_Tests-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Pods-BreinApi_Tests.release.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Pods-BreinApi_Tests-acknowledgements.plist" isTestSource="false" />
@@ -69,12 +78,12 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Pods-BreinApi_Tests-frameworks.sh" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-BreinApi_Tests/Pods-BreinApi_Tests.debug.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Digest.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/HMAC.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Utilities.swift" isTestSource="false" />
@@ -86,7 +95,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/StreamCryptor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/KeyDerivation.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Cryptor.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../README.md" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../BreinApi.podspec" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

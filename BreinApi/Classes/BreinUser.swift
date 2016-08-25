@@ -30,42 +30,42 @@ public class BreinUser {
     var sessionId: String!
 
     // Ctor
-    init(email: String!) {
+    public init(email: String!) {
         setEmail(email)
     }
 
-    func getEmail() -> String! {
+    public func getEmail() -> String! {
         return email
     }
 
-    func setEmail(email: String!) -> BreinUser! {
+    public func setEmail(email: String!) -> BreinUser! {
         self.email = email
         return self
     }
 
-    func getFirstName() -> String! {
+    public func getFirstName() -> String! {
         return firstName
     }
 
-    func setFirstName(firstName: String!) -> BreinUser! {
+    public func setFirstName(firstName: String!) -> BreinUser! {
         self.firstName = firstName
         return self
     }
 
-    func getLastName() -> String! {
+    public func getLastName() -> String! {
         return lastName
     }
 
-    func setLastName(lastName: String!) -> BreinUser! {
+    public func setLastName(lastName: String!) -> BreinUser! {
         self.lastName = lastName
         return self
     }
 
-    func getDateOfBirth() -> String! {
+    public func getDateOfBirth() -> String! {
         return dateOfBirth
     }
 
-    func setDateOfBirth(month: Int, day: Int, year: Int) -> BreinUser! {
+    public func setDateOfBirth(month: Int, day: Int, year: Int) -> BreinUser! {
 
         if case 1...12 = month {
             if case 1...31 = day {
@@ -78,39 +78,39 @@ public class BreinUser {
         return self
     }
 
-    func setDateOfBirth(dateOfBirth: String!) -> BreinUser! {
+    public func setDateOfBirth(dateOfBirth: String!) -> BreinUser! {
         self.dateOfBirth = dateOfBirth
         return self
     }
 
-    func getImei() -> String! {
+    public func getImei() -> String! {
         return imei
     }
 
-    func setImei(imei: String!) -> BreinUser! {
+    public func setImei(imei: String!) -> BreinUser! {
         self.imei = imei
         return self
     }
 
-    func getDeviceId() -> String! {
+    public func getDeviceId() -> String! {
         return deviceId
     }
 
-    func setDeviceId(deviceId: String!) -> BreinUser! {
+    public func setDeviceId(deviceId: String!) -> BreinUser! {
         self.deviceId = deviceId
         return self
     }
 
-    func getSessionId() -> String! {
+    public func getSessionId() -> String! {
         return sessionId
     }
 
-    func setSessionId(sessionId: String!) -> BreinUser! {
+    public func setSessionId(sessionId: String!) -> BreinUser! {
         self.sessionId = sessionId
         return self
     }
 
-    func description() -> String! {
+    public func description() -> String! {
         return (((((((((((((((("BreinUser details: "
                 + "\r") + " name: ")
                 + (self.firstName == nil ? "n/a" : self.firstName))

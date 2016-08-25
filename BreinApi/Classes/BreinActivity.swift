@@ -16,35 +16,35 @@ public class BreinActivity: BreinBase, ISecretStrategy {
     //  Description of the activity
     var description: String?
 
-    func getBreinActivityType() -> BreinActivityType! {
+    public func getBreinActivityType() -> BreinActivityType! {
         return breinActivityType
     }
 
-    func setBreinActivityType(breinActivityType: BreinActivityType?) {
+    public func setBreinActivityType(breinActivityType: BreinActivityType?) {
         self.breinActivityType = breinActivityType
     }
 
-    func getBreinCategoryType() -> BreinCategoryType! {
+    public func getBreinCategoryType() -> BreinCategoryType! {
         return breinCategoryType
     }
 
-    func setBreinCategoryType(breinCategoryType: BreinCategoryType?) {
+    public func setBreinCategoryType(breinCategoryType: BreinCategoryType?) {
         self.breinCategoryType = breinCategoryType
     }
 
-    func getDescription() -> String! {
+    public func getDescription() -> String! {
         return description
     }
 
-    func setDescription(description: String!) {
+    public func setDescription(description: String!) {
         self.description = description
     }
 
-    override func getEndPoint() -> String! {
+    override public func getEndPoint() -> String! {
         return getConfig().getActivityEndpoint()
     }
 
-    func activity(breinUser: BreinUser!,
+    public func activity(breinUser: BreinUser!,
                   breinActivityType: BreinActivityType!,
                   breinCategoryType: BreinCategoryType!,
                   description: String!,
@@ -64,7 +64,7 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         try getBreinEngine().sendActivity(self, success: successBlock, failure: failureBlock)
     }
 
-    override func prepareJsonRequest() -> [String:AnyObject]! {
+    override public func prepareJsonRequest() -> [String:AnyObject]! {
         // call base class
         super.prepareJsonRequest()
 

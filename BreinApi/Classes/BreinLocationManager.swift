@@ -19,7 +19,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager = nil
     }
 
-    typealias LocationClosure = ((location: CLLocation?, error: NSError?)->())
+    public typealias LocationClosure = ((location: CLLocation?, error: NSError?) -> ())
     private var didComplete: LocationClosure?
 
     //location manager returned, call didcomplete closure
@@ -55,7 +55,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     //ask for location permissions, fetch 1 location, and return
-    func fetchWithCompletion(completion: LocationClosure) {
+    public func fetchWithCompletion(completion: LocationClosure) {
         //store the completion closure
         didComplete = completion
 

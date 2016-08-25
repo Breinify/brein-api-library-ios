@@ -18,23 +18,23 @@ public class Breinify {
     static var breinActivity: BreinActivity! = BreinActivity()
 
     //  contains the lookup object
-    static var breinLookup: BreinLookup! = BreinLookup()
+    static var breinLookup: BreinLookup = BreinLookup()
 
-    class func setConfig(breinConfig: BreinConfig!) {
+    public class func setConfig(breinConfig: BreinConfig!) {
         config = breinConfig
         breinActivity.setConfig(breinConfig)
         breinLookup.setConfig(breinConfig)
     }
 
-    class func getConfig() -> BreinConfig! {
+    public class func getConfig() -> BreinConfig! {
         return config
     }
 
-    static func getVersion() -> String! {
+    public static func getVersion() -> String! {
         return version
     }
 
-    class func activity(user: BreinUser!,
+    public class func activity(user: BreinUser!,
                         activityType: BreinActivityType!,
                         category: BreinCategoryType!,
                         description: String!,
@@ -51,7 +51,7 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    class func activity(breinActivity: BreinActivity!,
+    public class func activity(breinActivity: BreinActivity!,
                         user: BreinUser!,
                         activityType: BreinActivityType!,
                         category: BreinCategoryType!,
@@ -73,7 +73,7 @@ public class Breinify {
         try breinActivity.getBreinEngine().sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
-    class func lookup(user: BreinUser!,
+    public class func lookup(user: BreinUser!,
                       dimension: BreinDimension!,
                       sign: Bool,
                       success successBlock: BreinEngine.apiSuccess,
@@ -86,7 +86,7 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    class func lookup(breinLookup: BreinLookup!,
+    public class func lookup(breinLookup: BreinLookup!,
                       user: BreinUser!,
                       dimension: BreinDimension!,
                       sign: Bool,
@@ -106,7 +106,7 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    class func shutdown() {
+    public class func shutdown() {
         if getConfig() != nil {
             getConfig().shutdownEngine()
         }

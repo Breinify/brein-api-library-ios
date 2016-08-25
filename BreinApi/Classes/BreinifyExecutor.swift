@@ -19,21 +19,21 @@ public class BreinifyExecutor {
     //  contains the lookup object
     var breinLookup: BreinLookup! = BreinLookup()
 
-    func setConfig(breinConfig: BreinConfig!) {
+    public func setConfig(breinConfig: BreinConfig!) {
         config = breinConfig
         breinActivity.setConfig(breinConfig)
         breinLookup.setConfig(breinConfig)
     }
 
-    func getConfig() -> BreinConfig! {
+    public func getConfig() -> BreinConfig! {
         return config
     }
 
-    static func getVersion() -> String! {
+    public static func getVersion() -> String! {
         return Version
     }
 
-    func activity(user: BreinUser!,
+    public func activity(user: BreinUser!,
                   activityType: BreinActivityType!,
                   category: BreinCategoryType!,
                   description: String!,
@@ -50,7 +50,7 @@ public class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    func activity(breinActivity: BreinActivity!,
+    public func activity(breinActivity: BreinActivity!,
                   user: BreinUser!,
                   activityType: BreinActivityType!,
                   category: BreinCategoryType!,
@@ -73,7 +73,7 @@ public class BreinifyExecutor {
         try breinActivity.getBreinEngine().sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
-    func lookup(user: BreinUser!,
+    public func lookup(user: BreinUser!,
                 dimension: BreinDimension!,
                 sign: Bool,
                 success successBlock: BreinEngine.apiSuccess,
@@ -86,7 +86,7 @@ public class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    func lookup(breinLookup: BreinLookup!,
+    public func lookup(breinLookup: BreinLookup!,
                 user: BreinUser!,
                 dimension: BreinDimension!,
                 sign: Bool,
@@ -107,7 +107,7 @@ public class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    func shutdown() {
+    public func shutdown() {
         if getConfig() != nil {
             getConfig().shutdownEngine()
         }

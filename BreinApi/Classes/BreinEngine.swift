@@ -8,12 +8,12 @@ import Foundation
 
 public class BreinEngine {
 
-    typealias apiSuccess = (result:BreinResult?) -> Void
-    typealias apiFailure = (error:NSDictionary?) -> Void
+    public typealias apiSuccess = (result:BreinResult?) -> Void
+    public typealias apiFailure = (error:NSDictionary?) -> Void
 
     var restEngine: IRestEngine!
 
-    init(engineType: BreinEngineType) throws {
+    public init(engineType: BreinEngineType) throws {
         switch engineType {
         case BreinEngineType.ALAMOFIRE:
             self.restEngine = AlamofireEngine()
@@ -22,7 +22,7 @@ public class BreinEngine {
         }
     }
 
-    func sendActivity(activity: BreinActivity!,
+    public func sendActivity(activity: BreinActivity!,
                       success successBlock: BreinEngine.apiSuccess,
                       failure failureBlock: BreinEngine.apiFailure) throws {
         if activity != nil {
@@ -32,7 +32,7 @@ public class BreinEngine {
         }
     }
 
-    func performLookUp(breinLookup: BreinLookup!,
+    public func performLookUp(breinLookup: BreinLookup!,
                        success successBlock: apiSuccess,
                        failure failureBlock: apiFailure) throws {
         if breinLookup != nil {
@@ -42,11 +42,11 @@ public class BreinEngine {
         }
     }
 
-    func getRestEngine() -> IRestEngine! {
+    public func getRestEngine() -> IRestEngine! {
         return restEngine
     }
 
-    func configure(breinConfig: BreinConfig!) {
+    public func configure(breinConfig: BreinConfig!) {
         restEngine.configure(breinConfig)
     }
 

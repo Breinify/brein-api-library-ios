@@ -11,15 +11,15 @@ public class BreinLookup: BreinBase, ISecretStrategy {
     //  used for lookup request
     var breinDimension: BreinDimension!
 
-    func getBreinDimension() -> BreinDimension! {
+    public func getBreinDimension() -> BreinDimension! {
         return breinDimension
     }
 
-    func setBreinDimension(breinDimension: BreinDimension!) {
+    public func setBreinDimension(breinDimension: BreinDimension!) {
         self.breinDimension = breinDimension
     }
 
-    func lookUp(breinUser: BreinUser!,
+    public func lookUp(breinUser: BreinUser!,
                 breinDimension: BreinDimension!,
                 sign: Bool,
                 success successBlock: BreinEngine.apiSuccess,
@@ -36,7 +36,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return try getBreinEngine().performLookUp(self, success: successBlock, failure: failureBlock)
     }
 
-    override func prepareJsonRequest() -> [String:AnyObject]! {
+    override public func prepareJsonRequest() -> [String:AnyObject]! {
         // call base class
         super.prepareJsonRequest()
 
@@ -88,7 +88,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return requestData
     }
 
-    override func getEndPoint() -> String! {
+    override public func getEndPoint() -> String! {
         return getConfig().getLookupEndpoint()
     }
 

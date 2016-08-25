@@ -52,18 +52,18 @@ public class BreinConfig {
     //  contains the secret
     var secret: String!
 
-    init() {
+    public init() {
         self.initValues()
     }
 
-    init(apiKey: String!, baseUrl: String!) throws {
+    public init(apiKey: String!, baseUrl: String!) throws {
         self.initValues()
         self.setApiKey(apiKey)
         try setBaseUrl(baseUrl)
         self.setRestEngineType(BreinEngineType.NO_ENGINE)
     }
 
-    init(apiKey: String!,
+    public init(apiKey: String!,
          baseUrl: String!,
          breinEngineType: BreinEngineType!) throws {
 
@@ -86,18 +86,18 @@ public class BreinConfig {
         self.breinEngine = try BreinEngine(engineType: getRestEngineType())
     }
 
-    func build() throws -> BreinifyExecutor {
+    public func build() throws -> BreinifyExecutor {
         let breinifyExecutor = BreinifyExecutor()
         breinifyExecutor.setConfig(self)
         try self.initEngine()
         return breinifyExecutor
     }
 
-    func getBaseUrl() -> String! {
+    public func getBaseUrl() -> String! {
         return baseUrl
     }
 
-    func setBaseUrl(baseUrl: String!) throws -> BreinConfig {
+    public func setBaseUrl(baseUrl: String!) throws -> BreinConfig {
         if baseUrl != nil {
             self.baseUrl = baseUrl
             try checkBaseUrl(baseUrl)
@@ -105,83 +105,83 @@ public class BreinConfig {
         return self
     }
 
-    func checkBaseUrl(baseUrl: String!) throws {
+    public func checkBaseUrl(baseUrl: String!) throws {
         if false == isUrlValid(baseUrl) {
             let msg: String! = "BreinConfig issue. Value for BaseUrl is not valid. Value is: " + baseUrl
             throw BreinError.BreinConfigurationError(msg)
         }
     }
 
-    func getRestEngineType() -> BreinEngineType! {
+    public func getRestEngineType() -> BreinEngineType! {
         return self.restEngineType
     }
 
-    func setRestEngineType(restEngineType: BreinEngineType!) -> BreinConfig {
+    public func setRestEngineType(restEngineType: BreinEngineType!) -> BreinConfig {
         self.restEngineType = restEngineType
         return self
     }
 
-    func getBreinEngine() -> BreinEngine! {
+    public func getBreinEngine() -> BreinEngine! {
         return self.breinEngine
     }
 
-    func setApiKey(apiKey: String!) -> BreinConfig {
+    public func setApiKey(apiKey: String!) -> BreinConfig {
         self.apiKey = apiKey
         return self
     }
 
-    func getApiKey() -> String! {
+    public func getApiKey() -> String! {
         return apiKey
     }
 
-    func getUrl() -> String! {
+    public func getUrl() -> String! {
         return baseUrl
     }
 
-    func getConnectionTimeout() -> Int {
+    public func getConnectionTimeout() -> Int {
         return connectionTimeout
     }
 
-    func getSocketTimeout() -> Int {
+    public func getSocketTimeout() -> Int {
         return socketTimeout
     }
 
-    func setSocketTimeout(socketTimeout: Int) {
+    public func setSocketTimeout(socketTimeout: Int) {
         self.socketTimeout = socketTimeout
     }
 
-    func setConnectionTimeout(connectionTimeout: Int) {
+    public func setConnectionTimeout(connectionTimeout: Int) {
         self.connectionTimeout = connectionTimeout
     }
 
-    func getActivityEndpoint() -> String! {
+    public func getActivityEndpoint() -> String! {
         return activityEndpoint
     }
 
-    func setActivityEndpoint(activityEndpoint: String!) -> BreinConfig {
+    public func setActivityEndpoint(activityEndpoint: String!) -> BreinConfig {
         self.activityEndpoint = activityEndpoint
         return self
     }
 
-    func getLookupEndpoint() -> String! {
+    public func getLookupEndpoint() -> String! {
         return lookupEndpoint
     }
 
-    func setLookupEndpoint(lookupEndpoint: String!) -> BreinConfig {
+    public func setLookupEndpoint(lookupEndpoint: String!) -> BreinConfig {
         self.lookupEndpoint = lookupEndpoint
         return self
     }
 
-    func getSecret() -> String! {
+    public func getSecret() -> String! {
         return secret
     }
 
-    func setSecret(secret: String!) -> BreinConfig {
+    public func setSecret(secret: String!) -> BreinConfig {
         self.secret = secret
         return self
     }
 
-    func shutdownEngine() {
+    public func shutdownEngine() {
         if ((self.breinEngine?.getRestEngine()) != nil) {
             // invoke termination of the engine
             self.breinEngine.getRestEngine().terminate()
@@ -189,7 +189,7 @@ public class BreinConfig {
 
     }
 
-    func isUrlValid(url: String!) -> Bool {
+    public func isUrlValid(url: String!) -> Bool {
         return BreinUtil.isUrlValid(url)
     }
 

@@ -9,15 +9,15 @@ public class BreinDimension {
 
     var dimensionFields = [String]()
 
-    init(dimensionFields: [String]) {
+    public init(dimensionFields: [String]) {
         self.dimensionFields = dimensionFields
     }
 
-    func getDimensionFields() -> Array<String> {
+    public func getDimensionFields() -> Array<String> {
         return dimensionFields
     }
 
-    func setDimensionFields(dimensionFields: String...) {
+    public func setDimensionFields(dimensionFields: String...) {
         self.dimensionFields = dimensionFields
     }
 
