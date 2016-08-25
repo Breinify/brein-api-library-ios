@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		A9CE87711D6F9FBD0024C7B3 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876A1D6F9FBD0024C7B3 /* TestSecret.swift */; };
+		A9CE87721D6F9FBD0024C7B3 /* TestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876B1D6F9FBD0024C7B3 /* TestExecutor.swift */; };
+		A9CE87731D6F9FBD0024C7B3 /* TestDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876C1D6F9FBD0024C7B3 /* TestDomain.swift */; };
+		A9CE87741D6F9FBD0024C7B3 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876D1D6F9FBD0024C7B3 /* TestApi.swift */; };
+		A9CE87751D6F9FBD0024C7B3 /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876E1D6F9FBD0024C7B3 /* TestEngine.swift */; };
+		A9CE87761D6F9FBD0024C7B3 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE876F1D6F9FBD0024C7B3 /* TestLocation.swift */; };
+		A9CE87771D6F9FBD0024C7B3 /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE87701D6F9FBD0024C7B3 /* TestConfig.swift */; };
 		BD6EFCE4E77830D4DA18258C /* Pods_BreinifyApi_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68D38F875CFF7F94830DD98 /* Pods_BreinifyApi_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +26,13 @@
 		7FF45DFE356C026F81B66F14 /* Pods-BreinifyApi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9EFC7C5123D2B652922BEF91 /* Pods-BreinifyApi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A40FD39369F17A2482989F9B /* BreinifyApi.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BreinifyApi.podspec; path = ../BreinifyApi.podspec; sourceTree = "<group>"; };
+		A9CE876A1D6F9FBD0024C7B3 /* TestSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSecret.swift; sourceTree = "<group>"; };
+		A9CE876B1D6F9FBD0024C7B3 /* TestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExecutor.swift; sourceTree = "<group>"; };
+		A9CE876C1D6F9FBD0024C7B3 /* TestDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDomain.swift; sourceTree = "<group>"; };
+		A9CE876D1D6F9FBD0024C7B3 /* TestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
+		A9CE876E1D6F9FBD0024C7B3 /* TestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
+		A9CE876F1D6F9FBD0024C7B3 /* TestLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
+		A9CE87701D6F9FBD0024C7B3 /* TestConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
 		D90243161DC05AFDF7D3F4AF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E68D38F875CFF7F94830DD98 /* Pods_BreinifyApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,6 +80,13 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A9CE876A1D6F9FBD0024C7B3 /* TestSecret.swift */,
+				A9CE876B1D6F9FBD0024C7B3 /* TestExecutor.swift */,
+				A9CE876C1D6F9FBD0024C7B3 /* TestDomain.swift */,
+				A9CE876D1D6F9FBD0024C7B3 /* TestApi.swift */,
+				A9CE876E1D6F9FBD0024C7B3 /* TestEngine.swift */,
+				A9CE876F1D6F9FBD0024C7B3 /* TestLocation.swift */,
+				A9CE87701D6F9FBD0024C7B3 /* TestConfig.swift */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -219,6 +240,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				A9CE87771D6F9FBD0024C7B3 /* TestConfig.swift in Sources */,
+				A9CE87711D6F9FBD0024C7B3 /* TestSecret.swift in Sources */,
+				A9CE87721D6F9FBD0024C7B3 /* TestExecutor.swift in Sources */,
+				A9CE87741D6F9FBD0024C7B3 /* TestApi.swift in Sources */,
+				A9CE87731D6F9FBD0024C7B3 /* TestDomain.swift in Sources */,
+				A9CE87751D6F9FBD0024C7B3 /* TestEngine.swift in Sources */,
+				A9CE87761D6F9FBD0024C7B3 /* TestLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
