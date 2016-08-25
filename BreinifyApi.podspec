@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BreinifyApi'
-  s.version          = '0.1.0'
+  s.version          = '0.1.5'
   s.summary          = 'This is a short description of BreinifyApi.'
 
 # This description is used to generate tags and improve search results.
