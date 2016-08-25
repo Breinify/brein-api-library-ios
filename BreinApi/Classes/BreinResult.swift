@@ -6,7 +6,7 @@
 
 import Foundation
 
-class BreinResult {
+public class BreinResult {
 
     var dic = NSDictionary()
 

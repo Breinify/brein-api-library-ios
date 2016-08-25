@@ -6,7 +6,7 @@
 
 import Foundation
 
-protocol ISecretStrategy {
+public protocol ISecretStrategy {
 
     func createSignature() throws -> String!
 }

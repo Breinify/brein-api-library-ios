@@ -5,7 +5,7 @@
 
 import Foundation
 
-class BreinifyExecutor {
+public class BreinifyExecutor {
 
     //  contains the current version of the usage library
     static let Version: String! = "1.0.0-snapshot"

@@ -7,7 +7,7 @@
 import Foundation
 import IDZSwiftCommonCrypto
 
-class BreinUtil {
+public class BreinUtil {
 
 
     static func generateSignature(message: String!, secret: String!) throws -> String {

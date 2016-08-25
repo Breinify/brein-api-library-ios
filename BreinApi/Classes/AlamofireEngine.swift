@@ -8,15 +8,15 @@ import Foundation
 import Alamofire
 
 
-class AlamofireEngine: IRestEngine {
+public class AlamofireEngine: IRestEngine {
 
-    typealias apiSuccess = (result: BreinResult?) -> Void
-    typealias apiFailure = (error: NSDictionary?) -> Void
+    public typealias apiSuccess = (result: BreinResult?) -> Void
+    public typealias apiFailure = (error: NSDictionary?) -> Void
 
-    func configure(breinConfig: BreinConfig) {
+    public func configure(breinConfig: BreinConfig) {
     }
 
-    func doRequest(breinActivity: BreinActivity,
+    public func doRequest(breinActivity: BreinActivity,
                    success successBlock: apiSuccess,
                    failure failureBlock: apiFailure) throws {
 
@@ -52,7 +52,7 @@ class AlamofireEngine: IRestEngine {
         }
     }
 
-    func doLookup(breinLookup: BreinLookup,
+    public func doLookup(breinLookup: BreinLookup,
                   success successBlock: apiSuccess,
                   failure failureBlock: apiFailure) throws {
 
@@ -88,6 +88,6 @@ class AlamofireEngine: IRestEngine {
         }
     }
 
-    func terminate() {
+    public func terminate() {
     }
 }

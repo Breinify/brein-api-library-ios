@@ -229,7 +229,6 @@ Let’s navigate back to Xcode and inside the IDE, go to ViewController.swift. T
 
 ```swift
 import UIKit
-import CoreLocation
 import BreinApi
 
 class ViewController: UIViewController {

@@ -6,7 +6,7 @@
 
 import Foundation
 
-class BreinLookup: BreinBase, ISecretStrategy {
+public class BreinLookup: BreinBase, ISecretStrategy {
 
     //  used for lookup request
     var breinDimension: BreinDimension!
@@ -92,7 +92,7 @@ class BreinLookup: BreinBase, ISecretStrategy {
         return getConfig().getLookupEndpoint()
     }
 
-    func createSignature() throws -> String! {
+    public func createSignature() throws -> String! {
         var dimensions = getBreinDimension().getDimensionFields()
 
         // we need the first one

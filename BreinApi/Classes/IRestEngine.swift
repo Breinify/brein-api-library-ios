@@ -6,7 +6,7 @@
 
 import Foundation
 
-protocol IRestEngine {
+public protocol IRestEngine {
 
     func configure(breinConfig: BreinConfig)
 

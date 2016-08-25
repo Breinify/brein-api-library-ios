@@ -5,7 +5,7 @@
 
 import Foundation
 
-class BreinDimension {
+public class BreinDimension {
 
     var dimensionFields = [String]()
 

@@ -6,7 +6,7 @@
 
 import Foundation
 
-class BreinEngine {
+public class BreinEngine {
 
     typealias apiSuccess = (result:BreinResult?) -> Void
     typealias apiFailure = (error:NSDictionary?) -> Void

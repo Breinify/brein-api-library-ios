@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum BreinCategoryType : String {
+public enum BreinCategoryType : String {
 
     case APPAREL = "apparel"
     case HOME = "home"

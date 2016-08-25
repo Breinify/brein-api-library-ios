@@ -5,7 +5,7 @@
 
 import Foundation
 
-class BreinConfig {
+public class BreinConfig {
 
     //  default endpoint of activity
     let DEFAULT_ACTIVITY_ENDPOINT: String! = "/activity"

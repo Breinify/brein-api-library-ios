@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum BreinActivityType: String {
+public enum BreinActivityType: String {
 
     case SEARCH = "search"
     case LOGIN = "login"

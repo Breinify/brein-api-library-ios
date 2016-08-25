@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum BreinEngineType {
+public enum BreinEngineType {
 
     case ALAMOFIRE
     case NO_ENGINE

@@ -8,7 +8,7 @@ enum BreinLocationManagerErrors: Int {
     case InvalidLocation
 }
 
-class BreinLocationManager: NSObject, CLLocationManagerDelegate {
+public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     //location manager
     private var locationManager: CLLocationManager?
@@ -31,7 +31,7 @@ class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     //location authorization status changed
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 
         switch status {
         case .AuthorizedWhenInUse:
@@ -45,11 +45,11 @@ class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
 
-    internal func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         _didComplete(nil, error: error)
     }
 
-    internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         _didComplete(location, error: nil)
     }

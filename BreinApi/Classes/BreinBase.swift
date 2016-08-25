@@ -6,10 +6,10 @@
 
 import Foundation
 
-class BreinBase {
+public class BreinBase {
 
     //  contains the User that will be used for the request
-    var breinUser: BreinUser!
+    var breinUser: BreinUser?
 
     //  Configuration
     var breinConfig: BreinConfig!

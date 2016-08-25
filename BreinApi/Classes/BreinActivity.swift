@@ -5,7 +5,7 @@
 
 import Foundation
 
-class BreinActivity: BreinBase, ISecretStrategy {
+public class BreinActivity: BreinBase, ISecretStrategy {
 
     //  ActivityType of the activity
     var breinActivityType: BreinActivityType?
@@ -122,7 +122,7 @@ class BreinActivity: BreinBase, ISecretStrategy {
         return requestData
     }
 
-    func createSignature() throws -> String! {
+    public func createSignature() throws -> String! {
 
         let message = String(format: "%s%d%d", getBreinActivityType() == nil ? "" : getBreinActivityType().rawValue, getUnixTimestamp(), 1)
 

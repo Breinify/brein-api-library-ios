@@ -6,7 +6,7 @@
 
 import Foundation
 
-class BreinUser {
+public class BreinUser {
 
     //  user email
     var email: String!
