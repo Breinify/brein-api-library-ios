@@ -100,19 +100,30 @@ The Breinify class needs to be configured with an instance of BreinConfig contai
 This would look like this:
 
 ```Swift
-// this has to be a valid api-key
-let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+override func viewDidLoad() {
 
-// this is the URL of the Breinify service
-let baseUrl = "https://api.breinify.com"
+   super.viewDidLoad()
+   // Do any additional setup after loading the view, typically from a nib.
 
-// create the configuration object
-let breinConfig = try BreinConfig(apiKey: validApiKey,
-              baseUrl: baseUrl, 
-      breinEngineType: .ALAMOFIRE)
-            
-// set configuration
-Breinify.setConfig(breinConfig)
+   // this has to be a valid api key
+   let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+
+   // this is the URL of the Breinify service
+   let baseUrl = "https://api.breinify.com"
+
+   // create the configuration object
+     do {
+        let breinConfig = try BreinConfig(apiKey: validApiKey,
+                baseUrl: baseUrl,
+        breinEngineType: .ALAMOFIRE)
+
+        // set configuration
+        Breinify.setConfig(breinConfig)
+    } catch {
+        print ("Error is: \(error)")
+    }
+}
+
 ```
 
 #### Step 3: Start using the library
@@ -124,40 +135,43 @@ The engine powering the DigitalDNA API provides two endpoints. The first endpoin
 The engine is informed of an activity by executing *Breinify.activity(...)*. 
 
 ```Swift
-// create a user you are interested in with his email (mandatory field)
-let breinUser = BreinUser(email: "fred.firestone@email.com")
+@IBAction func activityPressed(sender: AnyObject) {
 
-typealias apiSuccess = (result:BreinResult?) -> Void
-typealias apiFailure = (error:NSDictionary?) -> Void
+    // create a user you are interested in with his email (mandatory field)
+    let breinUser = BreinUser(email: "fred.firestone@email.com")
 
-// callback in case of success
-let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-    print ("Api Success : result is:\n \(result!)")
+    typealias apiSuccess = (result:BreinResult?) -> Void
+    typealias apiFailure = (error:NSDictionary?) -> Void
+
+    // callback in case of success
+    let successBlock: apiSuccess = {
+        (result: BreinResult?) -> Void in
+        print("Api Success : result is:\n \(result!)")
+    }
+
+    // callback in case of a failure
+    let failureBlock: apiFailure = {
+        (error: NSDictionary?) -> Void in
+        print("Api Failure: error is:\n \(error)")
+    }
+
+    // set additional user information (optional)
+    breinUser.setFirstName("Fred")
+    breinUser.setLastName("Firestone")
+
+    // invoke activity call
+    do {
+       try Breinify.activity(breinUser,
+            activityType: .LOGIN,
+                category: .HOME,
+             description: "Login-Description",
+                    sign: false,
+                 success: successBlock,
+                 failure: failureBlock)
+    } catch {
+       print("Error is: \(error)")
+    }
 }
-
-// callback in case of a failure
-let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-    print ("Api Failure: error is:\n \(error)")
-
-}
-
-// set additional user information (optional)
-breinUser.setFirstName("Fred")
-breinUser.setLastName("Firestone")
-
-// invoke activity call
-do {
-   try Breinify.activity(breinUser,
-          activityType: .LOGIN,
-              category: .HOME,
-           description: "Login-Description",
-                  sign: false,
-               success: successBlock,
-               failure: failureBlock)
-} catch {
-   print("Error is: \(error)")
-}
-
 ```
 
 That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
@@ -168,54 +182,63 @@ That's it! The call will be run asynchronously in the background and depending o
 Look-ups are used to retrieve dedicated information for a given user. This code snippet assumes that the typealias and further objects from above are in the same scope. 
 
 ```swift
-// define an array of subjects of interest
-let dimensions: [String] = ["firstname", "gender", 
-            "age", "agegroup", "digitalfootprint", "images"]
+@IBAction func lookupPressed(sender: AnyObject) {
 
-// wrap this array into BreinDimension object
-let breinDimension = BreinDimension(dimensionFields: dimensions)
+    typealias apiSuccess = (result:BreinResult?) -> Void
+    typealias apiFailure = (error:NSDictionary?) -> Void
 
-// invoke the lookup
-let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-     print ("Api Success!")
-                   
-     if let dataFirstname = result!.get("firstname") {
-        print ("Firstname is: \(dataFirstname)")
-     }
+    // create a user you are interested in with his email (mandatory field)
+    let breinUser = BreinUser(email: "fred.firestone@email.com")
 
-     if let dataGender = result!.get("gender") {
-        print ("Gender is: \(dataGender)")
-     }
+    // define an array of subjects of interest
+    let dimensions: [String] = ["firstname", "gender",
+                                "age", "agegroup", "digitalfootprint", "images"]
 
-     if let dataAge = result!.get("age") {
-        print ("Age is: \(dataAge)")
-     }
+    // wrap this array into BreinDimension object
+    let breinDimension = BreinDimension(dimensionFields: dimensions)
 
-     if let dataAgeGroup = result!.get("agegroup") {
-        print ("AgeGroup is: \(dataAgeGroup)")
-     }
+    // invoke the lookup
+    let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
+        print ("Api Success!")
 
-     if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-        print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
-      }
+        if let dataFirstname = result!.get("firstname") {
+            print ("Firstname is: \(dataFirstname)")
+        }
 
-     if let dataImages = result!.get("images") {
-        print ("DataImages is: \(dataImages)")
-     }          
-}
-        
-let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-     print ("Api Failure : error is:\n \(error)")
-}
+        if let dataGender = result!.get("gender") {
+            print ("Gender is: \(dataGender)")
+        }
 
-do {
-   try Breinify.lookup(breinUser,
-        dimension: breinDimension,
-             sign: false,
-          success: successBlock,
-          failure: failureBlock)
-} catch {
-   print("Error is: \(error)")
+        if let dataAge = result!.get("age") {
+            print ("Age is: \(dataAge)")
+        }
+
+        if let dataAgeGroup = result!.get("agegroup") {
+            print ("AgeGroup is: \(dataAgeGroup)")
+        }
+
+        if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
+            print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
+        }
+
+        if let dataImages = result!.get("images") {
+            print ("DataImages is: \(dataImages)")
+        }
+    }
+
+    let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
+        print ("Api Failure : error is:\n \(error)")
+    }
+
+    do {
+        try Breinify.lookup(breinUser,
+                dimension: breinDimension,
+                sign: false,
+                success: successBlock,
+                failure: failureBlock)
+    } catch {
+        print("Error is: \(error)")
+    }
 }
 
 ```
@@ -231,142 +254,141 @@ import BreinifyApi
 
 class ViewController: UIViewController {
 
+
+    @IBAction func activityPressed(sender: AnyObject) {
+
+    // create a user you are interested in with his email (mandatory field)
+    let breinUser = BreinUser(email: "fred.firestone@email.com")
+
     typealias apiSuccess = (result:BreinResult?) -> Void
     typealias apiFailure = (error:NSDictionary?) -> Void
 
-    let baseUrl = "https://api.breinify.com"
-    
-    let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-    let breinCategory: BreinCategoryType = .HOME
-    let breinUser = BreinUser(email: "fred.firestone@gmail.com")
-
-    var breinConfig: BreinConfig?
-    var manager: BreinLocationManager?
-    var output = ""
-
-    @IBOutlet weak var resultView: UITextView!
-    
-    // Button in UI
-    @IBAction func lookUpInvoked(sender: AnyObject) {
-
-        doLookup()
+    // callback in case of success
+    let successBlock: apiSuccess = {
+        (result: BreinResult?) -> Void in
+        print("Api Success : result is:\n \(result!)")
     }
 
-	// Button in UI
-    @IBAction func activityInvoked(sender: AnyObject) {
+    // callback in case of a failure
+    let failureBlock: apiFailure = {
+        (error: NSDictionary?) -> Void in
+        print("Api Failure: error is:\n \(error)")
 
-        doActivity()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-  
-        do {
-            // create Breinify configuration object
-            breinConfig = try BreinConfig(apiKey: validApiKey, 
-                  baseUrl: baseUrl, 
-                  breinEngineType: .ALAMOFIRE)
-            
-            // set configuration
-            Breinify.setConfig(breinConfig)
+    // set additional user information (optional)
+    breinUser.setFirstName("Fred")
+    breinUser.setLastName("Firestone")
 
-        } catch {
-            print("Error")
-        }
-    }
-
-    // Sample method for a lookup 
-    func doLookup() {
-
-        let dimensions: [String] = ["firstname", "gender", 
-        "age", "agegroup", "digitalfootprint", "images"]
-        
-        let breinDimension = BreinDimension(dimensionFields: dimensions)
-
-        let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-            print ("Api Success!")
-            
-            
-            if let dataFirstname = result!.get("firstname") {
-                print ("Firstname is: \(dataFirstname)")
-                self.output = self.output + "Firstname is: \(dataFirstname)"
-            }
-
-            if let dataGender = result!.get("gender") {
-                print ("Gender is: \(dataGender)")
-                self.output = self.output + "Gender is: \(dataGender)"            }
-
-            if let dataAge = result!.get("age") {
-                print ("Age is: \(dataAge)")
-                self.output = self.output + "Age is: \(dataAge)"
-            }
-
-            if let dataAgeGroup = result!.get("agegroup") {
-                print ("AgeGroup is: \(dataAgeGroup)")
-                self.output = self.output + "AgeGroup is: \(dataAgeGroup)"
-            }
-
-            if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-                print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
-                self.output = self.output + "DigitalFootprinting is: \(dataDigitalFootprinting)"
-            }
-
-            if let dataImages = result!.get("images") {
-                print ("DataImages is: \(dataImages)")
-                self.output = self.output + "DataImages is: \(dataImages)"
-            }
-            
-            print("output is: \(self.output)")
-            self.resultView.text = self.output
-        }
-        
-        let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-            print ("Api Failure : error is:\n \(error)")
-        }
-
-        do {
-            try Breinify.lookup(breinUser,
-                    dimension: breinDimension,
+    // invoke activity call
+    do {
+       try Breinify.activity(breinUser,
+            activityType: .LOGIN,
+                category: .HOME,
+             description: "Login-Description",
                     sign: false,
-                    success: successBlock,
-                    failure: failureBlock)
-        } catch {
-            print("Error is: \(error)")
-        }        
+                 success: successBlock,
+                 failure: failureBlock)
+    } catch {
+       print("Error is: \(error)")
     }
 
-    // Sample method for an activity call
-    func doActivity() {
+}
 
-        let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-            print ("Api Success : result is:\n \(result!)")
-            self.resultView.text = "Succes!"
+@IBAction func lookupPressed(sender: AnyObject) {
 
-        }
-        let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-            print ("Api Failure : error is:\n \(error)")
-            self.resultView.text = "Failure: \(error)"
-        }
+    typealias apiSuccess = (result:BreinResult?) -> Void
+    typealias apiFailure = (error:NSDictionary?) -> Void
 
-        // set additional user information
-        breinUser.setFirstName("Fred")
-        breinUser.setLastName("Firestone")
+    // create a user you are interested in with his email (mandatory field)
+    let breinUser = BreinUser(email: "fred.firestone@email.com")
 
-        // invoke activity call
-        do {
-            try Breinify.activity(breinUser,
-                activityType: .LOGIN,
-                    category: .HOME,
-                 description: "Login-Description",
-                        sign: false,
-                     success: successBlock,
-                     failure: failureBlock)
-        } catch {
-            print("Error is: \(error)")
+    // define an array of subjects of interest
+    let dimensions: [String] = ["firstname", "gender",
+                                "age", "agegroup", "digitalfootprint", "images"]
+
+    // wrap this array into BreinDimension object
+    let breinDimension = BreinDimension(dimensionFields: dimensions)
+
+    // invoke the lookup
+    let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
+        print ("Api Success!")
+
+        if let dataFirstname = result!.get("firstname") {
+            print ("Firstname is: \(dataFirstname)")
         }
 
+        if let dataGender = result!.get("gender") {
+            print ("Gender is: \(dataGender)")
+        }
+
+        if let dataAge = result!.get("age") {
+            print ("Age is: \(dataAge)")
+        }
+
+        if let dataAgeGroup = result!.get("agegroup") {
+            print ("AgeGroup is: \(dataAgeGroup)")
+        }
+
+        if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
+            print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
+        }
+
+        if let dataImages = result!.get("images") {
+            print ("DataImages is: \(dataImages)")
+        }
+    }
+
+    let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
+        print ("Api Failure : error is:\n \(error)")
+    }
+
+    do {
+        try Breinify.lookup(breinUser,
+                dimension: breinDimension,
+                sign: false,
+                success: successBlock,
+                failure: failureBlock)
+    } catch {
+        print("Error is: \(error)")
     }
 }
+
+@IBOutlet weak var textView: UITextView!
+
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+
+    // this has to be a valid api-key
+    // let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+
+    // this is the URL of the Breinify service
+    let baseUrl = "https://api.breinify.com"
+
+    // create the configuration object
+    do {
+        let breinConfig = try BreinConfig(apiKey: validApiKey,
+                baseUrl: baseUrl,
+                breinEngineType: .ALAMOFIRE)
+
+        // set configuration
+        Breinify.setConfig(breinConfig)
+    } catch {
+        print("Error is: \(error)")
+    }
+
+}
+
+override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+}
+
+}
+
 ```
 
 ### Additional Code Snippets
@@ -501,7 +523,6 @@ class TestExecutor: XCTestCase {
         } catch {
             print("Error")
         }
-
 
         // allow processing
         NSThread.sleepForTimeInterval(5)
