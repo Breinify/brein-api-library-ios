@@ -1,6 +1,0 @@
-use_frameworks!
-target 'BreinApi_Tests' do
-  pod 'BreinApi', :path => '../'
-  
-  
-end

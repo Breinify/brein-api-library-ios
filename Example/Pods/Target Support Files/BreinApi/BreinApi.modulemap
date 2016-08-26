@@ -1,6 +1,0 @@
-framework module BreinApi {
-  umbrella header "BreinApi-umbrella.h"
-
-  export *
-  module * { export * }
-}
