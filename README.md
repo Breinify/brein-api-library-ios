@@ -362,8 +362,7 @@ override func viewDidLoad() {
     // Do any additional setup after loading the view, typically from a nib.
 
     // this has to be a valid api-key
-    // let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+    let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 
     // this is the URL of the Breinify service
     let baseUrl = "https://api.breinify.com"
@@ -409,8 +408,8 @@ class TestExecutor: XCTestCase {
     typealias apiFailure = (error:NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
-    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
-    let breinUser = BreinUser(email: "philipp@meisen.net")
+     let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+    let breinUser = BreinUser(email: "fred.firestone@emaill.com")
     let breinCategory: BreinCategoryType = .HOME
     var breinConfig: BreinConfig!
 
