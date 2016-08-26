@@ -1,0 +1,6 @@
+framework module BreinifyApi {
+  umbrella header "BreinifyApi-umbrella.h"
+
+  export *
+  module * { export * }
+}

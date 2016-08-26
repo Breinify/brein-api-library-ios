@@ -1,0 +1,6 @@
+use_frameworks!
+target 'BreinifyApi_Tests' do
+  pod 'BreinifyApi', :path => '../'
+  
+  
+end
