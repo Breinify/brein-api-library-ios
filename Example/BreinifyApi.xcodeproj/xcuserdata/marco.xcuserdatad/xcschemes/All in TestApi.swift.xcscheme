@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TestConfig">
+               </Test>
+               <Test
+                  Identifier = "TestDomain">
+               </Test>
+               <Test
+                  Identifier = "TestEngine">
+               </Test>
+               <Test
+                  Identifier = "TestExecutor">
+               </Test>
+               <Test
+                  Identifier = "TestLocation">
+               </Test>
+               <Test
+                  Identifier = "TestSecret">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO">
+   </LaunchAction>
+</Scheme>
