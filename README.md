@@ -254,7 +254,6 @@ import BreinifyApi
 
 class ViewController: UIViewController {
 
-
     @IBAction func activityPressed(sender: AnyObject) {
 
     // create a user you are interested in with his email (mandatory field)
@@ -408,7 +407,7 @@ class TestExecutor: XCTestCase {
     typealias apiFailure = (error:NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
-     let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+    let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
     let breinUser = BreinUser(email: "fred.firestone@emaill.com")
     let breinCategory: BreinCategoryType = .HOME
     var breinConfig: BreinConfig!
@@ -569,39 +568,42 @@ You have to configre the attached secret with the BreinConfig object and the sig
 
 
 ````swift
- // testcase how to use the activity api with secret
- func testLoginWithSecret() {
+// testcase how to use the activity api with secret
+func testLoginWithSecret() {
+ 
+  typealias apiSuccess = (result:BreinResult?) -> Void
+  typealias apiFailure = (error:NSDictionary?) -> Void
 
-     let successBlock: apiSuccess = {
-         (result: BreinResult?) -> Void in
-         print("Api Success : result is:\n \(result)")
-     }
+  let successBlock: apiSuccess = {
+      (result: BreinResult?) -> Void in
+      print("Api Success : result is:\n \(result)")
+  }
 
-     let failureBlock: apiFailure = {
-         (error: NSDictionary?) -> Void in
-         print("Api Failure : error is:\n \(error)")
-     }
+  let failureBlock: apiFailure = {
+     (error: NSDictionary?) -> Void in
+     print("Api Failure : error is:\n \(error)")
+  }
 
-     // set additional user information
-     breinUser.setFirstName("Fred")
-     breinUser.setLastName("Firestone")
+  // set additional user information
+  breinUser.setFirstName("Fred")
+  breinUser.setLastName("Firestone")
 
-     // set the secret
-     breinConfig.setSecret("h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU=")
+  // set the secret
+  breinConfig.setSecret("h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU=")
 
-     // invoke activity call
-     do {
-         try Breinify.activity(breinUser,
-               activityType: .LOGIN,
-                   category: .HOME,
-                description: "Login-Description",
-                       sign: true,
-                    success: successBlock,
-                    failure: failureBlock)
-        } catch {
-            print("Error is: \(error)")
-        }
-    }
+  // invoke activity call
+  do {
+     try Breinify.activity(breinUser,
+          activityType: .LOGIN,
+              category: .HOME,
+           description: "Login-Description",
+                  sign: true,
+               success: successBlock,
+               failure: failureBlock)
+   } catch {
+      print("Error is: \(error)")
+   }
+}
 
 ````
 
