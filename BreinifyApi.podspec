@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BreinifyApi'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = 'Breinify´s DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips'
 
 # This description is used to generate tags and improve search results.

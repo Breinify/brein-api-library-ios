@@ -10,6 +10,8 @@ enum BreinLocationManagerErrors: Int {
 
 public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
+    public typealias LocationClosure = ((location: CLLocation?, error: NSError?) -> ())
+
     //location manager
     private var locationManager: CLLocationManager?
 
@@ -19,11 +21,10 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager = nil
     }
 
-    public typealias LocationClosure = ((location: CLLocation?, error: NSError?) -> ())
     private var didComplete: LocationClosure?
 
     //location manager returned, call didcomplete closure
-    private func _didComplete(location: CLLocation?, error: NSError?) {
+    private func completionHandler(location: CLLocation?, error: NSError?) {
         locationManager?.stopUpdatingLocation()
         didComplete?(location: location, error: error)
         locationManager?.delegate = nil
@@ -37,7 +38,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         case .AuthorizedWhenInUse:
             self.locationManager!.startUpdatingLocation()
         case .Denied:
-            _didComplete(nil, error: NSError(domain: self.classForCoder.description(),
+            completionHandler(nil, error: NSError(domain: self.classForCoder.description(),
                     code: BreinLocationManagerErrors.AuthorizationDenied.rawValue,
                     userInfo: nil))
         default:
@@ -46,12 +47,12 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        _didComplete(nil, error: error)
+        completionHandler(nil, error: error)
     }
 
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
-        _didComplete(location, error: nil)
+        completionHandler(location, error: nil)
     }
 
     //ask for location permissions, fetch 1 location, and return
@@ -65,10 +66,12 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
         //check for description key and ask permissions
         if (NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationWhenInUseUsageDescription") != nil) {
-            locationManager!.requestWhenInUseAuthorization()
-        } else if (NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationAlwaysUsageDescription") != nil) {
-            locationManager!.requestAlwaysAuthorization()
-        }
+            // locationManager!.requestWhenInUseAuthorization()
+            completionHandler(nil, error: NSError(domain: "BreinLocationManager", code: 100, userInfo: nil))
 
+        } else if (NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationAlwaysUsageDescription") != nil) {
+            completionHandler(nil, error: NSError(domain: "BreinLocationManager", code: 101, userInfo: nil))
+            // locationManager!.requestAlwaysAuthorization()
+        }
     }
 }

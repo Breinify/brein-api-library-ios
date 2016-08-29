@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class BreinActivity: BreinBase, ISecretStrategy {
 
@@ -15,6 +16,13 @@ public class BreinActivity: BreinBase, ISecretStrategy {
 
     //  Description of the activity
     var description: String?
+
+    // location coordinates
+    var locationData: CLLocation?
+
+    public func setLocationData(locationData: CLLocation!) {
+        self.locationData = locationData
+    }
 
     public func getBreinActivityType() -> BreinActivityType! {
         return breinActivityType
@@ -79,6 +87,20 @@ public class BreinActivity: BreinBase, ISecretStrategy {
             if let user = breinUser.getLastName() where !user.isEmpty {
                 userData["lastName"] = user
             }
+
+            if locationData != nil {
+                var additionalData = [String: AnyObject]()
+                var locData = [String: AnyObject]()
+
+                locData["accuracy"] = locationData?.horizontalAccuracy
+                locData["latitude"] = locationData?.coordinate.latitude
+                locData["longitude"] = locationData?.coordinate.longitude
+                locData["speed"] = locationData?.speed
+
+                additionalData["location"] = locData
+                userData["additional"] =  additionalData
+            }
+
             requestData["user"] = userData
         }
 

@@ -13,6 +13,8 @@ public class BreinEngine {
 
     var restEngine: IRestEngine!
 
+    var manager = BreinLocationManager()
+
     public init(engineType: BreinEngineType) throws {
         switch engineType {
         case BreinEngineType.ALAMOFIRE:
@@ -26,9 +28,38 @@ public class BreinEngine {
                       success successBlock: BreinEngine.apiSuccess,
                       failure failureBlock: BreinEngine.apiFailure) throws {
         if activity != nil {
-            try restEngine.doRequest(activity,
-                    success: successBlock,
-                    failure: failureBlock)
+
+            manager.fetchWithCompletion {
+                location, error in
+
+                if location != nil {
+
+                    // save the retrieved location data
+                    activity.setLocationData(location)
+
+                    do {
+                        try self.restEngine.doRequest(activity,
+                                success: successBlock,
+                                failure: failureBlock)
+                    } catch {
+                        print("\(error)")
+                    }
+
+                } else if let err = error {
+
+                    // maybe we do not have the
+                    activity.setLocationData(nil)
+
+                    do {
+                        try self.restEngine.doRequest(activity,
+                                success: successBlock,
+                                failure: failureBlock)
+                    } catch {
+                        print ("\(err)")
+                    }
+                }
+
+            }
         }
     }
 
