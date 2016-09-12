@@ -71,7 +71,7 @@ BreinifyApi includes the following two libraries:
 
 ## License
 
-BreinifyApi is available under the MIT license. See the LICENSE file for more info.
+BreinifyApi is available under the MIT license. This applies also for Alamofire and IDZSwiftCommonCrypto. See the LICENSE file for more info.
 
 
 ## Usage
