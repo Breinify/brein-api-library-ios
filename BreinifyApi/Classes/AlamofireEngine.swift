@@ -8,17 +8,19 @@ import Foundation
 import Alamofire
 
 
+//
+
 public class AlamofireEngine: IRestEngine {
 
-    public typealias apiSuccess = (result: BreinResult?) -> Void
-    public typealias apiFailure = (error: NSDictionary?) -> Void
+    public typealias apiSuccess = (result:BreinResult?) -> Void
+    public typealias apiFailure = (error:NSDictionary?) -> Void
 
     public func configure(breinConfig: BreinConfig) {
     }
 
     public func doRequest(breinActivity: BreinActivity,
-                   success successBlock: apiSuccess,
-                   failure failureBlock: apiFailure) throws {
+                          success successBlock: apiSuccess,
+                          failure failureBlock: apiFailure) throws {
 
         try validate(breinActivity)
 
@@ -37,8 +39,13 @@ public class AlamofireEngine: IRestEngine {
             // print(response.result)   // result of response serialization
             // print(response.result.value)
 
+            // let resp = response.response
+            // let data = response.data
+            // let result = response.result
+            // let httpStatusCode = response.response?.statusCode
+
             if response.result.isSuccess {
-                let jsonDic = response.result.value as! NSDictionary
+                let jsonDic: NSDictionary = ["success": 200]
                 let breinResult = BreinResult(dictResponse: jsonDic)
                 successBlock(result: breinResult)
 
@@ -53,8 +60,8 @@ public class AlamofireEngine: IRestEngine {
     }
 
     public func doLookup(breinLookup: BreinLookup,
-                  success successBlock: apiSuccess,
-                  failure failureBlock: apiFailure) throws {
+                         success successBlock: apiSuccess,
+                         failure failureBlock: apiFailure) throws {
 
         try validate(breinLookup)
 

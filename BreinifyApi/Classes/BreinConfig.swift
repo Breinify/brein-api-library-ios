@@ -20,7 +20,7 @@ public class BreinConfig {
     let DEFAULT_SOCKET_TIMEOUT: Int = 6000
 
     //  default validation
-    var DEFAULT_VALIDATE: Bool = true
+    // var DEFAULT_VALIDATE: Bool = true
 
     //  default breinify base url
     let DEFAULT_BASE_URL: String! = "https://api.breinify.com"
@@ -52,11 +52,15 @@ public class BreinConfig {
     //  contains the secret
     var secret: String!
 
+    // default category
+    var category: String!
+
     public init() {
         self.initValues()
     }
 
     public init(apiKey: String!, baseUrl: String!) throws {
+
         self.initValues()
         self.setApiKey(apiKey)
         try setBaseUrl(baseUrl)
@@ -64,8 +68,8 @@ public class BreinConfig {
     }
 
     public init(apiKey: String!,
-         baseUrl: String!,
-         breinEngineType: BreinEngineType!) throws {
+                baseUrl: String!,
+                breinEngineType: BreinEngineType!) throws {
 
         self.initValues()
         self.setApiKey(apiKey)
@@ -74,12 +78,14 @@ public class BreinConfig {
         try self.initEngine()
     }
 
+    // initializes the values
     func initValues() {
         self.lookupEndpoint = DEFAULT_LOOKUP_ENDPOINT
         self.activityEndpoint = DEFAULT_ACTIVITY_ENDPOINT
         self.baseUrl = DEFAULT_BASE_URL
         self.connectionTimeout = DEFAULT_CONNECTION_TIMEOUT
         self.socketTimeout = DEFAULT_SOCKET_TIMEOUT
+        self.category = ""
     }
 
     func initEngine() throws {
@@ -146,12 +152,14 @@ public class BreinConfig {
         return socketTimeout
     }
 
-    public func setSocketTimeout(socketTimeout: Int) {
+    public func setSocketTimeout(socketTimeout: Int) -> BreinConfig {
         self.socketTimeout = socketTimeout
+        return self
     }
 
-    public func setConnectionTimeout(connectionTimeout: Int) {
+    public func setConnectionTimeout(connectionTimeout: Int) -> BreinConfig {
         self.connectionTimeout = connectionTimeout
+        return self
     }
 
     public func getActivityEndpoint() -> String! {
@@ -178,6 +186,15 @@ public class BreinConfig {
 
     public func setSecret(secret: String!) -> BreinConfig {
         self.secret = secret
+        return self
+    }
+
+    public func getCategory() -> String! {
+        return category
+    }
+
+    public func setCategory(category: String!) -> BreinConfig {
+        self.category = category
         return self
     }
 

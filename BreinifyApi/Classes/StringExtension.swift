@@ -8,6 +8,27 @@ import IDZSwiftCommonCrypto
 
 extension String {
 
+    // pre-defined constants for Category
+    static let APPAREL = "apparel"
+    static let HOME = "home"
+    static let EDUCATION = "education"
+    static let FAMILY = "family"
+    static let FOOD = "food"
+    static let HEALTH = "health"
+    static let JOB = "job"
+    static let SERVICES = "services"
+    static let OTHER = "other"
+
+    // pre-defined constants for ActivityType
+    static let SEARCH = "search"
+    static let LOGIN = "login"
+    static let LOGOUT = "logout"
+    static let ADD_TO_CART = "addToCart"
+    static let REMOVE_FROM_CART = "removeFromCart"
+    static let SELECT_PRODUCT = "selectProduct"
+    static let CHECKOUT = "checkOut"
+
+    // used for the signature
     func digestHMac256(key: String) -> String! {
         
         let message = self
@@ -26,5 +47,7 @@ extension String {
         
         return ""
     }
+
+
 
 }

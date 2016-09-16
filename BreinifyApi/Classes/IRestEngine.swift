@@ -3,9 +3,9 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
+//
 public protocol IRestEngine {
 
     func configure(breinConfig: BreinConfig)

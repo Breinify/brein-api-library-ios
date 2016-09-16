@@ -1,21 +1,36 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2016 Breinify. All rights reserved.
+//
+
 import UIKit
 import CoreLocation
 
-//possible errors
+// possible errors
 enum BreinLocationManagerErrors: Int {
     case AuthorizationDenied
     case AuthorizationNotDetermined
     case InvalidLocation
 }
 
+/**
+  This class tries to receive the location information.
+  In order to do this the App needs to have the appropriate permissions.
+
+  The file: info.plist needs to have the following entry:
+
+     <key>NSLocationWhenInUseUsageDescription</key>
+     <string>Give us permission to use your device's location</string>
+
+*/
 public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
-    public typealias LocationClosure = ((location: CLLocation?, error: NSError?) -> ())
+    public typealias LocationClosure = ((location:CLLocation?, error:NSError?) -> ())
 
-    //location manager
+    // location manager
     private var locationManager: CLLocationManager?
 
-    //destroy the manager
+    // destroy the manager
     deinit {
         locationManager?.delegate = nil
         locationManager = nil
@@ -23,8 +38,11 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     private var didComplete: LocationClosure?
 
-    //location manager returned, call didcomplete closure
+    private let dummyLocation = CLLocation(latitude: 0, longitude: 0)
+
+    // location manager returned, call closure
     private func completionHandler(location: CLLocation?, error: NSError?) {
+
         locationManager?.stopUpdatingLocation()
         didComplete?(location: location, error: error)
         locationManager?.delegate = nil
@@ -35,10 +53,10 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 
         switch status {
-        case .AuthorizedWhenInUse:
+            case .Authorized, .AuthorizedWhenInUse, .AuthorizedAlways:
             self.locationManager!.startUpdatingLocation()
         case .Denied:
-            completionHandler(nil, error: NSError(domain: self.classForCoder.description(),
+            completionHandler(dummyLocation, error: NSError(domain: self.classForCoder.description(),
                     code: BreinLocationManagerErrors.AuthorizationDenied.rawValue,
                     userInfo: nil))
         default:
@@ -47,7 +65,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        completionHandler(nil, error: error)
+        completionHandler(dummyLocation, error: error)
     }
 
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -55,7 +73,16 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         completionHandler(location, error: nil)
     }
 
-    //ask for location permissions, fetch 1 location, and return
+    /**
+    This method checks if the app has the authorization to invoke the
+    calls:
+        - CLLocationManager().requestWhenInUseAuthorization()
+        - CLLocationManager().requestAlwaysAuthorization()
+
+    If this is the case then the appropriate calls will be invoked.
+    Otherwise a callback to exit will be invoked.
+
+    */
     public func fetchWithCompletion(completion: LocationClosure) {
         //store the completion closure
         didComplete = completion
@@ -64,14 +91,30 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager!.delegate = self
 
-        //check for description key and ask permissions
-        if (NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationWhenInUseUsageDescription") != nil) {
-            // locationManager!.requestWhenInUseAuthorization()
-            completionHandler(nil, error: NSError(domain: "BreinLocationManager", code: 100, userInfo: nil))
+        let status = CLLocationManager.authorizationStatus()
 
-        } else if (NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationAlwaysUsageDescription") != nil) {
-            completionHandler(nil, error: NSError(domain: "BreinLocationManager", code: 101, userInfo: nil))
-            // locationManager!.requestAlwaysAuthorization()
+        let whenInUseUsage = NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationWhenInUseUsageDescription")
+        let alwaysUsage = NSBundle.mainBundle().objectForInfoDictionaryKey("NSLocationAlwaysUsageDescription")
+
+        // indicates if the callback should be completed
+        var invokeCompletionHandler = true
+        if (whenInUseUsage != nil) {
+            if status == .AuthorizedWhenInUse || status == .Authorized {
+                invokeCompletionHandler = false
+                // this needs to be invoked in order to receive the updates
+                locationManager!.requestWhenInUseAuthorization()
+            }
+        } else if (alwaysUsage != nil) {
+            if status == .AuthorizedAlways || status == .Authorized {
+                invokeCompletionHandler = false
+                // this needs to be invoked
+                locationManager!.requestAlwaysAuthorization()
+            }
         }
+
+        if invokeCompletionHandler == true {
+            completionHandler(dummyLocation, error: NSError(domain: "BreinLocationManager", code: 102, userInfo: nil))
+        }
+
     }
 }

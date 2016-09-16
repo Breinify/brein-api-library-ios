@@ -10,7 +10,7 @@ class TestExecutor: XCTestCase {
     let baseUrl = "https://api.breinify.com"
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
     let breinUser = BreinUser(email: "philipp@meisen.net")
-    let breinCategory: BreinCategoryType = .HOME
+    let breinCategory = "home"
     var breinConfig: BreinConfig!
 
     override func setUp() {
@@ -59,8 +59,8 @@ class TestExecutor: XCTestCase {
             .build()
 
             try breinifyExecutor.activity(breinUser,
-                    activityType: .LOGIN,
-                    category: .HOME,
+                    activityType: "login",
+                    category: "home",
                     description: "Login-Description",
                     sign: false,
                     success: successBlock,

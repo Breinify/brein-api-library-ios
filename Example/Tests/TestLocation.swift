@@ -10,7 +10,7 @@ class TestLocation: XCTestCase {
     let baseUrl = "http://dev.breinify.com/api"
     let validApiKey = "A187-B1DF-E3C5-4BDB-93C4-4729-7B54-E5B1"
     let breinUser = BreinUser(email: "toni.maroni@me.com")
-    let breinCategory: BreinCategoryType = .HOME
+    let breinCategory = "home"
     var breinConfig: BreinConfig!
 
     override func setUp() {
@@ -53,13 +53,13 @@ class TestLocation: XCTestCase {
             if location != nil {
                 print(location)
 
-                var locationInfo = ""
+                let locationInfo = ""
 
                 // invoke activity call
                 do {
                     try Breinify.activity(self.breinUser,
-                            activityType: .CHECKOUT,
-                            category: .SERVICES,
+                            activityType: "checkOut",
+                            category: "services",
                             description: locationInfo,
                             sign: false,
                             success: successBlock,

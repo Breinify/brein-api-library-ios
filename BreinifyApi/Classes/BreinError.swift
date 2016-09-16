@@ -1,7 +1,8 @@
 //
-// Created by Marco Recchioni on 21/07/16.
-// Copyright (c) 2016 App-Werker. All rights reserved.
+// Created by Marco Recchioni
+// Copyright (c) 2016 Breinify. All rights reserved.
 //
+
 
 import Foundation
 

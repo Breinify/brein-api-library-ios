@@ -29,9 +29,9 @@ class TestDomain: XCTestCase {
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
         breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType(.LOGIN)
+        breinActivity.setBreinActivityType("login")
         breinActivity.setDescription("Super-Desription")
-        breinActivity.setBreinCategoryType(.HOME)
+        breinActivity.setBreinCategoryType("home")
 
         let jsonOutput = breinActivity.prepareJsonRequest();
         NSLog("output is: \(jsonOutput)")
@@ -54,9 +54,9 @@ class TestDomain: XCTestCase {
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
         breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType(.LOGIN)
+        breinActivity.setBreinActivityType("login")
         breinActivity.setDescription("Super-Desription")
-        breinActivity.setBreinCategoryType(.FOOD)
+        breinActivity.setBreinCategoryType("food")
 
         let jsonOutput = breinActivity.prepareJsonRequest();
         NSLog("output is: \(jsonOutput)")
@@ -71,28 +71,23 @@ class TestDomain: XCTestCase {
         let breinUser = BreinUser(email: "test.me@email.com")
 
         // set right values
-        breinUser.setDateOfBirth("")
         breinUser.setDateOfBirth(1, day: 22, year: 1966)
         XCTAssertFalse(breinUser.getDateOfBirth().isEmpty)
 
         // set wrong day
-        breinUser.setDateOfBirth("")
+        breinUser.resetDateOfBirth()
         breinUser.setDateOfBirth(1, day: 77, year: 1966)
         XCTAssertTrue(breinUser.getDateOfBirth().isEmpty)
 
         // set wrong month
-        breinUser.setDateOfBirth("")              // empty value
+        breinUser.resetDateOfBirth()
         breinUser.setDateOfBirth(13, day: 22, year: 1966)    // this is correct date
         XCTAssertTrue(breinUser.getDateOfBirth().isEmpty)
 
         // set wrong year
-        breinUser.setDateOfBirth("")          // empty value
+        breinUser.resetDateOfBirth()
         breinUser.setDateOfBirth(1, day: 22, year: 1700)
         XCTAssertTrue(breinUser.getDateOfBirth().isEmpty)
-
-        // this can not be detected
-        breinUser.setDateOfBirth("SuperDate")
-        XCTAssertFalse(breinUser.getDateOfBirth().isEmpty)
     }
 
     /**

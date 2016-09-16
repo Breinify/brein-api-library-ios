@@ -6,10 +6,9 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 
-
 Pod::Spec.new do |s|
   s.name             = 'BreinifyApi'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = 'Breinify´s DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips'
 
 # This description is used to generate tags and improve search results.

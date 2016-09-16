@@ -8,16 +8,20 @@ class TestApi: XCTestCase {
     typealias apiFailure = (error:NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
+    // let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+
     let breinUser = BreinUser(email: "philipp@meisen.net")
-    let breinCategory: BreinCategoryType = .HOME
+    let breinCategory = "home"
     var breinConfig: BreinConfig!
 
     override func setUp() {
         super.setUp()
 
         do {
-            breinConfig = try BreinConfig(apiKey: validApiKey, baseUrl: baseUrl, breinEngineType: .ALAMOFIRE)
+            breinConfig = try BreinConfig(apiKey: validApiKey,
+                    baseUrl: baseUrl,
+                    breinEngineType: .ALAMOFIRE)
 
             // set configuration
             Breinify.setConfig(breinConfig)
@@ -56,8 +60,8 @@ class TestApi: XCTestCase {
         // invoke activity call
         do {
             try Breinify.activity(breinUser,
-                    activityType: .LOGIN,
-                    category: .HOME,
+                    activityType: "login",
+                    category: "home",
                     description: "Login-Description",
                     sign: true,
                     success: successBlock,
@@ -88,8 +92,8 @@ class TestApi: XCTestCase {
         // invoke activity call
         do {
             try Breinify.activity(breinUser,
-                    activityType: .LOGIN,
-                    category: .HOME,
+                    activityType: "login",
+                    category: "home",
                     description: "Login-Description",
                     sign: false,
                     success: successBlock,
@@ -97,7 +101,53 @@ class TestApi: XCTestCase {
         } catch {
             print("Error is: \(error)")
         }
+
+        print("Test finished")
     }
+
+
+    // testcase how to use the activity api
+    func testPageVisitWithTags() {
+
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result)")
+
+        }
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+        }
+
+        // set additional user information
+        breinUser.setFirstName("Marco")
+        .setLastName("Recchioni")
+        .setIpAddress("10.11.12.130")
+        .setUrl("http://sample.com")
+
+        let tagsDic: [String:AnyObject] = ["A": "STRING",
+                                            "B": 100,
+                                            "C": 2.22]
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(tagsDic)
+
+        // invoke activity call
+        do {
+            try Breinify.activity(breinUser,
+                    activityType: "login",
+                    category: "home",
+                    description: "Login-Description",
+                    sign: false,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            print("Error is: \(error)")
+        }
+
+        print("Test finished")
+    }
+
 
     //
     // Test lookup functionality

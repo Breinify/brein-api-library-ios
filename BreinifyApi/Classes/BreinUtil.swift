@@ -19,9 +19,10 @@ public class BreinUtil {
        return message.digestHMac256(secret)
     }
 
+    // should check if an url is valid
+    // for the time being we assume that this is the case
     static public func isUrlValid(url: String!) -> Bool {
         return true;
-
     }
 
 }

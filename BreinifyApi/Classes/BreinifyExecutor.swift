@@ -34,12 +34,13 @@ public class BreinifyExecutor {
     }
 
     public func activity(user: BreinUser!,
-                  activityType: BreinActivityType!,
-                  category: BreinCategoryType!,
+                  activityType: String!,
+                  category: String!,
                   description: String!,
                   sign: Bool,
                   success successBlock: BreinEngine.apiSuccess,
                   failure failureBlock: BreinEngine.apiFailure) throws {
+
         try activity(breinActivity,
                 user: user,
                 activityType: activityType,
@@ -52,8 +53,8 @@ public class BreinifyExecutor {
 
     public func activity(breinActivity: BreinActivity!,
                   user: BreinUser!,
-                  activityType: BreinActivityType!,
-                  category: BreinCategoryType!,
+                  activityType: String!,
+                  category: String!,
                   description: String!,
                   sign: Bool,
                   success successBlock: BreinEngine.apiSuccess,
