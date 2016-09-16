@@ -53,7 +53,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 
         switch status {
-            case .Authorized, .AuthorizedWhenInUse, .AuthorizedAlways:
+            case .AuthorizedWhenInUse, .AuthorizedAlways:
             self.locationManager!.startUpdatingLocation()
         case .Denied:
             completionHandler(dummyLocation, error: NSError(domain: self.classForCoder.description(),
@@ -70,7 +70,8 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
-        completionHandler(location, error: nil)
+        let noError = NSError(domain: "BreinLocationManager", code: 200, userInfo: nil)
+        completionHandler(location, error: noError)
     }
 
     /**
@@ -99,13 +100,13 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         // indicates if the callback should be completed
         var invokeCompletionHandler = true
         if (whenInUseUsage != nil) {
-            if status == .AuthorizedWhenInUse || status == .Authorized {
+            if status == .AuthorizedWhenInUse || status == .AuthorizedAlways {
                 invokeCompletionHandler = false
                 // this needs to be invoked in order to receive the updates
                 locationManager!.requestWhenInUseAuthorization()
             }
         } else if (alwaysUsage != nil) {
-            if status == .AuthorizedAlways || status == .Authorized {
+            if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
                 invokeCompletionHandler = false
                 // this needs to be invoked
                 locationManager!.requestAlwaysAuthorization()

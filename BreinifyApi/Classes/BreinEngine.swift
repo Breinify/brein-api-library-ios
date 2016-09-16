@@ -42,8 +42,8 @@ public class BreinEngine {
                 // save the retrieved location data
                 activity.setLocationData(location)
 
-                print("latitude is: \(location?.coordinate.latitude)")
-                print("longitude is: \(location?.coordinate.longitude)")
+                // print("latitude is: \(location?.coordinate.latitude)")
+                // print("longitude is: \(location?.coordinate.longitude)")
 
                 do {
                     try self.restEngine.doRequest(activity,
