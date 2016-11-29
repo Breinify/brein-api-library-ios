@@ -37,8 +37,17 @@ public class BreinUser {
     // contains the url in additional part
     var url: String!
 
-    // contains the url in additional part
+    // contains the ipAddress in additional part
     var ipAddress: String!
+
+    // contains the timezone in additional part (for temporalData)
+    var timezone: String?
+
+    // contains the localDateTime value in additional part (for temporalData)
+    var localDateTime: String?
+
+    //contains the data structure for the user request part including additional
+    var breinUserRequest = BreinUserRequest()
 
     // Ctor
     public init(email: String!) {
@@ -156,6 +165,38 @@ public class BreinUser {
         return ipAddress
     }
 
+    public func setTimezone(timezone: String!) -> BreinUser! {
+        self.timezone = timezone
+        return self
+    }
+
+    public func getTimezone() -> String! {
+        return timezone
+    }
+
+    public func setLocalDateTime(localDateTime: String!) -> BreinUser! {
+        self.localDateTime = localDateTime
+        return self
+    }
+
+    public func getLocalDateTime() -> String! {
+        return localDateTime
+    }
+
+    public func getBreinUserRequest() -> BreinUserRequest {
+        return breinUserRequest
+    }
+
+    public func setAdditionalMap(map: [String: AnyObject]) -> BreinUser! {
+        getBreinUserRequest().setAdditionalMap(map)
+        return self
+    }
+
+    public func setUserMap(map: [String: AnyObject]) -> BreinUser! {
+        getBreinUserRequest().setUserMap(map)
+        return self
+    }
+
     public func description() -> String! {
         return (((((((((((((((("BreinUser details: "
                 + "\r") + " name: ")
@@ -167,5 +208,4 @@ public class BreinUser {
                 + " deviceId: ") + (self.deviceId == nil ? "n/a" : self.deviceId))
                 + "\r") + " sessionId: ") + (self.sessionId == nil ? "n/a" : self.sessionId)
     }
-
 }

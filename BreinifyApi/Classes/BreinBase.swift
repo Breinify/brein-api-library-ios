@@ -3,13 +3,13 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
+import CoreLocation
 
 public class BreinBase {
 
     //  contains the User that will be used for the request
-    var breinUser: BreinUser?
+    var breinUser: BreinUser!
 
     //  Configuration
     var breinConfig: BreinConfig!
@@ -17,12 +17,27 @@ public class BreinBase {
     //  contains the timestamp when the request will be generated
     var unixTimestamp: NSTimeInterval!
 
+    // private final BreinBaseRequest breinBaseRequest = new BreinBaseRequest();
+    var breinBaseRequest = BreinBaseRequest()
+
+    // location coordinates
+    var locationData: CLLocation?
+
     //  if set to yes then a secret has to bo sent
     var sign: Bool!
 
     public init() {
         self.sign = false
         self.unixTimestamp = 0
+    }
+
+    public func setLocationData(locationData: CLLocation?) -> BreinBase {
+        self.locationData = locationData
+        return self
+    }
+
+    public func getLocationData() -> CLLocation? {
+        return locationData
     }
 
     public func getConfig() -> BreinConfig! {
@@ -43,6 +58,10 @@ public class BreinBase {
 
     public func getBreinEngine() -> BreinEngine! {
         return nil == breinConfig ? nil : getConfig().getBreinEngine()
+    }
+
+    public func getBreinBaseRequest() -> BreinBaseRequest! {
+        return breinBaseRequest
     }
 
     public func prepareJsonRequest() -> [String: AnyObject]! {
@@ -69,6 +88,11 @@ public class BreinBase {
 
     public func setSign(sign: Bool) {
         self.sign = sign
+    }
+
+    /// needs to be implemented by sub-classes
+    public func createSignature() -> String {
+        return ""
     }
 
 }

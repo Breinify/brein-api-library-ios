@@ -8,7 +8,7 @@ class TestEngine: XCTestCase {
     typealias apiFailure = (error:NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
-    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E9"
     let breinUser = BreinUser(email: "Toni.Maroni@me.com")
     var breinConfig: BreinConfig!
 

@@ -18,8 +18,11 @@ public protocol IRestEngine {
                   success successBlock :(result: BreinResult?) -> Void,
                   failure failureBlock :(error: NSDictionary?) -> Void) throws
 
-    func terminate()
+    func doTemporalDataRequest(breinTemporalData: BreinTemporalData,
+                  success successBlock :(result: BreinResult?) -> Void,
+                  failure failureBlock :(error: NSDictionary?) -> Void) throws
 
+    func terminate()
   }
 
 

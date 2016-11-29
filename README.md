@@ -25,9 +25,9 @@ Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presen
 
 ## Requirements
 
-- iOS 8.0+ 
-- Xcode 7.3+
-- AppCode 2016
+- iOS 9.3+ 
+- Xcode 8.0+
+- AppCode 2016.2
 
 
 ## Installation

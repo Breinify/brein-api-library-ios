@@ -9,7 +9,7 @@ import Foundation
 public class Breinify {
 
     //  contains the current version of the usage library
-    static let version: String! = "1.0.0-snapshot"
+    static let version: String! = "0.2.2"
 
     //  contains the configuration
     static var config: BreinConfig!
@@ -20,10 +20,14 @@ public class Breinify {
     //  contains the lookup object
     static var breinLookup: BreinLookup = BreinLookup()
 
+    // contains the temporaldata object
+    static var breinTemporalData: BreinTemporalData = BreinTemporalData()
+
     public class func setConfig(breinConfig: BreinConfig!) {
-        config = breinConfig
+        self.config = breinConfig
         breinActivity.setConfig(breinConfig)
         breinLookup.setConfig(breinConfig)
+        breinTemporalData.setConfig(breinConfig)
     }
 
     // retrieves the configuration
@@ -179,6 +183,37 @@ public class Breinify {
         breinLookup.setSign(sign)
 
         return try breinLookup.getBreinEngine().performLookUp(breinLookup,
+                success: successBlock,
+                failure: failureBlock)
+    }
+
+    //
+    public class func temporalData(user: BreinUser!,
+                                   sign: Bool,
+                                   success successBlock: BreinEngine.apiSuccess,
+                                   failure failureBlock: BreinEngine.apiFailure) throws {
+
+        return try temporalData(breinTemporalData,
+                user: user,
+                sign: sign,
+                success: successBlock,
+                failure: failureBlock)
+    }
+
+    public class func temporalData(breinTemporalData: BreinTemporalData!,
+                                   user: BreinUser!,
+                                   sign: Bool,
+                                   success successBlock: BreinEngine.apiSuccess,
+                                   failure failureBlock: BreinEngine.apiFailure) throws {
+
+        guard breinTemporalData?.getBreinEngine() != nil else {
+            throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
+        }
+
+        breinTemporalData.setBreinUser(user)
+        breinTemporalData.setSign(sign)
+
+        return try breinTemporalData.getBreinEngine().performTemporalDataRequest(breinTemporalData,
                 success: successBlock,
                 failure: failureBlock)
     }

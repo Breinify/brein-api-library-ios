@@ -26,7 +26,7 @@ public class BreinEngine {
     }
 
     /**
-     * sends an activity to the Breinfiy server
+     * sends an activity to the Breinify server
      *
      * @param activity data
      */
@@ -61,6 +61,16 @@ public class BreinEngine {
                               failure failureBlock: apiFailure) throws {
         if breinLookup != nil {
             return try restEngine.doLookup(breinLookup,
+                    success: successBlock,
+                    failure: failureBlock)
+        }
+    }
+
+    public func performTemporalDataRequest(breinTemporalData: BreinTemporalData!,
+                              success successBlock: apiSuccess,
+                              failure failureBlock: apiFailure) throws {
+        if breinTemporalData != nil {
+            return try restEngine.doTemporalDataRequest(breinTemporalData,
                     success: successBlock,
                     failure: failureBlock)
         }

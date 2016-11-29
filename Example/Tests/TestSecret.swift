@@ -26,5 +26,4 @@ class TestSecret: XCTestCase {
             print ("Error is: \(error)")
         }
     }
-
 }

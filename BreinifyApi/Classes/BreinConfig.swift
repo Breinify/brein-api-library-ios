@@ -13,14 +13,14 @@ public class BreinConfig {
     //  default endpoint of lookup
     let DEFAULT_LOOKUP_ENDPOINT: String! = "/lookup"
 
+    //  default endpoint of lookup
+    let DEFAULT_TEMPORAL_DATA_ENDPOINT: String! = "/temporaldata"
+
     //  default connection timeout
     let DEFAULT_CONNECTION_TIMEOUT: Int = 1000
 
     //  default socket timeout
     let DEFAULT_SOCKET_TIMEOUT: Int = 6000
-
-    //  default validation
-    // var DEFAULT_VALIDATE: Bool = true
 
     //  default breinify base url
     let DEFAULT_BASE_URL: String! = "https://api.breinify.com"
@@ -39,6 +39,9 @@ public class BreinConfig {
 
     //  contains the lookup endpoint (default = LOOKUP_ENDPOINT)
     var lookupEndpoint: String!
+
+    //  contains the temporalData endpoint (default = DEFAULT_TEMPORAL_DATA_ENDPOINT)
+    var temporalDataEndpoint: String!
 
     //  connection timeout
     var connectionTimeout: Int!
@@ -82,6 +85,7 @@ public class BreinConfig {
     func initValues() {
         self.lookupEndpoint = DEFAULT_LOOKUP_ENDPOINT
         self.activityEndpoint = DEFAULT_ACTIVITY_ENDPOINT
+        self.temporalDataEndpoint = DEFAULT_TEMPORAL_DATA_ENDPOINT
         self.baseUrl = DEFAULT_BASE_URL
         self.connectionTimeout = DEFAULT_CONNECTION_TIMEOUT
         self.socketTimeout = DEFAULT_SOCKET_TIMEOUT
@@ -177,6 +181,15 @@ public class BreinConfig {
 
     public func setLookupEndpoint(lookupEndpoint: String!) -> BreinConfig {
         self.lookupEndpoint = lookupEndpoint
+        return self
+    }
+
+    public func getTemporalDataEndpoint() -> String! {
+        return temporalDataEndpoint
+    }
+
+    public func setTemporalDataEndpoint(temporalDataEndpoint: String!) -> BreinConfig {
+        self.temporalDataEndpoint = temporalDataEndpoint
         return self
     }
 
