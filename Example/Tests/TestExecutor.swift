@@ -4,8 +4,8 @@ import BreinifyApi
 
 class TestExecutor: XCTestCase {
 
-    typealias apiSuccess = (result:BreinResult?) -> Void
-    typealias apiFailure = (error:NSDictionary?) -> Void
+    typealias apiSuccess = (result: BreinResult?) -> Void
+    typealias apiFailure = (error: NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
@@ -16,14 +16,10 @@ class TestExecutor: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        do {
-            breinConfig = try BreinConfig(apiKey: validApiKey, baseUrl: baseUrl, breinEngineType: .ALAMOFIRE)
+        breinConfig = BreinConfig(apiKey: validApiKey)
 
-            // set configuration
-            Breinify.setConfig(breinConfig)
-        } catch {
-            print("Error is: \(error)")
-        }
+        // set configuration
+        Breinify.setConfig(breinConfig)
     }
 
     override func tearDown() {
@@ -52,10 +48,7 @@ class TestExecutor: XCTestCase {
         // invoke activity call
         do {
 
-            let breinifyExecutor = try BreinConfig()
-            .setApiKey(validApiKey)
-            .setBaseUrl(baseUrl)
-            .setRestEngineType(.ALAMOFIRE)
+            let breinifyExecutor = try BreinConfig(apiKey: validApiKey)
             .build()
 
             try breinifyExecutor.activity(breinUser,
@@ -107,8 +100,9 @@ class TestExecutor: XCTestCase {
             }
 
         }
-        let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-            print ("Api Failure : error is:\n \(error)")
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
         }
 
 

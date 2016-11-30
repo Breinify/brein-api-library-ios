@@ -44,7 +44,7 @@ To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.3'
 use_frameworks!
 
 target '<Your Target Name>' do
@@ -103,20 +103,11 @@ This would look like this:
 // this has to be a valid api key
 let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 
-// this is the URL of the Breinify service
-let baseUrl = "https://api.breinify.com"
-
 // create the configuration object
-  do {
-     let breinConfig = try BreinConfig(apiKey: validApiKey,
-             baseUrl: baseUrl,
-     breinEngineType: .ALAMOFIRE)
+let breinConfig = BreinConfig(apiKey: validApiKey)
 
-     // set configuration
-     Breinify.setConfig(breinConfig)
- } catch {
-     print ("Error is: \(error)")
- }
+// set configuration
+Breinify.setConfig(breinConfig)
 
 ```
 
@@ -167,6 +158,60 @@ do {
 
 That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
 
+#####  Placing temporalData triggers
+
+Temporal Intelligence API provides temporal triggers and visualizes patterns
+enabling you to predict a visitor’s dynamic activities. Currently this will
+cover:
+* Current Weather
+* Upcoming Holidays
+* Time Zone
+* Regional Events
+
+They can be requested like this:
+
+```swift
+func testTemporalData() {
+
+     let failureBlock: apiFailure = {
+         (error: NSDictionary?) -> Void in
+         print("Api Failure : error is:\n \(error)")
+     }
+     
+     let successBlock: apiSuccess = {
+         (result: BreinResult?) -> Void in
+         print("Api Success : result is:\n \(result!)")
+
+         if let holiday = result!.get("holidays") {
+             print("Holiday is: \(holiday)")
+         }
+          if let weather = result!.get("weather") {
+             print("Weather is: \(weather)")
+         }
+          if let location = result!.get("location") {
+             print("Location is: \(location)")
+         }
+          if let time = result!.get("time") {
+             print("Time is: \(time)")
+         }
+     }
+
+     do {
+         let user = BreinUser(email: "fred.firestone@email.com")
+         .setFirstName("Fred")
+         .setIpAddress("74.115.209.58")
+         .setTimezone("America/Los_Angeles")
+         .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
+
+         try Breinify.temporalData(user,
+                 sign: false,
+              success: successBlock,
+              failure: failureBlock)
+     } catch {
+         print("Error")
+     }
+ }
+```
 
 ##### Placing look-up triggers
 
@@ -231,6 +276,7 @@ do {
 }
 
 ```
+
 
 
 ## Full working sample 
@@ -340,31 +386,21 @@ class ViewController: UIViewController {
     } catch {
         print("Error is: \(error)")
     }
-}
+  }
 
-override func viewDidLoad() {
+   override func viewDidLoad() {
     super.viewDidLoad()
 
     // this has to be a valid api-key
     let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 
-    // this is the URL of the Breinify service
-    let baseUrl = "https://api.breinify.com"
-
     // create the configuration object
-    do {
-        let breinConfig = try BreinConfig(apiKey: validApiKey,
-                baseUrl: baseUrl,
-                breinEngineType: .ALAMOFIRE)
-
-        // set configuration
-        Breinify.setConfig(breinConfig)
-    } catch {
-        print("Error is: \(error)")
-    }
-
-}
-
+    let breinConfig = BreinConfig(apiKey: validApiKey)
+    
+    // set configuration
+    Breinify.setConfig(breinConfig)
+    
+   }
 }
 
 ```

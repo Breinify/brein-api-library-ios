@@ -8,7 +8,7 @@ class TestApi: XCTestCase {
     typealias apiFailure = (error: NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com";
-    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E9"
+    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
 
     let breinUser = BreinUser(email: "fred.firestone@email.com")
     let breinCategory = "home"
@@ -17,16 +17,10 @@ class TestApi: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        do {
-            breinConfig = try BreinConfig(apiKey: validApiKey,
-                    baseUrl: baseUrl,
-                    breinEngineType: .ALAMOFIRE)
+        breinConfig = BreinConfig(apiKey: validApiKey)
 
-            // set configuration
-            Breinify.setConfig(breinConfig)
-        } catch {
-            print("Error is: \(error)")
-        }
+        // set configuration
+        Breinify.setConfig(breinConfig)
     }
 
     override func tearDown() {
@@ -182,11 +176,20 @@ class TestApi: XCTestCase {
             (result: BreinResult?) -> Void in
             print("Api Success : result is:\n \(result!)")
 
-            if let dataFirstname = result!.get("firstname") {
-                print("Firstname is: \(dataFirstname)")
+            if let holiday = result!.get("holidays") {
+                print("Holiday is: \(holiday)")
             }
-
+            if let weather = result!.get("weather") {
+                print("Weather is: \(weather)")
+            }
+            if let location = result!.get("location") {
+                print("Location is: \(location)")
+            }
+            if let time = result!.get("time") {
+                print("Time is: \(time)")
+            }
         }
+
 
         do {
 
@@ -219,11 +222,20 @@ class TestApi: XCTestCase {
             (result: BreinResult?) -> Void in
             print("Api Success : result is:\n \(result!)")
 
-            if let dataFirstname = result!.get("firstname") {
-                print("Firstname is: \(dataFirstname)")
+            if let holiday = result!.get("holidays") {
+                print("Holiday is: \(holiday)")
             }
-
+            if let weather = result!.get("weather") {
+                print("Weather is: \(weather)")
+            }
+            if let location = result!.get("location") {
+                print("Location is: \(location)")
+            }
+            if let time = result!.get("time") {
+                print("Time is: \(time)")
+            }
         }
+
 
         do {
 

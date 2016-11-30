@@ -4,8 +4,8 @@ import BreinifyApi
 
 class TestApiWithSecret: XCTestCase {
 
-    typealias apiSuccess = (result:BreinResult?) -> Void
-    typealias apiFailure = (error:NSDictionary?) -> Void
+    typealias apiSuccess = (result: BreinResult?) -> Void
+    typealias apiFailure = (error: NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com";
     let validApiKey = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8549"
@@ -17,19 +17,13 @@ class TestApiWithSecret: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        do {
-            breinConfig = try BreinConfig(apiKey: validApiKey,
-                    baseUrl: baseUrl,
-                    breinEngineType: .ALAMOFIRE)
+        breinConfig = BreinConfig(apiKey: validApiKey)
 
-            // set the secret
-            breinConfig.setSecret("lmcoj4k27hbbszzyiqamhg==")
+        // set the secret
+        breinConfig.setSecret("lmcoj4k27hbbszzyiqamhg==")
 
-            // set configuration
-            Breinify.setConfig(breinConfig)
-        } catch {
-            print("Error is: \(error)")
-        }
+        // set configuration
+        Breinify.setConfig(breinConfig)
     }
 
     override func tearDown() {
@@ -92,7 +86,7 @@ class TestApiWithSecret: XCTestCase {
         .setIpAddress("10.11.12.130")
         .setUrl("http://sample.com")
 
-        let tagsDic: [String:AnyObject] = ["A": "STRING",
+        let tagsDic: [String: AnyObject] = ["A": "STRING",
                                             "B": 100,
                                             "C": 2.22]
 

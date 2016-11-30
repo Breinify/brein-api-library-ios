@@ -18,9 +18,9 @@ class TestConfig: XCTestCase {
     // This should be the normal configuration  methods
     //
     func testNormalConfigUsage() {
-        let breinConfig = BreinConfig()
+
         let validApiKey = "9D9C-C9E9-BC93-4D1D-9A61-3A0F-9BD9-CF14"
-        breinConfig.setApiKey(validApiKey)
+        let breinConfig = BreinConfig(apiKey: validApiKey)
 
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
@@ -33,8 +33,7 @@ class TestConfig: XCTestCase {
     //
     func testEmptyConfig() {
         let emptyString = ""
-        let breinConfig = BreinConfig()
-        breinConfig.setApiKey(emptyString)
+        let breinConfig = BreinConfig(apiKey: emptyString)
 
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
@@ -49,8 +48,7 @@ class TestConfig: XCTestCase {
 
         let wrongUrl = "https://breeeeeinify.com"
         do {
-            try BreinConfig(apiKey: "TEST-API-KEY",
-                    baseUrl: wrongUrl, breinEngineType: .ALAMOFIRE)
+            try BreinConfig(apiKey: "TEST-API-KEY").setBaseUrl(wrongUrl)
         } catch  {
             print("Error is: \(error)")
         }

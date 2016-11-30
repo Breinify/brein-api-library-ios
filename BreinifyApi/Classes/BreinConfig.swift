@@ -58,10 +58,19 @@ public class BreinConfig {
     // default category
     var category: String!
 
-    public init() {
+    public init(apiKey: String!) {
         self.initValues()
+        self.setApiKey(apiKey)
+        self.setRestEngineType(BreinEngineType.ALAMOFIRE)
+        do {
+            try setBaseUrl(DEFAULT_BASE_URL)
+            try self.initEngine()
+        } catch {
+            print("Error Init of BreinConfig")
+        }
     }
 
+    /*
     public init(apiKey: String!, baseUrl: String!) throws {
 
         self.initValues()
@@ -80,6 +89,7 @@ public class BreinConfig {
         self.setRestEngineType(breinEngineType)
         try self.initEngine()
     }
+    */
 
     // initializes the values
     func initValues() {
@@ -216,7 +226,6 @@ public class BreinConfig {
             // invoke termination of the engine
             self.breinEngine.getRestEngine().terminate()
         }
-
     }
 
     public func isUrlValid(url: String!) -> Bool {
