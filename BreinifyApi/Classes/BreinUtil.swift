@@ -9,7 +9,6 @@ import IDZSwiftCommonCrypto
 
 public class BreinUtil {
 
-
     static public func generateSignature(message: String!, secret: String!) throws -> String {
 
         if message == nil || secret == nil {

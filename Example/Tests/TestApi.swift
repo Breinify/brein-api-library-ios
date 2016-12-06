@@ -250,7 +250,59 @@ class TestApi: XCTestCase {
             let user = BreinUser(email: "fred.firestone@email.com")
             .setFirstName("Fred")
             .setIpAddress("74.115.209.58")
-            .setAdditionalMap(locationAdditionalMap)
+            .setAdditional(locationAdditionalMap)
+
+            try Breinify.temporalData(user,
+                    sign: false,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            print("Error")
+        }
+
+        // allow processing
+        NSThread.sleepForTimeInterval(5)
+
+
+    }
+
+    func testTemporalDataWithSimpleAdditionalMap() {
+
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+        }
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result!)")
+
+            if let holiday = result!.get("holidays") {
+                print("Holiday is: \(holiday)")
+            }
+            if let weather = result!.get("weather") {
+                print("Weather is: \(weather)")
+            }
+            if let location = result!.get("location") {
+                print("Location is: \(location)")
+            }
+            if let time = result!.get("time") {
+                print("Time is: \(time)")
+            }
+        }
+
+
+        do {
+
+            // create dictionary here...
+            var locationValueMap = [String: AnyObject]()
+
+            locationValueMap["latitude"] = drand48() * 10 + 39 - 5
+            locationValueMap["longitude"] = drand48() * 50 - 98 - 25
+
+            let user = BreinUser(email: "fred.firestone@email.com")
+            .setFirstName("Fred")
+            .setIpAddress("74.115.209.58")
+            .setAdditional("location", map: locationValueMap)
 
             try Breinify.temporalData(user,
                     sign: false,

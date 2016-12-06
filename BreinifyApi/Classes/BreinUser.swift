@@ -49,7 +49,11 @@ public class BreinUser {
     //contains the data structure for the user request part including additional
     var breinUserRequest = BreinUserRequest()
 
-    // Ctor
+    // standard Ctro
+    public init() {
+    }
+
+    // Ctor with email
     public init(email: String!) {
         setEmail(email)
     }
@@ -187,14 +191,56 @@ public class BreinUser {
         return breinUserRequest
     }
 
-    public func setAdditionalMap(map: [String: AnyObject]) -> BreinUser! {
-        getBreinUserRequest().setAdditionalMap(map)
+
+    /*
+       var locationAdditionalMap = [String: AnyObject]()
+            var locationValueMap = [String: AnyObject]()
+
+            locationValueMap["latitude"] = drand48() * 10 + 39 - 5
+            locationValueMap["longitude"] = drand48() * 50 - 98 - 25
+            locationAdditionalMap["location"] = locationValueMap
+    */
+    public func setAdditional(key: String?, map: [String: AnyObject]?) -> BreinUser! {
+        if map == nil {
+            return self
+        }
+        if let pKey = key {
+
+            var enhancedMap = [String: AnyObject]()
+            enhancedMap[pKey] = map
+
+            return setAdditional(enhancedMap)
+        }
+
+        return self
+    }
+
+    public func setAdditional(map: [String: AnyObject]) -> BreinUser! {
+        getBreinUserRequest().setAdditional(map)
         return self
     }
 
     public func setUserMap(map: [String: AnyObject]) -> BreinUser! {
         getBreinUserRequest().setUserMap(map)
         return self
+    }
+
+    public func detectCurrentTimezone() -> String! {
+        let localTimeZoneName: String = NSTimeZone.localTimeZone().name
+        // print("local time zone is: \(localTimeZoneName)")
+        return localTimeZoneName
+    }
+
+    public func detectLocalDateTime() -> String! {
+        let date = NSDate()
+
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (z)"
+
+        let defaultTimeZoneStr = formatter.stringFromDate(date)
+
+        // print("local time is: \(defaultTimeZoneStr)")
+        return defaultTimeZoneStr
     }
 
     public func description() -> String! {

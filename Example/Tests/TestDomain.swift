@@ -115,4 +115,20 @@ class TestDomain: XCTestCase {
         NSLog(breinUser.description())
         XCTAssertFalse(breinUser.description().isEmpty)
     }
+
+    /// Test with empty init method for BreinUser
+    func testEmptyUserCtor() {
+        let breinUser = BreinUser()
+        print(breinUser)
+    }
+
+    /// Test to detect current timezone and local date time
+    func testDetectTimezoneAndLocalDataTime() {
+        let breinUser = BreinUser()
+        print("Detected Timezone is: \(breinUser.detectCurrentTimezone())")
+        print("Detected LocalDateTime is: \(breinUser.detectLocalDateTime())")
+        XCTAssertFalse(breinUser.detectLocalDateTime().isEmpty)
+        XCTAssertFalse(breinUser.detectCurrentTimezone().isEmpty)
+    }
+
 }

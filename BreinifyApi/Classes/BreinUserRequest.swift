@@ -7,7 +7,7 @@ import Foundation
 
 public class BreinUserRequest {
 
-    var additionalMap = [String: AnyObject]()
+    var additional = [String: AnyObject]()
 
     var userMap = [String: AnyObject]()
 
@@ -19,12 +19,12 @@ public class BreinUserRequest {
         return userMap
     }
 
-    public func setAdditionalMap(userAdditionalMap: [String: AnyObject]) {
-        self.additionalMap = userAdditionalMap
+    public func setAdditional(userAdditionalMap: [String: AnyObject]) {
+        self.additional = userAdditionalMap
     }
 
-    public func getAdditionalMap() -> [String: AnyObject] {
-        return additionalMap
+    public func getAdditional() -> [String: AnyObject] {
+        return additional
     }
 
     public func prepareUserRequestData(breinBase: BreinBase, inout request: [String: AnyObject], breinUser: BreinUser) {
@@ -45,8 +45,8 @@ public class BreinUserRequest {
         executeAdditionalMapFunctions(breinBase, breinUser: breinUser, requestMap: &additional)
 
         // check if there are further extra maps to add on user additional level
-        if additionalMap.count > 0 {
-            BreinMapUtil.fillMap(additionalMap, requestStructure: &additional)
+        if additional.count > 0 {
+            BreinMapUtil.fillMap(additional, requestStructure: &additional)
         }
 
         if (additional.count > 0) {
