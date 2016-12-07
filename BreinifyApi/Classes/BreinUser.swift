@@ -234,7 +234,7 @@ public class BreinUser {
     public func detectLocalDateTime() -> String! {
         let date = NSDate()
 
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (z)"
 
         let defaultTimeZoneStr = formatter.stringFromDate(date)
