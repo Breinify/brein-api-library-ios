@@ -91,11 +91,12 @@ import BreinifyApi
 ```
 
 
-### Step 3: Configure the Libary
+### Step 3: Configure the Library
 
 
 
-The Breinify class needs to be configured with an instance of BreinConfig containing a valid API-key, the URL of the Breinify Backend and the Rest-Engine. Currently only Alamofire is supported.  
+The Breinify class needs to be configured with an instance of BreinConfig containing a valid API-key, the URL of the Breinify Backend and the Rest-Engine. 
+Alamofire is used for any requests.  
 
 This would look like this:
 
