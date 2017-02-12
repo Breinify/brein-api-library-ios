@@ -3,6 +3,7 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
+
 import Foundation
 
 public class BreinLookup: BreinBase, ISecretStrategy {
@@ -19,10 +20,9 @@ public class BreinLookup: BreinBase, ISecretStrategy {
     }
 
     public func lookUp(breinUser: BreinUser!,
-                       breinDimension: BreinDimension!,
-                       sign: Bool,
-                       success successBlock: BreinEngine.apiSuccess,
-                       failure failureBlock: BreinEngine.apiFailure) throws {
+                breinDimension: BreinDimension!,
+                success successBlock: BreinEngine.apiSuccess,
+                failure failureBlock: BreinEngine.apiFailure) throws {
 
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -30,12 +30,11 @@ public class BreinLookup: BreinBase, ISecretStrategy {
 
         setBreinUser(breinUser)
         setBreinDimension(breinDimension)
-        setSign(sign)
 
         return try getBreinEngine().performLookUp(self, success: successBlock, failure: failureBlock)
     }
 
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
+    override public func prepareJsonRequest() -> [String:AnyObject]! {
         // call base class
         super.prepareJsonRequest()
 
@@ -68,7 +67,11 @@ public class BreinLookup: BreinBase, ISecretStrategy {
 
         // set secret
         if isSign() {
-            requestData["signature"] = createSignature()
+            do {
+                requestData["signatureType"] = try createSignature()
+            } catch {
+                print("not possible to generate signature")
+            }
         }
 
         // Just in case the JSON is important
@@ -87,7 +90,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return getConfig().getLookupEndpoint()
     }
 
-    public func createSignature() -> String! {
+    public override func createSignature() throws -> String! {
         var dimensions = getBreinDimension().getDimensionFields()
 
         // we need the first one
@@ -95,16 +98,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
                 getUnixTimestamp(),
                 dimensions.isEmpty ? 0 : dimensions.count)
 
-        // return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
-        var signature = ""
-        do {
-            signature = try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
-        } catch {
-            print("Ups: Error while trying to generate signature")
-        }
-
-        return signature
-
+        return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
     }
 
 }

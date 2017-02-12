@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public class BreinActivity: BreinBase, ISecretStrategy {
 
     //  ActivityType of the activity
@@ -17,8 +18,11 @@ public class BreinActivity: BreinBase, ISecretStrategy {
     var description: String?
 
     // tags dictionary
-    var tagsDic: [String: AnyObject]?
+    var tagsDic: [String:AnyObject]?
 
+    // activity dictionary
+    var actitivityDic: [String:AnyObject]?
+   
     public func getBreinActivityType() -> String! {
         return breinActivityType
     }
@@ -50,20 +54,28 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return getConfig().getActivityEndpoint()
     }
 
-    public func setTagsDic(tagsDic: [String: AnyObject]) -> BreinActivity {
+    public func setTagsDic(tagsDic: [String:AnyObject]) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
     }
 
-    public func getTagsDic() -> [String: AnyObject]? {
+    public func getTagsDic() -> [String:AnyObject]? {
         return self.tagsDic
+    }
+
+    public func setActivityDic(activityDic: [String:AnyObject]) -> BreinActivity {
+        self.actitivityDic = activityDic
+        return self
+    }
+
+    public func getActitivityDic() -> [String:AnyObject]? {
+        return self.actitivityDic
     }
 
     public func activity(breinUser: BreinUser!,
                          breinActivityType: String!,
                          breinCategoryType: String!,
                          description: String!,
-                         sign: Bool,
                          success successBlock: BreinEngine.apiSuccess,
                          failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -72,7 +84,6 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         setBreinActivityType(breinActivityType)
         setBreinCategoryType(breinCategoryType)
         setDescription(description)
-        setSign(sign)
 
         //  invoke the request, "self" has all necessary information
         if nil == getBreinEngine() {
@@ -86,65 +97,59 @@ public class BreinActivity: BreinBase, ISecretStrategy {
       *
       * @return Dictionary
       */
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
-
+    override public func prepareJsonRequest() -> [String:AnyObject]! {
+        
         // call base class
         super.prepareJsonRequest()
 
         var requestData = [String: AnyObject]()
 
         if let breinUser = getBreinUser() {
-            breinUser.getBreinUserRequest().prepareUserRequestData(self,
-                    request: &requestData,
-                    breinUser: breinUser)
+            var userData = [String: AnyObject]()
+            breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
+            requestData["user"] = userData
         }
 
-        // activity part
+        //  activity data
         var activityData = [String: AnyObject]()
-        prepareActivityRequestData(&activityData)
-
-        // add all to the activity dictionary
-        requestData["activity"] = activityData
-
-        // base level data...
-        getBreinBaseRequest().prepareBaseRequestData(self,
-                requestData: &requestData,
-                isSign: isSign());
-
-        return requestData
-    }
-
-    public func prepareActivityRequestData(inout activityRequestData: [String: AnyObject]) {
-
         if let activityType = getBreinActivityType() {
-            activityRequestData["type"] = activityType
+            activityData["type"] = activityType
         }
-        if let description = getDescription() where !description.isEmpty {
-            activityRequestData["description"] = description
+        if let description = getDescription() {
+            activityData["description"] = description
         }
         if let categoryType = getBreinCategoryType() {
-            activityRequestData["category"] = categoryType
+            activityData["category"] = categoryType
         }
 
         // add tags
         if tagsDic?.isEmpty == false {
-            activityRequestData["tags"] = tagsDic
+            activityData["tags"] = tagsDic
         }
+
+        // activity dic
+        if let aMap = self.getActitivityDic() {
+            if aMap.count > 0 {
+                BreinMapUtil.fillMap(aMap, requestStructure: &requestData)
+            }
+        }
+
+        // add all to the activity dictionary
+        requestData["activity"] = activityData
+
+        // add base stuff
+        self.prepareBaseRequestData(&requestData)
+        
+        return requestData
     }
 
-    // creates the signature for the activity message
-    public func createSignature() -> String! {
+    //
+    public override func createSignature() throws -> String! {
 
-        let activityType = getBreinActivityType() == nil ? "" : getBreinActivityType()
-        let message = activityType + String(format: "%d%d", getUnixTimestamp(), 1)
+        let message = String(format: "%s%d%d",
+                getBreinActivityType() == nil
+                ? "" : getBreinActivityType(), getUnixTimestamp(), 1)
 
-        var signature = ""
-        do {
-            signature = try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
-        } catch {
-            print("Ups: Error while trying to generate signature")
-        }
-
-        return signature
+        return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
     }
 }

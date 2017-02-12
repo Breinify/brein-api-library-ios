@@ -14,7 +14,6 @@ public class BreinUtil {
         if message == nil || secret == nil {
             throw BreinError.BreinRuntimeError("Illegal value for message or secret in method generateSignature")
         }
-
        return message.digestHMac256(secret)
     }
 
@@ -23,5 +22,4 @@ public class BreinUtil {
     static public func isUrlValid(url: String!) -> Bool {
         return true;
     }
-
 }

@@ -3,13 +3,17 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
+
 import Foundation
-import CoreLocation
+
 
 public class BreinBase {
 
+    // means nothing -> no value
+    static let NO_VALUE_DEFINED = ""
+
     //  contains the User that will be used for the request
-    var breinUser: BreinUser!
+    var breinUser: BreinUser?
 
     //  Configuration
     var breinConfig: BreinConfig!
@@ -17,27 +21,20 @@ public class BreinBase {
     //  contains the timestamp when the request will be generated
     var unixTimestamp: NSTimeInterval!
 
-    // private final BreinBaseRequest breinBaseRequest = new BreinBaseRequest();
-    var breinBaseRequest = BreinBaseRequest()
-
-    // location coordinates
-    var locationData: CLLocation?
-
-    //  if set to yes then a secret has to bo sent
-    var sign: Bool!
+    /// base dictionary
+    var baseDic: [String:AnyObject]?
 
     public init() {
-        self.sign = false
         self.unixTimestamp = 0
     }
 
-    public func setLocationData(locationData: CLLocation?) -> BreinBase {
-        self.locationData = locationData
+    public func setBaseDic(baseDic: [String:AnyObject]) -> BreinBase {
+        self.baseDic = baseDic
         return self
     }
 
-    public func getLocationData() -> CLLocation? {
-        return locationData
+    public func getBaseDic() -> [String:AnyObject]!{
+        return self.baseDic
     }
 
     public func getConfig() -> BreinConfig! {
@@ -60,18 +57,48 @@ public class BreinBase {
         return nil == breinConfig ? nil : getConfig().getBreinEngine()
     }
 
-    public func getBreinBaseRequest() -> BreinBaseRequest! {
-        return breinBaseRequest
-    }
-
     public func prepareJsonRequest() -> [String: AnyObject]! {
         let timeInterval = NSDate().timeIntervalSince1970
         setUnixTimestamp(timeInterval)
         return [String: AnyObject]()
     }
 
+    // base level data...
+    public func prepareBaseRequestData(inout requestData: [String: AnyObject]) {
+
+        if let apiKey = getConfig()?.getApiKey() where !apiKey.isEmpty {
+            requestData["apiKey"] = apiKey
+        }
+
+        requestData["unixTimestamp"] = getUnixTimestamp()
+
+        // if sign is active
+        if isSign() {
+            do {
+                requestData["signature"] = try self.createSignature()
+                requestData["signatureType"] = "HmacSHA256"
+            } catch {
+                print("not possible to generate signature")
+            }
+        }
+
+        if let ipAddress = self.getBreinUser().getIpAddress() {
+            requestData["ipAddress"] = ipAddress
+        }
+
+        if let bMap = self.getBaseDic() {
+            if bMap.count > 0 {
+                BreinMapUtil.fillMap(bMap, requestStructure: &requestData)
+            }
+        }
+    }
+
+    public func createSignature() throws -> String! {
+        return BreinBase.NO_VALUE_DEFINED
+    }
+
     public func getEndPoint() -> String! {
-        return ""
+        return BreinBase.NO_VALUE_DEFINED
     }
 
     public func getUnixTimestamp() -> Int {
@@ -81,18 +108,17 @@ public class BreinBase {
     public func setUnixTimestamp(unixTimestamp: NSTimeInterval) {
         self.unixTimestamp = unixTimestamp
     }
-
+    
     public func isSign() -> Bool {
-        return sign
-    }
 
-    public func setSign(sign: Bool) {
-        self.sign = sign
-    }
+        if breinConfig == nil {
+            return false
+        }
 
-    /// needs to be implemented by sub-classes
-    public func createSignature() -> String {
-        return ""
+        if breinConfig.getSecret() == nil {
+            return false
+        }
+        return breinConfig.getSecret().characters.count > 0
     }
 
 }

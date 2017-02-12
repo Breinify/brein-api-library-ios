@@ -7,7 +7,6 @@
 import Foundation
 
 public enum BreinCategoryType : String {
-
     case APPAREL = "apparel"
     case HOME = "home"
     case EDUCATION = "education"
@@ -17,6 +16,5 @@ public enum BreinCategoryType : String {
     case JOB = "job"
     case SERVICES = "services"
     case OTHER = "other"
-
 }
 

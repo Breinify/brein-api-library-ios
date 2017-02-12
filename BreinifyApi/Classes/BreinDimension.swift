@@ -20,5 +20,4 @@ public class BreinDimension {
     public func setDimensionFields(dimensionFields: String...) {
         self.dimensionFields = dimensionFields
     }
-
 }

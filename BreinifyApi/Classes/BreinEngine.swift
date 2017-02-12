@@ -8,14 +8,13 @@ import Foundation
 
 public class BreinEngine {
 
-    public typealias apiSuccess = (result:BreinResult?) -> Void
-    public typealias apiFailure = (error:NSDictionary?) -> Void
+    public typealias apiSuccess = (result: BreinResult?) -> Void
+    public typealias apiFailure = (error: NSDictionary?) -> Void
 
     var restEngine: IRestEngine!
 
-    var manager = BreinLocationManager()
-
-    //
+    var manager = BreinLocationManager(ignoreLocationRequest: false)
+    
     public init(engineType: BreinEngineType) throws {
         switch engineType {
         case BreinEngineType.ALAMOFIRE:
@@ -40,7 +39,7 @@ public class BreinEngine {
                 location, error in
 
                 // save the retrieved location data
-                activity.setLocationData(location)
+                activity.getBreinUser().setLocationData(location)
 
                 // print("latitude is: \(location?.coordinate.latitude)")
                 // print("longitude is: \(location?.coordinate.longitude)")
@@ -56,6 +55,16 @@ public class BreinEngine {
         }
     }
 
+    public func performTemporalDataRequest(breinTemporalData: BreinTemporalData!,
+                                           success successBlock: apiSuccess,
+                                           failure failureBlock: apiFailure) throws {
+        if breinTemporalData != nil {
+            return try restEngine.doTemporalDataRequest(breinTemporalData,
+                    success: successBlock,
+                    failure: failureBlock)
+        }
+    }
+
     public func performLookUp(breinLookup: BreinLookup!,
                               success successBlock: apiSuccess,
                               failure failureBlock: apiFailure) throws {
@@ -66,11 +75,12 @@ public class BreinEngine {
         }
     }
 
-    public func performTemporalDataRequest(breinTemporalData: BreinTemporalData!,
-                              success successBlock: apiSuccess,
-                              failure failureBlock: apiFailure) throws {
-        if breinTemporalData != nil {
-            return try restEngine.doTemporalDataRequest(breinTemporalData,
+    public func invokeRecommendation(breinRecommendation: BreinRecommendation!,
+                                     success successBlock: BreinEngine.apiSuccess,
+                                     failure failureBlock: BreinEngine.apiFailure) throws {
+
+        if breinRecommendation != nil {
+            return try restEngine.doRecommendation(breinRecommendation,
                     success: successBlock,
                     failure: failureBlock)
         }
@@ -83,52 +93,5 @@ public class BreinEngine {
     public func configure(breinConfig: BreinConfig!) {
         restEngine.configure(breinConfig)
     }
-
-    public func getUserAgent() -> String {
-
-        let userAgent: String = {
-            if let info = NSBundle.mainBundle().infoDictionary {
-                let executable = info[kCFBundleExecutableKey as String] as? String ?? "Unknown"
-                let bundle = info[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
-                let version = info[kCFBundleVersionKey as String] as? String ?? "Unknown"
-
-                let osNameVersion: String = {
-                    let versionString: String
-
-                    if #available(OSX 10.10, *) {
-                        let version = NSProcessInfo.processInfo().operatingSystemVersion
-                        versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
-                    } else {
-                        versionString = "10.9"
-                    }
-
-                    let osName: String = {
-#if os(iOS)
-                        return "iOS"
-#elseif os(watchOS)
-                        return "watchOS"
-#elseif os(tvOS)
-                        return "tvOS"
-#elseif os(OSX)
-                        return "OS X"
-#elseif os(Linux)
-                        return "Linux"
-#else
-                        return "Unknown"
-#endif
-                    }()
-
-                    return "\(osName) \(versionString)"
-                }()
-
-                return "\(executable)/\(bundle) (\(version); \(osNameVersion))"
-            }
-
-            return "Breinify"
-        }()
-
-
-        return userAgent
-    }
-
+    
 }

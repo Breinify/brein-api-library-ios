@@ -9,7 +9,6 @@
 #ifndef BreinifyApi_Bridging_Header_h
 #define BreinifyApi_Bridging_Header_h
 
-
 // #import <CommonCrypto/CommonHMAC.h>
 
 #endif /* BreinifyApi_Bridging_Header_h */

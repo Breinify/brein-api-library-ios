@@ -5,7 +5,7 @@
 
 import Foundation
 
-//
+
 public protocol IRestEngine {
 
     func configure(breinConfig: BreinConfig)
@@ -18,9 +18,13 @@ public protocol IRestEngine {
                   success successBlock :(result: BreinResult?) -> Void,
                   failure failureBlock :(error: NSDictionary?) -> Void) throws
 
-    func doTemporalDataRequest(breinTemporalData: BreinTemporalData,
+    func doRecommendation(breinRecommendation: BreinRecommendation,
                   success successBlock :(result: BreinResult?) -> Void,
                   failure failureBlock :(error: NSDictionary?) -> Void) throws
+
+    func doTemporalDataRequest(breinTemporalData: BreinTemporalData,
+                               success successBlock :(result: BreinResult?) -> Void,
+                               failure failureBlock :(error: NSDictionary?) -> Void) throws
 
     func terminate()
   }

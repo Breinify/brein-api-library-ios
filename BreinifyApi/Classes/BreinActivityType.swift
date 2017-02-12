@@ -3,11 +3,9 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
 public enum BreinActivityType: String {
-
     case SEARCH = "search"
     case LOGIN = "login"
     case LOGOUT = "logout"
@@ -16,6 +14,5 @@ public enum BreinActivityType: String {
     case SELECT_PRODUCT = "selectProduct"
     case CHECKOUT = "checkOut"
     case OTHER = "other"
-
 }
 

@@ -37,7 +37,6 @@ public class BreinifyExecutor {
                   activityType: String!,
                   category: String!,
                   description: String!,
-                  sign: Bool,
                   success successBlock: BreinEngine.apiSuccess,
                   failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -46,7 +45,6 @@ public class BreinifyExecutor {
                 activityType: activityType,
                 category: category,
                 description: description,
-                sign: sign,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -56,7 +54,6 @@ public class BreinifyExecutor {
                   activityType: String!,
                   category: String!,
                   description: String!,
-                  sign: Bool,
                   success successBlock: BreinEngine.apiSuccess,
                   failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -69,20 +66,18 @@ public class BreinifyExecutor {
         breinActivity.setBreinActivityType(activityType)
         breinActivity.setBreinCategoryType(category)
         breinActivity.setDescription(description)
-        breinActivity.setSign(sign)
-
+        
         try breinActivity.getBreinEngine().sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
     public func lookup(user: BreinUser!,
                 dimension: BreinDimension!,
-                sign: Bool,
                 success successBlock: BreinEngine.apiSuccess,
                 failure failureBlock: BreinEngine.apiFailure) throws {
+        
         return try lookup(breinLookup,
                 user: user,
                 dimension: dimension,
-                sign: sign,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -90,7 +85,6 @@ public class BreinifyExecutor {
     public func lookup(breinLookup: BreinLookup!,
                 user: BreinUser!,
                 dimension: BreinDimension!,
-                sign: Bool,
                 success successBlock: BreinEngine.apiSuccess,
                 failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -101,13 +95,13 @@ public class BreinifyExecutor {
 
         breinLookup.setBreinUser(user)
         breinLookup.setBreinDimension(dimension)
-        breinLookup.setSign(sign)
-
+       
         return try breinLookup.getBreinEngine().performLookUp(breinLookup,
                 success: successBlock,
                 failure: failureBlock)
     }
 
+    // 
     public func shutdown() {
         if getConfig() != nil {
             getConfig().shutdownEngine()

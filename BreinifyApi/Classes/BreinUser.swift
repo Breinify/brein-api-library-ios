@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class BreinUser {
 
@@ -37,23 +38,50 @@ public class BreinUser {
     // contains the url in additional part
     var url: String!
 
-    // contains the ipAddress in additional part
+    // contains the url in additional part
     var ipAddress: String!
 
-    // contains the timezone in additional part (for temporalData)
-    var timezone: String?
+    // location coordinates
+    var locationData: CLLocation?
 
-    // contains the localDateTime value in additional part (for temporalData)
+    // contains localDateTime
     var localDateTime: String?
 
-    //contains the data structure for the user request part including additional
-    var breinUserRequest = BreinUserRequest()
+    // contains timezone
+    var timezone: String?
 
-    // standard Ctro
+    // contains additional dictionary
+    var additional = [String: AnyObject]()
+
+    // contains user dictionary
+    var userMap = [String: AnyObject]()
+
+    public func setUserMap(extraUserMap: [String: AnyObject]) {
+        self.userMap = extraUserMap
+    }
+
+    public func getUserMap() -> [String: AnyObject] {
+        return userMap
+    }
+
+    public func setAdditional(userAdditionalMap: [String: AnyObject]) {
+        self.additional = userAdditionalMap
+    }
+
+    public func getAdditional() -> [String: AnyObject] {
+        return additional
+    }
+
+    public func setLocationData(locationData: CLLocation?) -> BreinUser {
+        self.locationData = locationData
+        return self
+    }
+
+    // Ctor with "nothing"
     public init() {
     }
 
-    // Ctor with email
+    // Ctor
     public init(email: String!) {
         setEmail(email)
     }
@@ -138,10 +166,6 @@ public class BreinUser {
         return self
     }
 
-    public func getUserAgent() -> String! {
-        return userAgent
-    }
-
     public func setReferrer(referrer: String!) -> BreinUser! {
         self.referrer = referrer
         return self
@@ -149,6 +173,24 @@ public class BreinUser {
 
     public func getReferrer() -> String! {
         return referrer
+    }
+
+    public func setLocalDateTime(localDateTime: String!) -> BreinUser! {
+        self.localDateTime = localDateTime
+        return self
+    }
+
+    public func getLocalDateTime() -> String! {
+        return localDateTime
+    }
+
+    public func setTimezone(timeZone: String!) -> BreinUser! {
+        self.timezone = timeZone
+        return self
+    }
+
+    public func getTimezone() -> String! {
+        return timezone
     }
 
     public func setUrl(url: String!) -> BreinUser! {
@@ -169,37 +211,6 @@ public class BreinUser {
         return ipAddress
     }
 
-    public func setTimezone(timezone: String!) -> BreinUser! {
-        self.timezone = timezone
-        return self
-    }
-
-    public func getTimezone() -> String! {
-        return timezone
-    }
-
-    public func setLocalDateTime(localDateTime: String!) -> BreinUser! {
-        self.localDateTime = localDateTime
-        return self
-    }
-
-    public func getLocalDateTime() -> String! {
-        return localDateTime
-    }
-
-    public func getBreinUserRequest() -> BreinUserRequest {
-        return breinUserRequest
-    }
-
-
-    /*
-       var locationAdditionalMap = [String: AnyObject]()
-            var locationValueMap = [String: AnyObject]()
-
-            locationValueMap["latitude"] = drand48() * 10 + 39 - 5
-            locationValueMap["longitude"] = drand48() * 50 - 98 - 25
-            locationAdditionalMap["location"] = locationValueMap
-    */
     public func setAdditional(key: String?, map: [String: AnyObject]?) -> BreinUser! {
         if map == nil {
             return self
@@ -209,19 +220,19 @@ public class BreinUser {
             var enhancedMap = [String: AnyObject]()
             enhancedMap[pKey] = map
 
-            return setAdditional(enhancedMap)
+            return setAdditionalDic(enhancedMap)
         }
 
         return self
     }
 
-    public func setAdditional(map: [String: AnyObject]) -> BreinUser! {
-        getBreinUserRequest().setAdditional(map)
+    public func setAdditionalDic(dic: [String: AnyObject]) -> BreinUser! {
+        self.additional = dic
         return self
     }
 
     public func setUserMap(map: [String: AnyObject]) -> BreinUser! {
-        getBreinUserRequest().setUserMap(map)
+        self.userMap = map
         return self
     }
 
@@ -237,11 +248,148 @@ public class BreinUser {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (z)"
 
-        let defaultTimeZoneStr = formatter.stringFromDate(date)
+        let defaultLocalDateTimeString = formatter.stringFromDate(date)
 
-        // print("local time is: \(defaultTimeZoneStr)")
-        return defaultTimeZoneStr
+        // print("local time is: \(defaultLocalDateTimeStr)")
+        return defaultLocalDateTimeString
     }
+
+    ///
+    public func prepareUserRequest(inout userData: [String: AnyObject], breinConfig: BreinConfig!) {
+
+        if let dateOfBirth = self.getDateOfBirth() {
+            userData["dateOfBirth"] = dateOfBirth
+        }
+
+        if let imei = self.getImei() {
+            userData["imei"] = imei
+        }
+
+        if let deviceId = self.getDeviceId() {
+            userData["deviceId"] = deviceId
+        }
+
+        if let email = self.getEmail() where !email.isEmpty {
+            userData["email"] = self.getEmail()
+        }
+
+        if let session = self.getSessionId() where !session.isEmpty {
+            userData["sessionId"] = self.getSessionId()
+        }
+
+        if let firstName = self.getFirstName() where !firstName.isEmpty {
+            userData["firstName"] = firstName
+        }
+
+        if let user = self.getLastName() where !user.isEmpty {
+            userData["lastName"] = user
+        }
+
+        // only add if something is there
+        if let addData = prepareAdditionalFields() {
+            userData["additional"] = addData
+        }
+    }
+
+    /// 
+    public func prepareAdditionalFields() -> [String: AnyObject]! {
+
+        // additional part
+        var additionalData = [String: AnyObject]()
+        if locationData != nil {
+            // only a valid location will be taken into consideration
+            // this is the case when the corrdiantes are different from 0
+            if locationData?.coordinate.latitude != 0 {
+                var locData = [String: AnyObject]()
+                locData["accuracy"] = locationData?.horizontalAccuracy
+                locData["latitude"] = locationData?.coordinate.latitude
+                locData["longitude"] = locationData?.coordinate.longitude
+                locData["speed"] = locationData?.speed
+
+                additionalData["location"] = locData
+            }
+        }
+
+        if let userAgentValue = self.getUserAgent() {
+            additionalData["userAgent"] = userAgentValue
+        }
+
+        if let referrerValue = self.getReferrer() {
+            additionalData["referrer"] = referrerValue
+        }
+
+        if let urlValue = self.getUrl() {
+            additionalData["url"] = urlValue
+        }
+
+        /// use the one that may be defined
+        if let localDateTimeValue = self.getLocalDateTime() {
+            additionalData["localDateTime"] = localDateTimeValue
+        } else {
+            // determine current localdatetime
+            if let detectedLocalDateTime = self.detectLocalDateTime() {
+                additionalData["localDateTime"] = detectedLocalDateTime
+            }
+        }
+
+        if let timezoneValue = self.getTimezone() {
+            additionalData["timezone"] = timezoneValue
+        } else {
+            if let detectedTimezone = self.detectCurrentTimezone() {
+                additionalData["timezone"] = detectedTimezone
+            }
+        }
+
+        return additionalData
+    }
+
+    public func getUserAgent() -> String! {
+
+        let userAgent: String = {
+            if let info = NSBundle.mainBundle().infoDictionary {
+                let executable = info[kCFBundleExecutableKey as String] as? String ?? "Unknown"
+                let bundle = info[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
+                let version = info[kCFBundleVersionKey as String] as? String ?? "Unknown"
+
+                let osNameVersion: String = {
+                    let versionString: String
+
+                    if #available(OSX 10.10, *) {
+                        let version = NSProcessInfo.processInfo().operatingSystemVersion
+                        versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+                    } else {
+                        versionString = "10.9"
+                    }
+
+                    let osName: String = {
+#if os(iOS)
+                        return "iOS"
+#elseif os(watchOS)
+                        return "watchOS"
+#elseif os(tvOS)
+                        return "tvOS"
+#elseif os(OSX)
+                        return "OS X"
+#elseif os(Linux)
+                        return "Linux"
+#else
+                        return "Unknown"
+#endif
+                    }()
+
+                    return "\(osName) \(versionString)"
+                }()
+
+                return "\(executable)/\(bundle) (\(version); \(osNameVersion))"
+            }
+
+            return "Breinify"
+        }()
+
+
+        return userAgent
+    }
+
 
     public func description() -> String! {
         return (((((((((((((((("BreinUser details: "

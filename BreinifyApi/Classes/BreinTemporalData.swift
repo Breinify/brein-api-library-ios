@@ -3,6 +3,7 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
+
 import Foundation
 
 public class BreinTemporalData: BreinBase, ISecretStrategy {
@@ -17,7 +18,6 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         }
 
         setBreinUser(breinUser)
-        setSign(sign)
 
         return try getBreinEngine().performTemporalDataRequest(self,
                 success: successBlock,
@@ -31,20 +31,20 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         var requestData = [String: AnyObject]()
 
         if let breinUser = getBreinUser() {
-            breinUser.getBreinUserRequest().prepareUserRequestData(self, request: &requestData, breinUser: breinUser)
+            breinUser.prepareUserRequest(&requestData, breinConfig: self.getConfig())
         }
 
         // base level data...
-        getBreinBaseRequest().prepareBaseRequestData(self, requestData: &requestData, isSign: isSign());
-
+        self.prepareBaseRequestData(&requestData)
+                
         return requestData
     }
 
     override public func getEndPoint() -> String! {
-        return getConfig().getLookupEndpoint()
+        return getConfig().getTemporalDataEndpoint()
     }
 
-    public func createSignature() -> String! {
+    public override func createSignature() -> String! {
         let localDateTime = getBreinUser().getLocalDateTime()
         let paraLocalDateTime = localDateTime == nil ? "" : localDateTime
 

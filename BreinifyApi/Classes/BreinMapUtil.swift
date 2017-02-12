@@ -9,12 +9,7 @@ public class BreinMapUtil {
     public typealias Map = [String: AnyObject]
 
     public class func fillMap(dataMap: Map, inout requestStructure: Map ) {
-
-        // TODO: Implementation missing...
-        // Loop over dataMap
-        // add value
-        // if Dictionary -> call fillMap again
-
+        
         for (key,value) in dataMap {
             print("\(key) = \(value)")
 

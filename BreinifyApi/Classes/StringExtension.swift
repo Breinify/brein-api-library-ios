@@ -8,6 +8,8 @@ import IDZSwiftCommonCrypto
 
 extension String {
 
+    // TODO: check if twice
+
     // pre-defined constants for Category
     static let APPAREL = "apparel"
     static let HOME = "home"
@@ -47,7 +49,5 @@ extension String {
         
         return ""
     }
-
-
 
 }
