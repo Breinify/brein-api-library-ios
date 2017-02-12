@@ -2,25 +2,35 @@ import UIKit
 import XCTest
 import BreinifyApi
 
+
 class TestApi: XCTestCase {
 
     typealias apiSuccess = (result: BreinResult?) -> Void
     typealias apiFailure = (error: NSDictionary?) -> Void
 
-    let baseUrl = "https://api.breinify.com";
-    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+    let baseUrl = "https://api.breinify.com"
 
-    let breinUser = BreinUser(email: "fred.firestone@email.com")
+    let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
+    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
+
+    let breinUser = BreinUser(email: "toni.maroni@email.me")
     let breinCategory = "home"
     var breinConfig: BreinConfig!
+
+    var myGroup = dispatch_group_create()
 
     override func setUp() {
         super.setUp()
 
-        breinConfig = BreinConfig(apiKey: validApiKey)
+        do {
+            breinConfig = try BreinConfig(apiKey: validApiKeyWithSecret,
+                    secret: validSecret)
 
-        // set configuration
-        Breinify.setConfig(breinConfig)
+            // set configuration
+            Breinify.setConfig(breinConfig)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
     }
 
     override func tearDown() {
@@ -29,7 +39,54 @@ class TestApi: XCTestCase {
         super.tearDown()
     }
 
-    // testcase how to use the activity api
+    // test case how to use the activity api with secret
+    func testLoginWithSecret() {
+
+        dispatch_group_enter(myGroup)
+
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result)")
+
+            dispatch_group_leave(self.myGroup)
+
+        }
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+
+            dispatch_group_leave(self.myGroup)
+        }
+
+        // set additional user information
+        breinUser.setFirstName("Fred")
+                .setLastName("Firestone")
+
+        // invoke activity call
+        do {
+            try Breinify.activity(breinUser,
+                    activityType: "login",
+                    category: "home",
+                    description: "Login-Description",
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            print("Error is: \(error)")
+        }
+
+        dispatch_group_notify(myGroup, dispatch_get_main_queue(), {
+            print("Finished all requests.")
+        })
+
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            print("Finished")
+        }
+
+
+    }
+
+    // test case how to use the activity api
     func testLogin() {
 
         let successBlock: apiSuccess = {
@@ -40,11 +97,12 @@ class TestApi: XCTestCase {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
         // set additional user information
         breinUser.setFirstName("Marco")
-        breinUser.setLastName("Recchioni")
+                .setLastName("Recchioni")
 
         // invoke activity call
         do {
@@ -52,11 +110,10 @@ class TestApi: XCTestCase {
                     activityType: "login",
                     category: "home",
                     description: "Login-Description",
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
         print("Test finished")
@@ -74,13 +131,14 @@ class TestApi: XCTestCase {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
         // set additional user information
         breinUser.setFirstName("Marco")
-        .setLastName("Recchioni")
-        .setIpAddress("10.11.12.130")
-        .setUrl("http://sample.com")
+                .setLastName("Recchioni")
+                .setIpAddress("10.11.12.130")
+                .setUrl("http://sample.com")
 
         let tagsDic: [String: AnyObject] = ["A": "STRING",
                                             "B": 100,
@@ -92,14 +150,13 @@ class TestApi: XCTestCase {
         // invoke activity call
         do {
             try Breinify.activity(breinUser,
-                    activityType: "pageVisit",
-                    category: "food",
-                    description: "pageVisit-Description",
-                    sign: false,
+                    activityType: "login",
+                    category: "home",
+                    description: "Login-Description",
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
         print("Test finished")
@@ -117,6 +174,7 @@ class TestApi: XCTestCase {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
@@ -145,23 +203,46 @@ class TestApi: XCTestCase {
             if let dataImages = result!.get("images") {
                 print("DataImages is: \(dataImages)")
             }
-
         }
 
         do {
             try Breinify.lookup(breinUser,
                     dimension: breinDimension,
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            print("Error")
+            XCTAssert(true, "Error is: \(error)")
         }
-
-        // allow processing
-        NSThread.sleepForTimeInterval(5)
     }
 
+    //
+    // Test recommendation functionality
+    //
+    func testRecommendation() {
+
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
+        }
+
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result!)")
+        }
+
+        do {
+            let breinRecommendation = BreinRecommendation(breinUser: breinUser)
+            breinRecommendation.setNumberOfRecommendations(5)
+                    .setCategory("SampleCat")
+
+            try Breinify.recommendation(breinRecommendation,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
+    }
 
     //
     // Test temporalData functionality
@@ -194,13 +275,12 @@ class TestApi: XCTestCase {
         do {
 
             let user = BreinUser(email: "fred.firestone@email.com")
-            .setFirstName("Fred")
-            .setIpAddress("74.115.209.58")
-            .setTimezone("America/Los_Angeles")
-            .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
+                    .setFirstName("Fred")
+                    .setIpAddress("74.115.209.58")
+                    .setTimezone("America/Los_Angeles")
+                    .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
 
             try Breinify.temporalData(user,
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
@@ -248,12 +328,11 @@ class TestApi: XCTestCase {
             locationAdditionalMap["location"] = locationValueMap
 
             let user = BreinUser(email: "fred.firestone@email.com")
-            .setFirstName("Fred")
-            .setIpAddress("74.115.209.58")
-            .setAdditional(locationAdditionalMap)
+                    .setFirstName("Fred")
+                    .setIpAddress("74.115.209.58")
+                    .setAdditionalDic(locationAdditionalMap)
 
             try Breinify.temporalData(user,
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
@@ -290,9 +369,8 @@ class TestApi: XCTestCase {
             }
         }
 
-
+        
         do {
-
             // create dictionary here...
             var locationValueMap = [String: AnyObject]()
 
@@ -300,12 +378,11 @@ class TestApi: XCTestCase {
             locationValueMap["longitude"] = drand48() * 50 - 98 - 25
 
             let user = BreinUser(email: "fred.firestone@email.com")
-            .setFirstName("Fred")
-            .setIpAddress("74.115.209.58")
-            .setAdditional("location", map: locationValueMap)
+                    .setFirstName("Fred")
+                    .setIpAddress("74.115.209.58")
+                    .setAdditional("location", map: locationValueMap)
 
             try Breinify.temporalData(user,
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
@@ -316,5 +393,13 @@ class TestApi: XCTestCase {
         NSThread.sleepForTimeInterval(5)
 
 
+    } 
+
+    func testStressRequests() {
+
+        for index in 0 ... 100 {
+            print("Request: # \(index)")
+            testLogin()
+        }
     }
 }

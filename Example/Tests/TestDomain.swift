@@ -2,38 +2,47 @@ import UIKit
 import XCTest
 import BreinifyApi
 
+
 class TestDomain: XCTestCase {
+
+    let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
+    let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
+    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
 
     override func setUp() {
         super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
     func testBreinRequest() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
 
-        let validApiKey = "9D9C-C9E9-BC93-4D1D-9A61-3A0F-9BD9-CF14"
-        let breinConfig = BreinConfig(apiKey: validApiKey)
+        do {
+            let breinConfig = try BreinConfig(apiKey: validApiKey)
+            let breinUser = BreinUser()
+            breinUser.setFirstName("Marco")
+                    .setLastName("Recchioni")
 
-        // set configuration
-        Breinify.setConfig(breinConfig)
+            let breinActivity = BreinActivity()
+            breinActivity.setConfig(breinConfig)
+            breinActivity.setBreinUser(breinUser)
+            breinActivity.setBreinActivityType("login")
+                    .setDescription("Super-Desription")
+                    .setBreinCategoryType("home")
 
-        let breinUser = BreinUser(email: "m.recchioni@me.com")
-        breinUser.setFirstName("Marco")
-        breinUser.setLastName("Recchioni")
+            let jsonOutput = breinActivity.prepareJsonRequest();
+            dump("output is: \(jsonOutput)")
+            XCTAssertFalse(jsonOutput.isEmpty)
 
-        let breinActivity = BreinActivity()
-        breinActivity.setConfig(breinConfig)
-        breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType("login")
-        breinActivity.setDescription("Super-Desription")
-        breinActivity.setBreinCategoryType("home")
-
-        let jsonOutput = breinActivity.prepareJsonRequest();
-        NSLog("output is: \(jsonOutput)")
-        XCTAssertFalse(jsonOutput.isEmpty)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
     }
 
     /**
@@ -42,24 +51,26 @@ class TestDomain: XCTestCase {
     */
     func testBreinRequestWithLessData() {
 
-        let validApiKey = "9D9C-C9E9-BC93-4D1D-9A61-3A0F-9BD9-CF14"
-        let breinConfig = BreinConfig(apiKey: validApiKey)
+        do {
+            let breinConfig = try BreinConfig()
+            breinConfig.setApiKey(validApiKey)
 
-        breinConfig.setApiKey(validApiKey)
+            let breinUser = BreinUser(email: "m.recchioni@me.com")
+            breinUser.setFirstName("")
 
-        let breinUser = BreinUser(email: "m.recchioni@me.com")
-        breinUser.setFirstName("")
+            let breinActivity = BreinActivity()
+            breinActivity.setConfig(breinConfig)
+            breinActivity.setBreinUser(breinUser)
+            breinActivity.setBreinActivityType("login")
+                    .setDescription("Super-Desription")
+                    .setBreinCategoryType("food")
 
-        let breinActivity = BreinActivity()
-        breinActivity.setConfig(breinConfig)
-        breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType("login")
-        breinActivity.setDescription("Super-Desription")
-        breinActivity.setBreinCategoryType("food")
-
-        let jsonOutput = breinActivity.prepareJsonRequest();
-        NSLog("output is: \(jsonOutput)")
-        XCTAssertFalse(jsonOutput.isEmpty)
+            let jsonOutput = breinActivity.prepareJsonRequest();
+            dump("output is: \(jsonOutput)")
+            XCTAssertFalse(jsonOutput.isEmpty)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
     }
 
     /**
@@ -96,15 +107,16 @@ class TestDomain: XCTestCase {
         let breinUser = BreinUser(email: "user.anywhere@email.com")
 
         breinUser.setFirstName("User")
-        .setLastName("Anywhere")
-        .setImei("356938035643809")
-        .setDateOfBirth(6, day: 20, year: 1985)
-        .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
-        .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
+                .setLastName("Anywhere")
+                .setImei("356938035643809")
+                .setDateOfBirth(6, day: 20, year: 1985)
+                .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
+                .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
 
-        NSLog(breinUser.description())
+        dump(breinUser.description())
         XCTAssertFalse(breinUser.description().isEmpty)
     }
+
 
     /**
     * Tests all BreinUser Methods
@@ -112,23 +124,7 @@ class TestDomain: XCTestCase {
     func testBreinUserWithNoMethods() {
         let breinUser = BreinUser(email: "user.anywhere@email.com")
 
-        NSLog(breinUser.description())
+        dump(breinUser.description())
         XCTAssertFalse(breinUser.description().isEmpty)
     }
-
-    /// Test with empty init method for BreinUser
-    func testEmptyUserCtor() {
-        let breinUser = BreinUser()
-        print(breinUser)
-    }
-
-    /// Test to detect current timezone and local date time
-    func testDetectTimezoneAndLocalDataTime() {
-        let breinUser = BreinUser()
-        print("Detected Timezone is: \(breinUser.detectCurrentTimezone())")
-        print("Detected LocalDateTime is: \(breinUser.detectLocalDateTime())")
-        XCTAssertFalse(breinUser.detectLocalDateTime().isEmpty)
-        XCTAssertFalse(breinUser.detectCurrentTimezone().isEmpty)
-    }
-
 }

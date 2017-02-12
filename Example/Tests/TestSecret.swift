@@ -2,13 +2,14 @@ import UIKit
 import XCTest
 import BreinifyApi
 
+
 class TestSecret: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -23,7 +24,7 @@ class TestSecret: XCTestCase {
             XCTAssertEqual(expected, generated)
             print(generated)
         } catch {
-            print ("Error is: \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
     }
 }

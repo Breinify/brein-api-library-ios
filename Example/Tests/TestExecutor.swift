@@ -2,24 +2,32 @@ import UIKit
 import XCTest
 import BreinifyApi
 
+
 class TestExecutor: XCTestCase {
 
     typealias apiSuccess = (result: BreinResult?) -> Void
     typealias apiFailure = (error: NSDictionary?) -> Void
 
-    let baseUrl = "https://api.breinify.com"
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
-    let breinUser = BreinUser(email: "philipp@meisen.net")
+    let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
+    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
+
+    let breinUser = BreinUser(email: "toni.maroni@email.me")
     let breinCategory = "home"
     var breinConfig: BreinConfig!
 
     override func setUp() {
         super.setUp()
 
-        breinConfig = BreinConfig(apiKey: validApiKey)
+        do {
+            breinConfig = try BreinConfig(apiKey: validApiKeyWithSecret,
+                    secret: validSecret)
 
-        // set configuration
-        Breinify.setConfig(breinConfig)
+            // set configuration
+            Breinify.setConfig(breinConfig)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
     }
 
     override func tearDown() {
@@ -39,27 +47,29 @@ class TestExecutor: XCTestCase {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
         // set additional user information
         breinUser.setFirstName("Marco")
-        breinUser.setLastName("Recchioni")
+                .setLastName("Recchioni")
 
         // invoke activity call
         do {
 
-            let breinifyExecutor = try BreinConfig(apiKey: validApiKey)
-            .build()
+            let breinifyExecutor = try BreinConfig()
+                    .setApiKey(validApiKey)
+                    .setRestEngineType(.ALAMOFIRE)
+                    .build()
 
             try breinifyExecutor.activity(breinUser,
                     activityType: "login",
                     category: "home",
                     description: "Login-Description",
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
     }
 
@@ -100,20 +110,19 @@ class TestExecutor: XCTestCase {
             }
 
         }
-        let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+        let failureBlock: apiFailure = { (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
         }
 
 
         do {
             try Breinify.lookup(breinUser,
                     dimension: breinDimension,
-                    sign: false,
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            print("Error")
+            XCTAssert(true, "Error is: \(error)")
         }
 
 
