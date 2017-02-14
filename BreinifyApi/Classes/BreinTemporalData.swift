@@ -31,7 +31,9 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         var requestData = [String: AnyObject]()
 
         if let breinUser = getBreinUser() {
-            breinUser.prepareUserRequest(&requestData, breinConfig: self.getConfig())
+            var userData = [String: AnyObject]()
+            breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
+            requestData["user"] = userData
         }
 
         // base level data...

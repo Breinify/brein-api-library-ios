@@ -117,6 +117,16 @@ class TestDomain: XCTestCase {
         XCTAssertFalse(breinUser.description().isEmpty)
     }
 
+    func testNetworkInfo() {
+
+        var breinUser = BreinUser()
+        var data = [String: AnyObject]()
+
+        breinUser.prepareNetworkInfo(&data)
+
+        dump(data)
+    }
+
 
     /**
     * Tests all BreinUser Methods

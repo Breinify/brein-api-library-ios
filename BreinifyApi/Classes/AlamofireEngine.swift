@@ -145,11 +145,11 @@ public class AlamofireEngine: IRestEngine {
         let body = try getRequestBody(breinTemporalData)
 
         // Just in case the JSON is important
+        // TODO: remove this later
         do {
             let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-
-            dump(jsonData)
+            
             dump(jsonString)
         } catch let error as NSError {
             dump(error)

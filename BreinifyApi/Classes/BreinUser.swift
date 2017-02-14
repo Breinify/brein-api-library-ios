@@ -5,13 +5,16 @@
 
 import Foundation
 import CoreLocation
+import CoreTelephony
+import SystemConfiguration.CaptiveNetwork
+import NetworkExtension
 
 public class BreinUser {
 
-    //  user email
+    ///  user email
     var email: String!
 
-    //  user first name
+    ///  user first name
     var firstName: String!
 
     //  user last name
@@ -47,76 +50,64 @@ public class BreinUser {
     // contains localDateTime
     var localDateTime: String?
 
-    // contains timezone
+    /// contains timezone
     var timezone: String?
 
-    // contains additional dictionary
+    /// contains additional dictionary
     var additional = [String: AnyObject]()
 
-    // contains user dictionary
-    var userMap = [String: AnyObject]()
+    /// contains user dictionary
+    var userDic = [String: AnyObject]()
+    
 
-    public func setUserMap(extraUserMap: [String: AnyObject]) {
-        self.userMap = extraUserMap
-    }
-
-    public func getUserMap() -> [String: AnyObject] {
-        return userMap
-    }
-
-    public func setAdditional(userAdditionalMap: [String: AnyObject]) {
-        self.additional = userAdditionalMap
-    }
-
-    public func getAdditional() -> [String: AnyObject] {
-        return additional
-    }
-
-    public func setLocationData(locationData: CLLocation?) -> BreinUser {
-        self.locationData = locationData
-        return self
-    }
-
-    // Ctor with "nothing"
+    /// Initializer with "nothing"
     public init() {
     }
 
-    // Ctor
+    /// Initializer with email
     public init(email: String!) {
         setEmail(email)
     }
 
+    /// returns the email
     public func getEmail() -> String! {
         return email
     }
 
+    /// sets the email
     public func setEmail(email: String!) -> BreinUser! {
         self.email = email
         return self
     }
 
+    /// returns the first name
     public func getFirstName() -> String! {
         return firstName
     }
 
+    /// sets the first name
     public func setFirstName(firstName: String!) -> BreinUser! {
         self.firstName = firstName
         return self
     }
 
+    /// returns the last name 
     public func getLastName() -> String! {
         return lastName
     }
 
+    /// sets the last name 
     public func setLastName(lastName: String!) -> BreinUser! {
         self.lastName = lastName
         return self
     }
 
+    /// returns the date of birth
     public func getDateOfBirth() -> String! {
         return dateOfBirth
     }
 
+    /// sets the date of birth 
     public func setDateOfBirth(month: Int, day: Int, year: Int) -> BreinUser! {
 
         if case 1 ... 12 = month {
@@ -129,7 +120,7 @@ public class BreinUser {
         return self
     }
 
-    // this will reset the value of dateOfBirth to ""
+    /// this will reset the value of dateOfBirth to ""
     public func resetDateOfBirth() {
         self.dateOfBirth = ""
     }
@@ -180,7 +171,15 @@ public class BreinUser {
         return self
     }
 
+    /// Get localDateTime if set
+    /// In case if not set or empty the current localDateTime will be detected
+    /// -return 
     public func getLocalDateTime() -> String! {
+
+        if (self.localDateTime ?? "").isEmpty {
+            return detectLocalDateTime()
+        } 
+
         return localDateTime
     }
 
@@ -189,7 +188,15 @@ public class BreinUser {
         return self
     }
 
+    /// get current time zone
+    /// if not set or empty the current detected timezone will be returned
+    /// - return 
     public func getTimezone() -> String! {
+
+        if (self.timezone ?? "").isEmpty {
+            return detectCurrentTimezone()
+        }
+
         return timezone
     }
 
@@ -217,22 +224,39 @@ public class BreinUser {
         }
         if let pKey = key {
 
-            var enhancedMap = [String: AnyObject]()
-            enhancedMap[pKey] = map
+            var enhancedDic = [String: AnyObject]()
+            enhancedDic[pKey] = map
 
-            return setAdditionalDic(enhancedMap)
+            return setAdditionalDic(enhancedDic)
         }
 
         return self
     }
 
+    /// sets the user.additional dic for additional fields within the user.additional structure
     public func setAdditionalDic(dic: [String: AnyObject]) -> BreinUser! {
         self.additional = dic
         return self
     }
 
-    public func setUserMap(map: [String: AnyObject]) -> BreinUser! {
-        self.userMap = map
+    ///
+    public func getAdditionalDic() -> [String: AnyObject]? {
+        return additional
+    }
+
+    /// sets the user map for for additional fields
+    public func setUserDic(map: [String: AnyObject]) -> BreinUser! {
+        self.userDic = map
+        return self
+    }
+
+    /// returns the optional user dic
+    public func getUserDic() -> [String: AnyObject]? {
+        return userDic
+    }
+    
+    public func setLocationData(locationData: CLLocation?) -> BreinUser {
+        self.locationData = locationData
         return self
     }
 
@@ -285,6 +309,13 @@ public class BreinUser {
             userData["lastName"] = user
         }
 
+        // add possible further fields coming from user dictionary
+        if let userDataDic = self.getUserDic() {
+            if userDataDic.count > 0 {
+                BreinMapUtil.fillMap(userDataDic, requestStructure: &userData)
+            }
+        }
+
         // only add if something is there
         if let addData = prepareAdditionalFields() {
             userData["additional"] = addData
@@ -325,23 +356,53 @@ public class BreinUser {
         /// use the one that may be defined
         if let localDateTimeValue = self.getLocalDateTime() {
             additionalData["localDateTime"] = localDateTimeValue
-        } else {
-            // determine current localdatetime
-            if let detectedLocalDateTime = self.detectLocalDateTime() {
-                additionalData["localDateTime"] = detectedLocalDateTime
-            }
         }
 
         if let timezoneValue = self.getTimezone() {
             additionalData["timezone"] = timezoneValue
-        } else {
-            if let detectedTimezone = self.detectCurrentTimezone() {
-                additionalData["timezone"] = detectedTimezone
+        }
+
+        // add possible further fields coming from additional dictionary
+        if let userAdditionalDataDic = self.getAdditionalDic() {
+            if userAdditionalDataDic.count > 0 {
+                BreinMapUtil.fillMap(userAdditionalDataDic, requestStructure: &additionalData)
             }
         }
+        
+        prepareNetworkInfo(&additionalData)
 
         return additionalData
     }
+
+    // provides networkinformation
+    public func prepareNetworkInfo(inout requestStructure: [String: AnyObject]) {
+
+        let networkInfo = CTTelephonyNetworkInfo()
+        let carrier = networkInfo.subscriberCellularProvider
+        let name = carrier?.carrierName
+        let mobileCountryCode = carrier?.mobileCountryCode
+        
+        let ssid = self.getSSID()
+
+        let wifi = NEHotspotNetwork()
+        dump(wifi)
+       
+
+        let st = "SSID：\(wifi.SSID)， BSSID：\(wifi.BSSID)， strength: \(wifi.signalStrength)， secure: \(wifi.secure)\n"
+        
+        let telInfo = CTTelephonyNetworkInfo()
+        dump(telInfo)
+
+        let networkSpeed =  telInfo.currentRadioAccessTechnology
+        dump(networkSpeed)
+
+        /*
+        if telInfo.currentRadioAccessTechnology == CTRadioAccessTechnologyLTE {
+        }
+        */
+
+    }
+
 
     public func getUserAgent() -> String! {
 
@@ -389,6 +450,24 @@ public class BreinUser {
 
         return userAgent
     }
+
+    func getSSID() -> String? {
+        var ssid: String?
+        var bsid: String?
+        
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                    bsid = interfaceInfo[kCNNetworkInfoKeyBSSID as String] as? String
+                    
+                    break
+                }
+            }
+        }
+        return ssid
+    }
+    
 
 
     public func description() -> String! {

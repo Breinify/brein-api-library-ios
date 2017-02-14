@@ -128,9 +128,9 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         }
 
         // activity dic
-        if let aMap = self.getActitivityDic() {
-            if aMap.count > 0 {
-                BreinMapUtil.fillMap(aMap, requestStructure: &requestData)
+        if let aActivityDic = self.getActitivityDic() {
+            if aActivityDic.count > 0 {
+                BreinMapUtil.fillMap(aActivityDic, requestStructure: &activityData)
             }
         }
 

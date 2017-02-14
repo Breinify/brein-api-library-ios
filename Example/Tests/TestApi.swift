@@ -120,6 +120,69 @@ class TestApi: XCTestCase {
     }
 
 
+    // test case how to use the activity api
+    func testLoginWithExtraMaps() {
+
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result)")
+
+        }
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+            XCTAssert(true, "Error is: \(error)")
+        }
+
+        // set additional user information
+        breinUser.setFirstName("Marco")
+                .setLastName("Recchioni")
+
+        // add base dic
+        var baseDic = [String: AnyObject]()
+        baseDic["baseOne"] = "valueOfBaseOne"
+        baseDic["baseTwo"] = "valueOfBaseTwo"
+
+        // add activity dic
+        var activityDic = [String: AnyObject]()
+        activityDic["activityOne"] = "valueOfActivityOne"
+        activityDic["activityTwo"] = "valueOfActivityTwo"
+
+        // add user dic
+        var userDic = [String: AnyObject]()
+        userDic["userOne"] = "valueOfUserOne"
+        userDic["userTwo"] = "valueOfUserTwo"
+
+        // add user additional dic
+        var userAdditionalDic = [String: AnyObject]()
+        userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne"
+        userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo"
+        
+        breinUser.setUserDic(userDic)
+        breinUser.setAdditionalDic(userAdditionalDic)
+        
+        // invoke activity call
+        do {
+            let breinActivity = Breinify.getBreinActivity()
+
+            breinActivity.setBaseDic(baseDic)
+            breinActivity.setActivityDic(activityDic)
+
+            try Breinify.activity(breinActivity,
+                    user: breinUser,
+                    activityType: "login",
+                    category: "home",
+                    description: "Login-Description",
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            XCTAssert(true, "Error is: \(error)")
+        }
+
+        print("Test finished")
+    }
+
+
     // testcase how to use the activity api
     func testPageVisitWithTags() {
 
@@ -270,10 +333,8 @@ class TestApi: XCTestCase {
                 print("Time is: \(time)")
             }
         }
-
-
+        
         do {
-
             let user = BreinUser(email: "fred.firestone@email.com")
                     .setFirstName("Fred")
                     .setIpAddress("74.115.209.58")
@@ -286,9 +347,7 @@ class TestApi: XCTestCase {
         } catch {
             print("Error")
         }
-
-        // allow processing
-        NSThread.sleepForTimeInterval(5)
+        
     }
 
 
@@ -338,11 +397,6 @@ class TestApi: XCTestCase {
         } catch {
             print("Error")
         }
-
-        // allow processing
-        NSThread.sleepForTimeInterval(5)
-
-
     }
 
     func testTemporalDataWithSimpleAdditionalMap() {
@@ -388,11 +442,7 @@ class TestApi: XCTestCase {
         } catch {
             print("Error")
         }
-
-        // allow processing
-        NSThread.sleepForTimeInterval(5)
-
-
+        
     } 
 
     func testStressRequests() {
