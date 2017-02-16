@@ -293,19 +293,19 @@ public class BreinUser {
             userData["deviceId"] = deviceId
         }
 
-        if let email = self.getEmail() where !email.isEmpty {
-            userData["email"] = self.getEmail()
+        if let email = self.getEmail() {
+            userData["email"] = email
         }
 
-        if let session = self.getSessionId() where !session.isEmpty {
-            userData["sessionId"] = self.getSessionId()
+        if let session = self.getSessionId() {
+            userData["sessionId"] = session
         }
 
-        if let firstName = self.getFirstName() where !firstName.isEmpty {
+        if let firstName = self.getFirstName() {
             userData["firstName"] = firstName
         }
 
-        if let user = self.getLastName() where !user.isEmpty {
+        if let user = self.getLastName() {
             userData["lastName"] = user
         }
 
