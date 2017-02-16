@@ -229,38 +229,36 @@ cover:
 They can be requested like this:
 
 ```swift
-func testTemporalData() {
-
-     let failureBlock: apiFailure = {
-         (error: NSDictionary?) -> Void in
-         print("Api Failure : error is:\n \(error)")
-     }
+let failureBlock: apiFailure = {
+     (error: NSDictionary?) -> Void in
+     print("Api Failure : error is:\n \(error)")
+}
      
-     let successBlock: apiSuccess = {
-         (result: BreinResult?) -> Void in
-         print("Api Success : result is:\n \(result!)")
+let successBlock: apiSuccess = {
+    (result: BreinResult?) -> Void in
+    print("Api Success : result is:\n \(result!)")
 
-         if let holiday = result!.get("holidays") {
-             print("Holiday is: \(holiday)")
-         }
-          if let weather = result!.get("weather") {
-             print("Weather is: \(weather)")
-         }
-          if let location = result!.get("location") {
-             print("Location is: \(location)")
-         }
-          if let time = result!.get("time") {
-             print("Time is: \(time)")
-         }
-     }
+    if let holiday = result!.get("holidays") {
+        print("Holiday is: \(holiday)")
+    }
+    if let weather = result!.get("weather") {
+        print("Weather is: \(weather)")
+    }
+    if let location = result!.get("location") {
+        print("Location is: \(location)")
+    }
+    if let time = result!.get("time") {
+        print("Time is: \(time)")
+    }
+}
 
-     do {
-         let user = BreinUser(email: "fred.firestone@email.com")
-         .setFirstName("Fred")
-         .setTimezone("America/Los_Angeles")
-         .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
+do {
+    let user = BreinUser(email: "fred.firestone@email.com")
+          .setFirstName("Fred")
+          .setTimezone("America/Los_Angeles")
+          .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
 
-         try Breinify.temporalData(user,
+    try Breinify.temporalData(user,
               success: successBlock,
               failure: failureBlock)
      } catch {
@@ -347,12 +345,11 @@ class ViewController: UIViewController {
     typealias apiSuccess = (result: BreinResult?) -> Void
     typealias apiFailure = (error: NSDictionary?) -> Void
 
+    // create Brein user
     let breinUser = BreinUser()         
 
     // invoked when activityButton has been pressed
     @IBAction func actionButtonPressed(sender: AnyObject) {
-
-        responseTextView.text = " "
 
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
@@ -379,7 +376,6 @@ class ViewController: UIViewController {
         } catch {
             dump("Error is: \(error)")
         }
-
     }
 
    override func viewDidLoad() {
