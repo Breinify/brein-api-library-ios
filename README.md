@@ -37,7 +37,7 @@ Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presen
 ### CocoaPods
 #### Step 1 - Install CocoaPods
 
-Installing the SDK via the iOS [CocoaPods](http://cocoapods.org) automates the majority of the installation process. Before beginning this process please ensure that you are using Ruby version 2.0.0 or greater. Don’t worry, knowledge of Ruby syntax isn’t necessary to install this SDK.
+Installing the BreinifyApi via the iOS [CocoaPods](http://cocoapods.org) automates the majority of the installation process. Before beginning this process please ensure that you are using Ruby version 2.0.0 or greater. Don’t worry, knowledge of Ruby syntax isn’t necessary to install the Library.
 
 Simply run the following command to get started:
 
@@ -73,9 +73,9 @@ If you are running Swift 2.3 we recommend to add the following lines to your `Po
   end
 ```
 
-#### Step 3 - Install the BreinifyApi SDK
+#### Step 3 - Install the BreinifyApi
 
-To install the BreinifyApi SDK, navigate to the directory where your `Podfile`resides within your terminal and run the following command:
+To install the BreinifyApi, navigate to the directory where your `Podfile`resides within your terminal and run the following command:
 
 ```bash
 $ pod install
@@ -111,8 +111,8 @@ github "Breinify/brein-api-library-ios"
 
 ```
 
-#### Step 3 - Install the BreinifyApi SDK
-To install the BreinifyApi SDK, navigate to the directory where your `Cartfile`resides within your terminal and run the following command:
+#### Step 3 - Install the BreinifyApi 
+To install the BreinifyApi, navigate to the directory where your `Cartfile`resides within your terminal and run the following command:
 
 ```bash
 $ carthage update
@@ -133,7 +133,7 @@ BreinifyApi is available under the MIT license. This applies also for Alamofire 
 See the LICENSE file for more info.
 
 
-## Breinify SDK Integration 
+## BreinifyApi Integration 
 
 #### Step 1: Request API-key
 
@@ -153,7 +153,7 @@ import BreinifyApi
 
 ### Step 3: Configure the Library
 
-The Breinify SDK needs to be configured with an instance of BreinConfig containing a valid API-key and a secret (optional).  
+The BreinifyApi needs to be configured with an instance of BreinConfig containing a valid API-key and a secret (optional).  
 
 This would look like this:
 
