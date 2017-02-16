@@ -162,16 +162,11 @@ This would look like this:
 let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 let validSecret = "iTttt=0=w2244="
 
-do {
-    // create the configuration object
-    let breinConfig = try BreinConfig(apiKey: validApiSecret, secret: validSecret)
+// create the configuration object
+let breinConfig = BreinConfig(apiKey: validApiSecret, secret: validSecret)
     
-    // set configuration
-    Breinify.setConfig(breinConfig)
-} catch {
-    dump("Configuration issue: \(error)")
-}
-
+// set configuration
+Breinify.setConfig(breinConfig)
 ```
 
 #### Step 3: Start using the library
@@ -410,7 +405,7 @@ The following code snippets provides addtional information how to use the *Brein
 
 
 #### BreinUser
-BreinUser provides some methods to add further data. This example shows all possible option. 
+Class BreinUser provides additional methods to add further data. This example shows all possible options: 
 
 
 ````swift
@@ -422,6 +417,7 @@ breinUser.setFirstName("User")
          .setDateOfBirth(6, day: 20, year: 1985)
          .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
          .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
+         .set
 
 ````
 
