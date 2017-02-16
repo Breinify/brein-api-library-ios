@@ -64,7 +64,7 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinRecommendation)
         let body = try getRequestBody(breinRecommendation)
-        
+
         Alamofire.request(.POST,
                         url,
                         parameters: body,
@@ -144,17 +144,6 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinTemporalData)
         let body = try getRequestBody(breinTemporalData)
 
-        // Just in case the JSON is important
-        // TODO: remove this later
-        do {
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-            
-            dump(jsonString)
-        } catch let error as NSError {
-            dump(error)
-        }
-
         Alamofire.request(.POST,
                         url,
                         parameters: body,
@@ -181,7 +170,46 @@ public class AlamofireEngine: IRestEngine {
                     }
                 }
     }
-    
+
+    func executeRequest(url: String,
+                        body: [String: AnyObject],
+                        success successBlock: apiSuccess,
+                        failure failureBlock: apiFailure) {
+
+        Alamofire.request(.POST,
+                        url,
+                        parameters: body,
+                        encoding: .JSON)
+                .responseJSON {
+                    response in
+                    // print(response.request)  // original URL request
+                    // print(response.response) // URL response
+                    // print(response.data)     // server data
+                    // print(response.result)   // result of response serialization
+                    // print(response.result.value)
+
+                    // http status
+                    let status = response.response?.statusCode
+
+                    // if response.result.isSuccess {
+                    if status == 200 {
+                        let jsonDic = response.result.value as! NSDictionary
+                        // dump(jsonDic)
+
+                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        successBlock(result: breinResult)
+                    } else {
+                        /*
+                        let httpError: NSError = response.result.error!
+                        let statusCode = httpError.code
+                        */
+                        let error: NSDictionary = ["error": "httpError",
+                                                   "statusCode": status!]
+                        failureBlock(error: error)
+                    }
+                }
+    }
+
     public func terminate() {
     }
 }

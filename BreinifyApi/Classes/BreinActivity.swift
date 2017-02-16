@@ -146,10 +146,11 @@ public class BreinActivity: BreinBase, ISecretStrategy {
     //
     public override func createSignature() throws -> String! {
 
-        let message = String(format: "%s%d%d",
-                getBreinActivityType() == nil
-                ? "" : getBreinActivityType(), getUnixTimestamp(), 1)
+        let breinActivityType = self.getBreinActivityType() ?? ""
+        let unixTimestamp = self.getUnixTimestamp()
+        let message = breinActivityType + String(unixTimestamp) + "1"
 
         return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
     }
+
 }

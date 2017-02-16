@@ -13,15 +13,19 @@ public class BreinEngine {
 
     var restEngine: IRestEngine!
 
-    var manager = BreinLocationManager(ignoreLocationRequest: false)
+    var locationManager = BreinLocationManager(ignoreLocationRequest: false)
     
-    public init(engineType: BreinEngineType) throws {
+    public init(engineType: BreinEngineType) {
+
+        self.restEngine = AlamofireEngine()
+
+        /*
+
         switch engineType {
         case BreinEngineType.ALAMOFIRE:
             self.restEngine = AlamofireEngine()
-        case BreinEngineType.NO_ENGINE:
-            throw BreinError.BreinConfigurationError("no rest engine configured.")
         }
+        */
     }
 
     /**
@@ -34,7 +38,7 @@ public class BreinEngine {
                              failure failureBlock: BreinEngine.apiFailure) throws {
         if activity != nil {
 
-            manager.fetchWithCompletion {
+            locationManager.fetchWithCompletion {
 
                 location, error in
 

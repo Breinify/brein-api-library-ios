@@ -22,15 +22,11 @@ class TestApi: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        do {
-            breinConfig = try BreinConfig(apiKey: validApiKeyWithSecret,
-                    secret: validSecret)
+        breinConfig = BreinConfig(apiKey: validApiKeyWithSecret,
+                secret: validSecret)
 
-            // set configuration
-            Breinify.setConfig(breinConfig)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+        // set configuration
+        Breinify.setConfig(breinConfig)
     }
 
     override func tearDown() {
@@ -157,10 +153,10 @@ class TestApi: XCTestCase {
         var userAdditionalDic = [String: AnyObject]()
         userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne"
         userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo"
-        
+
         breinUser.setUserDic(userDic)
         breinUser.setAdditionalDic(userAdditionalDic)
-        
+
         // invoke activity call
         do {
             let breinActivity = Breinify.getBreinActivity()
@@ -333,7 +329,7 @@ class TestApi: XCTestCase {
                 print("Time is: \(time)")
             }
         }
-        
+
         do {
             let user = BreinUser(email: "fred.firestone@email.com")
                     .setFirstName("Fred")
@@ -347,7 +343,7 @@ class TestApi: XCTestCase {
         } catch {
             print("Error")
         }
-        
+
     }
 
 
@@ -423,7 +419,7 @@ class TestApi: XCTestCase {
             }
         }
 
-        
+
         do {
             // create dictionary here...
             var locationValueMap = [String: AnyObject]()
@@ -442,8 +438,8 @@ class TestApi: XCTestCase {
         } catch {
             print("Error")
         }
-        
-    } 
+
+    }
 
     func testStressRequests() {
 

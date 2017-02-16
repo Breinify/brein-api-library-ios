@@ -9,9 +9,9 @@ import Foundation
 public class Breinify {
 
     ///  contains the current version of the usage library
-    static let version: String! = "0.3.5"
+    static let version: String! = "0.3.3"
 
-    ///  contains the configuration
+    /// contains the configuration
     static var config: BreinConfig!
 
     ///  contains the activity object
@@ -41,6 +41,7 @@ public class Breinify {
         return breinLookup
     }
 
+    ///
     public class func setConfig(breinConfig: BreinConfig!) {
         self.config = breinConfig
 
@@ -61,6 +62,21 @@ public class Breinify {
         return version
     }
 
+    
+    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+    /// important that a valid API-key is configured prior to using this function.
+    /// <p>
+    /// This request is asynchronous.
+    ///
+    /// - Parameter user:          A plain object specifying the user information the activity belongs to.
+    /// - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+    ///                            removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+    ///                            be used
+    /// - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+    ///                            food, health, job, services, or other
+    /// - Parameter description:   A string with further information about the activity performed
+    /// - Parameter successBlock : A callback function that is invoked in case of success.
+    /// - Parameter failureBlock : A callback function that is invoked in case of an error.
     ///
     public class func activity(user: BreinUser!,
                                activityType: String!,
@@ -78,6 +94,12 @@ public class Breinify {
                 failure: failureBlock)
     }
 
+    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+    /// important that a valid API-key is configured prior to using this function.
+    /// This request is asynchronous. This method will used the already set objects of class Breinify.
+    ///
+    ///  - Parameter successBlock : A callback function that is invoked in case of success.
+    ///  - Parameter failureBlock : A callback function that is invoked in case of an error.
     ///
     public class func activity(success successBlock: BreinEngine.apiSuccess,
                                failure failureBlock: BreinEngine.apiFailure) throws {
@@ -109,8 +131,23 @@ public class Breinify {
                 success: successBlock,
                 failure: failureBlock)
     }
-
-    //
+   
+    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+    /// important that a valid API-key is configured prior to using this function.
+    /// <p>
+    /// This request is asynchronous.
+    ///
+    /// - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
+    /// - Parameter user:          A plain object specifying the user information the activity belongs to.
+    /// - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+    ///                            removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+    ///                            be used
+    /// - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+    ///                            food, health, job, services, or other
+    /// - Parameter description:   A string with further information about the activity performed
+    /// - Parameter successBlock : A callback function that is invoked in case of success.
+    /// - Parameter failureBlock : A callback function that is invoked in case of an error.
+    ///
     public class func activity(breinActivity: BreinActivity!,
                                user: BreinUser!,
                                activityType: String!,

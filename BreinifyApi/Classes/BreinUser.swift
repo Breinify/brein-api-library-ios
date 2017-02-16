@@ -5,8 +5,8 @@
 
 import Foundation
 import CoreLocation
-import CoreTelephony
-import SystemConfiguration.CaptiveNetwork
+// import CoreTelephony
+// import SystemConfiguration.CaptiveNetwork
 import NetworkExtension
 
 public class BreinUser {
@@ -369,12 +369,13 @@ public class BreinUser {
             }
         }
         
-        prepareNetworkInfo(&additionalData)
+        // prepareNetworkInfo(&additionalData)
 
         return additionalData
     }
 
     // provides networkinformation
+    /*
     public func prepareNetworkInfo(inout requestStructure: [String: AnyObject]) {
 
         let networkInfo = CTTelephonyNetworkInfo()
@@ -395,14 +396,8 @@ public class BreinUser {
 
         let networkSpeed =  telInfo.currentRadioAccessTechnology
         dump(networkSpeed)
-
-        /*
-        if telInfo.currentRadioAccessTechnology == CTRadioAccessTechnologyLTE {
-        }
-        */
-
     }
-
+    */
 
     public func getUserAgent() -> String! {
 
@@ -451,6 +446,7 @@ public class BreinUser {
         return userAgent
     }
 
+    /*
     func getSSID() -> String? {
         var ssid: String?
         var bsid: String?
@@ -467,8 +463,7 @@ public class BreinUser {
         }
         return ssid
     }
-    
-
+    */
 
     public func description() -> String! {
         return (((((((((((((((("BreinUser details: "

@@ -10,6 +10,7 @@ Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right 
 
 
 [![Version](https://img.shields.io/cocoapods/v/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 
@@ -28,17 +29,25 @@ Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presen
 - iOS 9.3+ 
 - Xcode 8.0+
 - AppCode 2016.2
+- Swift 2.3
 
 
 ## Installation
 
 ### CocoaPods
+#### Step 1 - Install CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+Installing the SDK via the iOS [CocoaPods](http://cocoapods.org) automates the majority of the installation process. Before beginning this process please ensure that you are using Ruby version 2.0.0 or greater. Don’t worry, knowledge of Ruby syntax isn’t necessary to install this SDK.
+
+Simply run the following command to get started:
 
 ```bash
-$ gem install cocoapods
+$ sudo gem install cocoapods
 ```
+
+#####Note: If you are new to Cocopods further details can be found [here](http://guides.cocoapods.org/using/getting-started.html)
+
+#### Step 2 - Create Podfile
 
 To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -52,7 +61,21 @@ target '<Your Target Name>' do
 end
 ```
 
-Then, run the following command:
+If you are running Swift 2.3 we recommend to add the following lines to your `Podfile` as well:
+
+```ruby
+ post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '2.3'  ## or '3.0'
+      end
+    end
+  end
+```
+
+#### Step 3 - Install the BreinifyApi SDK
+
+To install the BreinifyApi SDK, navigate to the directory where your `Podfile`resides within your terminal and run the following command:
 
 ```bash
 $ pod install
@@ -60,7 +83,42 @@ $ pod install
 
 The BreinifyApi Dependency will be added and a XCode workspace will be generated. This workspace file bundles your original Xcode project, the BreinifyApi library, and its dependencies.
 
-So from now on, you have to use <ProjectName>.xcworkspace instead of <ProjectName>.xcodeproj.
+At this point you should be able to open the new Xcode project workspace created by CocoaPods. From now on, you have to use <ProjectName>.xcworkspace instead of <ProjectName>.xcodeproj.
+
+### Carthage
+Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+You can install Carthage with Homebrew using the following command:
+
+#### Step 1 - Intall Carthage
+
+You can install Carthage with homebrew. 
+
+```bash
+$ brew install carthage
+```
+
+Make sure you are running the latest version of Carthage.
+
+```bash
+$ brew upgrade carthage
+```
+
+#### Step 2 - Create Cartfile
+To integrate BreinifyApi into your Xcdoe project using Carthage, specify in your `Cartfile`:
+
+```
+github "Breinify/brein-api-library-ios"
+
+```
+
+#### Step 3 - Install the BreinifyApi SDK
+To install the BreinifyApi SDK, navigate to the directory where your `Cartfile`resides within your terminal and run the following command:
+
+```bash
+$ carthage update
+```
+This will fetch dependencies into a Carthage/Checkouts folder. Drag BreinifyApi.framework into your Xcode project.
+
 
 ## Dependencies
 
@@ -71,10 +129,11 @@ BreinifyApi includes the following two libraries:
 
 ## License
 
-BreinifyApi is available under the MIT license. This applies also for Alamofire and IDZSwiftCommonCrypto. See the LICENSE file for more info.
+BreinifyApi is available under the MIT license. This applies also for Alamofire and IDZSwiftCommonCrypto. 
+See the LICENSE file for more info.
 
 
-## Usage
+## Breinify SDK Integration 
 
 #### Step 1: Request API-key
 
@@ -85,30 +144,33 @@ In order to use the library you need a valid API-key, which you can get for free
 
 ### Step 2: Include the BreinifyApi module
 
+Add the following line to your swift file (e.g. ViewController.swift)
+
 ```Swift
 import BreinifyApi
 
 ```
 
-
 ### Step 3: Configure the Library
 
-
-
-The Breinify class needs to be configured with an instance of BreinConfig containing a valid API-key, the URL of the Breinify Backend and the Rest-Engine. 
-Alamofire is used for any requests.  
+The Breinify SDK needs to be configured with an instance of BreinConfig containing a valid API-key and a secret (optional).  
 
 This would look like this:
 
 ```Swift
-// this has to be a valid api key
+// this has to be a valid api key and secret
 let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+let validSecret = "iTttt=0=w2244="
 
-// create the configuration object
-let breinConfig = BreinConfig(apiKey: validApiKey)
-
-// set configuration
-Breinify.setConfig(breinConfig)
+do {
+    // create the configuration object
+    let breinConfig = try BreinConfig(apiKey: validApiSecret, secret: validSecret)
+    
+    // set configuration
+    Breinify.setConfig(breinConfig)
+} catch {
+    dump("Configuration issue: \(error)")
+}
 
 ```
 
@@ -122,7 +184,7 @@ The engine is informed of an activity by executing *Breinify.activity(...)*.
 
 ```Swift
 // create a user you are interested in with his email
-let breinUser = BreinUser(email: "fred.firestone@email.com")
+let breinUser = BreinUser()
 
 typealias apiSuccess = (result:BreinResult?) -> Void
 typealias apiFailure = (error:NSDictionary?) -> Void
@@ -141,7 +203,7 @@ let failureBlock: apiFailure = {
 
 // set additional user information (optional)
 breinUser.setFirstName("Fred")
-breinUser.setLastName("Firestone")
+         .setLastName("Firestone")
 
 // invoke activity call
 do {
@@ -149,7 +211,6 @@ do {
          activityType: "login",
              category: "home",
           description: "Login-Description",
-                 sign: false,
               success: successBlock,
               failure: failureBlock)
   } catch {
@@ -164,10 +225,11 @@ That's it! The call will be run asynchronously in the background and depending o
 Temporal Intelligence API provides temporal triggers and visualizes patterns
 enabling you to predict a visitor’s dynamic activities. Currently this will
 cover:
-* Current Weather
-* Upcoming Holidays
-* Time Zone
-* Regional Events
+
+- Current Weather
+- Upcoming Holidays
+- Time Zone
+- Regional Events
 
 They can be requested like this:
 
@@ -200,12 +262,10 @@ func testTemporalData() {
      do {
          let user = BreinUser(email: "fred.firestone@email.com")
          .setFirstName("Fred")
-         .setIpAddress("74.115.209.58")
          .setTimezone("America/Los_Angeles")
          .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
 
          try Breinify.temporalData(user,
-                 sign: false,
               success: successBlock,
               failure: failureBlock)
      } catch {
@@ -269,7 +329,6 @@ let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
 do {
    try Breinify.lookup(breinUser,
         dimension: breinDimension,
-             sign: false,
           success: successBlock,
           failure: failureBlock)
 } catch {
@@ -290,117 +349,56 @@ import BreinifyApi
 
 class ViewController: UIViewController {
 
-    @IBAction func activityPressed(sender: AnyObject) {
+    typealias apiSuccess = (result: BreinResult?) -> Void
+    typealias apiFailure = (error: NSDictionary?) -> Void
 
-    // create a user you are interested in with his email (mandatory field)
-    let breinUser = BreinUser(email: "fred.firestone@email.com")
+    let breinUser = BreinUser()         
 
-    typealias apiSuccess = (result:BreinResult?) -> Void
-    typealias apiFailure = (error:NSDictionary?) -> Void
+    // invoked when activityButton has been pressed
+    @IBAction func actionButtonPressed(sender: AnyObject) {
 
-    // callback in case of success
-    let successBlock: apiSuccess = {
-        (result: BreinResult?) -> Void in
-        print("Api Success : result is:\n \(result!)")
-    }
+        responseTextView.text = " "
 
-    // callback in case of a failure
-    let failureBlock: apiFailure = {
-        (error: NSDictionary?) -> Void in
-        print("Api Failure: error is:\n \(error)")
-
-    }
-
-    // set additional user information (optional)
-    breinUser.setFirstName("Fred")
-    breinUser.setLastName("Firestone")
-
-    // invoke activity call
-    do {
-       try Breinify.activity(breinUser,
-            activityType: "login",
-                category: "home",
-             description: "Login-Description",
-                    sign: false,
-                 success: successBlock,
-                 failure: failureBlock)
-    } catch {
-       print("Error is: \(error)")
-    }
-
-}
-
-@IBAction func lookupPressed(sender: AnyObject) {
-
-    typealias apiSuccess = (result:BreinResult?) -> Void
-    typealias apiFailure = (error:NSDictionary?) -> Void
-
-    // create a user you are interested in with his email (mandatory field)
-    let breinUser = BreinUser(email: "fred.firestone@email.com")
-
-    // define an array of subjects of interest
-    let dimensions: [String] = ["firstname", "gender",
-                                "age", "agegroup", "digitalfootprint", "images"]
-
-    // wrap this array into BreinDimension object
-    let breinDimension = BreinDimension(dimensionFields: dimensions)
-
-    // invoke the lookup
-    let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-        print ("Api Success!")
-
-        if let dataFirstname = result!.get("firstname") {
-            print ("Firstname is: \(dataFirstname)")
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result)")
         }
 
-        if let dataGender = result!.get("gender") {
-            print ("Gender is: \(dataGender)")
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
         }
 
-        if let dataAge = result!.get("age") {
-            print ("Age is: \(dataAge)")
+        // set additional user information
+        breinUser.setFirstName("Fred")
+                 .setLastName("Firestone")
+
+        // invoke activity call
+        do {
+            try Breinify.activity(breinUser,
+                    activityType: "paginaUno",
+                    category: "home",
+                    description: "paginaUno-Description",
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            dump("Error is: \(error)")
         }
 
-        if let dataAgeGroup = result!.get("agegroup") {
-            print ("AgeGroup is: \(dataAgeGroup)")
-        }
-
-        if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-            print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
-        }
-
-        if let dataImages = result!.get("images") {
-            print ("DataImages is: \(dataImages)")
-        }
     }
-
-    let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-        print ("Api Failure : error is:\n \(error)")
-    }
-
-    do {
-        try Breinify.lookup(breinUser,
-                dimension: breinDimension,
-                sign: false,
-                success: successBlock,
-                failure: failureBlock)
-    } catch {
-        print("Error is: \(error)")
-    }
-  }
 
    override func viewDidLoad() {
     super.viewDidLoad()
 
-    // this has to be a valid api-key
+    // this has to be a valid api-key & secret
     let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
 
     // create the configuration object
-    let breinConfig = BreinConfig(apiKey: validApiKey)
+    let breinConfig = BreinConfig(apiKey: validApiKey, secret: validSecret)
     
     // set configuration
-    Breinify.setConfig(breinConfig)
-    
+    Breinify.setConfig(breinConfig)    
    }
 }
 
@@ -410,132 +408,6 @@ class ViewController: UIViewController {
 
 The following code snippets provides addtional information how to use the *BreinifyApi* library for iOS.
 
-#### BreinExecutor
-Instead of using Breinify class methods you could also use the BreinExecutor class in order to invoke activity or lookup calls.
-
-The following example will create a user and a configuration for Breinify and will invoke the activity and lookup calls.
-
-```swift
-import BreinifyApi
-
-class BreinifySample {
-
-typealias apiSuccess = (result:BreinResult?) -> Void
-typealias apiFailure = (error:NSDictionary?) -> Void
-
-let baseUrl = "https://api.breinify.com"
-let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-let breinUser = BreinUser(email: "fred.firestone@emaill.com")
-let breinCategory = "home"
-var breinConfig: BreinConfig!
-
-func config() {
-        
-do {
-   breinConfig = try BreinConfig(apiKey: validApiKey, 
-                baseUrl: baseUrl, 
-        breinEngineType: .ALAMOFIRE)
-
-   // set configuration
-   Breinify.setConfig(breinConfig)
-   } catch {
-     print("Error is: \(error)")
-  }
-}
-
- 
- // testcase how to use the activity api
- func testLogin() {
-
- let successBlock: apiSuccess = {
-     (result: BreinResult?) -> Void in
-   print("Api Success : result is:\n \(result)")
- }
- 
- let failureBlock: apiFailure = {
-      (error: NSDictionary?) -> Void in
-   print("Api Failure : error is:\n \(error)")
- }
-
- // set additional user information
- breinUser.setFirstName("Fred")
- breinUser.setLastName("Firestone")
-
- // invoke activity call
- do {
-    let breinifyExecutor = try BreinConfig()
-           .setApiKey(validApiKey)
-           .setBaseUrl(baseUrl)
-           .setRestEngineType(.ALAMOFIRE)
-           .build()
-
-     try breinifyExecutor.activity(breinUser,
-            activityType: "login",
-                category: "home",
-             description: "Login-Description",
-                    sign: false,
-                 success: successBlock,
-                 failure: failureBlock)
-    } catch {
-      print("Error is: \(error)")
-    }
-}
-
-//
-// Test lookup functionality
-//
-func testLookup() {
-
-let dimensions: [String] = ["firstname", "gender", 
-        "age", "agegroup", "digitalfootprint", "images"]
-let breinDimension = BreinDimension(dimensionFields: dimensions)
-
-let successBlock: apiSuccess = {
-    (result: BreinResult?) -> Void in
-    print("Api Success : result is:\n \(result!)")
-
-    if let dataFirstname = result!.get("firstname") {
-         print("Firstname is: \(dataFirstname)")
-    }
-
-    if let dataGender = result!.get("gender") {
-         print("Gender is: \(dataGender)")
-    }
-
-    if let dataAge = result!.get("age") {
-         print("Age is: \(dataAge)")
-    }
-
-    if let dataAgeGroup = result!.get("agegroup") {
-         print("AgeGroup is: \(dataAgeGroup)")
-    }
-
-    if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-         print("DigitalFootprinting is: \(dataDigitalFootprinting)")
-    }
-
-    if let dataImages = result!.get("images") {
-         print("DataImages is: \(dataImages)")
-    }
-}
-        
-let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-       print ("Api Failure : error is:\n \(error)")
-}
-
-do {
-  try Breinify.lookup(breinUser,
-           dimension: breinDimension,
-                sign: false,
-             success: successBlock,
-             failure: failureBlock)
-   } catch {
-     print("Error")
-  }
- }
-}
-
-```
 
 #### BreinUser
 BreinUser provides some methods to add further data. This example shows all possible option. 
@@ -553,63 +425,6 @@ breinUser.setFirstName("User")
 
 ````
 
-
-#### Exception
-
-The BreinifyAPI provides two exceptions. These are:
-
-
-1. BreinException
-2. BreinInvalidConfigurationException
-
-BreiException will be thrown for instance when an activity call fails. BreinInvalidConfigurationException will only be thrown in case of an invalid BreinConfig. This is the case when a wrong URL is configured.
-
-#### Secret
-
-In conjunction with your API key you can attach a secret. This secret will be part of the REST request from the client to the Breinify backend. 
-
-You have to configre the attached secret with the BreinConfig object and the sign flag for the REST call needs to be set to true.
-
-
-````swift
-// testcase how to use the activity api with secret
-func testLoginWithSecret() {
- 
-  typealias apiSuccess = (result:BreinResult?) -> Void
-  typealias apiFailure = (error:NSDictionary?) -> Void
-
-  let successBlock: apiSuccess = {
-      (result: BreinResult?) -> Void in
-      print("Api Success : result is:\n \(result)")
-  }
-
-  let failureBlock: apiFailure = {
-     (error: NSDictionary?) -> Void in
-     print("Api Failure : error is:\n \(error)")
-  }
-
-  // set additional user information
-  breinUser.setFirstName("Fred")
-  breinUser.setLastName("Firestone")
-
-  // set the secret
-  breinConfig.setSecret("h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU=")
-
-  // invoke activity call
-  do {
-     try Breinify.activity(breinUser,
-          activityType: "login",
-              category: "home",
-           description: "Login-Description",
-                  sign: true,  // must be true!!!
-               success: successBlock,
-               failure: failureBlock)
-   } catch {
-      print("Error is: \(error)")
-   }
-}
-
-````
 
 
 

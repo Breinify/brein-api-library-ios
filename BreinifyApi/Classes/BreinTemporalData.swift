@@ -53,11 +53,11 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         let timezone = getBreinUser().getTimezone()
         let paraTimezone = timezone == nil ? "" : timezone
 
-        let message = String(format: "%d", getUnixTimestamp()) +
+        let message = String(getUnixTimestamp()) +
                 "-" +
                 paraLocalDateTime +
                 "-" +
-                paraTimezone;
+                paraTimezone
 
         var signature = ""
         do {

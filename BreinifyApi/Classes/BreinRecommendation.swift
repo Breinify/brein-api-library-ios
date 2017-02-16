@@ -101,7 +101,7 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
     }
 
     public override func createSignature() throws -> String! {
-        let message = String(format: "%d", getUnixTimestamp())
+        let message = String(getUnixTimestamp())
         return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
     }
 }

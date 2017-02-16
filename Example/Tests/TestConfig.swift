@@ -22,15 +22,11 @@ class TestConfig: XCTestCase {
     //
     func testNormalConfigUsage() {
 
-        do {
-            let breinConfig = try BreinConfig(apiKey: validApiKey)
-            let breinActivity = BreinActivity()
-            breinActivity.setConfig(breinConfig)
+        let breinConfig = BreinConfig(apiKey: validApiKey)
+        let breinActivity = BreinActivity()
+        breinActivity.setConfig(breinConfig)
 
-            XCTAssertFalse(breinActivity.getConfig().getApiKey().isEmpty)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+        XCTAssertFalse(breinActivity.getConfig().getApiKey().isEmpty)
     }
 
     //
@@ -38,15 +34,11 @@ class TestConfig: XCTestCase {
     //
     func testEmptyConfig() {
 
-        do {
-            let breinConfig = try BreinConfig(apiKey: "")
-            let breinActivity = BreinActivity()
-            breinActivity.setConfig(breinConfig)
+        let breinConfig = BreinConfig(apiKey: "")
+        let breinActivity = BreinActivity()
+        breinActivity.setConfig(breinConfig)
 
-            XCTAssertTrue(breinActivity.getConfig().getApiKey().isEmpty)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+        XCTAssertTrue(breinActivity.getConfig().getApiKey().isEmpty)
     }
 
     //
@@ -55,11 +47,8 @@ class TestConfig: XCTestCase {
     func testConfigWithSecret() {
 
         let secret = "ddddfdsfdsfdsfdfdf"
-        do {
-            try BreinConfig(apiKey: "TEST-API-KEY", secret: secret)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+
+        BreinConfig(apiKey: "TEST-API-KEY", secret: secret)
     }
 
 }

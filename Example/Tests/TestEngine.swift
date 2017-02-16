@@ -18,15 +18,11 @@ class TestEngine: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        do {
-            breinConfig = try BreinConfig(apiKey: validApiKeyWithSecret,
-                    secret: validSecret)
+        breinConfig = BreinConfig(apiKey: validApiKeyWithSecret,
+                secret: validSecret)
 
-            // set configuration
-            Breinify.setConfig(breinConfig)
-        } catch {
-            print("Error is: \(error)")
-        }
+        // set configuration
+        Breinify.setConfig(breinConfig)
     }
 
     override func tearDown() {

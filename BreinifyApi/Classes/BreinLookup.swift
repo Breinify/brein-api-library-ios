@@ -91,12 +91,18 @@ public class BreinLookup: BreinBase, ISecretStrategy {
     }
 
     public override func createSignature() throws -> String! {
-        var dimensions = getBreinDimension().getDimensionFields()
+        let dimensions = getBreinDimension().getDimensionFields()
+        let dimEmpty = dimensions.isEmpty ? "0" : dimensions[0]
+        let dimCount = dimensions.isEmpty ? 0 : dimensions.count
 
         // we need the first one
+        let message = String(dimEmpty) + String(getUnixTimestamp()) + String(dimCount)
+
+        /*
         let message: String! = String(format: "%s%d%d", dimensions.isEmpty ? 0 : dimensions[0],
                 getUnixTimestamp(),
                 dimensions.isEmpty ? 0 : dimensions.count)
+                */
 
         return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
     }

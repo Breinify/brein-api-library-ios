@@ -66,50 +66,34 @@ public class BreinConfig {
     var category: String!
 
     // standard ctor
-    public init() throws {
+    public init() {
         self.initValues()
-        try self.initEngine()
+        self.initEngine()
     }
 
     //
-    convenience public init(apiKey: String!) throws {
-
-        do {
-            try self.init();
-
-            self.setApiKey(apiKey);
-            try self.initEngine()
-        } catch {
-            throw BreinError.BreinRuntimeError("could not initialize init")
-        }
+    convenience public init(apiKey: String!) {
+        self.init();
+        self.setApiKey(apiKey)
+        self.initEngine()
     }
 
     //
-    convenience public init(apiKey: String!, secret: String!) throws {
+    convenience public init(apiKey: String!, secret: String!) {
 
-        do {
-            try self.init(apiKey: apiKey);
-
-            setSecret(secret)
-            try self.initEngine()
-        } catch {
-            throw BreinError.BreinRuntimeError("could not initialize init")
-        }
+        self.init(apiKey: apiKey)
+        setSecret(secret)
+        self.initEngine()
     }
 
-    // 
+    //
     convenience public init(apiKey: String!,
                             secret: String!,
-                            breinEngineType: BreinEngineType!) throws {
+                            breinEngineType: BreinEngineType!) {
 
-        do {
-            try self.init(apiKey: apiKey, secret: secret)
-
-            self.setRestEngineType(breinEngineType)
-            try self.initEngine()
-        } catch {
-            throw BreinError.BreinRuntimeError("could not initialize init")
-        }
+        self.init(apiKey: apiKey, secret: secret)
+        self.setRestEngineType(breinEngineType)
+        self.initEngine()
     }
 
     // initializes the values
@@ -127,15 +111,15 @@ public class BreinConfig {
         setRestEngineType(BreinEngineType.ALAMOFIRE)
     }
 
-    public func initEngine() throws {
-        self.breinEngine = try BreinEngine(engineType: getRestEngineType())
+    public func initEngine() {
+        self.breinEngine = BreinEngine(engineType: getRestEngineType())
     }
 
     public func build() throws -> BreinifyExecutor {
         let breinifyExecutor = BreinifyExecutor()
         breinifyExecutor.setConfig(self)
 
-        try self.initEngine()
+        self.initEngine()
         return breinifyExecutor
     }
 

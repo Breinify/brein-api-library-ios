@@ -23,26 +23,21 @@ class TestDomain: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
-        do {
-            let breinConfig = try BreinConfig(apiKey: validApiKey)
-            let breinUser = BreinUser()
-            breinUser.setFirstName("Marco")
-                    .setLastName("Recchioni")
+        let breinConfig = BreinConfig(apiKey: validApiKey)
+        let breinUser = BreinUser()
+        breinUser.setFirstName("Marco")
+                .setLastName("Recchioni")
 
-            let breinActivity = BreinActivity()
-            breinActivity.setConfig(breinConfig)
-            breinActivity.setBreinUser(breinUser)
-            breinActivity.setBreinActivityType("login")
-                    .setDescription("Super-Desription")
-                    .setBreinCategoryType("home")
+        let breinActivity = BreinActivity()
+        breinActivity.setConfig(breinConfig)
+        breinActivity.setBreinUser(breinUser)
+        breinActivity.setBreinActivityType("login")
+                .setDescription("Super-Desription")
+                .setBreinCategoryType("home")
 
-            let jsonOutput = breinActivity.prepareJsonRequest();
-            dump("output is: \(jsonOutput)")
-            XCTAssertFalse(jsonOutput.isEmpty)
-
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+        let jsonOutput = breinActivity.prepareJsonRequest();
+        dump("output is: \(jsonOutput)")
+        XCTAssertFalse(jsonOutput.isEmpty)
     }
 
     /**
@@ -51,26 +46,22 @@ class TestDomain: XCTestCase {
     */
     func testBreinRequestWithLessData() {
 
-        do {
-            let breinConfig = try BreinConfig()
-            breinConfig.setApiKey(validApiKey)
+        let breinConfig = BreinConfig()
+        breinConfig.setApiKey(validApiKey)
 
-            let breinUser = BreinUser(email: "m.recchioni@me.com")
-            breinUser.setFirstName("")
+        let breinUser = BreinUser(email: "m.recchioni@me.com")
+        breinUser.setFirstName("")
 
-            let breinActivity = BreinActivity()
-            breinActivity.setConfig(breinConfig)
-            breinActivity.setBreinUser(breinUser)
-            breinActivity.setBreinActivityType("login")
-                    .setDescription("Super-Desription")
-                    .setBreinCategoryType("food")
+        let breinActivity = BreinActivity()
+        breinActivity.setConfig(breinConfig)
+        breinActivity.setBreinUser(breinUser)
+        breinActivity.setBreinActivityType("login")
+                .setDescription("Super-Desription")
+                .setBreinCategoryType("food")
 
-            let jsonOutput = breinActivity.prepareJsonRequest();
-            dump("output is: \(jsonOutput)")
-            XCTAssertFalse(jsonOutput.isEmpty)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
-        }
+        let jsonOutput = breinActivity.prepareJsonRequest();
+        dump("output is: \(jsonOutput)")
+        XCTAssertFalse(jsonOutput.isEmpty)
     }
 
     /**
@@ -117,15 +108,17 @@ class TestDomain: XCTestCase {
         XCTAssertFalse(breinUser.description().isEmpty)
     }
 
+    /*
     func testNetworkInfo() {
 
         var breinUser = BreinUser()
         var data = [String: AnyObject]()
 
-        breinUser.prepareNetworkInfo(&data)
+        // breinUser.prepareNetworkInfo(&data)
 
         dump(data)
     }
+    */
 
 
     /**
