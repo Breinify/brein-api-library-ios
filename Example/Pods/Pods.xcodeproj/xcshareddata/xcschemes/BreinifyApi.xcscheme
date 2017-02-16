@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4898BB621379CD6875252A960C01702B"
+               BlueprintIdentifier = "1F05C5E241846341561AB5615355512F"
                BuildableName = "BreinifyApi.framework"
                BlueprintName = "BreinifyApi"
                ReferencedContainer = "container:Pods.xcodeproj">

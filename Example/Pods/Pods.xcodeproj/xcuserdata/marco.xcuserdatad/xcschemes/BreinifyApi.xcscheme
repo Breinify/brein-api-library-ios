@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7F55E5D62CA3BA8CD8DE296678A90B8B'
-               BlueprintName = 'IDZSwiftCommonCrypto'
+               BlueprintIdentifier = '1F05C5E241846341561AB5615355512F'
+               BlueprintName = 'BreinifyApi'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'IDZSwiftCommonCrypto.framework'>
+               BuildableName = 'BreinifyApi.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

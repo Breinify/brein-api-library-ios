@@ -9,33 +9,33 @@
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>BreinifyApi.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>7</integer>
 		</dict>
 		<key>IDZSwiftCommonCrypto.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Pods-BreinifyApi_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3E9FDFC2EA03CFC5C0C91502F72D17FD</key>
+		<key>1F05C5E241846341561AB5615355512F</key>
 		<dict>
 			<key>primary</key>
 			<true />
@@ -45,12 +45,12 @@
 			<key>primary</key>
 			<true />
 		</dict>
-		<key>9772E7140193457CCE5FE9A86E0A2BDD</key>
+		<key>7F55E5D62CA3BA8CD8DE296678A90B8B</key>
 		<dict>
 			<key>primary</key>
 			<true />
 		</dict>
-		<key>9DEA0445B7CDFD51D1DC6DD7CE986BB3</key>
+		<key>9772E7140193457CCE5FE9A86E0A2BDD</key>
 		<dict>
 			<key>primary</key>
 			<true />
