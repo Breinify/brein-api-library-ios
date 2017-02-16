@@ -71,14 +71,23 @@ public class BreinConfig {
         self.initEngine()
     }
 
-    //
+    /**
+       init with
+
+       - parameter apiKey: contains the apiKey
+    */
     convenience public init(apiKey: String!) {
         self.init();
         self.setApiKey(apiKey)
         self.initEngine()
     }
 
-    //
+    /**
+       init with
+
+       - parameter apiKey: contains the apiKey
+       - parameter secret: contains the secret
+    */
     convenience public init(apiKey: String!, secret: String!) {
 
         self.init(apiKey: apiKey)
@@ -86,7 +95,13 @@ public class BreinConfig {
         self.initEngine()
     }
 
-    //
+    /**
+       init with
+
+       - parameter apiKey: contains the apiKey
+       - parameter secret: contains the secret
+       - parameter breinEngineType: contains the engine 
+    */
     convenience public init(apiKey: String!,
                             secret: String!,
                             breinEngineType: BreinEngineType!) {

@@ -19,6 +19,15 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         self.breinDimension = breinDimension
     }
 
+    /**
+      Lookup implementation. For a given user (BreinUser) a lookup will be performed with the requested dimensions
+      (BreinDimension)
+
+      - parameter breinUser:      contains the breinify user
+      - parameter breinDimension: contains the dimensions to look after
+
+      - returns response from request or null if no data can be retrieved
+    */
     public func lookUp(breinUser: BreinUser!,
                 breinDimension: BreinDimension!,
                 success successBlock: BreinEngine.apiSuccess,
@@ -34,6 +43,11 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return try getBreinEngine().performLookUp(self, success: successBlock, failure: failureBlock)
     }
 
+    /**
+      prepares a JSON request for a lookup
+
+      - returns: Dictionary that will be used for rest call (body)
+    */
     override public func prepareJsonRequest() -> [String:AnyObject]! {
         // call base class
         super.prepareJsonRequest()
@@ -90,6 +104,11 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return getConfig().getLookupEndpoint()
     }
 
+    /**
+      Creates the signature for lookup
+
+       - returns: signature
+    */
     public override func createSignature() throws -> String! {
         let dimensions = getBreinDimension().getDimensionFields()
         let dimEmpty = dimensions.isEmpty ? "0" : dimensions[0]

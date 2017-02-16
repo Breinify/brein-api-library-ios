@@ -31,17 +31,17 @@ public class Breinify {
         return breinRecommendation
     }
 
-    ///
+    /// returns breinActivity
     public static func getBreinActivity() -> BreinActivity! {
         return breinActivity
     }
 
-    ///
+    ///  returns breinLookup
     public static func getBreinLookup() -> BreinLookup! {
         return breinLookup
     }
 
-    ///
+    /// set config to work with
     public class func setConfig(breinConfig: BreinConfig!) {
         self.config = breinConfig
 
@@ -132,22 +132,23 @@ public class Breinify {
                 failure: failureBlock)
     }
    
-    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
-    /// important that a valid API-key is configured prior to using this function.
-    /// <p>
-    /// This request is asynchronous.
-    ///
-    /// - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
-    /// - Parameter user:          A plain object specifying the user information the activity belongs to.
-    /// - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
-    ///                            removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
-    ///                            be used
-    /// - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
-    ///                            food, health, job, services, or other
-    /// - Parameter description:   A string with further information about the activity performed
-    /// - Parameter successBlock : A callback function that is invoked in case of success.
-    /// - Parameter failureBlock : A callback function that is invoked in case of an error.
-    ///
+    /**
+        Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+
+        This request is asynchronous.
+
+        - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
+        - Parameter user:          A plain object specifying the user information the activity belongs to.
+        - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+                                  removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+                                   be used
+        - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+                                   food, health, job, services, or other
+        - Parameter description:   A string with further information about the activity performed
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+    */
     public class func activity(breinActivity: BreinActivity!,
                                user: BreinUser!,
                                activityType: String!,
@@ -170,6 +171,16 @@ public class Breinify {
                 failure: failureBlock)
     }
 
+    /**
+      Sends a recommendation request to the engine utilizing the API. The call is done synchronously as a POST request. It is
+      important that a valid API-key is configured prior to using this function.
+
+        - parameter breinRecommendation: contains the brein recommendation object
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+        - returns:  BreinResult object
+     */
     public class func recommendation(breinRecommendation: BreinRecommendation!,
                                      success successBlock: BreinEngine.apiSuccess,
                                      failure failureBlock: BreinEngine.apiFailure) throws {
@@ -186,7 +197,18 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    ///
+    /**
+       Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
+       important that a valid API-key is configured prior to using this function.
+
+       Furthermore it uses the internal instance of BreinTemporalData.
+
+         - parameter user: a plain object specifying information about the user to retrieve data for.
+         - Parameter successBlock : A callback function that is invoked in case of success.
+         - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+         - returns: result from the Breinify engine
+    */
     public class func temporalData(user: BreinUser!,
                                    success successBlock: BreinEngine.apiSuccess,
                                    failure failureBlock: BreinEngine.apiFailure) throws {
@@ -197,7 +219,19 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    /// 
+    /**
+        Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+
+        Furthermore it uses the internal instance of BreinTemporalData.
+
+        - parameter breinTemporalData: contains a breinTemporalData object.
+        - parameter user: a plain object specifying information about the user to retrieve data for.
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+        - returns: result from the Breinify engine
+     */
     public class func temporalData(breinTemporalData: BreinTemporalData!,
                                    user: BreinUser!,
                                    success successBlock: BreinEngine.apiSuccess,
@@ -214,8 +248,17 @@ public class Breinify {
                 failure: failureBlock)
     }
 
+    /**
+      Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
+      This request is synchronous.
 
-    /// 
+        - parameter user:      a plain object specifying information about the user to retrieve data for.
+        - parameter dimension: an object (with an array) containing the names of the dimensions to lookup.
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+        - returns response from request wrapped in an object called BreinResponse
+    */
     public class func lookup(user: BreinUser!,
                              dimension: BreinDimension!,
                              success successBlock: BreinEngine.apiSuccess,
@@ -228,7 +271,18 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    /// 
+    /**
+       Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
+       This request is synchronous.
+
+         - parameter breinLookup:     an instance of BreinLookup.
+         - parameter user:      a plain object specifying information about the user to retrieve data for.
+         - parameter dimension: an object (with an array) containing the names of the dimensions to lookup.
+         - Parameter successBlock : A callback function that is invoked in case of success.
+         - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+         - returns response from request wrapped in an object called BreinResponse
+     */
     public class func lookup(breinLookup: BreinLookup!,
                              user: BreinUser!,
                              dimension: BreinDimension!,

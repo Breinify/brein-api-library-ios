@@ -9,12 +9,25 @@ import Alamofire
 
 public class AlamofireEngine: IRestEngine {
 
+    /// some handy aliases
     public typealias apiSuccess = (result: BreinResult?) -> Void
     public typealias apiFailure = (error: NSDictionary?) -> Void
 
+    /**
+     configures the rest engine
+
+     - parameter breinConfig: configuration object
+    */
     public func configure(breinConfig: BreinConfig) {
     }
 
+    /**
+      Invokes the post request for activities
+
+      - parameter breinActivity: activity object
+      - parameter success successBlock: will be invoked in case of success
+      - parameter failure failureBlock: will be invoked in case of an error
+    */
     public func doRequest(breinActivity: BreinActivity,
                           success successBlock: apiSuccess,
                           failure failureBlock: apiFailure) throws {
@@ -23,6 +36,17 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinActivity)
         let body = try getRequestBody(breinActivity)
+
+        /*
+        do {
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+
+            dump(jsonString)
+        } catch let error as NSError {
+            dump(error)
+        }
+        */
 
         Alamofire.request(.POST,
                         url,
@@ -55,7 +79,14 @@ public class AlamofireEngine: IRestEngine {
                     }
                 }
     }
+    
+    /**
+       Invokes the post request for recommendations
 
+       - parameter breinRecommendation: recommendation object
+       - parameter success successBlock: will be invoked in case of success
+       - parameter failure failureBlock: will be invoked in case of an error
+     */
     public func doRecommendation(breinRecommendation: BreinRecommendation,
                                  success successBlock: (result: BreinResult?) -> Void,
                                  failure failureBlock: (error: NSDictionary?) -> Void) throws {
@@ -64,6 +95,17 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinRecommendation)
         let body = try getRequestBody(breinRecommendation)
+
+        /*
+        do {
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+
+            dump(jsonString)
+        } catch let error as NSError {
+            dump(error)
+        }
+        */
 
         Alamofire.request(.POST,
                         url,
@@ -99,6 +141,13 @@ public class AlamofireEngine: IRestEngine {
                 }
     }
 
+    /**
+       Invokes the post request for lookups
+
+       - parameter breinLookup: lookup object
+       - parameter success successBlock: will be invoked in case of success
+       - parameter failure failureBlock: will be invoked in case of an error
+     */
     public func doLookup(breinLookup: BreinLookup,
                          success successBlock: apiSuccess,
                          failure failureBlock: apiFailure) throws {
@@ -108,6 +157,15 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinLookup)
         let body = try getRequestBody(breinLookup)
 
+        do {
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+
+            dump(jsonString)
+        } catch let error as NSError {
+            dump(error)
+        }
+
         Alamofire.request(.POST,
                         url,
                         parameters: body,
@@ -134,7 +192,14 @@ public class AlamofireEngine: IRestEngine {
                     }
                 }
     }
+    
+    /**
+      Invokes the post request for temporalData
 
+      - parameter breinTemporalData: temporalData object
+      - parameter success successBlock: will be invoked in case of success
+      - parameter failure failureBlock: will be invoked in case of an error
+    */
     public func doTemporalDataRequest(breinTemporalData: BreinTemporalData,
                                       success successBlock: apiSuccess,
                                       failure failureBlock: apiFailure) throws {
@@ -144,6 +209,17 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinTemporalData)
         let body = try getRequestBody(breinTemporalData)
 
+        /*
+        do {
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+
+            dump(jsonString)
+        } catch let error as NSError {
+            dump(error)
+        }
+        */
+
         Alamofire.request(.POST,
                         url,
                         parameters: body,
@@ -171,6 +247,7 @@ public class AlamofireEngine: IRestEngine {
                 }
     }
 
+    /// This method can be used in the future
     func executeRequest(url: String,
                         body: [String: AnyObject],
                         success successBlock: apiSuccess,
@@ -210,6 +287,7 @@ public class AlamofireEngine: IRestEngine {
                 }
     }
 
+    /// Terminates whatever would need to be stopped
     public func terminate() {
     }
 }

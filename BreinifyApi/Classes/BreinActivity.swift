@@ -6,23 +6,30 @@
 import Foundation
 
 
+/**
+ Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request.
+ It is important, that a valid API-key is configured prior to using this function.
+*/
+
 public class BreinActivity: BreinBase, ISecretStrategy {
 
-    //  ActivityType of the activity
+    ///  ActivityType of the activity
     var breinActivityType: String?
 
-    //  Category of the activity
+    ///  Category of the activity
     var breinCategoryType: String?
 
-    //  Description of the activity
+    ///  Description of the activity
     var description: String?
 
-    // tags dictionary
-    var tagsDic: [String:AnyObject]?
+    /// tags dictionary
+    var tagsDic: [String: AnyObject]?
 
-    // activity dictionary
-    var actitivityDic: [String:AnyObject]?
-   
+    /// activity dictionary
+    var actitivityDic: [String: AnyObject]?
+
+    /// returns activity type
+    /// - return activity type as String
     public func getBreinActivityType() -> String! {
         return breinActivityType
     }
@@ -54,24 +61,32 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return getConfig().getActivityEndpoint()
     }
 
-    public func setTagsDic(tagsDic: [String:AnyObject]) -> BreinActivity {
+    public func setTagsDic(tagsDic: [String: AnyObject]) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
     }
 
-    public func getTagsDic() -> [String:AnyObject]? {
+    public func getTagsDic() -> [String: AnyObject]? {
         return self.tagsDic
     }
 
-    public func setActivityDic(activityDic: [String:AnyObject]) -> BreinActivity {
+    public func setActivityDic(activityDic: [String: AnyObject]) -> BreinActivity {
         self.actitivityDic = activityDic
         return self
     }
 
-    public func getActitivityDic() -> [String:AnyObject]? {
+    public func getActitivityDic() -> [String: AnyObject]? {
         return self.actitivityDic
     }
 
+    /**
+      Sends an activity to the Breinify server.
+
+      - parameter breinUser:         the user-information
+      - parameter breinActivityType: the type of activity
+      - parameter breinCategoryType: the category (can be null or undefined)
+      - parameter description:       the description for the activity
+    */
     public func activity(breinUser: BreinUser!,
                          breinActivityType: String!,
                          breinCategoryType: String!,
@@ -93,12 +108,12 @@ public class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     /**
-      * creates a dictionary that will be used for the request.
-      *
-      * @return Dictionary
-      */
-    override public func prepareJsonRequest() -> [String:AnyObject]! {
-        
+      Creates a dictionary that will be used for the request.
+
+      returns: Dictionary
+    */
+    override public func prepareJsonRequest() -> [String: AnyObject]! {
+
         // call base class
         super.prepareJsonRequest()
 
@@ -139,11 +154,15 @@ public class BreinActivity: BreinBase, ISecretStrategy {
 
         // add base stuff
         self.prepareBaseRequestData(&requestData)
-        
+
         return requestData
     }
 
-    //
+    /**
+      Generates the signature for the request
+     
+      returns: full signature
+    */
     public override func createSignature() throws -> String! {
 
         let breinActivityType = self.getBreinActivityType() ?? ""
