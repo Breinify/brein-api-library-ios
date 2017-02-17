@@ -9,7 +9,7 @@ import Foundation
 public class Breinify {
 
     ///  contains the current version of the usage library
-    static let version: String! = "0.4.3"
+    static let version: String! = "0.4.4"
 
     /// contains the configuration
     static var config: BreinConfig?
