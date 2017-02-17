@@ -157,6 +157,7 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinLookup)
         let body = try getRequestBody(breinLookup)
 
+        /*
         do {
             let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
@@ -165,6 +166,7 @@ public class AlamofireEngine: IRestEngine {
         } catch let error as NSError {
             dump(error)
         }
+        */
 
         Alamofire.request(.POST,
                         url,
