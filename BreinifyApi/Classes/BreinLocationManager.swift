@@ -82,7 +82,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager = nil
     }
 
-    //location authorization status changed
+    /// location authorization status changed
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 
         switch status {

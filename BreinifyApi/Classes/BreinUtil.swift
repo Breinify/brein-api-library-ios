@@ -9,6 +9,14 @@ import IDZSwiftCommonCrypto
 
 public class BreinUtil {
 
+    /**
+       generate the signature
+
+       - parameter: message contains the message that needs to be encrypted
+       - parameter: secret contains the secret
+
+       - returns: encrypted message based on HMac256 algorithmn
+    */
     static public func generateSignature(message: String!, secret: String!) throws -> String {
 
         if message == nil || secret == nil {

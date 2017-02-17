@@ -7,9 +7,17 @@
 import Foundation
 
 public class BreinTemporalData: BreinBase, ISecretStrategy {
+    
+    /**
+       TemporalData implementation. For a given user (BreinUser) a temporalData request will be performed.
 
+         - parameter breinUser:  contains the breinify user
+         - parameter successBlock : A callback function that is invoked in case of success.
+         - parameter failureBlock : A callback function that is invoked in case of an error.
+
+         - returns response: from request or null if no data can be retrieved
+    */
     public func temporalData(breinUser: BreinUser!,
-                             sign: Bool,
                              success successBlock: BreinEngine.apiSuccess,
                              failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -19,7 +27,7 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
 
         setBreinUser(breinUser)
 
-        return try getBreinEngine().performTemporalDataRequest(self,
+        return try getBreinEngine()!.performTemporalDataRequest(self,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -43,7 +51,7 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
     override public func getEndPoint() -> String! {
-        return getConfig().getTemporalDataEndpoint()
+        return getConfig()?.getTemporalDataEndpoint()
     }
 
     public override func createSignature() -> String! {
@@ -61,7 +69,7 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
 
         var signature = ""
         do {
-            signature = try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
+            signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
             print("Ups: Error while trying to generate signature")
         }

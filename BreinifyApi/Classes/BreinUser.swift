@@ -5,8 +5,10 @@
 
 import Foundation
 import CoreLocation
+
 // import CoreTelephony
 // import SystemConfiguration.CaptiveNetwork
+
 import NetworkExtension
 
 public class BreinUser {
@@ -58,7 +60,6 @@ public class BreinUser {
 
     /// contains user dictionary
     var userDic = [String: AnyObject]()
-    
 
     /// Initializer with "nothing"
     public init() {
@@ -70,7 +71,7 @@ public class BreinUser {
     }
 
     /// returns the email
-    public func getEmail() -> String! {
+    public func getEmail() -> String? {
         return email
     }
 
@@ -81,7 +82,7 @@ public class BreinUser {
     }
 
     /// returns the first name
-    public func getFirstName() -> String! {
+    public func getFirstName() -> String? {
         return firstName
     }
 
@@ -92,7 +93,7 @@ public class BreinUser {
     }
 
     /// returns the last name 
-    public func getLastName() -> String! {
+    public func getLastName() -> String? {
         return lastName
     }
 
@@ -120,52 +121,67 @@ public class BreinUser {
         return self
     }
 
+    /// set date of birth as string
+    public func setDateOfBirthString(birth: String!) {
+        self.dateOfBirth = birth
+    }
+    
     /// this will reset the value of dateOfBirth to ""
     public func resetDateOfBirth() {
         self.dateOfBirth = ""
     }
 
-    public func getImei() -> String! {
+    /// returns imei
+    public func getImei() -> String? {
         return imei
     }
 
+    /// sets imei
     public func setImei(imei: String!) -> BreinUser! {
         self.imei = imei
         return self
     }
 
+    /// returns deviceId
     public func getDeviceId() -> String! {
         return deviceId
     }
 
+    /// sets deviceId
     public func setDeviceId(deviceId: String!) -> BreinUser! {
         self.deviceId = deviceId
         return self
     }
 
+    /// returns sessionId
     public func getSessionId() -> String! {
         return sessionId
     }
 
+    /// sets sessionId
     public func setSessionId(sessionId: String!) -> BreinUser! {
         self.sessionId = sessionId
         return self
     }
 
+    /// sets userAgent
     public func setUserAgent(userAgent: String!) -> BreinUser! {
         self.userAgent = userAgent
         return self
     }
 
+    /// sets referrer
     public func setReferrer(referrer: String!) -> BreinUser! {
         self.referrer = referrer
         return self
     }
 
-    public func getReferrer() -> String! {
+    /// returns refferer
+    public func getReferrer() -> String? {
         return referrer
     }
 
+    /// sets localDateTime
     public func setLocalDateTime(localDateTime: String!) -> BreinUser! {
         self.localDateTime = localDateTime
         return self
@@ -178,11 +194,12 @@ public class BreinUser {
 
         if (self.localDateTime ?? "").isEmpty {
             return detectLocalDateTime()
-        } 
+        }
 
         return localDateTime
     }
 
+    /// sets timezone
     public func setTimezone(timeZone: String!) -> BreinUser! {
         self.timezone = timeZone
         return self
@@ -200,24 +217,29 @@ public class BreinUser {
         return timezone
     }
 
+    /// sets url
     public func setUrl(url: String!) -> BreinUser! {
         self.url = url
         return self
     }
 
+    /// returns url
     public func getUrl() -> String! {
         return url
     }
 
+    /// sets ipAddress
     public func setIpAddress(ipAddress: String!) -> BreinUser! {
         self.ipAddress = ipAddress
         return self
     }
 
+    /// gets ipAddress
     public func getIpAddress() -> String! {
         return ipAddress
     }
 
+    /// sets additional dic
     public func setAdditional(key: String?, map: [String: AnyObject]?) -> BreinUser! {
         if map == nil {
             return self
@@ -239,7 +261,7 @@ public class BreinUser {
         return self
     }
 
-    ///
+    /// returns addtional dic
     public func getAdditionalDic() -> [String: AnyObject]? {
         return additional
     }
@@ -254,18 +276,21 @@ public class BreinUser {
     public func getUserDic() -> [String: AnyObject]? {
         return userDic
     }
-    
+
+    /// sets location data
     public func setLocationData(locationData: CLLocation?) -> BreinUser {
         self.locationData = locationData
         return self
     }
 
+    /// detect current timezone
     public func detectCurrentTimezone() -> String! {
         let localTimeZoneName: String = NSTimeZone.localTimeZone().name
         // print("local time zone is: \(localTimeZoneName)")
         return localTimeZoneName
     }
 
+    /// detect current localDateTime
     public func detectLocalDateTime() -> String! {
         let date = NSDate()
 
@@ -278,7 +303,7 @@ public class BreinUser {
         return defaultLocalDateTimeString
     }
 
-    ///
+    /// prepares user related map for json request
     public func prepareUserRequest(inout userData: [String: AnyObject], breinConfig: BreinConfig!) {
 
         if let dateOfBirth = self.getDateOfBirth() {
@@ -322,7 +347,7 @@ public class BreinUser {
         }
     }
 
-    /// 
+    /// prepares user.additional map for json request
     public func prepareAdditionalFields() -> [String: AnyObject]! {
 
         // additional part
@@ -368,10 +393,48 @@ public class BreinUser {
                 BreinMapUtil.fillMap(userAdditionalDataDic, requestStructure: &additionalData)
             }
         }
-        
+
         // prepareNetworkInfo(&additionalData)
 
         return additionalData
+    }
+
+    /**
+     * Creates a clone of a given BreinUser object
+     *
+     * @param sourceUser contains the original brein user
+     * @return a copy of the original brein user
+     */
+    public static func clone(sourceUser: BreinUser) -> BreinUser {
+
+        // then a new user with the new created brein user request
+        let newUser = BreinUser()
+                .setEmail(sourceUser.getEmail())
+                .setFirstName(sourceUser.getFirstName())
+                .setLastName(sourceUser.getLastName())
+                .setImei(sourceUser.getImei())
+                .setDeviceId(sourceUser.getDeviceId())
+                .setUrl(sourceUser.getUrl())
+                .setSessionId(sourceUser.getSessionId())
+                .setImei(sourceUser.getImei())
+                .setUserAgent(sourceUser.getUserAgent())
+                .setReferrer(sourceUser.getReferrer())
+                .setIpAddress(sourceUser.getIpAddress())
+                .setLocalDateTime(sourceUser.getLocalDateTime())
+                .setTimezone(sourceUser.getTimezone())
+
+        newUser.setDateOfBirthString(sourceUser.getDateOfBirth())
+
+        // copy dictionaries
+        if let clonedAdditionalDic = sourceUser.getAdditionalDic() {
+            newUser.setAdditionalDic(clonedAdditionalDic)
+        }
+
+        if let clonedUserDic = sourceUser.getUserDic() {
+            newUser.setUserDic(clonedUserDic)
+        }
+        
+        return newUser
     }
 
     // provides networkinformation
@@ -399,6 +462,7 @@ public class BreinUser {
     }
     */
 
+    /// returns user agent
     public func getUserAgent() -> String! {
 
         let userAgent: String = {

@@ -9,31 +9,43 @@ import Foundation
 
 public class BreinBase {
 
+    public typealias apiSuccess = (result: BreinResult?) -> Void
+    public typealias apiFailure = (error: NSDictionary?) -> Void
+
     // means nothing -> no value
     static let NO_VALUE_DEFINED = ""
 
     //  contains the User that will be used for the request
     var breinUser: BreinUser?
 
+    // contains the ipAddress
+    var ipAddress: String = ""
+
     //  Configuration
-    var breinConfig: BreinConfig!
+    var breinConfig: BreinConfig?
 
     //  contains the timestamp when the request will be generated
     var unixTimestamp: NSTimeInterval!
 
     /// base dictionary
-    var baseDic: [String:AnyObject]?
+    var baseDic: [String: AnyObject]?
+
+    /// contains block invoked in case of success
+    var successBlock: BreinBase.apiSuccess?
+
+    /// contains block invoked in case of failure
+    var failureBlock: BreinBase.apiFailure?
 
     public init() {
         self.unixTimestamp = 0
     }
 
-    public func setBaseDic(baseDic: [String:AnyObject]) -> BreinBase {
+    public func setBaseDic(baseDic: [String: AnyObject]) -> BreinBase {
         self.baseDic = baseDic
         return self
     }
 
-    public func getBaseDic() -> [String:AnyObject]!{
+    public func getBaseDic() -> [String: AnyObject]? {
         return self.baseDic
     }
 
@@ -53,8 +65,41 @@ public class BreinBase {
         self.breinUser = breinUser
     }
 
-    public func getBreinEngine() -> BreinEngine! {
-        return nil == breinConfig ? nil : getConfig().getBreinEngine()
+    public func setIpAddress(ipAddressPara: String?) -> BreinBase {
+        if let ipAdr = ipAddressPara {
+            self.ipAddress = ipAdr
+        }
+        return self
+    }
+
+    public func getIpAddress() -> String? {
+        return self.ipAddress
+    }
+
+    public func getBreinEngine() -> BreinEngine? {
+        return self.getConfig()?.getBreinEngine()
+    }
+
+    public func getSuccessBlock() -> BreinBase.apiSuccess? {
+        return successBlock
+    }
+
+    public func setSuccessBlock(success: BreinBase.apiSuccess?) -> BreinBase {
+        if let sucBlock = success {
+            self.successBlock = sucBlock
+        }
+        return self
+    }
+
+    public func getFailureBlock() -> BreinBase.apiFailure? {
+        return failureBlock
+    }
+
+    public func setFailureBlock(failure: BreinBase.apiFailure?) -> BreinBase {
+        if let faiBlock = failure {
+            self.failureBlock = faiBlock
+        }
+        return self
     }
 
     public func prepareJsonRequest() -> [String: AnyObject]! {
@@ -63,7 +108,7 @@ public class BreinBase {
         return [String: AnyObject]()
     }
 
-    // base level data...
+    // prepares the map on base level for the json request
     public func prepareBaseRequestData(inout requestData: [String: AnyObject]) {
 
         if let apiKey = getConfig()?.getApiKey() where !apiKey.isEmpty {
@@ -93,32 +138,65 @@ public class BreinBase {
         }
     }
 
+    /// empty -> needs to be implemented by subclass
     public func createSignature() throws -> String! {
         return BreinBase.NO_VALUE_DEFINED
     }
 
+    /// empty -> needs to be implemented by subclass
     public func getEndPoint() -> String! {
         return BreinBase.NO_VALUE_DEFINED
     }
 
+    /// returns the unixtimestamp (as part of the request)
     public func getUnixTimestamp() -> Int {
         return Int(unixTimestamp)
     }
 
+    /// sets the unixtimestamp
     public func setUnixTimestamp(unixTimestamp: NSTimeInterval) {
         self.unixTimestamp = unixTimestamp
     }
-    
+
+    /// detects if message should be sent in 'sing' mode
     public func isSign() -> Bool {
 
         if breinConfig == nil {
             return false
         }
 
-        if breinConfig.getSecret() == nil {
+        if breinConfig?.getSecret() == nil {
             return false
         }
-        return breinConfig.getSecret().characters.count > 0
+        
+        return breinConfig?.getSecret().characters.count > 0
     }
+    
+    /**
+    * Clones from base class
+    *
+    * @param source to clone from
+    */
+    public func cloneBase(source: BreinBase) {
 
+        // set further data...
+        self.setIpAddress(source.getIpAddress());
+        self.unixTimestamp = source.unixTimestamp
+
+        // callback_s
+        self.setSuccessBlock(source.getSuccessBlock())
+        self.setFailureBlock(source.getFailureBlock())
+
+        // configuration
+        self.setConfig(source.getConfig());
+
+        // clone user
+        let clonedUser = BreinUser.clone(source.getBreinUser());
+        self.setBreinUser(clonedUser);
+
+        // clone maps
+        if let clonedBaseDic = source.getBaseDic() {
+            self.setBaseDic(clonedBaseDic)
+        }
+    }
 }

@@ -9,24 +9,27 @@ import Foundation
 public class Breinify {
 
     ///  contains the current version of the usage library
-    static let version: String! = "0.3.3"
+    static let version: String! = "0.4.3"
 
     /// contains the configuration
-    static var config: BreinConfig!
+    static var config: BreinConfig?
 
     ///  contains the activity object
-    static var breinActivity: BreinActivity! = BreinActivity()
+    static var breinActivity: BreinActivity = BreinActivity()
 
     /// contains the recommendation object
     static var breinRecommendation: BreinRecommendation! = BreinRecommendation()
 
-    ///  contains the lookup object
-    static var breinLookup: BreinLookup! = BreinLookup()
+    /// contains the lookup object
+    static var breinLookup: BreinLookup = BreinLookup()
 
     /// contains the temporaldata object
     static var breinTemporalData: BreinTemporalData = BreinTemporalData()
 
-    ///
+    /// contains the brein user
+    static var breinUser: BreinUser?
+
+    /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
         return breinRecommendation
     }
@@ -52,32 +55,44 @@ public class Breinify {
         self.breinTemporalData.setConfig(breinConfig)
     }
 
-    // retrieves the configuration
+    /// retrieves the configuration
     public class func getConfig() -> BreinConfig! {
         return config
     }
 
-    // retrieves the version
+    /// retrieves the version
     public static func getVersion() -> String! {
         return version
     }
 
-    
-    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
-    /// important that a valid API-key is configured prior to using this function.
-    /// <p>
-    /// This request is asynchronous.
-    ///
-    /// - Parameter user:          A plain object specifying the user information the activity belongs to.
-    /// - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
-    ///                            removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
-    ///                            be used
-    /// - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
-    ///                            food, health, job, services, or other
-    /// - Parameter description:   A string with further information about the activity performed
-    /// - Parameter successBlock : A callback function that is invoked in case of success.
-    /// - Parameter failureBlock : A callback function that is invoked in case of an error.
-    ///
+    /// sets the brein user for later usage
+    public static func setBreinUser(user: BreinUser?) {
+        if user != nil {
+            self.breinUser = user
+        }
+    }
+
+    /// returns the brein user
+    public static func getBreinUser() -> BreinUser? {
+        return self.breinUser
+    }
+
+    /**
+        Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+
+        This request is asynchronous.
+
+        - Parameter user:          A plain object specifying the user information the activity belongs to.
+        - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+                                   removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+                                   be used
+        - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+                                   food, health, job, services, or other
+        - Parameter description:   A string with further information about the activity performed
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+    */
     public class func activity(user: BreinUser!,
                                activityType: String!,
                                category: String!,
@@ -85,7 +100,14 @@ public class Breinify {
                                success successBlock: BreinEngine.apiSuccess,
                                failure failureBlock: BreinEngine.apiFailure) throws {
 
-        try activity(breinActivity,
+
+        // clone breinActivty
+        let clonedBreinActivity = self.getBreinActivity().clone()
+
+        clonedBreinActivity.setSuccessBlock(successBlock)
+        clonedBreinActivity.setFailureBlock(failureBlock)
+
+        try activity(clonedBreinActivity,
                 user: user,
                 activityType: activityType,
                 category: category,
@@ -94,13 +116,51 @@ public class Breinify {
                 failure: failureBlock)
     }
 
-    /// Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
-    /// important that a valid API-key is configured prior to using this function.
-    /// This request is asynchronous. This method will used the already set objects of class Breinify.
-    ///
-    ///  - Parameter successBlock : A callback function that is invoked in case of success.
-    ///  - Parameter failureBlock : A callback function that is invoked in case of an error.
-    ///
+    /**
+        Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+
+        Important: this method will only work if the property breinUser of this class is valid (not nil)
+
+        This request is asynchronous.
+
+        - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+                                   removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+                                   be used
+        - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+                                   food, health, job, services, or other
+        - Parameter description:   A string with further information about the activity performed
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+    */
+    public class func activity(activityType: String!,
+                               category: String!,
+                               description: String!,
+                               success successBlock: BreinEngine.apiSuccess,
+                               failure failureBlock: BreinEngine.apiFailure) throws {
+
+        // firstly check if user is valid
+        guard let user = self.getBreinUser() else {
+            throw BreinError.BreinRuntimeError("User not set.")
+        }
+
+        try activity(getBreinActivity(),
+                user: user,
+                activityType: activityType,
+                category: category,
+                description: description,
+                success: successBlock,
+                failure: failureBlock)
+    }
+
+    /**
+        Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+        This request is asynchronous. This method will used the already set objects of class Breinify.
+
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+    */
     public class func activity(success successBlock: BreinEngine.apiSuccess,
                                failure failureBlock: BreinEngine.apiFailure) throws {
 
@@ -126,12 +186,17 @@ public class Breinify {
             }
         }
 
+        activity.setSuccessBlock(successBlock)
+        activity.setFailureBlock(failureBlock)
+
+        let clonedActivity = activity.clone()
+
         // invoke the activity call
-        try breinActivity.getBreinEngine().sendActivity(breinActivity,
+        try clonedActivity.getBreinEngine()?.sendActivity(clonedActivity,
                 success: successBlock,
                 failure: failureBlock)
     }
-   
+
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -165,8 +230,13 @@ public class Breinify {
         breinActivity.setBreinActivityType(activityType)
         breinActivity.setBreinCategoryType(category)
         breinActivity.setDescription(description)
+        breinActivity.setSuccessBlock(successBlock)
+        breinActivity.setFailureBlock(failureBlock)
 
-        try breinActivity.getBreinEngine().sendActivity(breinActivity,
+        // clone breinActivty
+        let clonedBreinActivity = breinActivity.clone()
+
+        try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -192,7 +262,7 @@ public class Breinify {
         // apply the current configuration
         breinRecommendation.setConfig(self.getBreinRecommendation().getConfig());
 
-        return try breinRecommendation.getBreinEngine().invokeRecommendation(breinRecommendation,
+        return try breinRecommendation.getBreinEngine()!.invokeRecommendation(breinRecommendation,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -243,7 +313,7 @@ public class Breinify {
 
         breinTemporalData.setBreinUser(user)
 
-        return try breinTemporalData.getBreinEngine().performTemporalDataRequest(breinTemporalData,
+        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -296,12 +366,12 @@ public class Breinify {
         breinLookup.setBreinUser(user)
         breinLookup.setBreinDimension(dimension)
 
-        return try breinLookup.getBreinEngine().performLookUp(breinLookup,
+        return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
                 success: successBlock,
                 failure: failureBlock)
     }
 
-    ///
+    /// Initiates the shutdown of the engine
     public class func shutdown() {
         if getConfig() != nil {
             getConfig().shutdownEngine()

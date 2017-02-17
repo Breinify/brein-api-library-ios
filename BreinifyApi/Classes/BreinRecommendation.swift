@@ -60,7 +60,7 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
     }
 
     override public func getEndPoint() -> String! {
-        return getConfig().getRecommendationEndpoint()
+        return getConfig()?.getRecommendationEndpoint()
     }
 
     /**
@@ -102,6 +102,6 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
 
     public override func createSignature() throws -> String! {
         let message = String(getUnixTimestamp())
-        return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
+        return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
     }
 }

@@ -58,7 +58,7 @@ public class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     override public func getEndPoint() -> String! {
-        return getConfig().getActivityEndpoint()
+        return getConfig()?.getActivityEndpoint()
     }
 
     public func setTagsDic(tagsDic: [String: AnyObject]) -> BreinActivity {
@@ -86,6 +86,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
       - parameter breinActivityType: the type of activity
       - parameter breinCategoryType: the category (can be null or undefined)
       - parameter description:       the description for the activity
+      - parameter successBlock : A callback function that is invoked in case of success.
+      - parameter failureBlock : A callback function that is invoked in case of an error.
     */
     public func activity(breinUser: BreinUser!,
                          breinActivityType: String!,
@@ -104,7 +106,7 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine.")
         }
-        try getBreinEngine().sendActivity(self, success: successBlock, failure: failureBlock)
+        try getBreinEngine()?.sendActivity(self, success: successBlock, failure: failureBlock)
     }
 
     /**
@@ -158,6 +160,37 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return requestData
     }
 
+
+    /**
+      Used to create a clone of an activity. This is important in order to prevent
+      concurrency issues.
+
+      - parameter sourceActivity contains the original activity object
+      - returns: the clone of the activity object
+    */
+    public func clone() -> BreinActivity {
+        
+        // create a new activity object
+        let clonedBreinActivity = BreinActivity()
+           .setBreinActivityType(self.getBreinActivityType())
+           .setBreinCategoryType(self.getBreinCategoryType())
+           .setDescription(self.getDescription())
+        
+        // clone dictionaries => simple copy is enough
+        if let clonedActivityDic = self.getActitivityDic() {
+            clonedBreinActivity.setActivityDic(clonedActivityDic)
+        }
+
+        if let clonedTagsDic = self.getTagsDic() {
+            clonedBreinActivity.setTagsDic(clonedTagsDic)
+        }
+
+        // clone from base class
+        clonedBreinActivity.cloneBase(self)
+
+        return clonedBreinActivity
+    }
+    
     /**
       Generates the signature for the request
      
@@ -169,7 +202,7 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         let unixTimestamp = self.getUnixTimestamp()
         let message = breinActivityType + String(unixTimestamp) + "1"
 
-        return try BreinUtil.generateSignature(message, secret: getConfig().getSecret())
+        return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
     }
 
 }

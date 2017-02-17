@@ -178,11 +178,13 @@ The engine powering the DigitalDNA API provides two endpoints. The first endpoin
 The engine is informed of an activity by executing *Breinify.activity(...)*. 
 
 ```Swift
-// create a user you are interested in with his email
-let breinUser = BreinUser()
-
 typealias apiSuccess = (result:BreinResult?) -> Void
 typealias apiFailure = (error:NSDictionary?) -> Void
+
+// create a user you are interested in 
+let breinUser = BreinUser()
+   .setEmail("f.firestone@me.com")
+   .setFirstName("Fred")
 
 // callback in case of success
 let successBlock: apiSuccess = {
@@ -195,10 +197,6 @@ let failureBlock: apiFailure = {
      (error: NSDictionary?) -> Void in
      print("Api Failure: error is:\n \(error)")
 }
-
-// set additional user information (optional)
-breinUser.setFirstName("Fred")
-         .setLastName("Firestone")
 
 // invoke activity call
 do {
@@ -214,6 +212,44 @@ do {
 ```
 
 That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
+
+##### Option 2 
+Assume that you have an asynchronous flow of information and will collect user data at first and
+will send activity requests later on. In this use case you could simlpy use class Breinify and collect the user data. When sending the activity request the class Breinify will use the previous saved user data.
+
+We take a look at this example.
+
+Anywhere in your swift file you have the chance to identify the user like this:
+
+```Swift
+// create the Breinify User
+let breinUser = BreinUser(email: "f.firestone@me.com")
+          .setFirstName("Fred")
+          .setLastName("Firestone")
+          .setSessionId("TAAD8888HHdjh")
+
+// save it to class Breinfy
+Breinify.setBreinUser(breinUser)
+```
+
+Later on, maybe on a special event, you can trigger the activity request like this:
+
+```Swift
+// invoke activity call
+do {
+   try Breinify.activity("firstPage",
+        category: "home",
+     description: "firstPage-Description",
+         success: successBlock,
+         failure: failureBlock)
+} catch {
+    dump("Error is: \(error)")
+}
+```
+
+In this case the `activity` call will use the previously saved BreinUser object with all it's
+data.
+
 
 #####  Placing temporalData triggers
 

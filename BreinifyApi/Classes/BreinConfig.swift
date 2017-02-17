@@ -256,11 +256,10 @@ public class BreinConfig {
     }
 
     public func shutdownEngine() {
-        if ((self.breinEngine?.getRestEngine()) != nil) {
+        if self.breinEngine?.getRestEngine() != nil {
             // invoke termination of the engine
             self.breinEngine.getRestEngine().terminate()
         }
-
     }
 
     public func isUrlValid(url: String!) -> Bool {

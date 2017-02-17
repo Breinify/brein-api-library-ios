@@ -7,10 +7,9 @@
 import Foundation
 
 /**
- Creates the Rest Engine (currently only unirest) and provides the methods to
+ Creates the Rest Engine (currently only Alamofire) and provides the methods to
  invoke activity and lookup calls
- */
-
+*/
 public class BreinEngine {
 
     public typealias apiSuccess = (result: BreinResult?) -> Void
@@ -45,9 +44,11 @@ public class BreinEngine {
     }
 
     /**
-     Ssends an activity to the Breinify server
+     Sends an activity to the Breinify server
      
-      - parameter activity: data to be send
+       - parameter activity: data to be send
+       - Parameter successBlock : A callback function that is invoked in case of success.
+       - Parameter failureBlock : A callback function that is invoked in case of an error.
      */
     public func sendActivity(activity: BreinActivity!,
                              success successBlock: BreinEngine.apiSuccess,
@@ -78,9 +79,11 @@ public class BreinEngine {
     /**
      Performs a temporalData request
 
-      - parameter breinTemporalData: contains the appropriate data in order to perform the request
+       - parameter breinTemporalData: contains the appropriate data in order to perform the request
+       - Parameter successBlock : A callback function that is invoked in case of success.
+       - Parameter failureBlock : A callback function that is invoked in case of an error.
       
-      - return result from Breinify engine
+      - returns: result from Breinify engine
     */
     public func performTemporalDataRequest(breinTemporalData: BreinTemporalData!,
                                            success successBlock: apiSuccess,
@@ -111,9 +114,11 @@ public class BreinEngine {
     /**
      Performs a lookup. This will be delegated to the configured restEngine.
 
-     - parameter breinLookup: contains the appropriate data for the lookup request
+       - parameter breinLookup: contains the appropriate data for the lookup request
+       - Parameter successBlock : A callback function that is invoked in case of success.
+       - Parameter failureBlock : A callback function that is invoked in case of an error.
      
-     - return   if succeeded a BreinResponse object or  null
+       - returns:  if succeeded a BreinResponse object or  null
     */
     public func performLookUp(breinLookup: BreinLookup!,
                               success successBlock: apiSuccess,
@@ -147,9 +152,11 @@ public class BreinEngine {
     /**
      Invokes the recommendation request
 
-     - parameter breinRecommendation: contains the breinRecommendation object
+      - parameter breinRecommendation: contains the breinRecommendation object
+      - Parameter successBlock : A callback function that is invoked in case of success.
+      - Parameter failureBlock : A callback function that is invoked in case of an error.
 
-     - return result of request or null
+      - return result of request or null
     */
     public func invokeRecommendation(breinRecommendation: BreinRecommendation!,
                                      success successBlock: BreinEngine.apiSuccess,
@@ -182,7 +189,7 @@ public class BreinEngine {
     }
 
     /**
-     Returns the brein engine
+     Returns the rest engine
 
      - return engine itself
     */

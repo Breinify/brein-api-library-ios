@@ -6,10 +6,7 @@
 import Foundation
 
 public class BreinifyExecutor {
-
-    //  contains the current version of the usage library
-    static let Version: String! = "1.0.0-snapshot"
-
+    
     //  contains the configuration
     var config: BreinConfig!
 
@@ -27,10 +24,6 @@ public class BreinifyExecutor {
 
     public func getConfig() -> BreinConfig! {
         return config
-    }
-
-    public static func getVersion() -> String! {
-        return Version
     }
 
     public func activity(user: BreinUser!,
@@ -67,7 +60,7 @@ public class BreinifyExecutor {
         breinActivity.setBreinCategoryType(category)
         breinActivity.setDescription(description)
         
-        try breinActivity.getBreinEngine().sendActivity(breinActivity, success: successBlock, failure: failureBlock)
+        try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
     public func lookup(user: BreinUser!,
@@ -96,12 +89,12 @@ public class BreinifyExecutor {
         breinLookup.setBreinUser(user)
         breinLookup.setBreinDimension(dimension)
        
-        return try breinLookup.getBreinEngine().performLookUp(breinLookup,
+        return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
                 success: successBlock,
                 failure: failureBlock)
     }
 
-    // 
+    /// shutdown of the engine
     public func shutdown() {
         if getConfig() != nil {
             getConfig().shutdownEngine()

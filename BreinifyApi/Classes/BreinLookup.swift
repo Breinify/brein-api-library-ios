@@ -25,8 +25,10 @@ public class BreinLookup: BreinBase, ISecretStrategy {
 
       - parameter breinUser:      contains the breinify user
       - parameter breinDimension: contains the dimensions to look after
+      - parameter successBlock : A callback function that is invoked in case of success.
+      - parameter failureBlock : A callback function that is invoked in case of an error.
 
-      - returns response from request or null if no data can be retrieved
+      - returns: response from request or null if no data can be retrieved
     */
     public func lookUp(breinUser: BreinUser!,
                 breinDimension: BreinDimension!,
@@ -40,7 +42,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         setBreinUser(breinUser)
         setBreinDimension(breinDimension)
 
-        return try getBreinEngine().performLookUp(self, success: successBlock, failure: failureBlock)
+        return try getBreinEngine()!.performLookUp(self, success: successBlock, failure: failureBlock)
     }
 
     /**
@@ -100,8 +102,8 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return requestData
     }
 
-    override public func getEndPoint() -> String! {
-        return getConfig().getLookupEndpoint()
+    override public func getEndPoint() -> String? {
+        return getConfig()?.getLookupEndpoint()
     }
 
     /**
