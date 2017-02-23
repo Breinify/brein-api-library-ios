@@ -10,6 +10,7 @@ import Foundation
  Creates the Rest Engine (currently only Alamofire) and provides the methods to
  invoke activity and lookup calls
 */
+
 public class BreinEngine {
 
     public typealias apiSuccess = (result: BreinResult?) -> Void
@@ -49,28 +50,37 @@ public class BreinEngine {
        - parameter activity: data to be send
        - Parameter successBlock : A callback function that is invoked in case of success.
        - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+       Important:
+       * due to the fact that the locationManager will invoke CLLocationManager it must run on the
+         main thread 
+
      */
     public func sendActivity(activity: BreinActivity!,
                              success successBlock: BreinEngine.apiSuccess,
                              failure failureBlock: BreinEngine.apiFailure) throws {
         if activity != nil {
 
-            locationManager.fetchWithCompletion {
+            // necessary to invoke CLLocationManager
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.locationManager.fetchWithCompletion {
 
-                location, error in
+                    location, error in
 
-                // save the retrieved location data
-                activity.getBreinUser().setLocationData(location)
+                    // save the retrieved location data
+                    activity.getBreinUser().setLocationData(location)
 
-                // print("latitude is: \(location?.coordinate.latitude)")
-                // print("longitude is: \(location?.coordinate.longitude)")
+                    // print("latitude is: \(location?.coordinate.latitude)")
+                    // print("longitude is: \(location?.coordinate.longitude)")
 
-                do {
-                    try self.restEngine.doRequest(activity,
-                            success: successBlock,
-                            failure: failureBlock)
-                } catch {
-                    print("\(error)")
+                    do {
+                        try self.restEngine.doRequest(activity,
+                                success: successBlock,
+                                failure: failureBlock)
+                    } catch {
+                        print("\(error)")
+                    }
                 }
             }
         }

@@ -10,7 +10,7 @@ extension IRestEngine {
     /// validates the breinbase object
     func validateBreinBase(breinBase: BreinBase!) throws {
         guard breinBase != nil else {
-            throw BreinError.BreinRuntimeError("activity or lookup object is nil")
+            throw BreinError.BreinRuntimeError("request object is nil")
         }
     }
 

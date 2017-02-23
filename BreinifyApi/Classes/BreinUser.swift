@@ -13,43 +13,43 @@ import NetworkExtension
 
 public class BreinUser {
 
-    ///  user email
+    /// user email
     var email: String!
 
-    ///  user first name
+    /// user first name
     var firstName: String!
 
-    //  user last name
+    /// user last name
     var lastName: String!
 
-    //  user date of birth
+    ///  user date of birth
     var dateOfBirth: String!
 
-    //  user imei number
+    ///  user imei number
     var imei: String!
 
-    //  user deviceId
+    /// user deviceId
     var deviceId: String!
 
-    //  user sessionId
+    /// user sessionId
     var sessionId: String!
 
-    // contains the userAgent in additional part
+    /// contains the userAgent in additional part
     var userAgent: String!
 
-    // contains the referrer in additional part
+    /// contains the referrer in additional part
     var referrer: String!
 
-    // contains the url in additional part
+    /// contains the url in additional part
     var url: String!
 
-    // contains the url in additional part
+    /// contains the url in additional part
     var ipAddress: String!
 
-    // location coordinates
+    /// location coordinates
     var locationData: CLLocation?
 
-    // contains localDateTime
+    /// contains localDateTime
     var localDateTime: String?
 
     /// contains timezone

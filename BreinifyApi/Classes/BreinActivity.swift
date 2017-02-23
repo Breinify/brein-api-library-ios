@@ -165,7 +165,6 @@ public class BreinActivity: BreinBase, ISecretStrategy {
       Used to create a clone of an activity. This is important in order to prevent
       concurrency issues.
 
-      - parameter sourceActivity contains the original activity object
       - returns: the clone of the activity object
     */
     public func clone() -> BreinActivity {
