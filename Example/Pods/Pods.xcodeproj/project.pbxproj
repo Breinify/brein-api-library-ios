@@ -7,73 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		095406039B4D371E48D08B38A2975AC8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07265FEA923CBF6387C631DE2293A6C9 /* Error.swift */; };
-		09ABDD315B59010731FB9B7D35EF252C /* BreinifyApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4792B145CFA5D39695DCB8F2A23C92CE /* BreinifyApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C6C411B4FF5D50A08BAEB9218C4A79D /* IRestEngineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37711FFA62FC739D75F770D60AA5865A /* IRestEngineExtension.swift */; };
-		0CC8E34B271B74F7C5BB05E326A535DC /* BreinRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1405F39979A96288F63701560F3DA39 /* BreinRecommendation.swift */; };
+		0103A262AA5ECB61B0F52C4826640C8A /* BreinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB99505E28F0DA1F89DBA216E534E87 /* BreinConfig.swift */; };
+		095406039B4D371E48D08B38A2975AC8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13928D557B0F54806D375B5BC020FCCD /* Error.swift */; };
+		09CDC76D040A5F4D1A203FC9C7737098 /* BreinifyApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE5F5DB405198A5DFE9B4A07675F39 /* BreinifyApi-dummy.m */; };
 		0E44913E94DBCB4B61792352DE06C050 /* Pods-BreinifyApi_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D158CAD0855C09AF7F6207D6FFCC305 /* Pods-BreinifyApi_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		128DE75A623321113DC7B532D2B04D7C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A8A1FB7AA4B858FA91290242C8C38 /* Random.swift */; };
-		15359B87C7F8CD1C4FF10F3E77211F1E /* BreinTemporalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC18D8ABAD5FB03D0E07A5EEDBC6F10 /* BreinTemporalData.swift */; };
-		16102E4E35FAA0FC4161282FECE56469 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6711A782BE7C6C48020D4D73AB19B5A /* Timeline.swift */; };
-		1757F8ECDF736FF10C2C52FEE6D5AF00 /* BreinCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A75ADB1C9D9B6990EF11F26A473559 /* BreinCategoryType.swift */; };
+		128DE75A623321113DC7B532D2B04D7C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01491FC48BFDCB3CC1A6A60474CFFB26 /* Random.swift */; };
+		16102E4E35FAA0FC4161282FECE56469 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DE0C899C0CFB18E8769F656ABF900A /* Timeline.swift */; };
+		17D1A9435B408B79815A1E1CB86D3862 /* BreinLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D006AEEBE7CA424068D6ABA2125EC0 /* BreinLocationManager.swift */; };
+		19B2E0A90FF1957A7D09ADBC9E10A4C6 /* BreinActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F83E7284C6F23D68A550B28F933A76 /* BreinActivity.swift */; };
+		1C8D9D626038D54F3DB0293A047B721E /* BreinMapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D00E9ED91DA529B7155683F063369 /* BreinMapUtil.swift */; };
 		2395F19CD10FE977EF5B6EB096A0B598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032CB285C7ACFF87F2CC2B385DDC07AC /* Foundation.framework */; };
-		2611EF21495843E4467EB38B9B44696C /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE83090C9345143F06857B651024C83 /* Digest.swift */; };
-		2D3405986FC586FA6C0A5E0B6BA7E64E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D0F4D77D4FC8D5A9FC1F1327814DB /* Validation.swift */; };
-		2E123068905396C68F0CE3FC589B8198 /* BreinActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F309CEFDE8650C3AF4DEA7CC79C236D /* BreinActivityType.swift */; };
-		2F56662F82CA821578636A25043FB468 /* StreamCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4450A9B6755C7A13A678FE4F9C2D6AEB /* StreamCryptor.swift */; };
-		34CCDCA848A701466256BC2927DA8856 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD70F905F79D7DA4201F1B5F5A8B085 /* NetworkReachabilityManager.swift */; };
-		387762C79DBC2FFB975BF84F52A7D5E8 /* BreinDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69B792D3177003D356BDE12FBACC64 /* BreinDimension.swift */; };
-		3EA8F215C9C1432D74E5CCA4834AA8C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9ABA0A88A912C5B37B7B6F82BE6DC /* ResponseSerialization.swift */; };
+		243948BA4FFB0C9836DDD07438667D2A /* BreinUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F09A5BF0AEDD2B44A5E3CA0B120F7 /* BreinUtil.swift */; };
+		24E54AB88A6A54A6DD93D80D3240A2E3 /* BreinActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3F7C916E17A0275517A90B90DAB406 /* BreinActivityType.swift */; };
+		255993AF1010D3283102258AD59B0D61 /* BreinEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E87DE120656E5668B08CB7F1C4A85 /* BreinEngine.swift */; };
+		2611EF21495843E4467EB38B9B44696C /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AA5901AEDB227B6008E3B7A6C49 /* Digest.swift */; };
+		27E900B7AF9AC314B8F3FA6C5F22F8E1 /* BreinDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F54E9095A5AD07E2BF647EBF90E59 /* BreinDimension.swift */; };
+		2D3405986FC586FA6C0A5E0B6BA7E64E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A69962FBE52E44631A7419E86A1D36 /* Validation.swift */; };
+		2F56662F82CA821578636A25043FB468 /* StreamCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CCD300356D80D50D7ED9C0C55E686C /* StreamCryptor.swift */; };
+		34CCDCA848A701466256BC2927DA8856 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905BD7A93515EC210836883A1090C05 /* NetworkReachabilityManager.swift */; };
+		3CAE876485B215316A38246CB7D37611 /* BreinifyApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86060A01888538B43441C297649216B7 /* BreinifyApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EA8F215C9C1432D74E5CCA4834AA8C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA718EE4E3EEF95F52783140A873A6 /* ResponseSerialization.swift */; };
 		3EF0B56234BCF4C2D3598918419A142A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D1D9A890C3358D4C1DDA1EFED7F51 /* Alamofire.framework */; };
-		4081EA628AF0B73AC51FFB9D7AB3B89E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4384917E6AEC404603945432AFA9912C /* Manager.swift */; };
-		448C07C5754EFD8AD267E3394D9CB127 /* BreinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908F7C5EC0827225DA1DC6A6D5C342B /* BreinConfig.swift */; };
+		4081EA628AF0B73AC51FFB9D7AB3B89E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CD3CB32BE26EDF09188B1D24C66434 /* Manager.swift */; };
 		461A8578E3FE394D64E85E74DC8D8FC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032CB285C7ACFF87F2CC2B385DDC07AC /* Foundation.framework */; };
-		477189E2A0FC6E7738AD2008859C405E /* BreinResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9504B7CAFBCFBF2E07D6A0EA0FC991B /* BreinResult.swift */; };
-		492E8EFEEA7A211BA13016F137556B15 /* AlamofireEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3A47DA883C9C3DC0567F4CE1E3B156 /* AlamofireEngine.swift */; };
-		526D96E49C1BED7923885BDF4253FF5A /* Updateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A804FD217476686A389536CA0BE74D1 /* Updateable.swift */; };
-		53B30C8654FC2BAB97E48BFE4B3B1050 /* IRestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4279829EAAB76585396B579AAC7D618 /* IRestEngine.swift */; };
-		5B007BB4B546C79263F775BF950705E6 /* BreinEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A185B017E17B574E3776429480EB0 /* BreinEngine.swift */; };
-		5BC19E6E0F199276003F0AF96838BCE5 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22EDBD7AD0648BA4295E07872885785 /* Upload.swift */; };
-		5CB05FBCB32D21E194B5ECF680CB6AE0 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E717B76C83B0491535AA2F18F5B0A64 /* Download.swift */; };
-		5E8706155F76C378672B4FBF9B1FC629 /* BreinifyExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECABA377118BED1B1944A1DBBD59972 /* BreinifyExecutor.swift */; };
+		48326FEA1B8D3257ADCBE3571A71D0A3 /* BreinifyExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E9438620F0550723466255AB499DC /* BreinifyExecutor.swift */; };
+		49BDEE6F24FEF53CCAFF287CC189F087 /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = C43DD22E7A8E5D3D231AC432823DA608 /* BreinifyApi-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AED865F58719F713602E38AB1F9A56C /* BreinBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF182361662D10F8D6F34872D778CDEF /* BreinBase.swift */; };
+		526D96E49C1BED7923885BDF4253FF5A /* Updateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5181A4FC4371A6B21609A2EA2F5194 /* Updateable.swift */; };
+		52F7C5D346DE06A0070B3B9825B2A719 /* Breinify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5DCC294132C3BB6371F2051FCB165 /* Breinify.swift */; };
+		54ED2198622D45A6014BD33CE51D4FD7 /* IRestEngineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA72CED87AFF7651BFC5F27C7A058DD0 /* IRestEngineExtension.swift */; };
+		5BC19E6E0F199276003F0AF96838BCE5 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418924D35CFF8A108437C735715237C /* Upload.swift */; };
+		5CB05FBCB32D21E194B5ECF680CB6AE0 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BEC4F99206BA2AD6C890E7DC58EF8C /* Download.swift */; };
 		5E8884DC80CBBAEFB6328C00437B37DD /* Pods-BreinifyApi_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7E96CD312F6251C63122C3833EFEE6 /* Pods-BreinifyApi_Tests-dummy.m */; };
-		5FBCD6C161FAD01AB3A83136A18D83F0 /* BreinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0243815A530F405D99214E734558E29 /* BreinError.swift */; };
-		62E8346F03C03E7F4D631361F325689E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB5E4C752A79CD4079B24557AB550E /* Response.swift */; };
-		73EA8930AD62F8D70A8216469E533118 /* BreinMapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60AA5883E54839B1C89B668ACE01A7 /* BreinMapUtil.swift */; };
+		5F962E65800F71B432D72BB32148BAD8 /* BreinEngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E511D2EB0A09EBB5B11128BD59ECA60A /* BreinEngineType.swift */; };
+		62637C685A8F4472CDC50F58139AE28A /* ISecretStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BA577D3E08AC4F70B27BF66F7C173 /* ISecretStrategy.swift */; };
+		62E8346F03C03E7F4D631361F325689E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3E92E4D4434367D77F9CCC57144EB /* Response.swift */; };
+		6986F48566C6558AC8A2887512C72FDD /* BreinResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500B3B0052ECBFB1F7C9F09DD49ADD1A /* BreinResult.swift */; };
+		6E881F259B5026A9ABF60F7DF53C6E3B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755A72CEEE943A340E3DF0F9FBB8A34 /* StringExtension.swift */; };
+		70600657712BBC08CCC9EEAEA4573BC5 /* BreinLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9165A945C9BE0AC3C53A0B2D31D420C /* BreinLookup.swift */; };
 		7866CC1A39B238788B7C622EF7CF9BF7 /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C49A9905493BFAEAE3065A6FCC86B2 /* IDZSwiftCommonCrypto.framework */; };
-		7B48852C4D848FA2DA416A98F6425869 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E8CE1EA1FB54F628DD1752FB13FB0 /* ServerTrustPolicy.swift */; };
-		7F93074C3BC17AF5A4737511B6F949D3 /* IDZSwiftCommonCrypto-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA828926BDAC2DB444CCAAC834DDD714 /* IDZSwiftCommonCrypto-dummy.m */; };
-		85FC9B5F45F8BCC48F8662D9BE81621A /* IDZSwiftCommonCrypto-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CADDF79E89F6927ABB37EC70BE3E095 /* IDZSwiftCommonCrypto-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87CC276D1A31033EDB1B91F98E2CCDB3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB2E0BC5718AFEDEBE75DE7A3DFA03C /* StringExtension.swift */; };
-		8B778008E8BAB22EC69164DF694EBF7C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4152FC8D8F97A16150625DCA4C5F32 /* Utilities.swift */; };
-		8EB11202167FCDDF1257AAAB1D1FB244 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E012F0C7179A66921CB3B5099AD689 /* Alamofire.swift */; };
-		935B3330190EC443C163414A80F1407D /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28C7275C35DE7A2FE121D0F3DAC5A9 /* Crypto.swift */; };
-		9469DF81ECB494E84675969B5E13374C /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9D2F756D14F7D85598CEC77C77B75B /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D963055A79EF061D34E107E299B9915 /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A9BE7CBFED7B918DAAA6A53C8A25CD9A /* BreinifyApi-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F33BB63E253872C45205D0AAA0ABF5B /* BreinActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4CD44D0750F85EF8DA1D8B321AF5E /* BreinActivity.swift */; };
-		A16AD5F4E01C21D6C133705E83C01640 /* IDZSwiftCommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = E64B81662014E0779953EDDCBB082231 /* IDZSwiftCommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1A8455DEC6CB7FEE3378DBF4C5A8D4C /* BreinifyApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 881D49758E5581C55ECB586278EA9748 /* BreinifyApi-dummy.m */; };
-		AA314156AC500125F4078EE968DB14C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628D5C43CD3D5522888564E21346771 /* Result.swift */; };
-		AD9D497D6ED380B08F0739C004FE9538 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4719F7A0BA464FE5F10A14A1EDB71 /* KeyDerivation.swift */; };
-		ADF19C953CE2A7D0B72EC93A81FCCC26 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB69F349920BB02A22151EF1DE240826 /* Alamofire-dummy.m */; };
-		AE4CF87C02C042DF13ED5B21C4FDC1E0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CD79BD9B2E55E51FD957E5BD7B9724 /* Stream.swift */; };
-		B73058A94FEE4011A276B1D597685C5D /* BreinUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9362086C1BE48BD05A7BCCD6E9C2FE2 /* BreinUtil.swift */; };
-		BE41196F6A3903E59C3306FE3F8B43FE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96602D53B4E7EE525447BF99445FEFA /* Notifications.swift */; };
-		C0DB70AB368765DC64BFB5FEA75E0696 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C33D63421CA46F8AB275E60F108DB /* ParameterEncoding.swift */; };
+		7B48852C4D848FA2DA416A98F6425869 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE49C12EAC8F9BD228E4E0C8410EBC /* ServerTrustPolicy.swift */; };
+		7F93074C3BC17AF5A4737511B6F949D3 /* IDZSwiftCommonCrypto-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC09C2A721BBDC21B9A6329231A844E /* IDZSwiftCommonCrypto-dummy.m */; };
+		85FC9B5F45F8BCC48F8662D9BE81621A /* IDZSwiftCommonCrypto-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C1E73C8F4E4368843EEEE71EE769E2C /* IDZSwiftCommonCrypto-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B778008E8BAB22EC69164DF694EBF7C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872323B39334F5C3567A1D6D390C13F2 /* Utilities.swift */; };
+		8EB11202167FCDDF1257AAAB1D1FB244 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC33D0FAE41410DF3F97E1E9F00921 /* Alamofire.swift */; };
+		935B3330190EC443C163414A80F1407D /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6769C6C791971564F482A27C8D0CAB2 /* Crypto.swift */; };
+		9469DF81ECB494E84675969B5E13374C /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D650D92F64427DEB07F6E4B6ECD1BE3 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EB492C1F01092614888FD74A1657806 /* BreinUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15599471F1942BFC9386F284496FE5C0 /* BreinUser.swift */; };
+		A16AD5F4E01C21D6C133705E83C01640 /* IDZSwiftCommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E1261460FC654A42A0CE9FB375800B /* IDZSwiftCommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5241DF8F3359F96DA8A48BA321C7B90 /* BreinTemporalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A81AD968797302335AF6FE99CF23BC /* BreinTemporalData.swift */; };
+		AA314156AC500125F4078EE968DB14C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C2C8540735D288E087D927AEB159D2 /* Result.swift */; };
+		AD9D497D6ED380B08F0739C004FE9538 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36BDBDCC6EE2491A0F41564F811F325 /* KeyDerivation.swift */; };
+		ADF19C953CE2A7D0B72EC93A81FCCC26 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7589E7474DA191F391974428599AE230 /* Alamofire-dummy.m */; };
+		AE4CF87C02C042DF13ED5B21C4FDC1E0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0E38829015670912031D89E9BD7E7 /* Stream.swift */; };
+		AF5A63F47FCFC179B6E1890647A9E9B8 /* BreinRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561A4C8E7A040EBE530AE46F9C2576B /* BreinRecommendation.swift */; };
+		BE41196F6A3903E59C3306FE3F8B43FE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005924547B4E16F14276A9E53C24C98B /* Notifications.swift */; };
+		C0DB70AB368765DC64BFB5FEA75E0696 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9143B21BB5ACA3571E8EFD45596FCA /* ParameterEncoding.swift */; };
 		C159007CBF567F3332741DE480167237 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032CB285C7ACFF87F2CC2B385DDC07AC /* Foundation.framework */; };
-		C3CD6CBC2B12A790BC87A84A5BE7A16E /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F0CD0037E14EAC626C2D9D997F3FE /* HMAC.swift */; };
-		C52463E430B0476428A33A27B7544366 /* BreinBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04603C5BB3897B3CCFE5E8DC877062 /* BreinBase.swift */; };
-		C7B6DD7C0456C50289A2C381DFE9FA3F /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F697DA54F283C5F4CFB939C37D28DD /* MultipartFormData.swift */; };
+		C3CD6CBC2B12A790BC87A84A5BE7A16E /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D58038F502A5860ECC534C38A48706 /* HMAC.swift */; };
+		C7B6DD7C0456C50289A2C381DFE9FA3F /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2097F9FBDA1C75DC3708851BAC8F3C6 /* MultipartFormData.swift */; };
 		C9F90C2C178321C30D5145422B636837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032CB285C7ACFF87F2CC2B385DDC07AC /* Foundation.framework */; };
-		CA7AB4763CB3296091832EBAF0ACE1E0 /* ISecretStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC5E2B031F2645BCBF899229607667 /* ISecretStrategy.swift */; };
-		D2D50A17DBA785988BA3377BE3F079C5 /* BreinLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD002D5C5596E579BB222A922AB09F6 /* BreinLookup.swift */; };
-		DD086F59A837FE09D47AE51C97E03C3B /* Breinify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D816C3CA4F2FC26DAD07078DE2A5C99 /* Breinify.swift */; };
-		E3FBEEF542EACC9C30EB84D0F0D3447E /* BreinLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376FAB4272D57C63D86714CD05FE4C4 /* BreinLocationManager.swift */; };
-		E74B2AD417E9EB40EA20A4947F8F5DA5 /* BreinUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D0CBD86D00219F84071571E2322F9B /* BreinUser.swift */; };
-		EAA4492FFDA7AE273154C86054C8FF61 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F00C9E48D8CF55FAB1F3F8DD3E78F /* Cryptor.swift */; };
-		EFE92E8D3813DD26E78E93EEAF6D7E7E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A3B47A16F0C4A5D91E9B29865429FC /* Request.swift */; };
-		F0D8AC2886B72D4781E8C6FA2172B6C9 /* BreinEngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0260B8E396E118C8968C1C522D4B45 /* BreinEngineType.swift */; };
-		F16894FD1729D9D00FA6AEC810F6435F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F1B0AD35B191A82481A448CBD47B32 /* Status.swift */; };
+		D65BDFBD6D703702AA80823CA0DAECF7 /* BreinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE7685D63543F0018280B680A56981 /* BreinError.swift */; };
+		E03AF9C4FF9EFF3C0AF90547CAD39933 /* AlamofireEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9F42381BC3E0E9C383F136E2F6A94 /* AlamofireEngine.swift */; };
+		E293A07DB8B4AEAE00A08E31ACD2798B /* IRestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC77BF8F4DCA435F5C6A8DE520209B85 /* IRestEngine.swift */; };
+		EAA4492FFDA7AE273154C86054C8FF61 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD26EE444CDC57DC2082AF1E376DF /* Cryptor.swift */; };
+		EFE92E8D3813DD26E78E93EEAF6D7E7E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCD7D2B25B140269AA2179B981FC93E /* Request.swift */; };
+		F16894FD1729D9D00FA6AEC810F6435F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8648CF8A815095AB806A61E09930C9 /* Status.swift */; };
+		FAFBF65422200197A0C3E86FBDE24A79 /* BreinCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F47D3F114C1F02D0096876F6D8370 /* BreinCategoryType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,95 +115,95 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02C8D3EF0CF76E6B62539AFCEC69576C /* BreinifyApi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BreinifyApi.xcconfig; sourceTree = "<group>"; };
+		000535F8CA40B005D72C5DB8049C3F6E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005924547B4E16F14276A9E53C24C98B /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		01491FC48BFDCB3CC1A6A60474CFFB26 /* Random.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Random.swift; path = IDZSwiftCommonCrypto/Random.swift; sourceTree = "<group>"; };
 		032CB285C7ACFF87F2CC2B385DDC07AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		061A505BF74907D0EC93CD56773023AB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07265FEA923CBF6387C631DE2293A6C9 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
-		0A804FD217476686A389536CA0BE74D1 /* Updateable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Updateable.swift; path = IDZSwiftCommonCrypto/Updateable.swift; sourceTree = "<group>"; };
-		0C3A47DA883C9C3DC0567F4CE1E3B156 /* AlamofireEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireEngine.swift; sourceTree = "<group>"; };
-		0D9D2F756D14F7D85598CEC77C77B75B /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		0EE4CD44D0750F85EF8DA1D8B321AF5E /* BreinActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinActivity.swift; sourceTree = "<group>"; };
-		10A75ADB1C9D9B6990EF11F26A473559 /* BreinCategoryType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinCategoryType.swift; sourceTree = "<group>"; };
-		12F1B0AD35B191A82481A448CBD47B32 /* Status.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Status.swift; path = IDZSwiftCommonCrypto/Status.swift; sourceTree = "<group>"; };
-		1908F7C5EC0827225DA1DC6A6D5C342B /* BreinConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinConfig.swift; sourceTree = "<group>"; };
+		0E3D00E9ED91DA529B7155683F063369 /* BreinMapUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinMapUtil.swift; path = BreinifyApi/Classes/BreinMapUtil.swift; sourceTree = "<group>"; };
+		1078D70BD41DF7FE4C060965AFDE572F /* IDZSwiftCommonCrypto.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IDZSwiftCommonCrypto.modulemap; sourceTree = "<group>"; };
+		13928D557B0F54806D375B5BC020FCCD /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
+		15599471F1942BFC9386F284496FE5C0 /* BreinUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinUser.swift; path = BreinifyApi/Classes/BreinUser.swift; sourceTree = "<group>"; };
+		16E1261460FC654A42A0CE9FB375800B /* IDZSwiftCommonCrypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IDZSwiftCommonCrypto.h; path = IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.h; sourceTree = "<group>"; };
+		16E3E92E4D4434367D77F9CCC57144EB /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		1A5181A4FC4371A6B21609A2EA2F5194 /* Updateable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Updateable.swift; path = IDZSwiftCommonCrypto/Updateable.swift; sourceTree = "<group>"; };
+		1EB0E38829015670912031D89E9BD7E7 /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
 		1EF6E3999DFB5FE881EFC0B44C13DD76 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		235F09A5BF0AEDD2B44A5E3CA0B120F7 /* BreinUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinUtil.swift; path = BreinifyApi/Classes/BreinUtil.swift; sourceTree = "<group>"; };
 		25AB3FC750DC854E2D5154685B6AC9EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		361373C9CDDF6111B085B7D79F529645 /* IDZSwiftCommonCrypto.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IDZSwiftCommonCrypto.modulemap; sourceTree = "<group>"; };
-		36F697DA54F283C5F4CFB939C37D28DD /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		37711FFA62FC739D75F770D60AA5865A /* IRestEngineExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IRestEngineExtension.swift; sourceTree = "<group>"; };
-		37A3B47A16F0C4A5D91E9B29865429FC /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		3AC18D8ABAD5FB03D0E07A5EEDBC6F10 /* BreinTemporalData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinTemporalData.swift; sourceTree = "<group>"; };
-		3BDBB6769EC5BE71B1B2DB6A14775C3B /* IDZSwiftCommonCrypto.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDZSwiftCommonCrypto.xcconfig; sourceTree = "<group>"; };
-		3D816C3CA4F2FC26DAD07078DE2A5C99 /* Breinify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Breinify.swift; sourceTree = "<group>"; };
-		4248EE84B54CEA2C336D5384CCBC67DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42B9ABA0A88A912C5B37B7B6F82BE6DC /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		4384917E6AEC404603945432AFA9912C /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
-		4450A9B6755C7A13A678FE4F9C2D6AEB /* StreamCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamCryptor.swift; path = IDZSwiftCommonCrypto/StreamCryptor.swift; sourceTree = "<group>"; };
-		4792B145CFA5D39695DCB8F2A23C92CE /* BreinifyApi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-umbrella.h"; sourceTree = "<group>"; };
+		28EE49C12EAC8F9BD228E4E0C8410EBC /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		2B44C300B47C661958B7B12D1437FD42 /* BreinifyApi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BreinifyApi.xcconfig; sourceTree = "<group>"; };
+		3343458A5967EDAF134092167E713190 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		3905BD7A93515EC210836883A1090C05 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		492EC81DB7529AB79125F5171CA8B183 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		4E8648CF8A815095AB806A61E09930C9 /* Status.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Status.swift; path = IDZSwiftCommonCrypto/Status.swift; sourceTree = "<group>"; };
+		500B3B0052ECBFB1F7C9F09DD49ADD1A /* BreinResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinResult.swift; path = BreinifyApi/Classes/BreinResult.swift; sourceTree = "<group>"; };
+		54CC13A1532C02FBBA11CD91317987E8 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		58E6215C951426058F7675E1D9A75CC9 /* Pods-BreinifyApi_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BreinifyApi_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5CB2E0BC5718AFEDEBE75DE7A3DFA03C /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		5D158CAD0855C09AF7F6207D6FFCC305 /* Pods-BreinifyApi_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BreinifyApi_Tests-umbrella.h"; sourceTree = "<group>"; };
-		61CC5E2B031F2645BCBF899229607667 /* ISecretStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ISecretStrategy.swift; sourceTree = "<group>"; };
+		5D3F7C916E17A0275517A90B90DAB406 /* BreinActivityType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinActivityType.swift; path = BreinifyApi/Classes/BreinActivityType.swift; sourceTree = "<group>"; };
 		639DA5EC37A6BA2D1712193D1470AADA /* Pods-BreinifyApi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BreinifyApi_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6744B9C7F31E625AC234C5195A602469 /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IDZSwiftCommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B4152FC8D8F97A16150625DCA4C5F32 /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = IDZSwiftCommonCrypto/Utilities.swift; sourceTree = "<group>"; };
+		679E87DE120656E5668B08CB7F1C4A85 /* BreinEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinEngine.swift; path = BreinifyApi/Classes/BreinEngine.swift; sourceTree = "<group>"; };
+		6BD9F42381BC3E0E9C383F136E2F6A94 /* AlamofireEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireEngine.swift; path = BreinifyApi/Classes/AlamofireEngine.swift; sourceTree = "<group>"; };
 		6C0CCB0F19EE3CB36B120598E246C588 /* Pods-BreinifyApi_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BreinifyApi_Tests.modulemap"; sourceTree = "<group>"; };
-		6D5B8CB25FAF63AAA2AE7F9054D41191 /* BreinifyApi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-prefix.pch"; sourceTree = "<group>"; };
+		6E5E9438620F0550723466255AB499DC /* BreinifyExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinifyExecutor.swift; path = BreinifyApi/Classes/BreinifyExecutor.swift; sourceTree = "<group>"; };
 		73C058929303077965BB4C9EB45E2B9F /* BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		74CD79BD9B2E55E51FD957E5BD7B9724 /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
-		7CADDF79E89F6927ABB37EC70BE3E095 /* IDZSwiftCommonCrypto-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IDZSwiftCommonCrypto-umbrella.h"; sourceTree = "<group>"; };
-		7DD002D5C5596E579BB222A922AB09F6 /* BreinLookup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinLookup.swift; sourceTree = "<group>"; };
-		7F309CEFDE8650C3AF4DEA7CC79C236D /* BreinActivityType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinActivityType.swift; sourceTree = "<group>"; };
-		80CB5E4C752A79CD4079B24557AB550E /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		82E012F0C7179A66921CB3B5099AD689 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		847D0F4D77D4FC8D5A9FC1F1327814DB /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		751AD26EE444CDC57DC2082AF1E376DF /* Cryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptor.swift; path = IDZSwiftCommonCrypto/Cryptor.swift; sourceTree = "<group>"; };
+		7589E7474DA191F391974428599AE230 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		7FB99505E28F0DA1F89DBA216E534E87 /* BreinConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinConfig.swift; path = BreinifyApi/Classes/BreinConfig.swift; sourceTree = "<group>"; };
+		80DE0C899C0CFB18E8769F656ABF900A /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		85A69962FBE52E44631A7419E86A1D36 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		86060A01888538B43441C297649216B7 /* BreinifyApi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-umbrella.h"; sourceTree = "<group>"; };
 		861D1D9A890C3358D4C1DDA1EFED7F51 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		881D49758E5581C55ECB586278EA9748 /* BreinifyApi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BreinifyApi-dummy.m"; sourceTree = "<group>"; };
-		8A1A3B65A9E344E2C9823E47AFBA16D8 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		8AE83090C9345143F06857B651024C83 /* Digest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Digest.swift; path = IDZSwiftCommonCrypto/Digest.swift; sourceTree = "<group>"; };
-		8FD70F905F79D7DA4201F1B5F5A8B085 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		9376FAB4272D57C63D86714CD05FE4C4 /* BreinLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinLocationManager.swift; sourceTree = "<group>"; };
+		872323B39334F5C3567A1D6D390C13F2 /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = IDZSwiftCommonCrypto/Utilities.swift; sourceTree = "<group>"; };
+		8755A72CEEE943A340E3DF0F9FBB8A34 /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = BreinifyApi/Classes/StringExtension.swift; sourceTree = "<group>"; };
+		87EC33D0FAE41410DF3F97E1E9F00921 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		8C1E73C8F4E4368843EEEE71EE769E2C /* IDZSwiftCommonCrypto-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IDZSwiftCommonCrypto-umbrella.h"; sourceTree = "<group>"; };
+		92D58038F502A5860ECC534C38A48706 /* HMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HMAC.swift; path = IDZSwiftCommonCrypto/HMAC.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9449C0D2DDCA853FF9BEECE5BB07D035 /* IDZSwiftCommonCrypto-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IDZSwiftCommonCrypto-prefix.pch"; sourceTree = "<group>"; };
-		946E8CE1EA1FB54F628DD1752FB13FB0 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		93C2C8540735D288E087D927AEB159D2 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		9561A4C8E7A040EBE530AE46F9C2576B /* BreinRecommendation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinRecommendation.swift; path = BreinifyApi/Classes/BreinRecommendation.swift; sourceTree = "<group>"; };
+		98BEC4F99206BA2AD6C890E7DC58EF8C /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
+		99CE7685D63543F0018280B680A56981 /* BreinError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinError.swift; path = BreinifyApi/Classes/BreinError.swift; sourceTree = "<group>"; };
+		9A6F47D3F114C1F02D0096876F6D8370 /* BreinCategoryType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinCategoryType.swift; path = BreinifyApi/Classes/BreinCategoryType.swift; sourceTree = "<group>"; };
 		9C6867226B1F84C214563BCB35CB1954 /* Pods-BreinifyApi_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BreinifyApi_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		9E717B76C83B0491535AA2F18F5B0A64 /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
-		9F5F0CD0037E14EAC626C2D9D997F3FE /* HMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HMAC.swift; path = IDZSwiftCommonCrypto/HMAC.swift; sourceTree = "<group>"; };
+		9D650D92F64427DEB07F6E4B6ECD1BE3 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		A0CAD41720493FDC530A78D1431817F9 /* Pods-BreinifyApi_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BreinifyApi_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		A9362086C1BE48BD05A7BCCD6E9C2FE2 /* BreinUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinUtil.swift; sourceTree = "<group>"; };
-		A96602D53B4E7EE525447BF99445FEFA /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		A9BE7CBFED7B918DAAA6A53C8A25CD9A /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
+		A35C967E8E68868ADD8CDC98F960C928 /* BreinifyApi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BreinifyApi.modulemap; sourceTree = "<group>"; };
+		A6769C6C791971564F482A27C8D0CAB2 /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = IDZSwiftCommonCrypto/Crypto.swift; sourceTree = "<group>"; };
+		A8A81AD968797302335AF6FE99CF23BC /* BreinTemporalData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinTemporalData.swift; path = BreinifyApi/Classes/BreinTemporalData.swift; sourceTree = "<group>"; };
+		A8D006AEEBE7CA424068D6ABA2125EC0 /* BreinLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinLocationManager.swift; path = BreinifyApi/Classes/BreinLocationManager.swift; sourceTree = "<group>"; };
 		A9C49A9905493BFAEAE3065A6FCC86B2 /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IDZSwiftCommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E96CD312F6251C63122C3833EFEE6 /* Pods-BreinifyApi_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BreinifyApi_Tests-dummy.m"; sourceTree = "<group>"; };
-		B1405F39979A96288F63701560F3DA39 /* BreinRecommendation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinRecommendation.swift; sourceTree = "<group>"; };
-		BA60AA5883E54839B1C89B668ACE01A7 /* BreinMapUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinMapUtil.swift; sourceTree = "<group>"; };
-		BA69B792D3177003D356BDE12FBACC64 /* BreinDimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinDimension.swift; sourceTree = "<group>"; };
-		C25A185B017E17B574E3776429480EB0 /* BreinEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinEngine.swift; sourceTree = "<group>"; };
-		CDD4719F7A0BA464FE5F10A14A1EDB71 /* KeyDerivation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyDerivation.swift; path = IDZSwiftCommonCrypto/KeyDerivation.swift; sourceTree = "<group>"; };
-		D6711A782BE7C6C48020D4D73AB19B5A /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		DB4F1FFC4BA5A8D67FADE248E530C96B /* BreinifyApi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BreinifyApi.modulemap; sourceTree = "<group>"; };
-		DB69F349920BB02A22151EF1DE240826 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		DE0260B8E396E118C8968C1C522D4B45 /* BreinEngineType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinEngineType.swift; sourceTree = "<group>"; };
-		E22EDBD7AD0648BA4295E07872885785 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
+		AEC54F8A9BBDCB4F2DB0E79A9F384D4B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2097F9FBDA1C75DC3708851BAC8F3C6 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		B6AA718EE4E3EEF95F52783140A873A6 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		B9165A945C9BE0AC3C53A0B2D31D420C /* BreinLookup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinLookup.swift; path = BreinifyApi/Classes/BreinLookup.swift; sourceTree = "<group>"; };
+		BA72CED87AFF7651BFC5F27C7A058DD0 /* IRestEngineExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IRestEngineExtension.swift; path = BreinifyApi/Classes/IRestEngineExtension.swift; sourceTree = "<group>"; };
+		BBC09C2A721BBDC21B9A6329231A844E /* IDZSwiftCommonCrypto-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IDZSwiftCommonCrypto-dummy.m"; sourceTree = "<group>"; };
+		BFAF8CB0BD70C7CE1E49009ADAB52B44 /* IDZSwiftCommonCrypto-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IDZSwiftCommonCrypto-prefix.pch"; sourceTree = "<group>"; };
+		C2CCD300356D80D50D7ED9C0C55E686C /* StreamCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamCryptor.swift; path = IDZSwiftCommonCrypto/StreamCryptor.swift; sourceTree = "<group>"; };
+		C36BDBDCC6EE2491A0F41564F811F325 /* KeyDerivation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyDerivation.swift; path = IDZSwiftCommonCrypto/KeyDerivation.swift; sourceTree = "<group>"; };
+		C43DD22E7A8E5D3D231AC432823DA608 /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BreinifyApi-Bridging-Header.h"; path = "BreinifyApi/Classes/BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
+		C59AB4EAF51AE6CA87A619164B983410 /* BreinifyApi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-prefix.pch"; sourceTree = "<group>"; };
+		C5F83E7284C6F23D68A550B28F933A76 /* BreinActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinActivity.swift; path = BreinifyApi/Classes/BreinActivity.swift; sourceTree = "<group>"; };
+		CBA5DCC294132C3BB6371F2051FCB165 /* Breinify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Breinify.swift; path = BreinifyApi/Classes/Breinify.swift; sourceTree = "<group>"; };
+		CC331AA5901AEDB227B6008E3B7A6C49 /* Digest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Digest.swift; path = IDZSwiftCommonCrypto/Digest.swift; sourceTree = "<group>"; };
+		CD9143B21BB5ACA3571E8EFD45596FCA /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		CDBE5F5DB405198A5DFE9B4A07675F39 /* BreinifyApi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BreinifyApi-dummy.m"; sourceTree = "<group>"; };
+		CF4F3609D992922A61C0E370CA9EA225 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4F23856981521DC6CAE32FB6D6A9DC0 /* IDZSwiftCommonCrypto.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDZSwiftCommonCrypto.xcconfig; sourceTree = "<group>"; };
+		D7CD3CB32BE26EDF09188B1D24C66434 /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
+		D85BA577D3E08AC4F70B27BF66F7C173 /* ISecretStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISecretStrategy.swift; path = BreinifyApi/Classes/ISecretStrategy.swift; sourceTree = "<group>"; };
+		DB7F54E9095A5AD07E2BF647EBF90E59 /* BreinDimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinDimension.swift; path = BreinifyApi/Classes/BreinDimension.swift; sourceTree = "<group>"; };
+		DBCD7D2B25B140269AA2179B981FC93E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		E400B6190154AE889AE2C62A0A7E5DB9 /* Pods-BreinifyApi_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BreinifyApi_Tests-resources.sh"; sourceTree = "<group>"; };
-		E64B81662014E0779953EDDCBB082231 /* IDZSwiftCommonCrypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IDZSwiftCommonCrypto.h; path = IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.h; sourceTree = "<group>"; };
-		E9504B7CAFBCFBF2E07D6A0EA0FC991B /* BreinResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinResult.swift; sourceTree = "<group>"; };
-		E95BE8A6938767F21B2DFCB808548A8C /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		EA828926BDAC2DB444CCAAC834DDD714 /* IDZSwiftCommonCrypto-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IDZSwiftCommonCrypto-dummy.m"; sourceTree = "<group>"; };
-		EE04603C5BB3897B3CCFE5E8DC877062 /* BreinBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinBase.swift; sourceTree = "<group>"; };
-		EE2F00C9E48D8CF55FAB1F3F8DD3E78F /* Cryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptor.swift; path = IDZSwiftCommonCrypto/Cryptor.swift; sourceTree = "<group>"; };
-		EECABA377118BED1B1944A1DBBD59972 /* BreinifyExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinifyExecutor.swift; sourceTree = "<group>"; };
-		EF28C7275C35DE7A2FE121D0F3DAC5A9 /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = IDZSwiftCommonCrypto/Crypto.swift; sourceTree = "<group>"; };
-		EF5A8A1FB7AA4B858FA91290242C8C38 /* Random.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Random.swift; path = IDZSwiftCommonCrypto/Random.swift; sourceTree = "<group>"; };
-		F0243815A530F405D99214E734558E29 /* BreinError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinError.swift; sourceTree = "<group>"; };
-		F3D0CBD86D00219F84071571E2322F9B /* BreinUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BreinUser.swift; sourceTree = "<group>"; };
-		F4279829EAAB76585396B579AAC7D618 /* IRestEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IRestEngine.swift; sourceTree = "<group>"; };
-		F628D5C43CD3D5522888564E21346771 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		F88D675FDD288B95E149403C12ECD5EE /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		E511D2EB0A09EBB5B11128BD59ECA60A /* BreinEngineType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinEngineType.swift; path = BreinifyApi/Classes/BreinEngineType.swift; sourceTree = "<group>"; };
+		EF182361662D10F8D6F34872D778CDEF /* BreinBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BreinBase.swift; path = BreinifyApi/Classes/BreinBase.swift; sourceTree = "<group>"; };
+		F418924D35CFF8A108437C735715237C /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
 		FBE6454F371284CF879BB937E7083AB4 /* Pods_BreinifyApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC77BF8F4DCA435F5C6A8DE520209B85 /* IRestEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IRestEngine.swift; path = BreinifyApi/Classes/IRestEngine.swift; sourceTree = "<group>"; };
 		FD50827BA259E58C7097B6D4F9CBF818 /* Pods-BreinifyApi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BreinifyApi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FD8C33D63421CA46F8AB275E60F108DB /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		FE03ED9792DAB150E5672A1BC3F64FDB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +255,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		16BEE638D1EC8DB0EF89C1B3FF663E96 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A35C967E8E68868ADD8CDC98F960C928 /* BreinifyApi.modulemap */,
+				2B44C300B47C661958B7B12D1437FD42 /* BreinifyApi.xcconfig */,
+				CDBE5F5DB405198A5DFE9B4A07675F39 /* BreinifyApi-dummy.m */,
+				C59AB4EAF51AE6CA87A619164B983410 /* BreinifyApi-prefix.pch */,
+				86060A01888538B43441C297649216B7 /* BreinifyApi-umbrella.h */,
+				000535F8CA40B005D72C5DB8049C3F6E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BreinifyApi";
+			sourceTree = "<group>";
+		};
 		1C8C0CCE14403826E99976C86369FA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,110 +297,94 @@
 			path = "Target Support Files/Pods-BreinifyApi_Tests";
 			sourceTree = "<group>";
 		};
-		31E1B70911CAA1B6B97F98CEF25698B8 /* BreinifyApi */ = {
+		5863FDE29452D293C4CA2EDF3DBAF127 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				A4BFC0468080E8753D59C722191810A2 /* BreinifyApi */,
-				A48AB641A6C33333A575EDFC7D049F93 /* Support Files */,
+				87EC33D0FAE41410DF3F97E1E9F00921 /* Alamofire.swift */,
+				98BEC4F99206BA2AD6C890E7DC58EF8C /* Download.swift */,
+				13928D557B0F54806D375B5BC020FCCD /* Error.swift */,
+				D7CD3CB32BE26EDF09188B1D24C66434 /* Manager.swift */,
+				B2097F9FBDA1C75DC3708851BAC8F3C6 /* MultipartFormData.swift */,
+				3905BD7A93515EC210836883A1090C05 /* NetworkReachabilityManager.swift */,
+				005924547B4E16F14276A9E53C24C98B /* Notifications.swift */,
+				CD9143B21BB5ACA3571E8EFD45596FCA /* ParameterEncoding.swift */,
+				DBCD7D2B25B140269AA2179B981FC93E /* Request.swift */,
+				16E3E92E4D4434367D77F9CCC57144EB /* Response.swift */,
+				B6AA718EE4E3EEF95F52783140A873A6 /* ResponseSerialization.swift */,
+				93C2C8540735D288E087D927AEB159D2 /* Result.swift */,
+				28EE49C12EAC8F9BD228E4E0C8410EBC /* ServerTrustPolicy.swift */,
+				1EB0E38829015670912031D89E9BD7E7 /* Stream.swift */,
+				80DE0C899C0CFB18E8769F656ABF900A /* Timeline.swift */,
+				F418924D35CFF8A108437C735715237C /* Upload.swift */,
+				85A69962FBE52E44631A7419E86A1D36 /* Validation.swift */,
+				FA6141B0A75037F3B1C80FFF6E28CC1E /* Support Files */,
 			);
-			name = BreinifyApi;
-			path = ../..;
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		3AB60DCD2943671C395E71F03A7F9F98 /* IDZSwiftCommonCrypto */ = {
+		5D68D70D0F01C2FF738F6F76C7F05EEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EF28C7275C35DE7A2FE121D0F3DAC5A9 /* Crypto.swift */,
-				EE2F00C9E48D8CF55FAB1F3F8DD3E78F /* Cryptor.swift */,
-				8AE83090C9345143F06857B651024C83 /* Digest.swift */,
-				9F5F0CD0037E14EAC626C2D9D997F3FE /* HMAC.swift */,
-				E64B81662014E0779953EDDCBB082231 /* IDZSwiftCommonCrypto.h */,
-				CDD4719F7A0BA464FE5F10A14A1EDB71 /* KeyDerivation.swift */,
-				EF5A8A1FB7AA4B858FA91290242C8C38 /* Random.swift */,
-				12F1B0AD35B191A82481A448CBD47B32 /* Status.swift */,
-				4450A9B6755C7A13A678FE4F9C2D6AEB /* StreamCryptor.swift */,
-				0A804FD217476686A389536CA0BE74D1 /* Updateable.swift */,
-				6B4152FC8D8F97A16150625DCA4C5F32 /* Utilities.swift */,
-				776F6964C5AA36D65EF009BDFFEF4245 /* Support Files */,
+				5863FDE29452D293C4CA2EDF3DBAF127 /* Alamofire */,
+				6726EA8FD22E594841BF41C31B1B0B51 /* BreinifyApi */,
+				9BE1ACC1C380F422403714AC131E72AB /* IDZSwiftCommonCrypto */,
 			);
-			path = IDZSwiftCommonCrypto;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		4F00DC0DF1EFC3C66C4EFFF7099703F3 /* Support Files */ = {
+		612B16768F33B560854C9CC0CB813BA8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A1A3B65A9E344E2C9823E47AFBA16D8 /* Alamofire.modulemap */,
-				F88D675FDD288B95E149403C12ECD5EE /* Alamofire.xcconfig */,
-				DB69F349920BB02A22151EF1DE240826 /* Alamofire-dummy.m */,
-				E95BE8A6938767F21B2DFCB808548A8C /* Alamofire-prefix.pch */,
-				0D9D2F756D14F7D85598CEC77C77B75B /* Alamofire-umbrella.h */,
-				FE03ED9792DAB150E5672A1BC3F64FDB /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Alamofire";
-			sourceTree = "<group>";
-		};
-		60DE343F5FB51781FFFD1B110389BB75 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				0C3A47DA883C9C3DC0567F4CE1E3B156 /* AlamofireEngine.swift */,
-				0EE4CD44D0750F85EF8DA1D8B321AF5E /* BreinActivity.swift */,
-				7F309CEFDE8650C3AF4DEA7CC79C236D /* BreinActivityType.swift */,
-				EE04603C5BB3897B3CCFE5E8DC877062 /* BreinBase.swift */,
-				10A75ADB1C9D9B6990EF11F26A473559 /* BreinCategoryType.swift */,
-				1908F7C5EC0827225DA1DC6A6D5C342B /* BreinConfig.swift */,
-				BA69B792D3177003D356BDE12FBACC64 /* BreinDimension.swift */,
-				C25A185B017E17B574E3776429480EB0 /* BreinEngine.swift */,
-				DE0260B8E396E118C8968C1C522D4B45 /* BreinEngineType.swift */,
-				F0243815A530F405D99214E734558E29 /* BreinError.swift */,
-				3D816C3CA4F2FC26DAD07078DE2A5C99 /* Breinify.swift */,
-				A9BE7CBFED7B918DAAA6A53C8A25CD9A /* BreinifyApi-Bridging-Header.h */,
-				EECABA377118BED1B1944A1DBBD59972 /* BreinifyExecutor.swift */,
-				9376FAB4272D57C63D86714CD05FE4C4 /* BreinLocationManager.swift */,
-				7DD002D5C5596E579BB222A922AB09F6 /* BreinLookup.swift */,
-				BA60AA5883E54839B1C89B668ACE01A7 /* BreinMapUtil.swift */,
-				B1405F39979A96288F63701560F3DA39 /* BreinRecommendation.swift */,
-				E9504B7CAFBCFBF2E07D6A0EA0FC991B /* BreinResult.swift */,
-				3AC18D8ABAD5FB03D0E07A5EEDBC6F10 /* BreinTemporalData.swift */,
-				F3D0CBD86D00219F84071571E2322F9B /* BreinUser.swift */,
-				A9362086C1BE48BD05A7BCCD6E9C2FE2 /* BreinUtil.swift */,
-				F4279829EAAB76585396B579AAC7D618 /* IRestEngine.swift */,
-				37711FFA62FC739D75F770D60AA5865A /* IRestEngineExtension.swift */,
-				61CC5E2B031F2645BCBF899229607667 /* ISecretStrategy.swift */,
-				5CB2E0BC5718AFEDEBE75DE7A3DFA03C /* StringExtension.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		63012D4CAB1795F9474479DA1DAD520B /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				31E1B70911CAA1B6B97F98CEF25698B8 /* BreinifyApi */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		776F6964C5AA36D65EF009BDFFEF4245 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				361373C9CDDF6111B085B7D79F529645 /* IDZSwiftCommonCrypto.modulemap */,
-				3BDBB6769EC5BE71B1B2DB6A14775C3B /* IDZSwiftCommonCrypto.xcconfig */,
-				EA828926BDAC2DB444CCAAC834DDD714 /* IDZSwiftCommonCrypto-dummy.m */,
-				9449C0D2DDCA853FF9BEECE5BB07D035 /* IDZSwiftCommonCrypto-prefix.pch */,
-				7CADDF79E89F6927ABB37EC70BE3E095 /* IDZSwiftCommonCrypto-umbrella.h */,
-				4248EE84B54CEA2C336D5384CCBC67DC /* Info.plist */,
+				1078D70BD41DF7FE4C060965AFDE572F /* IDZSwiftCommonCrypto.modulemap */,
+				D4F23856981521DC6CAE32FB6D6A9DC0 /* IDZSwiftCommonCrypto.xcconfig */,
+				BBC09C2A721BBDC21B9A6329231A844E /* IDZSwiftCommonCrypto-dummy.m */,
+				BFAF8CB0BD70C7CE1E49009ADAB52B44 /* IDZSwiftCommonCrypto-prefix.pch */,
+				8C1E73C8F4E4368843EEEE71EE769E2C /* IDZSwiftCommonCrypto-umbrella.h */,
+				AEC54F8A9BBDCB4F2DB0E79A9F384D4B /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/IDZSwiftCommonCrypto";
+			sourceTree = "<group>";
+		};
+		6726EA8FD22E594841BF41C31B1B0B51 /* BreinifyApi */ = {
+			isa = PBXGroup;
+			children = (
+				6BD9F42381BC3E0E9C383F136E2F6A94 /* AlamofireEngine.swift */,
+				C5F83E7284C6F23D68A550B28F933A76 /* BreinActivity.swift */,
+				5D3F7C916E17A0275517A90B90DAB406 /* BreinActivityType.swift */,
+				EF182361662D10F8D6F34872D778CDEF /* BreinBase.swift */,
+				9A6F47D3F114C1F02D0096876F6D8370 /* BreinCategoryType.swift */,
+				7FB99505E28F0DA1F89DBA216E534E87 /* BreinConfig.swift */,
+				DB7F54E9095A5AD07E2BF647EBF90E59 /* BreinDimension.swift */,
+				679E87DE120656E5668B08CB7F1C4A85 /* BreinEngine.swift */,
+				E511D2EB0A09EBB5B11128BD59ECA60A /* BreinEngineType.swift */,
+				99CE7685D63543F0018280B680A56981 /* BreinError.swift */,
+				CBA5DCC294132C3BB6371F2051FCB165 /* Breinify.swift */,
+				C43DD22E7A8E5D3D231AC432823DA608 /* BreinifyApi-Bridging-Header.h */,
+				6E5E9438620F0550723466255AB499DC /* BreinifyExecutor.swift */,
+				A8D006AEEBE7CA424068D6ABA2125EC0 /* BreinLocationManager.swift */,
+				B9165A945C9BE0AC3C53A0B2D31D420C /* BreinLookup.swift */,
+				0E3D00E9ED91DA529B7155683F063369 /* BreinMapUtil.swift */,
+				9561A4C8E7A040EBE530AE46F9C2576B /* BreinRecommendation.swift */,
+				500B3B0052ECBFB1F7C9F09DD49ADD1A /* BreinResult.swift */,
+				A8A81AD968797302335AF6FE99CF23BC /* BreinTemporalData.swift */,
+				15599471F1942BFC9386F284496FE5C0 /* BreinUser.swift */,
+				235F09A5BF0AEDD2B44A5E3CA0B120F7 /* BreinUtil.swift */,
+				FC77BF8F4DCA435F5C6A8DE520209B85 /* IRestEngine.swift */,
+				BA72CED87AFF7651BFC5F27C7A058DD0 /* IRestEngineExtension.swift */,
+				D85BA577D3E08AC4F70B27BF66F7C173 /* ISecretStrategy.swift */,
+				8755A72CEEE943A340E3DF0F9FBB8A34 /* StringExtension.swift */,
+				16BEE638D1EC8DB0EF89C1B3FF663E96 /* Support Files */,
+			);
+			path = BreinifyApi;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				63012D4CAB1795F9474479DA1DAD520B /* Development Pods */,
 				1C8C0CCE14403826E99976C86369FA9E /* Frameworks */,
-				E16922C777AF2BC8C04B2D7C75317A7B /* Pods */,
+				5D68D70D0F01C2FF738F6F76C7F05EEF /* Pods */,
 				1566D64FBE04609936235343AAD122A0 /* Products */,
 				E693563311B8D086A06F4C278CF4CF13 /* Targets Support Files */,
 			);
@@ -400,60 +398,23 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		A1ED24B27D99E2D2B8DF387A7136D1D7 /* Alamofire */ = {
+		9BE1ACC1C380F422403714AC131E72AB /* IDZSwiftCommonCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				82E012F0C7179A66921CB3B5099AD689 /* Alamofire.swift */,
-				9E717B76C83B0491535AA2F18F5B0A64 /* Download.swift */,
-				07265FEA923CBF6387C631DE2293A6C9 /* Error.swift */,
-				4384917E6AEC404603945432AFA9912C /* Manager.swift */,
-				36F697DA54F283C5F4CFB939C37D28DD /* MultipartFormData.swift */,
-				8FD70F905F79D7DA4201F1B5F5A8B085 /* NetworkReachabilityManager.swift */,
-				A96602D53B4E7EE525447BF99445FEFA /* Notifications.swift */,
-				FD8C33D63421CA46F8AB275E60F108DB /* ParameterEncoding.swift */,
-				37A3B47A16F0C4A5D91E9B29865429FC /* Request.swift */,
-				80CB5E4C752A79CD4079B24557AB550E /* Response.swift */,
-				42B9ABA0A88A912C5B37B7B6F82BE6DC /* ResponseSerialization.swift */,
-				F628D5C43CD3D5522888564E21346771 /* Result.swift */,
-				946E8CE1EA1FB54F628DD1752FB13FB0 /* ServerTrustPolicy.swift */,
-				74CD79BD9B2E55E51FD957E5BD7B9724 /* Stream.swift */,
-				D6711A782BE7C6C48020D4D73AB19B5A /* Timeline.swift */,
-				E22EDBD7AD0648BA4295E07872885785 /* Upload.swift */,
-				847D0F4D77D4FC8D5A9FC1F1327814DB /* Validation.swift */,
-				4F00DC0DF1EFC3C66C4EFFF7099703F3 /* Support Files */,
+				A6769C6C791971564F482A27C8D0CAB2 /* Crypto.swift */,
+				751AD26EE444CDC57DC2082AF1E376DF /* Cryptor.swift */,
+				CC331AA5901AEDB227B6008E3B7A6C49 /* Digest.swift */,
+				92D58038F502A5860ECC534C38A48706 /* HMAC.swift */,
+				16E1261460FC654A42A0CE9FB375800B /* IDZSwiftCommonCrypto.h */,
+				C36BDBDCC6EE2491A0F41564F811F325 /* KeyDerivation.swift */,
+				01491FC48BFDCB3CC1A6A60474CFFB26 /* Random.swift */,
+				4E8648CF8A815095AB806A61E09930C9 /* Status.swift */,
+				C2CCD300356D80D50D7ED9C0C55E686C /* StreamCryptor.swift */,
+				1A5181A4FC4371A6B21609A2EA2F5194 /* Updateable.swift */,
+				872323B39334F5C3567A1D6D390C13F2 /* Utilities.swift */,
+				612B16768F33B560854C9CC0CB813BA8 /* Support Files */,
 			);
-			path = Alamofire;
-			sourceTree = "<group>";
-		};
-		A48AB641A6C33333A575EDFC7D049F93 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DB4F1FFC4BA5A8D67FADE248E530C96B /* BreinifyApi.modulemap */,
-				02C8D3EF0CF76E6B62539AFCEC69576C /* BreinifyApi.xcconfig */,
-				881D49758E5581C55ECB586278EA9748 /* BreinifyApi-dummy.m */,
-				6D5B8CB25FAF63AAA2AE7F9054D41191 /* BreinifyApi-prefix.pch */,
-				4792B145CFA5D39695DCB8F2A23C92CE /* BreinifyApi-umbrella.h */,
-				061A505BF74907D0EC93CD56773023AB /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/BreinifyApi";
-			sourceTree = "<group>";
-		};
-		A4BFC0468080E8753D59C722191810A2 /* BreinifyApi */ = {
-			isa = PBXGroup;
-			children = (
-				60DE343F5FB51781FFFD1B110389BB75 /* Classes */,
-			);
-			path = BreinifyApi;
-			sourceTree = "<group>";
-		};
-		E16922C777AF2BC8C04B2D7C75317A7B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A1ED24B27D99E2D2B8DF387A7136D1D7 /* Alamofire */,
-				3AB60DCD2943671C395E71F03A7F9F98 /* IDZSwiftCommonCrypto */,
-			);
-			name = Pods;
+			path = IDZSwiftCommonCrypto;
 			sourceTree = "<group>";
 		};
 		E693563311B8D086A06F4C278CF4CF13 /* Targets Support Files */ = {
@@ -462,6 +423,20 @@
 				2EBD10E30F376EB2CBD2809E7861F113 /* Pods-BreinifyApi_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FA6141B0A75037F3B1C80FFF6E28CC1E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3343458A5967EDAF134092167E713190 /* Alamofire.modulemap */,
+				492EC81DB7529AB79125F5171CA8B183 /* Alamofire.xcconfig */,
+				7589E7474DA191F391974428599AE230 /* Alamofire-dummy.m */,
+				54CC13A1532C02FBBA11CD91317987E8 /* Alamofire-prefix.pch */,
+				9D650D92F64427DEB07F6E4B6ECD1BE3 /* Alamofire-umbrella.h */,
+				CF4F3609D992922A61C0E370CA9EA225 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,12 +459,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B084B7473992FEE5ADD0DB45BDD5A250 /* Headers */ = {
+		5CA3AA7777710DFDC7D555420E6A9A73 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D963055A79EF061D34E107E299B9915 /* BreinifyApi-Bridging-Header.h in Headers */,
-				09ABDD315B59010731FB9B7D35EF252C /* BreinifyApi-umbrella.h in Headers */,
+				49BDEE6F24FEF53CCAFF287CC189F087 /* BreinifyApi-Bridging-Header.h in Headers */,
+				3CAE876485B215316A38246CB7D37611 /* BreinifyApi-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,9 +483,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B41B34B75396E2534972D8DF267E68F2 /* Build configuration list for PBXNativeTarget "BreinifyApi" */;
 			buildPhases = (
-				11D336C0C89529D21D754126A0110B15 /* Sources */,
+				6DBBB83D98A4479EFA3BC6B75EABF123 /* Sources */,
 				7C21A4DC0DCDC495D8EFECD392232EF8 /* Frameworks */,
-				B084B7473992FEE5ADD0DB45BDD5A250 /* Headers */,
+				5CA3AA7777710DFDC7D555420E6A9A73 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -607,38 +582,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		11D336C0C89529D21D754126A0110B15 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				492E8EFEEA7A211BA13016F137556B15 /* AlamofireEngine.swift in Sources */,
-				9F33BB63E253872C45205D0AAA0ABF5B /* BreinActivity.swift in Sources */,
-				2E123068905396C68F0CE3FC589B8198 /* BreinActivityType.swift in Sources */,
-				C52463E430B0476428A33A27B7544366 /* BreinBase.swift in Sources */,
-				1757F8ECDF736FF10C2C52FEE6D5AF00 /* BreinCategoryType.swift in Sources */,
-				448C07C5754EFD8AD267E3394D9CB127 /* BreinConfig.swift in Sources */,
-				387762C79DBC2FFB975BF84F52A7D5E8 /* BreinDimension.swift in Sources */,
-				5B007BB4B546C79263F775BF950705E6 /* BreinEngine.swift in Sources */,
-				F0D8AC2886B72D4781E8C6FA2172B6C9 /* BreinEngineType.swift in Sources */,
-				5FBCD6C161FAD01AB3A83136A18D83F0 /* BreinError.swift in Sources */,
-				DD086F59A837FE09D47AE51C97E03C3B /* Breinify.swift in Sources */,
-				A1A8455DEC6CB7FEE3378DBF4C5A8D4C /* BreinifyApi-dummy.m in Sources */,
-				5E8706155F76C378672B4FBF9B1FC629 /* BreinifyExecutor.swift in Sources */,
-				E3FBEEF542EACC9C30EB84D0F0D3447E /* BreinLocationManager.swift in Sources */,
-				D2D50A17DBA785988BA3377BE3F079C5 /* BreinLookup.swift in Sources */,
-				73EA8930AD62F8D70A8216469E533118 /* BreinMapUtil.swift in Sources */,
-				0CC8E34B271B74F7C5BB05E326A535DC /* BreinRecommendation.swift in Sources */,
-				477189E2A0FC6E7738AD2008859C405E /* BreinResult.swift in Sources */,
-				15359B87C7F8CD1C4FF10F3E77211F1E /* BreinTemporalData.swift in Sources */,
-				E74B2AD417E9EB40EA20A4947F8F5DA5 /* BreinUser.swift in Sources */,
-				B73058A94FEE4011A276B1D597685C5D /* BreinUtil.swift in Sources */,
-				53B30C8654FC2BAB97E48BFE4B3B1050 /* IRestEngine.swift in Sources */,
-				0C6C411B4FF5D50A08BAEB9218C4A79D /* IRestEngineExtension.swift in Sources */,
-				CA7AB4763CB3296091832EBAF0ACE1E0 /* ISecretStrategy.swift in Sources */,
-				87CC276D1A31033EDB1B91F98E2CCDB3 /* StringExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3781CCC18E7E8974898BB24E35E21650 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -662,6 +605,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E8884DC80CBBAEFB6328C00437B37DD /* Pods-BreinifyApi_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DBBB83D98A4479EFA3BC6B75EABF123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E03AF9C4FF9EFF3C0AF90547CAD39933 /* AlamofireEngine.swift in Sources */,
+				19B2E0A90FF1957A7D09ADBC9E10A4C6 /* BreinActivity.swift in Sources */,
+				24E54AB88A6A54A6DD93D80D3240A2E3 /* BreinActivityType.swift in Sources */,
+				4AED865F58719F713602E38AB1F9A56C /* BreinBase.swift in Sources */,
+				FAFBF65422200197A0C3E86FBDE24A79 /* BreinCategoryType.swift in Sources */,
+				0103A262AA5ECB61B0F52C4826640C8A /* BreinConfig.swift in Sources */,
+				27E900B7AF9AC314B8F3FA6C5F22F8E1 /* BreinDimension.swift in Sources */,
+				255993AF1010D3283102258AD59B0D61 /* BreinEngine.swift in Sources */,
+				5F962E65800F71B432D72BB32148BAD8 /* BreinEngineType.swift in Sources */,
+				D65BDFBD6D703702AA80823CA0DAECF7 /* BreinError.swift in Sources */,
+				52F7C5D346DE06A0070B3B9825B2A719 /* Breinify.swift in Sources */,
+				09CDC76D040A5F4D1A203FC9C7737098 /* BreinifyApi-dummy.m in Sources */,
+				48326FEA1B8D3257ADCBE3571A71D0A3 /* BreinifyExecutor.swift in Sources */,
+				17D1A9435B408B79815A1E1CB86D3862 /* BreinLocationManager.swift in Sources */,
+				70600657712BBC08CCC9EEAEA4573BC5 /* BreinLookup.swift in Sources */,
+				1C8D9D626038D54F3DB0293A047B721E /* BreinMapUtil.swift in Sources */,
+				AF5A63F47FCFC179B6E1890647A9E9B8 /* BreinRecommendation.swift in Sources */,
+				6986F48566C6558AC8A2887512C72FDD /* BreinResult.swift in Sources */,
+				A5241DF8F3359F96DA8A48BA321C7B90 /* BreinTemporalData.swift in Sources */,
+				9EB492C1F01092614888FD74A1657806 /* BreinUser.swift in Sources */,
+				243948BA4FFB0C9836DDD07438667D2A /* BreinUtil.swift in Sources */,
+				E293A07DB8B4AEAE00A08E31ACD2798B /* IRestEngine.swift in Sources */,
+				54ED2198622D45A6014BD33CE51D4FD7 /* IRestEngineExtension.swift in Sources */,
+				62637C685A8F4472CDC50F58139AE28A /* ISecretStrategy.swift in Sources */,
+				6E881F259B5026A9ABF60F7DF53C6E3B /* StringExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,7 +783,7 @@
 		};
 		230065C5B01DFA75763D39F5DAAFAD9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02C8D3EF0CF76E6B62539AFCEC69576C /* BreinifyApi.xcconfig */;
+			baseConfigurationReference = 2B44C300B47C661958B7B12D1437FD42 /* BreinifyApi.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -841,7 +816,7 @@
 		};
 		67A2668B3320EAF68872C9C6524E890F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F88D675FDD288B95E149403C12ECD5EE /* Alamofire.xcconfig */;
+			baseConfigurationReference = 492EC81DB7529AB79125F5171CA8B183 /* Alamofire.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -951,7 +926,7 @@
 		};
 		A8B2F2B088D321AE03DECE75BCBC6572 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BDBB6769EC5BE71B1B2DB6A14775C3B /* IDZSwiftCommonCrypto.xcconfig */;
+			baseConfigurationReference = D4F23856981521DC6CAE32FB6D6A9DC0 /* IDZSwiftCommonCrypto.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -983,7 +958,7 @@
 		};
 		D14F63407C18BB17EDAC58FCE8014806 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02C8D3EF0CF76E6B62539AFCEC69576C /* BreinifyApi.xcconfig */;
+			baseConfigurationReference = 2B44C300B47C661958B7B12D1437FD42 /* BreinifyApi.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1015,7 +990,7 @@
 		};
 		D3055CF7AF1897553F37048CC6FA99C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BDBB6769EC5BE71B1B2DB6A14775C3B /* IDZSwiftCommonCrypto.xcconfig */;
+			baseConfigurationReference = D4F23856981521DC6CAE32FB6D6A9DC0 /* IDZSwiftCommonCrypto.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1048,7 +1023,7 @@
 		};
 		DF6EE6CD09ACA573C9BEE8E4C3E8476D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F88D675FDD288B95E149403C12ECD5EE /* Alamofire.xcconfig */;
+			baseConfigurationReference = 492EC81DB7529AB79125F5171CA8B183 /* Alamofire.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
