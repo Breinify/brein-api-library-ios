@@ -13,8 +13,8 @@ import Foundation
 
 public class BreinEngine {
 
-    public typealias apiSuccess = (result: BreinResult?) -> Void
-    public typealias apiFailure = (error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult?) -> Void
+    public typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     /**
      creation of rest engine - currently it is only Alamofire
@@ -56,20 +56,21 @@ public class BreinEngine {
          main thread 
 
      */
-    public func sendActivity(activity: BreinActivity!,
-                             success successBlock: BreinEngine.apiSuccess,
-                             failure failureBlock: BreinEngine.apiFailure) throws {
+    public func sendActivity(_ activity: BreinActivity!,
+                             success successBlock: @escaping BreinEngine.apiSuccess,
+                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+        
         if activity != nil {
-
             // necessary to invoke CLLocationManager
-            dispatch_async(dispatch_get_main_queue()) {
+            // need to come back to main thread
+            DispatchQueue.main.async {
                 
                 self.locationManager.fetchWithCompletion {
 
                     location, error in
 
                     // save the retrieved location data
-                    activity.getBreinUser().setLocationData(location)
+                    activity.getBreinUser()?.setLocationData(location)
 
                     // print("latitude is: \(location?.coordinate.latitude)")
                     // print("longitude is: \(location?.coordinate.longitude)")
@@ -79,6 +80,7 @@ public class BreinEngine {
                                 success: successBlock,
                                 failure: failureBlock)
                     } catch {
+                        // TODO throw error
                         print("\(error)")
                     }
                 }
@@ -95,27 +97,32 @@ public class BreinEngine {
       
       - returns: result from Breinify engine
     */
-    public func performTemporalDataRequest(breinTemporalData: BreinTemporalData!,
-                                           success successBlock: apiSuccess,
-                                           failure failureBlock: apiFailure) throws {
+    public func performTemporalDataRequest(_ breinTemporalData: BreinTemporalData!,
+                                           success successBlock: @escaping apiSuccess,
+                                           failure failureBlock: @escaping apiFailure) throws {
         if breinTemporalData != nil {
 
-            locationManager.fetchWithCompletion {
+            // necessary to invoke CLLocationManager
+            // need to come back to main thread
+            DispatchQueue.main.async {
 
-                location, error in
+                self.locationManager.fetchWithCompletion {
 
-                // save the retrieved location data
-                breinTemporalData.getBreinUser().setLocationData(location)
+                    location, error in
 
-                // print("latitude is: \(location?.coordinate.latitude)")
-                // print("longitude is: \(location?.coordinate.longitude)")
+                    // save the retrieved location data
+                    breinTemporalData.getBreinUser()?.setLocationData(location)
 
-                do {
-                    return try self.restEngine.doTemporalDataRequest(breinTemporalData,
-                            success: successBlock,
-                            failure: failureBlock)
-                } catch {
-                    print("performTemporalDataRequest error is: \(error)")
+                    // print("latitude is: \(location?.coordinate.latitude)")
+                    // print("longitude is: \(location?.coordinate.longitude)")
+
+                    do {
+                        return try self.restEngine.doTemporalDataRequest(breinTemporalData,
+                                success: successBlock,
+                                failure: failureBlock)
+                    } catch {
+                        print("performTemporalDataRequest error is: \(error)")
+                    }
                 }
             }
         }
@@ -130,30 +137,35 @@ public class BreinEngine {
      
        - returns:  if succeeded a BreinResponse object or  null
     */
-    public func performLookUp(breinLookup: BreinLookup!,
-                              success successBlock: apiSuccess,
-                              failure failureBlock: apiFailure) throws {
+    public func performLookUp(_ breinLookup: BreinLookup!,
+                              success successBlock: @escaping apiSuccess,
+                              failure failureBlock: @escaping apiFailure) throws {
 
         if breinLookup != nil {
 
-            locationManager.fetchWithCompletion {
+            // necessary to invoke CLLocationManager
+            // need to come back to main thread
+            DispatchQueue.main.async {
 
-                location, error in
+                self.locationManager.fetchWithCompletion {
 
-                // save the retrieved location data
-                breinLookup.getBreinUser().setLocationData(location)
+                    location, error in
 
-                // print("latitude is: \(location?.coordinate.latitude)")
-                // print("longitude is: \(location?.coordinate.longitude)")
+                    // save the retrieved location data
+                    breinLookup.getBreinUser()?.setLocationData(location)
 
-                do {
-                    if breinLookup != nil {
-                        return try self.restEngine.doLookup(breinLookup,
-                                success: successBlock,
-                                failure: failureBlock)
+                    // print("latitude is: \(location?.coordinate.latitude)")
+                    // print("longitude is: \(location?.coordinate.longitude)")
+
+                    do {
+                        if breinLookup != nil {
+                            return try self.restEngine.doLookup(breinLookup,
+                                    success: successBlock,
+                                    failure: failureBlock)
+                        }
+                    } catch {
+                        print("performLookUp error is: \(error)")
                     }
-                } catch {
-                    print("performLookUp error is: \(error)")
                 }
             }
         }
@@ -168,40 +180,45 @@ public class BreinEngine {
 
       - return result of request or null
     */
-    public func invokeRecommendation(breinRecommendation: BreinRecommendation!,
-                                     success successBlock: BreinEngine.apiSuccess,
-                                     failure failureBlock: BreinEngine.apiFailure) throws {
+    public func invokeRecommendation(_ breinRecommendation: BreinRecommendation!,
+                                     success successBlock: @escaping BreinEngine.apiSuccess,
+                                     failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
 
         if breinRecommendation != nil {
 
-            locationManager.fetchWithCompletion {
+            // necessary to invoke CLLocationManager
+            // need to come back to main thread
+            DispatchQueue.main.async {
 
-                location, error in
+                self.locationManager.fetchWithCompletion {
 
-                // save the retrieved location data
-                breinRecommendation.getBreinUser().setLocationData(location)
+                    location, error in
 
-                // print("latitude is: \(location?.coordinate.latitude)")
-                // print("longitude is: \(location?.coordinate.longitude)")
+                    // save the retrieved location data
+                    breinRecommendation.getBreinUser()?.setLocationData(location)
 
-                do {
-                    if breinRecommendation != nil {
-                        return try self.restEngine.doRecommendation(breinRecommendation,
-                                success: successBlock,
-                                failure: failureBlock)
+                    // print("latitude is: \(location?.coordinate.latitude)")
+                    // print("longitude is: \(location?.coordinate.longitude)")
+
+                    do {
+                        if breinRecommendation != nil {
+                            return try self.restEngine.doRecommendation(breinRecommendation,
+                                    success: successBlock,
+                                    failure: failureBlock)
+                        }
+                    } catch {
+                        print("invokeRecommendation error is: \(error)")
                     }
-                } catch {
-                    print("invokeRecommendation error is: \(error)")
                 }
             }
         }
     }
-
+    
     /**
      Returns the rest engine
 
-     - return engine itself
+     - returns: engine itself
     */
     public func getRestEngine() -> IRestEngine! {
         return restEngine
@@ -210,10 +227,10 @@ public class BreinEngine {
     /**
      Configuration of engine
 
-     -parameter breinConfig: configuration object
+     - parameter breinConfig: configuration object
 
      */
-    public func configure(breinConfig: BreinConfig!) {
+    public func configure(_ breinConfig: BreinConfig!) {
         restEngine.configure(breinConfig)
     }
 

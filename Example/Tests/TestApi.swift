@@ -5,8 +5,8 @@ import BreinifyApi
 
 class TestApi: XCTestCase {
 
-    typealias apiSuccess = (result: BreinResult?) -> Void
-    typealias apiFailure = (error: NSDictionary?) -> Void
+    typealias apiSuccess = (_ result: BreinResult?) -> Void
+    typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     let baseUrl = "https://api.breinify.com"
 
@@ -17,12 +17,10 @@ class TestApi: XCTestCase {
     let breinCategory = "home"
     var breinConfig: BreinConfig!
 
-    var myGroup = dispatch_group_create()
-
     override func setUp() {
         super.setUp()
 
-        breinConfig = BreinConfig(apiKey: validApiKeyWithSecret,
+        breinConfig = BreinConfig(validApiKeyWithSecret,
                 secret: validSecret)
 
         // set configuration
@@ -30,28 +28,24 @@ class TestApi: XCTestCase {
     }
 
     override func tearDown() {
-        NSThread.sleepForTimeInterval(5)
-        Breinify.shutdown()
-        super.tearDown()
+        let when = DispatchTime.now() + 15 // wait 15 seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            Breinify.shutdown()
+            super.tearDown()
+        }
     }
 
     // test case how to use the activity api with secret
     func testLoginWithSecret() {
 
-        dispatch_group_enter(myGroup)
-
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             print("Api Success : result is:\n \(result)")
-
-            dispatch_group_leave(self.myGroup)
-
         }
+
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             print("Api Failure : error is:\n \(error)")
-
-            dispatch_group_leave(self.myGroup)
         }
 
         // set additional user information
@@ -69,17 +63,7 @@ class TestApi: XCTestCase {
         } catch {
             print("Error is: \(error)")
         }
-
-        dispatch_group_notify(myGroup, dispatch_get_main_queue(), {
-            print("Finished all requests.")
-        })
-
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            print("Finished")
-        }
-
-
+        
     }
 
     // test case how to use the activity api
@@ -136,41 +120,42 @@ class TestApi: XCTestCase {
 
         // add base dic
         var baseDic = [String: AnyObject]()
-        baseDic["baseOne"] = "valueOfBaseOne"
-        baseDic["baseTwo"] = "valueOfBaseTwo"
+        baseDic["baseOne"] = "valueOfBaseOne" as AnyObject
+        baseDic["baseTwo"] = "valueOfBaseTwo" as AnyObject
 
         // add activity dic
         var activityDic = [String: AnyObject]()
-        activityDic["activityOne"] = "valueOfActivityOne"
-        activityDic["activityTwo"] = "valueOfActivityTwo"
+        activityDic["activityOne"] = "valueOfActivityOne" as AnyObject
+        activityDic["activityTwo"] = "valueOfActivityTwo" as AnyObject
 
         // add user dic
         var userDic = [String: AnyObject]()
-        userDic["userOne"] = "valueOfUserOne"
-        userDic["userTwo"] = "valueOfUserTwo"
+        userDic["userOne"] = "valueOfUserOne" as AnyObject
+        userDic["userTwo"] = "valueOfUserTwo" as AnyObject
 
         // add user additional dic
         var userAdditionalDic = [String: AnyObject]()
-        userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne"
-        userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo"
+        userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne" as AnyObject
+        userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo" as AnyObject
 
         breinUser.setUserDic(userDic)
         breinUser.setAdditionalDic(userAdditionalDic)
 
         // invoke activity call
         do {
-            let breinActivity = Breinify.getBreinActivity()
+            if let breinActivity = Breinify.getBreinActivity() {
 
-            breinActivity.setBaseDic(baseDic)
-            breinActivity.setActivityDic(activityDic)
+                breinActivity.setBaseDic(baseDic)
+                breinActivity.setActivityDic(activityDic)
 
-            try Breinify.activity(breinActivity,
-                    user: breinUser,
-                    activityType: "login",
-                    category: "home",
-                    description: "Login-Description",
-                    success: successBlock,
-                    failure: failureBlock)
+                try Breinify.activity(breinActivity,
+                        user: breinUser,
+                        activityType: String.login,
+                        category: String.home,
+                        description: "Login-Description",
+                        success: successBlock,
+                        failure: failureBlock)
+            }
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
@@ -199,26 +184,27 @@ class TestApi: XCTestCase {
                 .setIpAddress("10.11.12.130")
                 .setUrl("http://sample.com")
 
-        let tagsDic: [String: AnyObject] = ["A": "STRING",
-                                            "B": 100,
-                                            "C": 2.22]
+        let tagsDic: [String: AnyObject] = ["A": "STRING" as AnyObject,
+                                            "B": 100 as AnyObject,
+                                            "C": 2.22 as AnyObject]
 
-        let breinActivity = Breinify.getBreinActivity()
-        breinActivity.setTagsDic(tagsDic)
+        if let breinActivity = Breinify.getBreinActivity() {
+            breinActivity.setTagsDic(tagsDic)
 
-        // invoke activity call
-        do {
-            try Breinify.activity(breinUser,
-                    activityType: "login",
-                    category: "home",
-                    description: "Login-Description",
-                    success: successBlock,
-                    failure: failureBlock)
-        } catch {
-            XCTAssert(true, "Error is: \(error)")
+            // invoke activity call
+            do {
+                try Breinify.activity(breinUser,
+                        activityType: "login",
+                        category: "home",
+                        description: "Login-Description",
+                        success: successBlock,
+                        failure: failureBlock)
+            } catch {
+                XCTAssert(true, "Error is: \(error)")
+            }
+
+            print("Test finished")
         }
-
-        print("Test finished")
     }
 
 
@@ -377,10 +363,14 @@ class TestApi: XCTestCase {
             // create dictionary here...
             var locationAdditionalMap = [String: AnyObject]()
             var locationValueMap = [String: AnyObject]()
+            
 
-            locationValueMap["latitude"] = drand48() * 10 + 39 - 5
-            locationValueMap["longitude"] = drand48() * 50 - 98 - 25
-            locationAdditionalMap["location"] = locationValueMap
+            let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
+            let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
+
+            locationValueMap["latitude"] = valueLatitude as AnyObject
+            locationValueMap["longitude"] = valueLongitude as AnyObject
+            locationAdditionalMap["location"] = locationValueMap as AnyObject
 
             let user = BreinUser(email: "fred.firestone@email.com")
                     .setFirstName("Fred")
@@ -422,10 +412,11 @@ class TestApi: XCTestCase {
 
         do {
             // create dictionary here...
-            var locationValueMap = [String: AnyObject]()
+            let locationValueMap = [String: AnyObject]()
+            let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
+            let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
 
-            locationValueMap["latitude"] = drand48() * 10 + 39 - 5
-            locationValueMap["longitude"] = drand48() * 50 - 98 - 25
+            // Todo: something missing here: valueLatitude & valueLongitude
 
             let user = BreinUser(email: "fred.firestone@email.com")
                     .setFirstName("Fred")

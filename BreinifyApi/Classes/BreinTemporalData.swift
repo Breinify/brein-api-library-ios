@@ -6,7 +6,7 @@
 
 import Foundation
 
-public class BreinTemporalData: BreinBase, ISecretStrategy {
+open class BreinTemporalData: BreinBase, ISecretStrategy {
     
     /**
        TemporalData implementation. For a given user (BreinUser) a temporalData request will be performed.
@@ -17,9 +17,9 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
 
          - returns response: from request or null if no data can be retrieved
     */
-    public func temporalData(breinUser: BreinUser!,
-                             success successBlock: BreinEngine.apiSuccess,
-                             failure failureBlock: BreinEngine.apiFailure) throws {
+    public func temporalData(_ breinUser: BreinUser!,
+                             success successBlock: @escaping BreinEngine.apiSuccess,
+                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -41,7 +41,7 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         if let breinUser = getBreinUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData
+            requestData["user"] = userData as AnyObject?
         }
 
         // base level data...
@@ -76,22 +76,23 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
       Creates the signature for the temporal data secret
     */
     public override func createSignature() -> String! {
-        let localDateTime = getBreinUser().getLocalDateTime()
+        let localDateTime = getBreinUser()?.getLocalDateTime()
         let paraLocalDateTime = localDateTime == nil ? "" : localDateTime
 
-        let timezone = getBreinUser().getTimezone()
+        let timezone = getBreinUser()?.getTimezone()
         let paraTimezone = timezone == nil ? "" : timezone
         
         let message = String(getUnixTimestamp()) +
                 "-" +
-                paraLocalDateTime +
+                paraLocalDateTime! +
                 "-" +
-                paraTimezone
+                paraTimezone!
 
         var signature = ""
         do {
             signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
+            // todo: throw error
             print("Ups: Error while trying to generate signature")
         }
 

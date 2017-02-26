@@ -1,22 +1,22 @@
 PODS:
-  - Alamofire (3.4.1)
-  - BreinifyApi (0.1.0):
-    - Alamofire (~> 3.4)
-    - IDZSwiftCommonCrypto (= 0.7.3)
-  - IDZSwiftCommonCrypto (0.7.3)
+  - Alamofire (4.3.0)
+  - BreinifyApi (1.0.0):
+    - Alamofire (~> 4.3)
+    - IDZSwiftCommonCrypto (~> 0.9)
+  - IDZSwiftCommonCrypto (0.9.1)
 
 DEPENDENCIES:
-  - BreinifyApi (from `../`)
+  - BreinifyApi (from `./..`)
 
 EXTERNAL SOURCES:
   BreinifyApi:
-    :path: ../
+    :path: ./..
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  BreinifyApi: 1d1d860f605c8c6d7c0f3b0a59826483ef016f6c
-  IDZSwiftCommonCrypto: f4271e731bdeefa85832d425629134fc01efd659
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  BreinifyApi: c5578955c48f83e6141a2e0750b79480345e1650
+  IDZSwiftCommonCrypto: c44fe5c0219a219846b56b4c148615dd06e58591
 
-PODFILE CHECKSUM: 2cbd6761f5d46820586a9ec46cffa2b5327f4b53
+PODFILE CHECKSUM: 057f98195daa5fbbb5643c7178b36883be6f8c00
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

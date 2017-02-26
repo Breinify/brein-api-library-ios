@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F55E5D62CA3BA8CD8DE296678A90B8B"
-               BuildableName = "IDZSwiftCommonCrypto.framework"
-               BlueprintName = "IDZSwiftCommonCrypto"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,48 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TestApi">
+               </Test>
+               <Test
+                  Identifier = "TestConfig">
+               </Test>
+               <Test
+                  Identifier = "TestDomain/testBirthday()">
+               </Test>
+               <Test
+                  Identifier = "TestDomain/testBreinRequest()">
+               </Test>
+               <Test
+                  Identifier = "TestDomain/testBreinRequestWithLessData()">
+               </Test>
+               <Test
+                  Identifier = "TestDomain/testBreinUserWithNoMethods()">
+               </Test>
+               <Test
+                  Identifier = "TestEngine">
+               </Test>
+               <Test
+                  Identifier = "TestExecutor">
+               </Test>
+               <Test
+                  Identifier = "TestLocation">
+               </Test>
+               <Test
+                  Identifier = "TestSecret">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -45,10 +87,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7F55E5D62CA3BA8CD8DE296678A90B8B"
-            BuildableName = "IDZSwiftCommonCrypto.framework"
-            BlueprintName = "IDZSwiftCommonCrypto"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "607FACE41AFB9204008FA782"
+            BuildableName = "BreinifyApi_Tests.xctest"
+            BlueprintName = "BreinifyApi_Tests"
+            ReferencedContainer = "container:BreinifyApi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

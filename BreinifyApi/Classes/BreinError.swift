@@ -5,7 +5,9 @@
 
 import Foundation
 
-public enum BreinError : ErrorType {
+public enum BreinError : Error {
+
     case BreinRuntimeError(String)
     case BreinConfigurationError(String)
+    
 }

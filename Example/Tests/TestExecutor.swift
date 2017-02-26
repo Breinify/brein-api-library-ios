@@ -5,8 +5,8 @@ import BreinifyApi
 
 class TestExecutor: XCTestCase {
 
-    typealias apiSuccess = (result: BreinResult?) -> Void
-    typealias apiFailure = (error: NSDictionary?) -> Void
+    typealias apiSuccess = (_ result: BreinResult?) -> Void
+    typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
     let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
@@ -19,7 +19,7 @@ class TestExecutor: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        breinConfig = BreinConfig(apiKey: validApiKeyWithSecret,
+        breinConfig = BreinConfig(validApiKeyWithSecret,
                 secret: validSecret)
 
         // set configuration
@@ -28,7 +28,7 @@ class TestExecutor: XCTestCase {
 
     override func tearDown() {
 
-        NSThread.sleepForTimeInterval(5)
+        // Thread.sleep(15)
         super.tearDown()
     }
 
@@ -55,7 +55,7 @@ class TestExecutor: XCTestCase {
 
             let breinifyExecutor = try BreinConfig()
                     .setApiKey(validApiKey)
-                    .setRestEngineType(.ALAMOFIRE)
+                    .setRestEngineType(.Alamofire)
                     .build()
 
             try breinifyExecutor.activity(breinUser,
@@ -121,9 +121,11 @@ class TestExecutor: XCTestCase {
             XCTAssert(true, "Error is: \(error)")
         }
 
-
-        // allow processing
-        NSThread.sleepForTimeInterval(5)
+        
+        let when = DispatchTime.now() + 15 // wait for 15 seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+           print("Finish")
+        }
     }
 
 }

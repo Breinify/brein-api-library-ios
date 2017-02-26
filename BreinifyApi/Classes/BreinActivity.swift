@@ -11,7 +11,7 @@ import Foundation
  It is important, that a valid API-key is configured prior to using this function.
 */
 
-public class BreinActivity: BreinBase, ISecretStrategy {
+open class BreinActivity: BreinBase, ISecretStrategy {
 
     ///  ActivityType of the activity
     var breinActivityType: String?
@@ -34,7 +34,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return breinActivityType
     }
 
-    public func setBreinActivityType(breinActivityType: String?) -> BreinActivity {
+    @discardableResult
+    public func setBreinActivityType(_ breinActivityType: String?) -> BreinActivity {
         self.breinActivityType = breinActivityType
         return self
     }
@@ -43,7 +44,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return breinCategoryType
     }
 
-    public func setBreinCategoryType(breinCategoryType: String?) -> BreinActivity {
+    @discardableResult
+    public func setBreinCategoryType(_ breinCategoryType: String?) -> BreinActivity {
         self.breinCategoryType = breinCategoryType
         return self
     }
@@ -52,7 +54,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return description
     }
 
-    public func setDescription(description: String!) -> BreinActivity {
+    @discardableResult
+    public func setDescription(_ description: String!) -> BreinActivity {
         self.description = description
         return self
     }
@@ -61,7 +64,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return getConfig()?.getActivityEndpoint()
     }
 
-    public func setTagsDic(tagsDic: [String: AnyObject]) -> BreinActivity {
+    @discardableResult
+    public func setTagsDic(_ tagsDic: [String: AnyObject]) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
     }
@@ -70,7 +74,8 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         return self.tagsDic
     }
 
-    public func setActivityDic(activityDic: [String: AnyObject]) -> BreinActivity {
+    @discardableResult
+    public func setActivityDic(_ activityDic: [String: AnyObject]) -> BreinActivity {
         self.actitivityDic = activityDic
         return self
     }
@@ -89,12 +94,12 @@ public class BreinActivity: BreinBase, ISecretStrategy {
       - parameter successBlock : A callback function that is invoked in case of success.
       - parameter failureBlock : A callback function that is invoked in case of an error.
     */
-    public func activity(breinUser: BreinUser!,
+    public func activity(_ breinUser: BreinUser!,
                          breinActivityType: String!,
                          breinCategoryType: String!,
                          description: String!,
-                         success successBlock: BreinEngine.apiSuccess,
-                         failure failureBlock: BreinEngine.apiFailure) throws {
+                         success successBlock: @escaping BreinEngine.apiSuccess,
+                         failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  set the values for further usage
         setBreinUser(breinUser)
@@ -124,24 +129,24 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         if let breinUser = getBreinUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData
+            requestData["user"] = userData as AnyObject?
         }
 
         //  activity data
         var activityData = [String: AnyObject]()
         if let activityType = getBreinActivityType() {
-            activityData["type"] = activityType
+            activityData["type"] = activityType as AnyObject?
         }
         if let description = getDescription() {
-            activityData["description"] = description
+            activityData["description"] = description as AnyObject?
         }
         if let categoryType = getBreinCategoryType() {
-            activityData["category"] = categoryType
+            activityData["category"] = categoryType as AnyObject?
         }
 
         // add tags
         if tagsDic?.isEmpty == false {
-            activityData["tags"] = tagsDic
+            activityData["tags"] = tagsDic as AnyObject?
         }
 
         // activity dic
@@ -152,7 +157,7 @@ public class BreinActivity: BreinBase, ISecretStrategy {
         }
 
         // add all to the activity dictionary
-        requestData["activity"] = activityData
+        requestData["activity"] = activityData as AnyObject?
 
         // add base stuff
         self.prepareBaseRequestData(&requestData)

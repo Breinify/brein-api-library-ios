@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class BreinDimension {
+open class BreinDimension {
 
     var dimensionFields = [String]()
 
@@ -17,7 +17,9 @@ public class BreinDimension {
         return dimensionFields
     }
 
-    public func setDimensionFields(dimensionFields: String...) {
+    @discardableResult
+    public func setDimensionFields(_ dimensionFields: String...) -> BreinDimension! {
         self.dimensionFields = dimensionFields
+        return self
     }
 }

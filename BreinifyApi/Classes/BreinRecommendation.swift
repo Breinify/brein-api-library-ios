@@ -6,12 +6,13 @@
 
 import Foundation
 
-public class BreinRecommendation: BreinBase, ISecretStrategy {
+open class BreinRecommendation: BreinBase, ISecretStrategy {
 
-    static let kDefaultNumberOfRecommendation = 3
+    /// default number of recommendations
+    static let cDefaultNumberOfRecommendation = 3
     
     ///  contains the number of recommendations
-    var numberOfRecommendations: Int = BreinRecommendation.kDefaultNumberOfRecommendation
+    var numberOfRecommendations: Int = BreinRecommendation.cDefaultNumberOfRecommendation
     
     /// contains the category for the recommendation
     var category: String?
@@ -40,7 +41,8 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
         return self.category
     }
 
-    public func setCategory(category: String!) -> BreinRecommendation {
+    @discardableResult
+    public func setCategory(_ category: String!) -> BreinRecommendation {
         self.category = category
         return self
     }
@@ -49,7 +51,8 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
         return self.numberOfRecommendations
     }
 
-    public func setNumberOfRecommendations(numOfRecommendations: Int) -> BreinRecommendation {
+    @discardableResult
+    public func setNumberOfRecommendations(_ numOfRecommendations: Int) -> BreinRecommendation {
         self.numberOfRecommendations = numOfRecommendations
         return self
     }
@@ -76,7 +79,7 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
         if let breinUser = getBreinUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData
+            requestData["user"] = userData as AnyObject?
         }
 
         //  recommendation data
@@ -84,13 +87,13 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
 
         // optional field
         if let category = self.getCategory() {
-            recommendationData["recommendationCategory"] = category
+            recommendationData["recommendationCategory"] = category as AnyObject?
         }
 
         // mandatory field
-        recommendationData["numRecommendations"] = self.getNumberOfRecommendations()
+        recommendationData["numRecommendations"] = self.getNumberOfRecommendations() as AnyObject?
 
-        requestData["recommendation"] = recommendationData;
+        requestData["recommendation"] = recommendationData as AnyObject?;
 
         // base level data...
         prepareBaseRequestData(&requestData);

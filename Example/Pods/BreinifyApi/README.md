@@ -27,9 +27,9 @@ Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presen
 ## Requirements
 
 - iOS 9.3+ 
-- Xcode 8.2+
-- AppCode 2016.3
-- Swift 3.0
+- Xcode 8.0+
+- AppCode 2016.2
+- Swift 2.3
 
 
 ## Installation
@@ -61,6 +61,17 @@ target '<Your Target Name>' do
 end
 ```
 
+If you are running Swift 2.3 we recommend to add the following lines to your `Podfile` as well:
+
+```ruby
+ post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '2.3'  ## or '3.0'
+      end
+    end
+  end
+```
 
 #### Step 3 - Install the BreinifyApi
 
@@ -152,7 +163,7 @@ let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 let validSecret = "iTttt=0=w2244="
 
 // create the configuration object
-let breinConfig = BreinConfig(validApiSecret, secret: validSecret)
+let breinConfig = BreinConfig(apiKey: validApiSecret, secret: validSecret)
     
 // set configuration
 Breinify.setConfig(breinConfig)
@@ -167,8 +178,8 @@ The engine powering the DigitalDNA API provides two endpoints. The first endpoin
 The engine is informed of an activity by executing *Breinify.activity(...)*. 
 
 ```Swift
-typealias apiSuccess = (_ result:BreinResult?) -> Void
-typealias apiFailure = (_ error:NSDictionary?) -> Void
+typealias apiSuccess = (result:BreinResult?) -> Void
+typealias apiFailure = (error:NSDictionary?) -> Void
 
 // create a user you are interested in 
 let breinUser = BreinUser()
@@ -356,6 +367,7 @@ do {
 ```
 
 
+
 ## Full working sample 
 
 Let’s navigate back to Xcode and inside the IDE, go to ViewController.swift. The code should look like this:
@@ -366,8 +378,8 @@ import BreinifyApi
 
 class ViewController: UIViewController {
 
-    typealias apiSuccess = (_ result: BreinResult?) -> Void
-    typealias apiFailure = (_ error: NSDictionary?) -> Void
+    typealias apiSuccess = (result: BreinResult?) -> Void
+    typealias apiFailure = (error: NSDictionary?) -> Void
 
     // create Brein user
     let breinUser = BreinUser()         
@@ -410,7 +422,7 @@ class ViewController: UIViewController {
     let validSecret = "lmcoj4k27hbbszzyiqamhg=="
 
     // create the configuration object
-    let breinConfig = BreinConfig(validApiKey, secret: validSecret)
+    let breinConfig = BreinConfig(apiKey: validApiKey, secret: validSecret)
     
     // set configuration
     Breinify.setConfig(breinConfig)    
@@ -437,7 +449,7 @@ breinUser.setFirstName("User")
          .setDateOfBirth(6, day: 20, year: 1985)
          .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
          .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
-      
+         .set
 
 ````
 

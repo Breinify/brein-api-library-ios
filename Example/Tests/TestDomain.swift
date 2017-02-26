@@ -23,7 +23,7 @@ class TestDomain: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
-        let breinConfig = BreinConfig(apiKey: validApiKey)
+        let breinConfig = BreinConfig(validApiKey)
         let breinUser = BreinUser()
         breinUser.setFirstName("Marco")
                 .setLastName("Recchioni")
@@ -35,9 +35,10 @@ class TestDomain: XCTestCase {
                 .setDescription("Super-Desription")
                 .setBreinCategoryType("home")
 
-        let jsonOutput = breinActivity.prepareJsonRequest();
-        dump("output is: \(jsonOutput)")
-        XCTAssertFalse(jsonOutput.isEmpty)
+        if let jsonOutput = breinActivity.prepareJsonRequest() {
+            dump("output is: \(jsonOutput)")
+            XCTAssertFalse(jsonOutput.isEmpty)
+        }
     }
 
     /**
@@ -59,9 +60,10 @@ class TestDomain: XCTestCase {
                 .setDescription("Super-Desription")
                 .setBreinCategoryType("food")
 
-        let jsonOutput = breinActivity.prepareJsonRequest();
-        dump("output is: \(jsonOutput)")
-        XCTAssertFalse(jsonOutput.isEmpty)
+        if let jsonOutput = breinActivity.prepareJsonRequest() {
+            dump("output is: \(jsonOutput)")
+            XCTAssertFalse(jsonOutput.isEmpty)
+        }
     }
 
     /**

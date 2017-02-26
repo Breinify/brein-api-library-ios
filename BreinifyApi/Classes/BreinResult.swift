@@ -6,7 +6,7 @@
 
 import Foundation
 
-public class BreinResult {
+open class BreinResult {
 
     var dic = NSDictionary()
 
@@ -14,8 +14,8 @@ public class BreinResult {
         dic = dictResponse
     }
 
-    public func get(key: String) -> AnyObject! {
-        return dic.objectForKey(key)
+    public func get(_ key: String) -> AnyObject! {
+        return dic.object(forKey: key) as AnyObject!
     }
 
     public func getDictionary() -> NSDictionary {

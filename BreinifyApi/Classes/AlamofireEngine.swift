@@ -10,15 +10,15 @@ import Alamofire
 public class AlamofireEngine: IRestEngine {
 
     /// some handy aliases
-    public typealias apiSuccess = (result: BreinResult?) -> Void
-    public typealias apiFailure = (error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult?) -> Void
+    public typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     /**
      configures the rest engine
 
      - parameter breinConfig: configuration object
     */
-    public func configure(breinConfig: BreinConfig) {
+    public func configure(_ breinConfig: BreinConfig) {
     }
 
     /**
@@ -28,9 +28,9 @@ public class AlamofireEngine: IRestEngine {
       - parameter success successBlock: will be invoked in case of success
       - parameter failure failureBlock: will be invoked in case of an error
     */
-    public func doRequest(breinActivity: BreinActivity,
-                          success successBlock: apiSuccess,
-                          failure failureBlock: apiFailure) throws {
+    public func doRequest(_ breinActivity: BreinActivity,
+                          success successBlock: @escaping apiSuccess,
+                          failure failureBlock: @escaping apiFailure) throws {
 
         try validate(breinActivity)
 
@@ -39,24 +39,34 @@ public class AlamofireEngine: IRestEngine {
 
 
         do {
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+            let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             dump(jsonString)
-        } catch let error as NSError {
-            dump(error)
-        }
+        } 
 
         /*
         let configuration = URLSessionConfiguration.background(withIdentifier: url)
         let sessionManager = Alamofire.SessionManager(configuration: configuration)
         sessionManager.request(.POST,....
+
+        return SessionManager.default.request(
+        url,
+        method: method,
+        parameters: parameters,
+        encoding: encoding,
+        headers: headers
+    )
+
+
+       Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+
+
         */
 
-        Alamofire.request(.POST,
-                        url,
+        Alamofire.request(url, method: .post,
                         parameters: body,
-                        encoding: .JSON)
+                        encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -73,14 +83,14 @@ public class AlamofireEngine: IRestEngine {
                     if response.result.isSuccess {
                         let jsonDic: NSDictionary = ["success": 200]
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(result: breinResult)
+                        successBlock(breinResult)
 
                     } else {
-                        let httpError: NSError = response.result.error!
+                        let httpError: NSError = response.result.error! as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
-                        failureBlock(error: error)
+                        failureBlock(error)
                     }
                 }
     }
@@ -92,9 +102,9 @@ public class AlamofireEngine: IRestEngine {
        - parameter success successBlock: will be invoked in case of success
        - parameter failure failureBlock: will be invoked in case of an error
      */
-    public func doRecommendation(breinRecommendation: BreinRecommendation,
-                                 success successBlock: (result: BreinResult?) -> Void,
-                                 failure failureBlock: (error: NSDictionary?) -> Void) throws {
+    public func doRecommendation(_ breinRecommendation: BreinRecommendation,
+                                 success successBlock: @escaping (_ result: BreinResult?) -> Void,
+                                 failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws {
 
         try validate(breinRecommendation)
 
@@ -112,10 +122,9 @@ public class AlamofireEngine: IRestEngine {
         }
         */
 
-        Alamofire.request(.POST,
-                        url,
+        Alamofire.request(url, method: .post,
                         parameters: body,
-                        encoding: .JSON)
+                        encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -133,7 +142,7 @@ public class AlamofireEngine: IRestEngine {
                         // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(result: breinResult)
+                        successBlock(breinResult)
                     } else {
                         /*
                         let httpError: NSError = response.result.error!
@@ -141,7 +150,7 @@ public class AlamofireEngine: IRestEngine {
                         */
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
-                        failureBlock(error: error)
+                        failureBlock(error)
                     }
                 }
     }
@@ -153,9 +162,9 @@ public class AlamofireEngine: IRestEngine {
        - parameter success successBlock: will be invoked in case of success
        - parameter failure failureBlock: will be invoked in case of an error
      */
-    public func doLookup(breinLookup: BreinLookup,
-                         success successBlock: apiSuccess,
-                         failure failureBlock: apiFailure) throws {
+    public func doLookup(_ breinLookup: BreinLookup,
+                         success successBlock: @escaping apiSuccess,
+                         failure failureBlock: @escaping apiFailure) throws {
 
         try validate(breinLookup)
 
@@ -173,10 +182,9 @@ public class AlamofireEngine: IRestEngine {
         }
         */
 
-        Alamofire.request(.POST,
-                        url,
-                        parameters: body,
-                        encoding: .JSON)
+        Alamofire.request(url, method: .post,
+                          parameters: body,
+                          encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -188,14 +196,14 @@ public class AlamofireEngine: IRestEngine {
                     if response.result.isSuccess {
                         let jsonDic = response.result.value as! NSDictionary
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(result: breinResult)
+                        successBlock(breinResult)
 
                     } else {
-                        let httpError: NSError = response.result.error!
+                        let httpError: NSError = response.result.error! as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
-                        failureBlock(error: error)
+                        failureBlock(error)
                     }
                 }
     }
@@ -207,9 +215,9 @@ public class AlamofireEngine: IRestEngine {
       - parameter success successBlock: will be invoked in case of success
       - parameter failure failureBlock: will be invoked in case of an error
     */
-    public func doTemporalDataRequest(breinTemporalData: BreinTemporalData,
-                                      success successBlock: apiSuccess,
-                                      failure failureBlock: apiFailure) throws {
+    public func doTemporalDataRequest(_ breinTemporalData: BreinTemporalData,
+                                      success successBlock: @escaping apiSuccess,
+                                      failure failureBlock: @escaping apiFailure) throws {
 
         try validate(breinTemporalData)
 
@@ -227,10 +235,9 @@ public class AlamofireEngine: IRestEngine {
         }
         */
 
-        Alamofire.request(.POST,
-                        url,
+        Alamofire.request(url, method: .post,
                         parameters: body,
-                        encoding: .JSON)
+                        encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -242,14 +249,14 @@ public class AlamofireEngine: IRestEngine {
                     if response.result.isSuccess {
                         let jsonDic = response.result.value as! NSDictionary
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(result: breinResult)
+                        successBlock(breinResult)
 
                     } else {
-                        let httpError: NSError = response.result.error!
+                        let httpError: NSError = response.result.error! as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
-                        failureBlock(error: error)
+                        failureBlock(error)
                     }
                 }
     }
@@ -257,13 +264,12 @@ public class AlamofireEngine: IRestEngine {
     /// This method can be used in the future
     func executeRequest(url: String,
                         body: [String: AnyObject],
-                        success successBlock: apiSuccess,
-                        failure failureBlock: apiFailure) {
+                        success successBlock: @escaping apiSuccess,
+                        failure failureBlock: @escaping apiFailure) {
 
-        Alamofire.request(.POST,
-                        url,
+        Alamofire.request(url, method: .post,
                         parameters: body,
-                        encoding: .JSON)
+                        encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -281,7 +287,7 @@ public class AlamofireEngine: IRestEngine {
                         // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(result: breinResult)
+                        successBlock(breinResult)
                     } else {
                         /*
                         let httpError: NSError = response.result.error!
@@ -289,7 +295,7 @@ public class AlamofireEngine: IRestEngine {
                         */
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
-                        failureBlock(error: error)
+                        failureBlock(error)
                     }
                 }
     }

@@ -7,34 +7,33 @@ import Foundation
 import IDZSwiftCommonCrypto
 
 extension String {
-
-    // TODO: check if twice
-
+    
     // pre-defined constants for Category
-    static let APPAREL = "apparel"
-    static let HOME = "home"
-    static let EDUCATION = "education"
-    static let FAMILY = "family"
-    static let FOOD = "food"
-    static let HEALTH = "health"
-    static let JOB = "job"
-    static let SERVICES = "services"
-    static let OTHER = "other"
+    public static let apparel = "apparel"
+    public static let home = "home"
+    public static let education = "education"
+    public static let family = "family"
+    public static let food = "food"
+    public static let health = "health"
+    public static let job = "job"
+    public static let services = "services"
+    public static let other = "other"
 
     // pre-defined constants for ActivityType
-    static let SEARCH = "search"
-    static let LOGIN = "login"
-    static let LOGOUT = "logout"
-    static let ADD_TO_CART = "addToCart"
-    static let REMOVE_FROM_CART = "removeFromCart"
-    static let SELECT_PRODUCT = "selectProduct"
-    static let CHECKOUT = "checkOut"
+    public static let search = "search"
+    public static let login = "login"
+    public static let logout = "logout"
+    public static let addToCart = "addToCart"
+    public static let removeFromCart = "removeFromCart"
+    public static let selectProduct = "selectProduct"
+    public static let checkout = "checkOut"
 
     // used for the signature
-    func digestHMac256(key: String) -> String! {
+    func digestHMac256(_ key: String) -> String! {
         
         let message = self
-        let hmac256 = HMAC(algorithm: .SHA256, key: key).update(message)?.final()
+        let bytes = message.utf16.count
+        let hmac256 = HMAC(algorithm: .sha256, key: key).update(buffer: message, byteCount: bytes)?.final()
         
         if let hmac = hmac256 {
             
@@ -42,11 +41,10 @@ extension String {
             let data = NSData(bytes: hmac, length: hmac.count)
             
             //Encode to base64
-            let base64Data = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            let base64Data = data.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
             
             return base64Data
         }
-        
         return ""
     }
 

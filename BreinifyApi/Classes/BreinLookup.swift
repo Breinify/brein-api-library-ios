@@ -6,7 +6,7 @@
 
 import Foundation
 
-public class BreinLookup: BreinBase, ISecretStrategy {
+open class BreinLookup: BreinBase, ISecretStrategy {
 
     //  used for lookup request
     var breinDimension: BreinDimension!
@@ -15,7 +15,7 @@ public class BreinLookup: BreinBase, ISecretStrategy {
         return breinDimension
     }
 
-    public func setBreinDimension(breinDimension: BreinDimension!) {
+    public func setBreinDimension(_ breinDimension: BreinDimension!) {
         self.breinDimension = breinDimension
     }
 
@@ -30,10 +30,10 @@ public class BreinLookup: BreinBase, ISecretStrategy {
 
       - returns: response from request or null if no data can be retrieved
     */
-    public func lookUp(breinUser: BreinUser!,
+    public func lookUp(_ breinUser: BreinUser!,
                 breinDimension: BreinDimension!,
-                success successBlock: BreinEngine.apiSuccess,
-                failure failureBlock: BreinEngine.apiFailure) throws {
+                success successBlock: @escaping BreinEngine.apiSuccess,
+                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -58,8 +58,8 @@ public class BreinLookup: BreinBase, ISecretStrategy {
 
         if let breinUser = getBreinUser() {
             var userData = [String: AnyObject]()
-            userData["email"] = breinUser.getEmail()
-            requestData["user"] = userData
+            userData["email"] = breinUser.getEmail() as AnyObject?
+            requestData["user"] = userData as AnyObject?
         }
 
         //  Dimensions
@@ -69,22 +69,22 @@ public class BreinLookup: BreinBase, ISecretStrategy {
             for field in breinDimension.getDimensionFields() {
                 dimensions.append(field)
             }
-            lookupData["dimensions"] = dimensions
-            requestData["lookup"] = lookupData
+            lookupData["dimensions"] = dimensions as AnyObject?
+            requestData["lookup"] = lookupData as AnyObject?
         }
 
         //  API key
-        if let apiKey = getConfig()?.getApiKey() where !apiKey.isEmpty {
-            requestData["apiKey"] = apiKey
+        if let apiKey = getConfig()?.getApiKey(), !apiKey.isEmpty {
+            requestData["apiKey"] = apiKey as AnyObject?
         }
 
         // Unix time stamp
-        requestData["unixTimestamp"] = getUnixTimestamp()
+        requestData["unixTimestamp"] = getUnixTimestamp() as AnyObject?
 
         // set secret
         if isSign() {
             do {
-                requestData["signatureType"] = try createSignature()
+                requestData["signatureType"] = try createSignature() as AnyObject?
             } catch {
                 print("not possible to generate signature")
             }

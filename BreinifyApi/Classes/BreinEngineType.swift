@@ -6,6 +6,8 @@
 import Foundation
 
 public enum BreinEngineType {
-    case ALAMOFIRE
-    case NO_ENGINE
+
+    case Alamofire
+    case NoEngine
+    
 }

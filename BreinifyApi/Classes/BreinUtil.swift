@@ -17,7 +17,7 @@ public class BreinUtil {
 
        - returns: encrypted message based on HMac256 algorithmn
     */
-    static public func generateSignature(message: String!, secret: String!) throws -> String {
+    static public func generateSignature(_ message: String!, secret: String!) throws -> String {
 
         if message == nil || secret == nil {
             throw BreinError.BreinRuntimeError("Illegal value for message or secret in method generateSignature")
@@ -27,7 +27,7 @@ public class BreinUtil {
 
     // should check if an url is valid
     // for the time being we assume that this is the case
-    static public func isUrlValid(url: String!) -> Bool {
+    static public func isUrlValid(_ url: String!) -> Bool {
         return true;
     }
 }

@@ -7,13 +7,13 @@
 import Foundation
 
 
-public class BreinBase {
+open class BreinBase {
 
-    public typealias apiSuccess = (result: BreinResult?) -> Void
-    public typealias apiFailure = (error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult?) -> Void
+    public typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     // means nothing -> no value
-    static let NO_VALUE_DEFINED = ""
+    static let kNoValueDefined = ""
 
     //  contains the User that will be used for the request
     var breinUser: BreinUser?
@@ -25,7 +25,7 @@ public class BreinBase {
     var breinConfig: BreinConfig?
 
     //  contains the timestamp when the request will be generated
-    var unixTimestamp: NSTimeInterval!
+    var unixTimestamp: TimeInterval!
 
     /// base dictionary
     var baseDic: [String: AnyObject]?
@@ -40,7 +40,8 @@ public class BreinBase {
         self.unixTimestamp = 0
     }
 
-    public func setBaseDic(baseDic: [String: AnyObject]) -> BreinBase {
+    @discardableResult
+    public func setBaseDic(_ baseDic: [String: AnyObject]) -> BreinBase {
         self.baseDic = baseDic
         return self
     }
@@ -53,19 +54,22 @@ public class BreinBase {
         return breinConfig
     }
 
-    public func setConfig(breinConfig: BreinConfig!) {
+    @discardableResult
+    public func setConfig(_ breinConfig: BreinConfig!) {
         self.breinConfig = breinConfig
     }
 
-    public func getBreinUser() -> BreinUser! {
+    public func getBreinUser() -> BreinUser? {
         return breinUser
     }
 
-    public func setBreinUser(breinUser: BreinUser!) {
+    @discardableResult
+    public func setBreinUser(_ breinUser: BreinUser!) {
         self.breinUser = breinUser
     }
 
-    public func setIpAddress(ipAddressPara: String?) -> BreinBase {
+    @discardableResult
+    public func setIpAddress(_ ipAddressPara: String?) -> BreinBase {
         if let ipAdr = ipAddressPara {
             self.ipAddress = ipAdr
         }
@@ -84,7 +88,8 @@ public class BreinBase {
         return successBlock
     }
 
-    public func setSuccessBlock(success: BreinBase.apiSuccess?) -> BreinBase {
+    @discardableResult
+    public func setSuccessBlock(_ success: BreinBase.apiSuccess?) -> BreinBase {
         if let sucBlock = success {
             self.successBlock = sucBlock
         }
@@ -95,13 +100,15 @@ public class BreinBase {
         return failureBlock
     }
 
-    public func setFailureBlock(failure: BreinBase.apiFailure?) -> BreinBase {
+    @discardableResult
+    public func setFailureBlock(_ failure: BreinBase.apiFailure?) -> BreinBase {
         if let faiBlock = failure {
             self.failureBlock = faiBlock
         }
         return self
     }
 
+    @discardableResult
     public func prepareJsonRequest() -> [String: AnyObject]! {
         let timeInterval = NSDate().timeIntervalSince1970
         setUnixTimestamp(timeInterval)
@@ -109,26 +116,26 @@ public class BreinBase {
     }
 
     // prepares the map on base level for the json request
-    public func prepareBaseRequestData(inout requestData: [String: AnyObject]) {
+    public func prepareBaseRequestData(_ requestData: inout [String: AnyObject]) {
 
-        if let apiKey = getConfig()?.getApiKey() where !apiKey.isEmpty {
-            requestData["apiKey"] = apiKey
+        if let apiKey = getConfig()?.getApiKey(), !apiKey.isEmpty {
+            requestData["apiKey"] = apiKey as AnyObject?
         }
 
-        requestData["unixTimestamp"] = getUnixTimestamp()
+        requestData["unixTimestamp"] = getUnixTimestamp() as AnyObject?
 
         // if sign is active
         if isSign() {
             do {
-                requestData["signature"] = try self.createSignature()
-                requestData["signatureType"] = "HmacSHA256"
+                requestData["signature"] = try self.createSignature() as AnyObject?
+                requestData["signatureType"] = "HmacSHA256" as AnyObject?
             } catch {
                 print("not possible to generate signature")
             }
         }
 
-        if let ipAddress = self.getBreinUser().getIpAddress() {
-            requestData["ipAddress"] = ipAddress
+        if let ipAddress = self.getBreinUser()?.getIpAddress() {
+            requestData["ipAddress"] = ipAddress as AnyObject?
         }
 
         if let bMap = self.getBaseDic() {
@@ -140,12 +147,12 @@ public class BreinBase {
 
     /// empty -> needs to be implemented by subclass
     public func createSignature() throws -> String! {
-        return BreinBase.NO_VALUE_DEFINED
+        return BreinBase.kNoValueDefined
     }
 
     /// empty -> needs to be implemented by subclass
     public func getEndPoint() -> String! {
-        return BreinBase.NO_VALUE_DEFINED
+        return BreinBase.kNoValueDefined
     }
 
     /// returns the unixtimestamp (as part of the request)
@@ -154,7 +161,8 @@ public class BreinBase {
     }
 
     /// sets the unixtimestamp
-    public func setUnixTimestamp(unixTimestamp: NSTimeInterval) {
+    @discardableResult
+    public func setUnixTimestamp(_ unixTimestamp: TimeInterval) {
         self.unixTimestamp = unixTimestamp
     }
 
@@ -169,7 +177,7 @@ public class BreinBase {
             return false
         }
         
-        return breinConfig?.getSecret().characters.count > 0
+        return (breinConfig?.getSecret().characters.count)! > 0
     }
     
     /**
@@ -177,7 +185,7 @@ public class BreinBase {
     *
     * @param source to clone from
     */
-    public func cloneBase(source: BreinBase) {
+    public func cloneBase(_ source: BreinBase) {
 
         // set further data...
         self.setIpAddress(source.getIpAddress());
@@ -191,8 +199,10 @@ public class BreinBase {
         self.setConfig(source.getConfig());
 
         // clone user
-        let clonedUser = BreinUser.clone(source.getBreinUser());
-        self.setBreinUser(clonedUser);
+        if let sourceUser = source.getBreinUser() {
+            let clonedUser = BreinUser.clone(sourceUser);
+            self.setBreinUser(clonedUser);
+        }
 
         // clone maps
         if let clonedBaseDic = source.getBaseDic() {

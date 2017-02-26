@@ -6,10 +6,10 @@
 
 import Foundation
 
-public class Breinify {
+open class Breinify {
 
     ///  contains the current version of the usage library
-    static let version: String! = "0.4.4"
+    static let version: String! = "1.0.0"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -50,7 +50,7 @@ public class Breinify {
     }
 
     /// set config to work with
-    public class func setConfig(breinConfig: BreinConfig!) {
+    public class func setConfig(_ breinConfig: BreinConfig!) {
         self.config = breinConfig
 
         // apply the configuration to all instances
@@ -71,7 +71,7 @@ public class Breinify {
     }
 
     /// sets the brein user for later usage
-    public static func setBreinUser(user: BreinUser?) {
+    public static func setBreinUser(_ user: BreinUser?) {
         if user != nil {
             self.breinUser = user
         }
@@ -98,27 +98,38 @@ public class Breinify {
         - parameter successBlock : A callback function that is invoked in case of success.
         - parameter failureBlock : A callback function that is invoked in case of an error.
     */
-    public class func activity(user: BreinUser!,
+    public class func activity(_ user: BreinUser!,
                                activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: BreinEngine.apiSuccess,
-                               failure failureBlock: BreinEngine.apiFailure) throws {
+                               success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
+        // TODO: set user in branch Swift 2.3 as well
 
-        // clone breinActivty
-        let clonedBreinActivity = self.getBreinActivity().clone()
+        // set user in class Breinify ...
+        self.setBreinUser(user)
 
-        clonedBreinActivity.setSuccessBlock(successBlock)
-        clonedBreinActivity.setFailureBlock(failureBlock)
+        // ...and in class BreinActivity (will be used later when cloning)
+        if let breinAct = getBreinActivity() {
+            breinAct.setBreinUser(user)
 
-        try activity(clonedBreinActivity,
-                user: user,
-                activityType: activityType,
-                category: category,
-                description: description,
-                success: successBlock,
-                failure: failureBlock)
+            // Todo: remove this in Swift 2.3
+            /*
+            let clonedBreinActivity = breinAct.clone()
+
+            clonedBreinActivity.setSuccessBlock(successBlock)
+            clonedBreinActivity.setFailureBlock(failureBlock)
+            */
+
+            try activity(breinAct,
+                    user: user,
+                    activityType: activityType,
+                    category: category,
+                    description: description,
+                    success: successBlock,
+                    failure: failureBlock)
+        }
     }
 
     /**
@@ -138,11 +149,11 @@ public class Breinify {
         - parameter successBlock : A callback function that is invoked in case of success.
         - parameter failureBlock : A callback function that is invoked in case of an error.
     */
-    public class func activity(activityType: String!,
+    public class func activity(_ activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: BreinEngine.apiSuccess,
-                               failure failureBlock: BreinEngine.apiFailure) throws {
+                               success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         // firstly check if user is valid
         guard let user = self.getBreinUser() else {
@@ -161,43 +172,44 @@ public class Breinify {
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
+        
         This request is asynchronous. This method will used the already set objects of class Breinify.
 
         - parameter successBlock : A callback function that is invoked in case of success.
         - parameter failureBlock : A callback function that is invoked in case of an error.
     */
-    public class func activity(success successBlock: BreinEngine.apiSuccess,
-                               failure failureBlock: BreinEngine.apiFailure) throws {
+    public class func activity(success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         // use the own instance
         let activity = getBreinActivity()
 
-        guard activity.getBreinUser() != nil else {
+        guard activity?.getBreinUser() != nil else {
             throw BreinError.BreinRuntimeError("User not set.")
         }
 
-        guard activity.getBreinActivityType() != nil else {
+        guard activity?.getBreinActivityType() != nil else {
             throw BreinError.BreinRuntimeError("ActivityType not set.")
         }
 
-        guard activity.getBreinEngine() != nil else {
+        guard activity?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("No Rest Engine configured.")
         }
 
-        if activity.getBreinCategoryType() == nil {
+        if activity?.getBreinCategoryType() == nil {
             // check if there is an default category set
             if let defaultCategory = getConfig()?.getCategory() {
-                activity.setBreinCategoryType(defaultCategory)
+                activity?.setBreinCategoryType(defaultCategory)
             }
         }
 
-        activity.setSuccessBlock(successBlock)
-        activity.setFailureBlock(failureBlock)
+        activity?.setSuccessBlock(successBlock)
+        activity?.setFailureBlock(failureBlock)
 
-        let clonedActivity = activity.clone()
+        let clonedActivity = activity?.clone()
 
         // invoke the activity call
-        try clonedActivity.getBreinEngine()?.sendActivity(clonedActivity,
+        try clonedActivity?.getBreinEngine()?.sendActivity(clonedActivity,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -211,7 +223,7 @@ public class Breinify {
         - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
         - Parameter user:          A plain object specifying the user information the activity belongs to.
         - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
-                                  removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+                                   removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
                                    be used
         - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                    food, health, job, services, or other
@@ -219,13 +231,13 @@ public class Breinify {
         - Parameter successBlock : A callback function that is invoked in case of success.
         - Parameter failureBlock : A callback function that is invoked in case of an error.
     */
-    public class func activity(breinActivity: BreinActivity!,
+    public class func activity(_ breinActivity: BreinActivity!,
                                user: BreinUser!,
                                activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: BreinEngine.apiSuccess,
-                               failure failureBlock: BreinEngine.apiFailure) throws {
+                               success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         guard breinActivity?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -238,7 +250,7 @@ public class Breinify {
         breinActivity.setSuccessBlock(successBlock)
         breinActivity.setFailureBlock(failureBlock)
 
-        // clone breinActivty
+        // clone breinActivity
         let clonedBreinActivity = breinActivity.clone()
 
         try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
@@ -256,22 +268,24 @@ public class Breinify {
 
         - returns:  BreinResult object
      */
-    public class func recommendation(aBreinRecommendation: BreinRecommendation!,
-                                     success successBlock: BreinEngine.apiSuccess,
-                                     failure failureBlock: BreinEngine.apiFailure) throws {
+    public class func recommendation(_ aBreinRecommendation: BreinRecommendation!,
+                                     success successBlock: @escaping BreinEngine.apiSuccess,
+                                     failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         if aBreinRecommendation == nil {
             throw BreinError.BreinRuntimeError("BreinRecommendation is nil");
         }
+
+        // TODO: merge to Swift 2.3 branch
         
-        // clone breinRecommendation
-        let clonedBreinRecommendation = self.getBreinRecommendation().clone()
+        // apply the current configuration
+        aBreinRecommendation.setConfig(self.getConfig())
+
+        // clone given instance
+        let clonedBreinRecommendation = aBreinRecommendation.clone()
 
         clonedBreinRecommendation.setSuccessBlock(successBlock)
         clonedBreinRecommendation.setFailureBlock(failureBlock)
-
-        // apply the current configuration
-        clonedBreinRecommendation.setConfig(self.getBreinRecommendation().getConfig());
 
         return try clonedBreinRecommendation.getBreinEngine()!.invokeRecommendation(clonedBreinRecommendation,
                 success: successBlock,
@@ -290,9 +304,9 @@ public class Breinify {
 
          - returns: result from the Breinify engine
     */
-    public class func temporalData(user: BreinUser!,
-                                   success successBlock: BreinEngine.apiSuccess,
-                                   failure failureBlock: BreinEngine.apiFailure) throws {
+    public class func temporalData(_ user: BreinUser!,
+                                   success successBlock: @escaping BreinEngine.apiSuccess,
+                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         return try temporalData(breinTemporalData,
                 user: user,
@@ -313,10 +327,10 @@ public class Breinify {
 
         - returns: result from the Breinify engine
      */
-    public class func temporalData(breinTemporalData: BreinTemporalData!,
+    public class func temporalData(_ breinTemporalData: BreinTemporalData!,
                                    user: BreinUser!,
-                                   success successBlock: BreinEngine.apiSuccess,
-                                   failure failureBlock: BreinEngine.apiFailure) throws {
+                                   success successBlock: @escaping BreinEngine.apiSuccess,
+                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         guard breinTemporalData?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -351,10 +365,10 @@ public class Breinify {
 
         - returns response from request wrapped in an object called BreinResponse
     */
-    public class func lookup(user: BreinUser!,
+    public class func lookup(_ user: BreinUser!,
                              dimension: BreinDimension!,
-                             success successBlock: BreinEngine.apiSuccess,
-                             failure failureBlock: BreinEngine.apiFailure) throws {
+                             success successBlock: @escaping BreinEngine.apiSuccess,
+                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         return try lookup(breinLookup,
                 user: user,
@@ -375,11 +389,11 @@ public class Breinify {
 
          - returns response from request wrapped in an object called BreinResponse
      */
-    public class func lookup(breinLookup: BreinLookup!,
+    public class func lookup(_ breinLookup: BreinLookup!,
                              user: BreinUser!,
                              dimension: BreinDimension!,
-                             success successBlock: BreinEngine.apiSuccess,
-                             failure failureBlock: BreinEngine.apiFailure) throws {
+                             success successBlock: @escaping BreinEngine.apiSuccess,
+                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         guard breinLookup?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")

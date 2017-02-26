@@ -50,10 +50,31 @@ public class BreinTemporalData: BreinBase, ISecretStrategy {
         return requestData
     }
 
+    /**
+      Used to create a clone of the temporal data object. This is important in order to prevent
+      concurrency issues.
+
+      - returns: the clone of the temporaldata object
+    */
+    public func clone() -> BreinTemporalData {
+
+        // create a new recommendation object
+        let clonedBreinTemporalData = BreinTemporalData()
+        
+        // clone from base class
+        clonedBreinTemporalData.cloneBase(self)
+
+        return clonedBreinTemporalData
+    }
+
+    /// contains the temporal data endpoint
     override public func getEndPoint() -> String! {
         return getConfig()?.getTemporalDataEndpoint()
     }
 
+    /**
+      Creates the signature for the temporal data secret
+    */
     public override func createSignature() -> String! {
         let localDateTime = getBreinUser().getLocalDateTime()
         let paraLocalDateTime = localDateTime == nil ? "" : localDateTime

@@ -22,7 +22,7 @@ class TestConfig: XCTestCase {
     //
     func testNormalConfigUsage() {
 
-        let breinConfig = BreinConfig(apiKey: validApiKey)
+        let breinConfig = BreinConfig(validApiKey)
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
 
@@ -34,7 +34,7 @@ class TestConfig: XCTestCase {
     //
     func testEmptyConfig() {
 
-        let breinConfig = BreinConfig(apiKey: "")
+        let breinConfig = BreinConfig("")
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
 
@@ -47,8 +47,7 @@ class TestConfig: XCTestCase {
     func testConfigWithSecret() {
 
         let secret = "ddddfdsfdsfdsfdfdf"
-
-        BreinConfig(apiKey: "TEST-API-KEY", secret: secret)
+        let _ = BreinConfig("TEST-API-KEY", secret: secret)
     }
 
 }

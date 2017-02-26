@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class BreinifyExecutor {
+open class BreinifyExecutor {
     
     //  contains the configuration
     var config: BreinConfig!
@@ -16,7 +16,7 @@ public class BreinifyExecutor {
     //  contains the lookup object
     var breinLookup: BreinLookup! = BreinLookup()
 
-    public func setConfig(breinConfig: BreinConfig!) {
+    public func setConfig(_ breinConfig: BreinConfig!) {
         config = breinConfig
         breinActivity.setConfig(breinConfig)
         breinLookup.setConfig(breinConfig)
@@ -26,12 +26,13 @@ public class BreinifyExecutor {
         return config
     }
 
-    public func activity(user: BreinUser!,
+    // Todo: Comment missing
+    public func activity(_ user: BreinUser!,
                   activityType: String!,
                   category: String!,
                   description: String!,
-                  success successBlock: BreinEngine.apiSuccess,
-                  failure failureBlock: BreinEngine.apiFailure) throws {
+                  success successBlock: @escaping BreinEngine.apiSuccess,
+                  failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         try activity(breinActivity,
                 user: user,
@@ -42,13 +43,14 @@ public class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    public func activity(breinActivity: BreinActivity!,
+    // Todo: Comment missing
+    public func activity(_ breinActivity: BreinActivity!,
                   user: BreinUser!,
                   activityType: String!,
                   category: String!,
                   description: String!,
-                  success successBlock: BreinEngine.apiSuccess,
-                  failure failureBlock: BreinEngine.apiFailure) throws {
+                  success successBlock: @escaping BreinEngine.apiSuccess,
+                  failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  invoke the request, "this" has all necessary information
         if nil == breinActivity.getBreinEngine() {
@@ -63,10 +65,11 @@ public class BreinifyExecutor {
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
-    public func lookup(user: BreinUser!,
+    // Todo: Comment missing
+    public func lookup(_ user: BreinUser!,
                 dimension: BreinDimension!,
-                success successBlock: BreinEngine.apiSuccess,
-                failure failureBlock: BreinEngine.apiFailure) throws {
+                success successBlock: @escaping BreinEngine.apiSuccess,
+                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
         
         return try lookup(breinLookup,
                 user: user,
@@ -75,11 +78,12 @@ public class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    public func lookup(breinLookup: BreinLookup!,
+    // Todo: Comment missing
+    public func lookup(_ breinLookup: BreinLookup!,
                 user: BreinUser!,
                 dimension: BreinDimension!,
-                success successBlock: BreinEngine.apiSuccess,
-                failure failureBlock: BreinEngine.apiFailure) throws {
+                success successBlock: @escaping BreinEngine.apiSuccess,
+                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  invoke the lookup request
         if nil == breinLookup.getBreinEngine() {

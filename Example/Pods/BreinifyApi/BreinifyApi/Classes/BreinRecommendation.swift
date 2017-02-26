@@ -8,26 +8,21 @@ import Foundation
 
 public class BreinRecommendation: BreinBase, ISecretStrategy {
 
-    static let DEFAULT_NUMBER_OF_RECOMMENDATION = 3
-
-    /**
-     * contains the number of recommendations
-     */
-    var numberOfRecommendations: Int!
-
-    /**
-     * contains the category for the recommendation
-     */
+    static let kDefaultNumberOfRecommendation = 3
+    
+    ///  contains the number of recommendations
+    var numberOfRecommendations: Int = BreinRecommendation.kDefaultNumberOfRecommendation
+    
+    /// contains the category for the recommendation
     var category: String?
 
     public override init() {
         super.init()
-        self.numberOfRecommendations = BreinRecommendation.DEFAULT_NUMBER_OF_RECOMMENDATION
     }
 
     public init(numberOfRecommendation: Int!) {
         super.init()
-        setNumberOfRecommendations(numberOfRecommendation)
+        self.setNumberOfRecommendations(numberOfRecommendation)
     }
 
     public init(breinUser: BreinUser) {
@@ -59,14 +54,17 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
         return self
     }
 
+    /**
+      Contains the recommendation endpoint
+    */
     override public func getEndPoint() -> String! {
         return getConfig()?.getRecommendationEndpoint()
     }
 
     /**
-     * creates a dictionary that will be used for the request.
-     *
-     * @return Dictionary
+       creates a dictionary that will be used for the request.
+
+       - returns: Dictionary
      */
     override public func prepareJsonRequest() -> [String: AnyObject]! {
         // call base class
@@ -100,6 +98,28 @@ public class BreinRecommendation: BreinBase, ISecretStrategy {
         return requestData
     }
 
+    /**
+      Used to create a clone of the recommendation object. This is important in order to prevent
+      concurrency issues.
+
+      - returns: the clone of the activity object
+    */
+    public func clone() -> BreinRecommendation {
+
+        // create a new recommendation object
+        let clonedBreinRecommendation = BreinRecommendation()
+                .setNumberOfRecommendations(self.getNumberOfRecommendations())
+                .setCategory(self.getCategory())
+        
+        // clone from base class
+        clonedBreinRecommendation.cloneBase(self)
+
+        return clonedBreinRecommendation
+    }
+    
+    /**
+      Create signature for recommendation request
+    */
     public override func createSignature() throws -> String! {
         let message = String(getUnixTimestamp())
         return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
