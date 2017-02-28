@@ -26,12 +26,12 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
         self.setNumberOfRecommendations(numberOfRecommendation)
     }
 
-    public init(breinUser: BreinUser) {
+    public init(breinUser: BreinUser?) {
         super.init()
         self.setBreinUser(breinUser)
     }
 
-    public init(breinUser: BreinUser, numberOfRecommendation: Int!) {
+    public init(breinUser: BreinUser?, numberOfRecommendation: Int!) {
         super.init()
         self.setBreinUser(breinUser)
         self.setNumberOfRecommendations(numberOfRecommendations)

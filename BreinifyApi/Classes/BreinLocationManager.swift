@@ -33,12 +33,12 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     public typealias LocationClosure = ((_ location: CLLocation?, _ error: NSError?) -> ())
 
     // location manager
-    private var locationManager: CLLocationManager?
+    private var locationManager = CLLocationManager()
 
     // destroy the manager
     deinit {
-        locationManager?.delegate = nil
-        locationManager = nil
+        locationManager.delegate = nil
+        // locationManager = nil
     }
 
     // completion closure
@@ -62,7 +62,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         self.ignoreLocationRequestState = ignoreLocationRequest
     }
 
-    // igore request
+    // ignore request
     public func ignoreLocationRequest() -> Bool {
         return self.ignoreLocationRequestState
     }
@@ -76,10 +76,10 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     // location manager returned, call closure
     private func completionHandler(location: CLLocation?, error: NSError?) {
 
-        locationManager?.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         didComplete?(location, error)
-        locationManager?.delegate = nil
-        locationManager = nil
+        locationManager.delegate = nil
+        // locationManager = nil
     }
 
     /// location authorization status changed
@@ -90,14 +90,12 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         case .authorizedWhenInUse,
              .authorizedAlways,
              .notDetermined:
-            self.locationManager!.startUpdatingLocation()
+            self.locationManager.startUpdatingLocation()
 
-        case .denied:
+        default:
             completionHandler(location: dummyLocation, error: NSError(domain: self.classForCoder.description(),
                     code: BreinLocationManagerErrors.AuthorizationDenied.rawValue,
                     userInfo: nil))
-        default:
-            break
         }
     }
 
@@ -135,36 +133,28 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         }
 
         //fire the location manager
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-
-        let status = CLLocationManager.authorizationStatus()
+        // locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+      
         let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
         let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
 
         // indicates if the callback should be completed
-        var invokeCompletionHandler = true
-        if whenInUseUsage != nil {
-            if status == .authorizedWhenInUse
-                       || status == .authorizedAlways
-                       || status == .notDetermined {
-                invokeCompletionHandler = false
-                // this needs to be invoked in order to receive the updates
-                locationManager!.requestWhenInUseAuthorization()
-            }
-        } else if alwaysUsage != nil {
-            if status == .authorizedAlways
-                       || status == .authorizedWhenInUse
-                       || status == .notDetermined {
-                invokeCompletionHandler = false
-                // this needs to be invoked
-                locationManager!.requestAlwaysAuthorization()
-            }
-        }
+        
+        locationManager.requestAlwaysAuthorization()
+        // when in use foreground
+        locationManager.requestWhenInUseAuthorization()
 
-        if invokeCompletionHandler == true {
+        // try it..
+        locationManager.startUpdatingLocation()
+
+        let status = CLLocationManager.authorizationStatus()
+        if status == .restricted
+                   || status == .denied {
+            // return with dummy location object
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 102, userInfo: nil))
         }
+        
     }
 }

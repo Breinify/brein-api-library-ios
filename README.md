@@ -152,7 +152,7 @@ let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
 let validSecret = "iTttt=0=w2244="
 
 // create the configuration object
-let breinConfig = BreinConfig(validApiSecret, secret: validSecret)
+let breinConfig = BreinConfig(validApiKey, secret: validSecret)
     
 // set configuration
 Breinify.setConfig(breinConfig)
@@ -353,6 +353,19 @@ do {
     print("Error is: \(error)")
 }
 
+```
+
+## App Capabilities 
+The BreinifyApi can automatically send the users location information if the permission for this has been granted within the app. The following two options needs to be set within the info.plist file:
+
+```
+...
+<key>NSLocationAlwaysUsageDescription</key>
+<string>Please allow this app to provide location data.</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Please allow this app to provide location data.</string>
+...
 ```
 
 
