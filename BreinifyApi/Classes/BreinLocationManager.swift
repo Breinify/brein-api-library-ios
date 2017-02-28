@@ -79,7 +79,6 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         didComplete?(location, error)
         locationManager.delegate = nil
-        // locationManager = nil
     }
 
     /// location authorization status changed
@@ -133,12 +132,11 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         }
 
         //fire the location manager
-        // locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
       
-        let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
-        let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
+        // let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
+        // let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
 
         // indicates if the callback should be completed
         
