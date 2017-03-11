@@ -3,7 +3,6 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
 open class BreinResult {
@@ -14,8 +13,8 @@ open class BreinResult {
         dic = dictResponse
     }
 
-    public func get(_ key: String) -> AnyObject! {
-        return dic.object(forKey: key) as AnyObject!
+    public func get(_ key: String) -> AnyObject? {
+        return dic.object(forKey: key) as AnyObject?
     }
 
     public func getDictionary() -> NSDictionary {

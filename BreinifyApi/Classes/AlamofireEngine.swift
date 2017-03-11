@@ -42,7 +42,7 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            dump(jsonString)
+            print(jsonString)
         } 
 
         /*
@@ -59,7 +59,6 @@ public class AlamofireEngine: IRestEngine {
     )
 
 
-       Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
 
 
         */
