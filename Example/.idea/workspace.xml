@@ -5,110 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08d13f90-2349-4738-952b-b42ecfa88c02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/AFError.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/DispatchQueue+Alamofire.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/SessionDelegate.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/SessionManager.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/TaskDelegate.swift" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Download.swift" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Error.swift" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Manager.swift" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Stream.swift" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Upload.swift" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcuserdata/marco.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcuserdata/marco.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.swift-version" afterPath="$PROJECT_DIR$/../.swift-version" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi.podspec" afterPath="$PROJECT_DIR$/../BreinifyApi.podspec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/AlamofireEngine.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/AlamofireEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinActivity.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinActivity.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinActivityType.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinActivityType.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinBase.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinBase.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinCategoryType.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinCategoryType.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinConfig.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinConfig.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinDimension.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinDimension.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinEngine.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinEngineType.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinEngineType.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinError.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinLocationManager.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinLocationManager.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinLookup.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinLookup.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinMapUtil.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinMapUtil.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinRecommendation.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinRecommendation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinResult.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinResult.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinTemporalData.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinTemporalData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinUser.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinUser.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinUtil.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinUtil.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/Breinify.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/Breinify.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinifyApi-Bridging-Header.h" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinifyApi-Bridging-Header.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinifyExecutor.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/BreinifyExecutor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/IRestEngine.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/IRestEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/IRestEngineExtension.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/IRestEngineExtension.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/ISecretStrategy.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/ISecretStrategy.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BreinifyApi/Classes/StringExtension.swift" afterPath="$PROJECT_DIR$/../BreinifyApi/Classes/StringExtension.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Example.iml" afterPath="$PROJECT_DIR$/.idea/Example.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/BreinifyApi_Example.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/BreinifyApi_Example.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcuserdata/marcorecchioni.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/Alamofire.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/IDZSwiftCommonCrypto.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/Pods-BreinifyApi_Tests.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marcorecchioni.xcuserdatad/xcschemes/xcschememanagement.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcshareddata/xcschemes/BreinifyApi-Example.xcscheme" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcshareddata/xcschemes/BreinifyApi-Example.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestApi.swift.xcscheme" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestApi.swift.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestDomain.swift.xcscheme" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestDomain.swift.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestLocation.swift.xcscheme" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/All in TestLocation.swift.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/README.md" afterPath="$PROJECT_DIR$/Pods/Alamofire/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Alamofire.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Alamofire.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/NetworkReachabilityManager.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/NetworkReachabilityManager.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Notifications.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Notifications.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Request.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Request.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Response.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Response.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Result.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Result.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/ServerTrustPolicy.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/ServerTrustPolicy.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Timeline.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Timeline.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Alamofire/Source/Validation.swift" afterPath="$PROJECT_DIR$/Pods/Alamofire/Source/Validation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/AlamofireEngine.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/AlamofireEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinActivity.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinActivity.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinEngine.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinRecommendation.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinRecommendation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinTemporalData.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinTemporalData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinUser.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinUser.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/Breinify.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/Breinify.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/IRestEngineExtension.swift" afterPath="$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/IRestEngineExtension.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Crypto.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Crypto.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Cryptor.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Cryptor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Digest.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Digest.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/HMAC.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/HMAC.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/KeyDerivation.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/KeyDerivation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Random.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Random.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Status.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Status.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/StreamCryptor.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/StreamCryptor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Updateable.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Updateable.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Utilities.swift" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto/Utilities.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/README.md" afterPath="$PROJECT_DIR$/Pods/IDZSwiftCommonCrypto/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Local Podspecs/BreinifyApi.podspec.json" afterPath="$PROJECT_DIR$/Pods/Local Podspecs/BreinifyApi.podspec.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/Alamofire.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/Alamofire.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/BreinifyApi.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/BreinifyApi.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/IDZSwiftCommonCrypto.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/IDZSwiftCommonCrypto.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/Pods-BreinifyApi_Tests.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/Pods-BreinifyApi_Tests.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/marco.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Alamofire/Info.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Alamofire/Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/BreinifyApi/Info.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/BreinifyApi/Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/Info.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/IDZSwiftCommonCrypto/Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.debug.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-BreinifyApi_Tests/Pods-BreinifyApi_Tests.release.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestApi.swift" afterPath="$PROJECT_DIR$/Tests/TestApi.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestConfig.swift" afterPath="$PROJECT_DIR$/Tests/TestConfig.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestDomain.swift" afterPath="$PROJECT_DIR$/Tests/TestDomain.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestEngine.swift" afterPath="$PROJECT_DIR$/Tests/TestEngine.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestExecutor.swift" afterPath="$PROJECT_DIR$/Tests/TestExecutor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestLocation.swift" afterPath="$PROJECT_DIR$/Tests/TestLocation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/TestSecret.swift" afterPath="$PROJECT_DIR$/Tests/TestSecret.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
     </list>
     <ignored path="Example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,22 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StringExtension.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../BreinifyApi/Classes/StringExtension.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-              <folding>
-                <marker date="1488127322000" expanded="true" signature="157:1589" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestApi.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestApi.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
+            <state relative-caret-position="6225">
               <caret line="415" column="16" lean-forward="false" selection-start-line="415" selection-start-column="16" selection-end-line="415" selection-end-column="16" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -155,7 +48,7 @@
       <file leaf-file-name="TestConfig.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestConfig.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
+            <state relative-caret-position="690">
               <caret line="48" column="41" lean-forward="false" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
               <folding />
             </state>
@@ -165,7 +58,7 @@
       <file leaf-file-name="AlamofireEngine.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../BreinifyApi/Classes/AlamofireEngine.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="105">
               <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding />
             </state>
@@ -175,18 +68,28 @@
       <file leaf-file-name="BreinRecommendation.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinRecommendation.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="480">
               <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BreinifyApi.podspec" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BreinifyApi.podspec" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../BreinifyApi.podspec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="225">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Podfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Podfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -195,7 +98,7 @@
       <file leaf-file-name="TestDomain.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestDomain.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
+            <state relative-caret-position="720">
               <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding />
             </state>
@@ -205,7 +108,7 @@
       <file leaf-file-name="TestEngine.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestEngine.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="450">
               <caret line="32" column="9" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="32" selection-end-column="9" />
               <folding />
             </state>
@@ -215,7 +118,7 @@
       <file leaf-file-name="TestExecutor.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestExecutor.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="940">
+            <state relative-caret-position="1845">
               <caret line="125" column="8" lean-forward="false" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
               <folding />
             </state>
@@ -225,7 +128,7 @@
       <file leaf-file-name="TestSecret.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/TestSecret.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="921">
+            <state relative-caret-position="735">
               <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
               <folding />
             </state>
@@ -297,10 +200,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="82" />
-    <option name="y" value="43" />
-    <option name="width" value="2421" />
-    <option name="height" value="1314" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="839" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -318,7 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -342,86 +243,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IDZSwiftCommonCrypto" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alamofire" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Development Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BreinifyApi" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Development Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BreinifyApi" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BreinifyApi" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BreinifyApi" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tests" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,6 +272,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,27 +284,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
   </component>
-  <component name="RunManager" selected="XCTest/Kiwi.All in TestExecutor.swift">
-    <configuration default="false" name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" TEST_PATTERN="TestApi" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="2088381548">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in TestConfig.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestConfig.swift" TEST_PATTERN="TestConfig" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="-927857184">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in TestDomain.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestDomain.swift" TEST_PATTERN="TestDomain" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="-956451746">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in TestEngine.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestEngine.swift" TEST_PATTERN="TestEngine" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="-983986464">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="-591127345">
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.BreinifyApi">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Alamofire" CONFIG_NAME="Debug" MAKE_ACTIVE="TRUE">
       <envs />
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
@@ -523,34 +325,34 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="-[TestDomain testBreinUserMethods]" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="-[TestDomain testBreinUserMethods]" TEST_CLASS="TestDomain" TEST_METHOD="testBreinUserMethods" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="-453524924">
+    <configuration default="false" name="Alamofire" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Alamofire" CONFIG_NAME="Debug" SCHEME_NAME="Alamofire" MAKE_ACTIVE="TRUE">
       <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
       <method />
     </configuration>
-    <configuration default="false" name="All in TestLocation.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLocation.swift" TEST_CLASS="TestLocation" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="-449153555">
+    <configuration default="false" name="IDZSwiftCommonCrypto" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="IDZSwiftCommonCrypto" CONFIG_NAME="Debug" SCHEME_NAME="IDZSwiftCommonCrypto" MAKE_ACTIVE="TRUE">
       <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
       <method />
     </configuration>
-    <list size="9">
-      <item index="0" class="java.lang.String" itemvalue="Application.BreinifyApi-Example" />
-      <item index="1" class="java.lang.String" itemvalue="Application.BreinifyApi" />
-      <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.-[TestDomain testBreinUserMethods]" />
-      <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestLocation.swift" />
-      <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestApi.swift" />
-      <item index="5" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestConfig.swift" />
-      <item index="6" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestDomain.swift" />
-      <item index="7" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
-      <item index="8" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
+    <configuration default="false" name="Pods-BreinifyApi_Tests" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Pods-BreinifyApi_Tests" CONFIG_NAME="Debug" SCHEME_NAME="Pods-BreinifyApi_Tests" MAKE_ACTIVE="TRUE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.BreinifyApi" />
+      <item index="1" class="java.lang.String" itemvalue="Application.BreinifyApi-Example" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Alamofire" />
+      <item index="3" class="java.lang.String" itemvalue="Application.IDZSwiftCommonCrypto" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Pods-BreinifyApi_Tests" />
     </list>
-    <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
-        <item index="1" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
-        <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestDomain.swift" />
-        <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestConfig.swift" />
-        <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestApi.swift" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -572,6 +374,8 @@
       <workItem from="1488037976776" duration="4000000" />
       <workItem from="1488105909190" duration="1800000" />
       <workItem from="1488109997259" duration="9064000" />
+      <workItem from="1489426715627" duration="417000" />
+      <workItem from="1489443107760" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1472163351195</created>
@@ -665,7 +469,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34999000" />
+    <option name="totallyTimeSpent" value="35656000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,29 +481,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="82" y="43" width="2421" height="1314" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="839" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23390558" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38795987" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.50166667" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30602008" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21387696" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.49833333" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19167717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2143758" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966556" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38718662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30602008" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966556" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Podfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pods/Alamofire/Source/AFError.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -903,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
           <caret line="105" column="4" lean-forward="false" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,12 +799,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="510">
             <caret line="439" column="6" lean-forward="false" selection-start-line="439" selection-start-column="6" selection-end-line="439" selection-end-column="6" />
-            <folding>
-              <marker date="1488126436000" expanded="true" signature="11336:11367" ph="import ..." />
-              <marker date="1488126436000" expanded="true" signature="11408:12943" ph="{...}" />
-              <marker date="1488126436000" expanded="true" signature="11709:12539" ph="{...}" />
-              <marker date="1488126436000" expanded="true" signature="12572:12941" ph="{...}" />
-            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -1031,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="192" column="43" lean-forward="false" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="50" column="9" lean-forward="false" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
           <caret line="94" column="15" lean-forward="false" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,9 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="427" column="11" lean-forward="false" selection-start-line="427" selection-start-column="11" selection-end-line="427" selection-end-column="11" />
-          <folding>
-            <element signature="e#90#107#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,7 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1097,7 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,17 +886,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../BreinifyApi/Classes/StringExtension.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="675">
           <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding>
-            <marker date="1488127322000" expanded="true" signature="157:1589" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestSecret.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="921">
+        <state relative-caret-position="735">
           <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
           <folding />
         </state>
@@ -1137,7 +902,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestApi.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
+        <state relative-caret-position="6225">
           <caret line="415" column="16" lean-forward="false" selection-start-line="415" selection-start-column="16" selection-end-line="415" selection-end-column="16" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -1147,7 +912,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestConfig.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
+        <state relative-caret-position="690">
           <caret line="48" column="41" lean-forward="false" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
           <folding />
         </state>
@@ -1155,7 +920,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestDomain.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
+        <state relative-caret-position="720">
           <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding />
         </state>
@@ -1163,7 +928,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestEngine.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="450">
           <caret line="32" column="9" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="32" selection-end-column="9" />
           <folding />
         </state>
@@ -1171,7 +936,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestExecutor.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
+        <state relative-caret-position="1845">
           <caret line="125" column="8" lean-forward="false" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
           <folding />
         </state>
@@ -1179,7 +944,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../BreinifyApi/Classes/AlamofireEngine.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="105">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
@@ -1187,7 +952,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Pods/BreinifyApi/BreinifyApi/Classes/BreinRecommendation.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="480">
           <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
           <folding />
         </state>
@@ -1195,8 +960,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../BreinifyApi.podspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
