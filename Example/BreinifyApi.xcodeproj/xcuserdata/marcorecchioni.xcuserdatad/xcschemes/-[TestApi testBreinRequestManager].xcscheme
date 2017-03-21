@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "BreinifyApi_Tests.xctest"
+               BlueprintName = "BreinifyApi_Tests"
+               ReferencedContainer = "container:BreinifyApi.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TestApi/testLogin()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testLoginWithExtraMaps()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testLoginWithSecret()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testLookup()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testPageVisitWithTags()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testRecommendation()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testStressRequests()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testTemporalData()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testTemporalDataWithAdditionalMap()">
+               </Test>
+               <Test
+                  Identifier = "TestApi/testTemporalDataWithSimpleAdditionalMap()">
+               </Test>
+               <Test
+                  Identifier = "TestConfig">
+               </Test>
+               <Test
+                  Identifier = "TestDomain">
+               </Test>
+               <Test
+                  Identifier = "TestEngine">
+               </Test>
+               <Test
+                  Identifier = "TestExecutor">
+               </Test>
+               <Test
+                  Identifier = "TestLocation">
+               </Test>
+               <Test
+                  Identifier = "TestSecret">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO">
+   </LaunchAction>
+</Scheme>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9772E7140193457CCE5FE9A86E0A2BDD"
+               BlueprintIdentifier = "441BEBD3020E055DCC289B067D299607"
                BuildableName = "Pods_BreinifyApi_Tests.framework"
                BlueprintName = "Pods-BreinifyApi_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9772E7140193457CCE5FE9A86E0A2BDD"
+            BlueprintIdentifier = "441BEBD3020E055DCC289B067D299607"
             BuildableName = "Pods_BreinifyApi_Tests.framework"
             BlueprintName = "Pods-BreinifyApi_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9772E7140193457CCE5FE9A86E0A2BDD"
-            BuildableName = "Pods_BreinifyApi_Tests.framework"
-            BlueprintName = "Pods-BreinifyApi_Tests"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

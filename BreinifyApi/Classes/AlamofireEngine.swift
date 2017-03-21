@@ -21,6 +21,53 @@ public class AlamofireEngine: IRestEngine {
     public func configure(_ breinConfig: BreinConfig) {
     }
 
+    public func executeSavedRequests() {
+
+        print("executeSavedRequests invoked")
+
+        // 1. loop over entries
+        var missedArray = BreinRequestManager.sharedInstance.getMissedRequestArray()
+        var counter = 0
+
+        for entry in missedArray {
+            // UUID
+            let uuid = UUID().uuidString
+        
+            // JsonRequest
+            let urlString = entry.fullUrl
+            let jsonData = entry.jsonBody
+
+            // 2. send it
+            var request = URLRequest(url: URL(string: urlString!)!)
+            request.httpMethod = HTTPMethod.post.rawValue
+            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData?.data(using: .utf8, allowLossyConversion: false)!
+
+            Alamofire.request(request).responseJSONWithId {
+                        (response) in
+
+                        print(response)
+
+                        print(response.request)  // original URL request
+                        print(response.response) // URL response
+                        print(response.data)     // server data
+                        print(response.result)   // result of response serialization
+                        print(response.result.value)
+
+                        if response.result.isSuccess {
+
+                            // TODO: remove from array!!!
+                            
+                            // 3. remove it from array!!!
+                            // missedArray.remove(at: counter)
+
+                            // Todo: check if removed from original one?
+                            print(BreinRequestManager.sharedInstance.status())
+                        }
+                    }
+        }
+    }
+
     /**
       Invokes the post request for activities
 
@@ -37,13 +84,12 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinActivity)
         let body = try getRequestBody(breinActivity)
 
-
         do {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             print(jsonString)
-        } 
+        }
 
         /*
         let configuration = URLSessionConfiguration.background(withIdentifier: url)
@@ -57,8 +103,6 @@ public class AlamofireEngine: IRestEngine {
         encoding: encoding,
         headers: headers
     )
-
-
 
 
         */
@@ -80,11 +124,23 @@ public class AlamofireEngine: IRestEngine {
                     // let httpStatusCode = response.response?.statusCode
 
                     if response.result.isSuccess {
+
                         let jsonDic: NSDictionary = ["success": 200]
                         let breinResult = BreinResult(dictResponse: jsonDic)
                         successBlock(breinResult)
 
                     } else {
+
+                        // add for resending later...
+                        let jsonRequest = String(data: (response.request?.httpBody)!,
+                                encoding: .utf8)
+                        let urlRequest = response.request?.url?.absoluteString
+                        let creationTime = Int(NSDate().timeIntervalSince1970)
+
+                        // add to BreinRequestManager in case of an error
+                        BreinRequestManager.sharedInstance.addRequest(timeStamp: creationTime,
+                                fullUrl: urlRequest, json: jsonRequest)
+
                         let httpError: NSError = response.result.error! as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
@@ -93,7 +149,7 @@ public class AlamofireEngine: IRestEngine {
                     }
                 }
     }
-    
+
     /**
        Invokes the post request for recommendations
 
@@ -182,8 +238,8 @@ public class AlamofireEngine: IRestEngine {
         */
 
         Alamofire.request(url, method: .post,
-                          parameters: body,
-                          encoding: JSONEncoding.default)
+                        parameters: body,
+                        encoding: JSONEncoding.default)
                 .responseJSON {
                     response in
                     // print(response.request)  // original URL request
@@ -206,7 +262,7 @@ public class AlamofireEngine: IRestEngine {
                     }
                 }
     }
-    
+
     /**
       Invokes the post request for temporalData
 
@@ -301,5 +357,29 @@ public class AlamofireEngine: IRestEngine {
 
     /// Terminates whatever would need to be stopped
     public func terminate() {
+    }
+}
+
+
+extension DataRequest {
+
+    /// Adds a handler to be called once the request has finished.
+    ///
+    /// - parameter options:           The JSON serialization reading options. Defaults to `.allowFragments`.
+    /// - parameter completionHandler: A closure to be executed once the request has finished.
+    ///
+    /// - returns: The request.
+    @discardableResult
+    public func responseJSONWithId(
+            queue: DispatchQueue? = nil,
+            options: JSONSerialization.ReadingOptions = .allowFragments,
+            completionHandler: @escaping (DataResponse<Any>) -> Void)
+                    -> Self
+    {
+        return response(
+                queue: queue,
+                responseSerializer: DataRequest.jsonResponseSerializer(options: options),
+                completionHandler: completionHandler
+        )
     }
 }

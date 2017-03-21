@@ -34,6 +34,10 @@ open class BreinUser {
     /// user sessionId
     var sessionId: String!
 
+    /// an ID (e.g. UUID) used to identify the user
+    /// this is the case for instance if the email is not set
+    var userId: String!
+
     /// contains the userAgent in additional part
     var userAgent: String!
 
@@ -54,6 +58,9 @@ open class BreinUser {
 
     /// contains timezone
     var timezone: String?
+
+    /// contains the deviceToken
+    var deviceToken: String?
 
     /// contains additional dictionary
     var additional = [String: AnyObject]()
@@ -172,6 +179,18 @@ open class BreinUser {
         return self
     }
 
+    /// returns userId
+    public func getUserId() -> String! {
+        return self.userId
+    }
+
+    /// sets userId
+    @discardableResult
+    public func setUserId(_ userId: String!) -> BreinUser! {
+        self.userId = userId
+        return self
+    }
+
     /// sets userAgent
     @discardableResult
     public func setUserAgent(_ userAgent: String!) -> BreinUser! {
@@ -229,6 +248,18 @@ open class BreinUser {
         return timezone
     }
 
+    /// set deviceToken
+    @discardableResult
+    public func setDeviceToken(_ deviceToken: String!) -> BreinUser! {
+        self.deviceToken = deviceToken
+        return self
+    }
+
+    /// returns deviceToken
+    public func getDeviceToken() -> String! {
+        return self.deviceToken
+    }
+
     /// sets url
     @discardableResult
     public func setUrl(_ url: String!) -> BreinUser! {
@@ -260,7 +291,6 @@ open class BreinUser {
             return self
         }
         if let pKey = key {
-
             var enhancedDic = [String: AnyObject]()
             enhancedDic[pKey] = map as AnyObject?
 
@@ -310,11 +340,13 @@ open class BreinUser {
 
     /// detect current localDateTime
     public func detectLocalDateTime() -> String! {
-        let date = NSDate()
+        let date = Date()
 
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (z)"
-
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
+        
         let defaultLocalDateTimeString = formatter.string(from: date as Date)
 
         // print("local time is: \(defaultLocalDateTimeStr)")
@@ -342,6 +374,14 @@ open class BreinUser {
 
         if let session = self.getSessionId() {
             userData["sessionId"] = session as AnyObject?
+        }
+
+        if self.getUserId() == nil {
+            self.setUserId(UUID().uuidString)
+        }
+
+        if let userid = self.getUserId() {
+            userData["userId"] = userid as AnyObject?
         }
 
         if let firstName = self.getFirstName() {
@@ -405,6 +445,13 @@ open class BreinUser {
             additionalData["timezone"] = timezoneValue as AnyObject?
         }
 
+        // deviceToken
+        if let devToken = self.getDeviceToken() {
+            var identifierData = [String: AnyObject]()
+            identifierData["iosPushDeviceToken"] = devToken as AnyObject?
+            additionalData["identifiers"] = identifierData as AnyObject?
+        }
+
         // add possible further fields coming from additional dictionary
         if let userAdditionalDataDic = self.getAdditionalDic() {
             if userAdditionalDataDic.count > 0 {
@@ -443,6 +490,8 @@ open class BreinUser {
                     .setIpAddress(orgUser.getIpAddress())
                     .setLocalDateTime(orgUser.getLocalDateTime())
                     .setTimezone(orgUser.getTimezone())
+                    .setUserId(orgUser.getUserId())
+                    .setDeviceToken(orgUser.getDeviceToken())
 
             newUser?.setDateOfBirthString(orgUser.getDateOfBirth())
 
@@ -495,6 +544,11 @@ open class BreinUser {
                 let bundle = info[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
                 let version = info[kCFBundleVersionKey as String] as? String ?? "Unknown"
 
+                var model = UIDevice.current.model
+                if model == "iPod" {
+                    model = "iPhone"
+                }
+
                 let osNameVersion: String = {
                     let versionString: String
 
@@ -524,7 +578,7 @@ open class BreinUser {
                     return "\(osName) \(versionString)"
                 }()
 
-                return "\(executable)/\(bundle) (\(version); \(osNameVersion))"
+                return "\(executable)/\(bundle) (\(version); \(osNameVersion); \(model))"
             }
 
             return "Breinify"

@@ -133,7 +133,13 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
         //fire the location manager
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+
+        // remark:
+        // in flightMode only kCLLocationAccuracyKilometer will only work
+        // 
+
+        // kCLLocationAccuracyBest
       
         // let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
         // let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")

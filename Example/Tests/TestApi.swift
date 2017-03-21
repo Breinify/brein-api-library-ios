@@ -439,4 +439,23 @@ class TestApi: XCTestCase {
             testLogin()
         }
     }
+
+    func testBreinRequestManager() {
+        
+        let jsonString = "{ dfdjdskfkjdsfjkdjsj } "
+        let jsonString2 = "werewr xcvnxnnvn 898889"
+
+        BreinRequestManager.sharedInstance.addRequest(timeStamp: 1489512440,
+                fullUrl: "https://api.breinify.com/activity",
+                json: jsonString)
+
+        BreinRequestManager.sharedInstance.addRequest(timeStamp: 1489512441,
+                fullUrl: "https://api.breinify.com/activity",
+                json: jsonString2)
+
+        BreinRequestManager.sharedInstance.safeMissedRequests()
+        BreinRequestManager.sharedInstance.clearMissedRequests()
+        BreinRequestManager.sharedInstance.loadMissedRequests()
+    }
+    
 }

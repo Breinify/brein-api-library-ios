@@ -18,6 +18,8 @@ public protocol IRestEngine {
     */
     func configure(_ breinConfig: BreinConfig)
 
+    func executeSavedRequests() 
+
     /**
        Invokes the post request for activities
 

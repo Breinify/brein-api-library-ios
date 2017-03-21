@@ -132,4 +132,35 @@ class TestDomain: XCTestCase {
         dump(breinUser.description())
         XCTAssertFalse(breinUser.description().isEmpty)
     }
+
+    func testUser() {
+        let breinUser = BreinUser()
+        let kUUID = "55gggdd"
+
+        breinUser.setUserId(kUUID)
+        let getUserId = breinUser.getUserId()
+        XCTAssertEqual(kUUID, getUserId)
+    }
+
+    func testLocalDateTime() {
+        let breinUser = BreinUser()
+
+        TimeZone.current
+
+        print(breinUser.detectLocalDateTime())
+
+        // XCTAssertEqual(kUUID, getUserId)
+    }
+
+    /**
+       This test is intended to retrieve the network information
+
+    */
+    func testNetworkInformation() {
+
+
+
+    }
+
+
 }
