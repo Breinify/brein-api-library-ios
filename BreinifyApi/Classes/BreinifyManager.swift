@@ -36,9 +36,12 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// singleton
     public static let sharedInstance: BreinifyManager = {
         let instance = BreinifyManager()
-        
-        // setup code
-        instance.configure()
+
+        /// read userdata
+        instance.readAndInitUserDefaults()
+
+        // configure session
+        instance.configureSession()
         
         return instance
     }()
@@ -69,19 +72,21 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     /// setup configuration
-    private func configure() {
-        
-        /// create the configuration object
-        let breinConfig = BreinConfig(kValidApiKey, secret: kValidSecret)
-        
-        /// set configuration
-        Breinify.setConfig(breinConfig)
+    private func initialize() {
         
         /// read userdata
         readAndInitUserDefaults()
         
         // configure session
         configureSession()
+    }
+
+    public func configure(apiKey: String, secret: String) {
+        /// create the configuration object
+        let breinConfig = BreinConfig(apiKey, secret: secret)
+
+        /// set configuration
+        Breinify.setConfig(breinConfig)
     }
     
     public func configureSession() {
