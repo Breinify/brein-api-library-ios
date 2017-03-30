@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.3'
   s.source_files = 'BreinifyApi/Classes/**/*'
-  s.dependency 'Alamofire', '~> 4.3'
+  s.dependency 'Alamofire', '~> 4.0.0'
+  #'~> 4.3'
   s.dependency 'IDZSwiftCommonCrypto', '~> 0.9'
 end
+
