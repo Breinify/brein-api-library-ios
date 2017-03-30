@@ -89,6 +89,9 @@ public class AlamofireEngine: IRestEngine {
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             print(jsonString)
+
+            // BreinLogger.debug(jsonString)
+            
         }
 
         /*

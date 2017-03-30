@@ -24,6 +24,28 @@ enum BreinLocationManagerErrors: Int {
 
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Please allow this app to provide location data.</string>
+
+
+    Some information regarding accuracy:
+    * in case of "flight mode" -> only devices GPS is available and the
+      accuracy needs to be set to kCLLocationAccuracyKilometer
+    * otherwise it will be set to -> kCLLocationAccuracyBest
+
+	- kCLLocationAccuracyBestForNavigation –
+	           Uses the highest possible level of accuracy augmented by additional sensor data.
+	           This accuracy level is intended solely for use when the device is connected to an external power supply.
+    - kCLLocationAccuracyBest –
+               The highest recommended level of accuracy for devices running on battery power.
+    - kCLLocationAccuracyNearestTenMeters -
+               Accurate to within 10 meters.
+    - kCLLocationAccuracyHundredMeters –
+               Accurate to within 100 meters.
+    - kCLLocationAccuracyKilometer –
+               Accurate to within one kilometer.
+    - kCLLocationAccuracyThreeKilometers –
+                Accurate to within three kilometers.
+
+
 	    
 */
 
@@ -133,7 +155,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
         //fire the location manager
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         // remark:
         // in flightMode only kCLLocationAccuracyKilometer will only work
@@ -145,7 +167,6 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         // let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
 
         // indicates if the callback should be completed
-        
         locationManager.requestAlwaysAuthorization()
         // when in use foreground
         locationManager.requestWhenInUseAuthorization()

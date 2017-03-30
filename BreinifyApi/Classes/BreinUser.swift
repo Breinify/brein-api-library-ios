@@ -5,10 +5,8 @@
 
 import Foundation
 import CoreLocation
-
-// import CoreTelephony
-// import SystemConfiguration.CaptiveNetwork
-
+import SystemConfiguration.CaptiveNetwork
+import CoreTelephony
 import NetworkExtension
 
 open class BreinUser {
@@ -68,6 +66,18 @@ open class BreinUser {
     /// contains user dictionary
     var userDic = [String: AnyObject]()
 
+    /// contains network.ssid
+    var nw_ssid = ""
+
+    /// contains network.bsid
+    var nw_bssid = ""
+
+    /// contains network.macaddress
+    var nw_macadr = ""
+
+    /// contains network.carrier name
+    var nw_carrier = ""
+    
     /// Initializer with "nothing"
     public init() {
     }
@@ -290,6 +300,9 @@ open class BreinUser {
         if map == nil {
             return self
         }
+        if map!.isEmpty {
+            return self
+        }
         if let pKey = key {
             var enhancedDic = [String: AnyObject]()
             enhancedDic[pKey] = map as AnyObject?
@@ -298,6 +311,11 @@ open class BreinUser {
         }
 
         return self
+    }
+
+    /// clear additional dictionary
+    public func clearAdditional() -> BreinUser! {
+        return setAdditionalDic([:])
     }
 
     /// sets the user.additional dic for additional fields within the user.additional structure
@@ -346,7 +364,7 @@ open class BreinUser {
         formatter.locale = Locale(identifier: "en_US")
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
-        
+
         let defaultLocalDateTimeString = formatter.string(from: date as Date)
 
         // print("local time is: \(defaultLocalDateTimeStr)")
@@ -408,6 +426,7 @@ open class BreinUser {
     /// prepares user.additional map for json request
     public func prepareAdditionalFields() -> [String: AnyObject]! {
 
+      
         // additional part
         var additionalData = [String: AnyObject]()
         if locationData != nil {
@@ -445,7 +464,7 @@ open class BreinUser {
             additionalData["timezone"] = timezoneValue as AnyObject?
         }
 
-        // deviceToken
+        // deviceToken for pushNotifications
         if let devToken = self.getDeviceToken() {
             var identifierData = [String: AnyObject]()
             identifierData["iosPushDeviceToken"] = devToken as AnyObject?
@@ -459,8 +478,25 @@ open class BreinUser {
             }
         }
 
-        // prepareNetworkInfo(&additionalData)
+        // detect network
+        detectNetworkInfo()
 
+        var network = [String: AnyObject]()
+        if nw_ssid.characters.count > 0 {
+            network["ssid"] = nw_ssid as AnyObject?
+        }
+
+        if nw_bssid.characters.count > 0 {
+            network["bssid"] = nw_bssid as AnyObject?
+        }
+
+        if nw_macadr.characters.count > 0 {
+            network["macAddress"] = nw_macadr as AnyObject?
+        }
+        if network.count > 0 {
+            additionalData["network"] = network as AnyObject?
+        }
+        
         return additionalData
     }
 
@@ -471,7 +507,7 @@ open class BreinUser {
      * @return a copy of the original brein user
      */
     public static func clone(_ sourceUser: BreinUser?) -> BreinUser {
-        
+
         // Todo: merge on swift 2.3 branch
         if let orgUser = sourceUser {
 
@@ -588,24 +624,48 @@ open class BreinUser {
         return userAgent
     }
 
-    /*
-    func getSSID() -> String? {
-        var ssid: String?
-        var bsid: String?
+    func detectNetworkInfo() {
+
+        /// init
+        nw_ssid = ""
+        nw_bssid = ""
+        nw_macadr = ""
+        nw_carrier = ""
 
         if let interfaces = CNCopySupportedInterfaces() as NSArray? {
             for interface in interfaces {
                 if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
-                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                    bsid = interfaceInfo[kCNNetworkInfoKeyBSSID as String] as? String
-
+                    nw_ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as! String
+                    nw_bssid = interfaceInfo[kCNNetworkInfoKeyBSSID as String] as! String
+                    // print(interfaceInfo)
                     break
                 }
             }
         }
-        return ssid
+
+
+        let networkInfo = CTTelephonyNetworkInfo()
+        if networkInfo != nil {
+            // print(networkInfo)
+            // e.g. CTRadioAccessTechnologyEdge
+            let radio = networkInfo.currentRadioAccessTechnology
+
+            let carrier = networkInfo.subscriberCellularProvider
+            if carrier != nil {
+                // print(carrier)
+
+                // something like 1&1
+                nw_carrier = carrier?.carrierName as String!
+                // let mobileCountryCode = carrier?.mobileCountryCode
+            }
+
+        }
+        // MAC Address is not supported by Apple. Instead this should be
+        // used:
+        nw_macadr = UIDevice.current.identifierForVendor?.uuidString as String!
+        // print(uid)
+
     }
-    */
 
     public func description() -> String! {
         return (((((((((((((((("BreinUser details: "
