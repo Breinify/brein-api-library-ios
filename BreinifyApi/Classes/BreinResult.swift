@@ -20,4 +20,5 @@ open class BreinResult {
     public func getDictionary() -> NSDictionary {
         return dic
     }
+    
 }
