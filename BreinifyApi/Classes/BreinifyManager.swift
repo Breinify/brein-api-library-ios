@@ -14,10 +14,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     
-    /// constants
-    let kValidApiKey = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
-    let kValidSecret = "lmcoj4k27hbbszzyiqamhg=="
-    
     /// configuration part
     var userEmail: String?
     var userId: String?
@@ -243,26 +239,39 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // iOS Lifecycle
-    
-    public func didFinishLaunchingWithOptions() {
-        
+
+    // This method allows you to perform any final initialization before the app
+    // is displayed to the user
+    public func didFinishLaunchingWithOptions(apiKey: String, secret: String) {
+
+        // configure the API key
+        self.configure(apiKey: apiKey, secret: secret)
+
+        // register PushNotifications
         self.registerPushNotifications()
-        
+
+        // init background Timer
         let interval = BreinifyManager.sharedInstance.backGroundTimeInterval
         updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                                            selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
     }
-    
+
+    // This method should be invoked from the Application Delegate method
+    //      applicationDidEnterBackground
+    // It ensures that background processing is invoked
     public func applicationDidEnterBackground() {
         // additional stuff
         NotificationCenter.default.removeObserver(self)
         
         registerBackgroundTask()
         
-        // remove sessionId
+        // remove sessionId - mandatory when app is running in background
         appUser.setSessionId("")
     }
-    
+
+    // This method should be invoked from the Application Delegate method
+    //      applicationDidBecomeActive
+    // 
     public func applicationDidBecomeActive() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask),
@@ -271,7 +280,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // set session id
         appUser.setSessionId(self.appSessionId)
     }
-    
+
+    // This method should be invoked from the Application Delegate method
+    //      applicationWillTerminate
+    //
     public func applicationWillTerminate() {
         
         // shutdown the engine
@@ -280,7 +292,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // save defaults
         saveUserDefaults()
     }
-    
+
+    // This method should be invoked from the Application Delegate method
+    //      didRegisterForRemoteNotificationsWithDeviceToken
     public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) -> String! {
         
         // 1. read deviceToken
@@ -289,12 +303,15 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // 2. register within API
         appUser.setDeviceToken(self.deviceToken)
         
-        // 3. send identify
+        // 3. send identify to the engine
         sendIndentityInfo()
         
         return self.deviceToken
     }
-    
+
+    // This method should be invoked from the Application Delegate method
+    //      didReceiveRemoteNotification
+    // 
     public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any], _ controller: UIKit.UIViewController?) {
         
         // log.debug("BreinifyManager - received notification is: \(notification)")
@@ -329,12 +346,15 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             controller?.present(refreshAlert, animated: true, completion: nil)
         }
     }
-    
+
+    // This method should be invoked from the Application delegate method
+    //      didFailToRegisterForRemoteNotificationsWithError
+    // 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
         
     }
     
-    // private STUFF
+    // Retrieves the device token
     private func retrieveDeviceToken(_ deviceToken: Data) -> String {
         let chars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
         var token = ""
@@ -342,7 +362,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         for i in 0 ..< deviceToken.count {
             token += String(format: "%02.2hhx", arguments: [chars[i]])
         }
-        
         return token
     }
 }
