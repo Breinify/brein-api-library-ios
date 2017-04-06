@@ -16,4 +16,3 @@ public enum BreinActivityType: String {
     case CHECKOUT = "checkOut"
     case OTHER = "other"
 }
-
