@@ -10,7 +10,7 @@ public class BreinMapUtil {
 
     public class func fillMap(_ dataMap: Dic, requestStructure: inout Dic ) {
         
-        for (key,value) in dataMap {
+        for (key, value) in dataMap {
             // print("\(key) = \(value)")
 
             if let dataDic = value as? Dic {
