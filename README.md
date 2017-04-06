@@ -26,7 +26,7 @@ Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presen
 
 ## Requirements
 
-- iOS 9.3+ 
+- iOS 10.0+ 
 - Xcode 8.2+
 - AppCode 2016.3
 - Swift 3.0
@@ -53,7 +53,7 @@ To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.3'
+platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
