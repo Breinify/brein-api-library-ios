@@ -18,4 +18,3 @@ public enum BreinCategoryType : String {
     case SERVICES = "services"
     case OTHER = "other"
 }
-
