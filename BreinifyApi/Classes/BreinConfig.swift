@@ -77,7 +77,7 @@ open class BreinConfig {
        - parameter apiKey: contains the apiKey
     */
     convenience public init(_ apiKey: String!) {
-        self.init();
+        self.init()
         self.setApiKey(apiKey)
         self.initEngine()
     }
@@ -100,7 +100,7 @@ open class BreinConfig {
 
        - parameter apiKey: contains the apiKey
        - parameter secret: contains the secret
-       - parameter breinEngineType: contains the engine 
+       - parameter breinEngineType: contains the engine  
     */
     convenience public init(_ apiKey: String!,
                             secret: String!,
@@ -132,7 +132,7 @@ open class BreinConfig {
     }
     
     // initializes the brein logger for swiftyBeaver
-    public func initLoggerForSwiftyBeaver(appId: String,  appSecret: String, encryptionKey: String) {
+    public func initLoggerForSwiftyBeaver(appId: String, appSecret: String, encryptionKey: String) {
         // BreinLogger.initialize(appId: appId, appSecret: appSecret, encryptionKey: encryptionKey)
         // BreinLogger.setLoggerType(logger: .SwiftyBeaver)
     }
