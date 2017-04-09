@@ -8,10 +8,9 @@ import Foundation
 
 public extension Breinify {
 
-    open class func didFinishLaunchingWithOptions(apiKey: String, secret: String) {
-
-        // delegate to the BreinifyManager
-        BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
+    open class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = nil) {
+        
+        BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret, backgroundInterval: backgroundInterval)
     }
 
 
@@ -39,6 +38,12 @@ public extension Breinify {
     open class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any], _ viewController: UIViewController?) {
         
         BreinifyManager.sharedInstance.didReceiveRemoteNotification(userInfo, viewController)
+    }
+    
+    open class func applicationDidBecomeActive() {
+        
+        BreinifyManager.sharedInstance.applicationDidBecomeActive()
+        
     }
     
 }
