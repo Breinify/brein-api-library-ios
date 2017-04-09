@@ -507,8 +507,7 @@ open class BreinUser {
      * @return a copy of the original brein user
      */
     public static func clone(_ sourceUser: BreinUser?) -> BreinUser {
-
-        // Todo: merge on swift 2.3 branch
+        
         if let orgUser = sourceUser {
 
             // then a new user with the new created brein user request
@@ -642,8 +641,7 @@ open class BreinUser {
                 }
             }
         }
-
-
+        
         let networkInfo = CTTelephonyNetworkInfo()
         if networkInfo != nil {
             // print(networkInfo)
