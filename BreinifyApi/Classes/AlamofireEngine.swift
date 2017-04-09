@@ -88,28 +88,9 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            print(jsonString)
-
-            // BreinLogger.debug(jsonString)
-            
+            // print(jsonString)
         }
-
-        /*
-        let configuration = URLSessionConfiguration.background(withIdentifier: url)
-        let sessionManager = Alamofire.SessionManager(configuration: configuration)
-        sessionManager.request(.POST,....
-
-        return SessionManager.default.request(
-        url,
-        method: method,
-        parameters: parameters,
-        encoding: encoding,
-        headers: headers
-    )
-
-
-        */
-
+        
         Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
