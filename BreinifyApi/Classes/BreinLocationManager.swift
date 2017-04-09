@@ -153,16 +153,22 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 103, userInfo: nil))
         }
 
-        //fire the location manager
+        // fire the location manager
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        
+        // depending of network connection choose accuracy
         // remark:
         // in flightMode only kCLLocationAccuracyKilometer will only work
-        // 
-
-        // kCLLocationAccuracyBest
-      
+        //
+        let networkConnected = BreinReachability.connectedToNetwork()
+        if networkConnected == true {
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        } else {
+            // setting to Kilometer is the only chance to use the GPS module without
+            // being connected to the internet
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        }
+        
         // let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
         // let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
 
