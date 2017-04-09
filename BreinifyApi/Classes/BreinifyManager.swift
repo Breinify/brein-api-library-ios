@@ -23,8 +23,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     
     /// contains the deviceToken
     var deviceToken: String = ""
-    
-    let backGroundTimeInterval = 60.0
+
+    /// interval in seconds
+    let kBackGroundTimeInterval = 60.0
     
     // each app user is associated with a Breinify User
     var appUser = BreinUser()
@@ -233,7 +234,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                 }
             }
         } else {
-            // Fallback on earlier versions
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
         }
         
     }
@@ -242,7 +244,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     // This method allows you to perform any final initialization before the app
     // is displayed to the user
-    public func didFinishLaunchingWithOptions(apiKey: String, secret: String) {
+    public func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double?) {
 
         // configure the API key
         self.configure(apiKey: apiKey, secret: secret)
@@ -250,8 +252,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // register PushNotifications
         self.registerPushNotifications()
 
-        // init background Timer
-        let interval = BreinifyManager.sharedInstance.backGroundTimeInterval
+        // init background Timer take parameter if set, otherwise default
+        let interval = backgroundInterval ?? BreinifyManager.sharedInstance.kBackGroundTimeInterval
+        
         updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                                            selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
     }
