@@ -32,9 +32,6 @@ open class Breinify {
     /// contains the brein user
     static var breinUser: BreinUser?
 
-    /// contains the updateTimer 
-    static var updateTimer: Timer?
-
     /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
         return breinRecommendation
@@ -87,80 +84,7 @@ open class Breinify {
     public static func getBreinUser() -> BreinUser? {
         return self.breinUser
     }
-
-    /**
-
-        Application lifecycle information
-
-     */
-
-    /// invoked when the App is started on the very first time
-    public static func finishLaunching() {
-        let interval = 60.0
-
-        updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
-                selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
-    }
-
-    /// invoked when App is gone to background mode
-    public static func enterBackground(breinUser: BreinUser) {
-        breinUser.setSessionId("")
-    }
-
-    /// invoked when app is gone in foreground mode
-    public static func enterForeground(breinUser: BreinUser) {
-        // each time the app comes in foreground a new sessionId
-        // has to be generated  
-        let sessionId = UUID().uuidString
-        breinUser.setSessionId(sessionId)
-    }
-
-    public static func becomeActive() {
-    }
-
-    public static func terminate() {
-        updateTimer?.invalidate()
-        updateTimer = nil
-
-        Breinify.shutdown()
-    }
-
-    public static func registerForRemoteNotifications() {
-    }
-
-    @objc
-    public func sendLocationInformation() {
-
-        let breinUser = BreinUser()
-
-        // callback in case of success
-        let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
-        }
-
-        // callback in case of a failure
-        let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
-            print("Api Failure: error is:\n \(error)")
-        }
-
-        // invoke activity call
-        do {
-            try Breinify.activity(breinUser,
-                    activityType: "sendLoc",
-                    category: "",
-                    description: "from iOS device",
-                    success: successBlock,
-                    failure: failureBlock)
-        } catch {
-            print("Error is: \(error)")
-        }
-        
-    }
-
-
-
+    
 
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
@@ -185,23 +109,13 @@ open class Breinify {
                                success successBlock: @escaping BreinEngine.apiSuccess,
                                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
-        // TODO: set user in branch Swift 2.3 as well
-
         // set user in class Breinify ...
         self.setBreinUser(user)
 
         // ...and in class BreinActivity (will be used later when cloning)
         if let breinAct = getBreinActivity() {
             breinAct.setBreinUser(user)
-
-            // Todo: remove this in Swift 2.3
-            /*
-            let clonedBreinActivity = breinAct.clone()
-
-            clonedBreinActivity.setSuccessBlock(successBlock)
-            clonedBreinActivity.setFailureBlock(failureBlock)
-            */
-
+            
             try activity(breinAct,
                     user: user,
                     activityType: activityType,
@@ -355,8 +269,6 @@ open class Breinify {
         if aBreinRecommendation == nil {
             throw BreinError.BreinRuntimeError("BreinRecommendation is nil");
         }
-
-        // TODO: merge to Swift 2.3 branch
         
         // apply the current configuration
         aBreinRecommendation.setConfig(self.getConfig())
