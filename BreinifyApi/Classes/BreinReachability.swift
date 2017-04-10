@@ -10,7 +10,15 @@ import Foundation
 import SystemConfiguration
 
 open class BreinReachability {
+
+    /**
+
+        Detects if iOS device has an internet connection.
+
+        This information can be used to change the quality of accuracy for the
+        LocationManager.
     
+    */
     class func connectedToNetwork() -> Bool {
         
         var zeroAddress = sockaddr_in()
