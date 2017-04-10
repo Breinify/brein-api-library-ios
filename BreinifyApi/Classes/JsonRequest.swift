@@ -6,7 +6,7 @@ import Foundation
 
 open class JsonRequest {
 
-    var creationTime = 0
+    var creationTime:Int! = 0
     var fullUrl: String!
     var jsonBody: String!
 
