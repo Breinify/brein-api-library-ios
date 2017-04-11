@@ -13,11 +13,14 @@ public class AlamofireEngine: IRestEngine {
     public typealias apiSuccess = (_ result: BreinResult?) -> Void
     public typealias apiFailure = (_ error: NSDictionary?) -> Void
 
-    /**
-     configures the rest engine
+    // contains a copy of the missedRequests from BreinRequestManager
+    var missedRequests: [String: JsonRequest]?
 
+    /**
+     Configures the rest engine
+     
      - parameter breinConfig: configuration object
-    */
+     */
     public func configure(_ breinConfig: BreinConfig) {
     }
 
@@ -26,55 +29,63 @@ public class AlamofireEngine: IRestEngine {
         print("executeSavedRequests invoked")
 
         // 1. loop over entries
-        var missedArray = BreinRequestManager.sharedInstance.getMissedRequestArray()
-        var counter = 0
+        missedRequests = BreinRequestManager.sharedInstance.getMissedRequests()
 
-        for entry in missedArray {
-            // UUID
-            let uuid = UUID().uuidString
-        
-            // JsonRequest
-            let urlString = entry.fullUrl
-            let jsonData = entry.jsonBody
+        print("Number of elements in queue is: \(missedRequests?.count)")
 
-            // 2. send it
-            var request = URLRequest(url: URL(string: urlString!)!)
-            request.httpMethod = HTTPMethod.post.rawValue
-            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData?.data(using: .utf8, allowLossyConversion: false)!
+        for (uuid, entry) in (missedRequests)! {
 
-            Alamofire.request(request).responseJSONWithId {
-                        (response) in
+            print("Working on UUID: \(uuid)")
 
-                        print(response)
+            // 1. is this entry in time range?
+            let considerEntry = BreinRequestManager.sharedInstance.checkIfValid(currentEntry: entry)
+            if considerEntry == true {
 
-                        print(response.request)  // original URL request
-                        print(response.response) // URL response
-                        print(response.data)     // server data
-                        print(response.result)   // result of response serialization
-                        print(response.result.value)
+                let urlString = entry.fullUrl
+                let jsonData = entry.jsonBody
 
-                        if response.result.isSuccess {
+                // 2. send it
+                var request = URLRequest(url: URL(string: urlString!)!)
+                request.httpMethod = HTTPMethod.post.rawValue
+                request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
 
-                            // TODO: remove from array!!!
-                            
-                            // 3. remove it from array!!!
-                            // missedArray.remove(at: counter)
+                // add the uuid to identify the request on response
+                request.setValue(uuid, forHTTPHeaderField: "uuid")
+                request.httpBody = jsonData?.data(using: .utf8, allowLossyConversion: false)!
 
-                            // Todo: check if removed from original one?
-                            print(BreinRequestManager.sharedInstance.status())
-                        }
+                Alamofire.request(request).responseJSON {
+                    (response) in
+
+                    // dump(response)
+
+                    // print(response.request)  // original URL request
+                    // print(response.response) // URL response
+                    // print(response.data)     // server data
+                    // print(response.result)   // result of response serialization
+                    // print(response.result.value)
+
+                    let uuidEntry = response.request?.allHTTPHeaderFields!["uuid"]
+                    if response.result.isSuccess {
+                        BreinRequestManager.sharedInstance.removeEntry(uuidEntry!)
+                    } else {
+                        print("could not send request with uuid: \(uuidEntry)")
                     }
+                }
+
+            } else {
+                print("Removing from Queue: \(uuid)")
+                BreinRequestManager.sharedInstance.removeEntry(uuid)
+            }
         }
     }
 
     /**
-      Invokes the post request for activities
-
-      - parameter breinActivity: activity object
-      - parameter success successBlock: will be invoked in case of success
-      - parameter failure failureBlock: will be invoked in case of an error
-    */
+     Invokes the post request for activities
+     
+     - parameter breinActivity: activity object
+     - parameter success successBlock: will be invoked in case of success
+     - parameter failure failureBlock: will be invoked in case of an error
+     */
     public func doRequest(_ breinActivity: BreinActivity,
                           success successBlock: @escaping apiSuccess,
                           failure failureBlock: @escaping apiFailure) throws {
@@ -88,9 +99,9 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            // print(jsonString)
+            print(jsonString)
         }
-        
+
         Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
@@ -135,11 +146,11 @@ public class AlamofireEngine: IRestEngine {
     }
 
     /**
-       Invokes the post request for recommendations
-
-       - parameter breinRecommendation: recommendation object
-       - parameter success successBlock: will be invoked in case of success
-       - parameter failure failureBlock: will be invoked in case of an error
+     Invokes the post request for recommendations
+     
+     - parameter breinRecommendation: recommendation object
+     - parameter success successBlock: will be invoked in case of success
+     - parameter failure failureBlock: will be invoked in case of an error
      */
     public func doRecommendation(_ breinRecommendation: BreinRecommendation,
                                  success successBlock: @escaping (_ result: BreinResult?) -> Void,
@@ -149,17 +160,6 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinRecommendation)
         let body = try getRequestBody(breinRecommendation)
-
-        /*
-        do {
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-
-            dump(jsonString)
-        } catch let error as NSError {
-            dump(error)
-        }
-        */
 
         Alamofire.request(url, method: .post,
                         parameters: body,
@@ -184,9 +184,9 @@ public class AlamofireEngine: IRestEngine {
                         successBlock(breinResult)
                     } else {
                         /*
-                        let httpError: NSError = response.result.error!
-                        let statusCode = httpError.code
-                        */
+                         let httpError: NSError = response.result.error!
+                         let statusCode = httpError.code
+                         */
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
                         failureBlock(error)
@@ -195,11 +195,11 @@ public class AlamofireEngine: IRestEngine {
     }
 
     /**
-       Invokes the post request for lookups
-
-       - parameter breinLookup: lookup object
-       - parameter success successBlock: will be invoked in case of success
-       - parameter failure failureBlock: will be invoked in case of an error
+     Invokes the post request for lookups
+     
+     - parameter breinLookup: lookup object
+     - parameter success successBlock: will be invoked in case of success
+     - parameter failure failureBlock: will be invoked in case of an error
      */
     public func doLookup(_ breinLookup: BreinLookup,
                          success successBlock: @escaping apiSuccess,
@@ -209,18 +209,7 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinLookup)
         let body = try getRequestBody(breinLookup)
-
-        /*
-        do {
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-
-            dump(jsonString)
-        } catch let error as NSError {
-            dump(error)
-        }
-        */
-
+        
         Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
@@ -248,12 +237,12 @@ public class AlamofireEngine: IRestEngine {
     }
 
     /**
-      Invokes the post request for temporalData
-
-      - parameter breinTemporalData: temporalData object
-      - parameter success successBlock: will be invoked in case of success
-      - parameter failure failureBlock: will be invoked in case of an error
-    */
+     Invokes the post request for temporalData
+     
+     - parameter breinTemporalData: temporalData object
+     - parameter success successBlock: will be invoked in case of success
+     - parameter failure failureBlock: will be invoked in case of an error
+     */
     public func doTemporalDataRequest(_ breinTemporalData: BreinTemporalData,
                                       success successBlock: @escaping apiSuccess,
                                       failure failureBlock: @escaping apiFailure) throws {
@@ -262,17 +251,6 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinTemporalData)
         let body = try getRequestBody(breinTemporalData)
-
-        /*
-        do {
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-
-            dump(jsonString)
-        } catch let error as NSError {
-            dump(error)
-        }
-        */
 
         Alamofire.request(url, method: .post,
                         parameters: body,
@@ -329,9 +307,9 @@ public class AlamofireEngine: IRestEngine {
                         successBlock(breinResult)
                     } else {
                         /*
-                        let httpError: NSError = response.result.error!
-                        let statusCode = httpError.code
-                        */
+                         let httpError: NSError = response.result.error!
+                         let statusCode = httpError.code
+                         */
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
                         failureBlock(error)
@@ -358,8 +336,7 @@ extension DataRequest {
             queue: DispatchQueue? = nil,
             options: JSONSerialization.ReadingOptions = .allowFragments,
             completionHandler: @escaping (DataResponse<Any>) -> Void)
-                    -> Self
-    {
+                    -> Self {
         return response(
                 queue: queue,
                 responseSerializer: DataRequest.jsonResponseSerializer(options: options),

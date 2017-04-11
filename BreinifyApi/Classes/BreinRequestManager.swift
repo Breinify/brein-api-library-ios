@@ -70,7 +70,7 @@ open class BreinRequestManager {
     }
 
     public func addRequest(timeStamp: Int, fullUrl: String?, json: String?) {
-        var jsonRequest = JsonRequest()
+        let jsonRequest = JsonRequest()
         // UUID
         let uuid = UUID().uuidString
         jsonRequest.creationTime = timeStamp
