@@ -257,6 +257,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                                            selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
+
+        // check if unsent message are there
+        BreinRequestManager.sharedInstance.loadMissedRequests()
     }
 
     // This method should be invoked from the Application Delegate method
