@@ -54,7 +54,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
       Used to create a clone of the temporal data object. This is important in order to prevent
       concurrency issues.
 
-      - returns: the clone of the temporaldata object
+      - returns: the clone of the temporal data object
     */
     public func clone() -> BreinTemporalData {
 
@@ -73,7 +73,9 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
     /**
+
       Creates the signature for the temporal data secret
+      
     */
     public override func createSignature() -> String! {
         let localDateTime = getBreinUser()?.getLocalDateTime()
@@ -92,7 +94,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         do {
             signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
-            // todo: throw error
+            // TODO: throw error ?
             print("Ups: Error while trying to generate signature")
         }
 
