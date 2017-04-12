@@ -44,4 +44,6 @@ open class BreinReachability {
         return (isReachable && !needsConnection)
     }
     
+
+
 }
