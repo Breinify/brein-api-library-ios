@@ -1,4 +1,4 @@
-#BreinifyApi
+
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/logo.png" alt="Breinify API iOS Library" width="250">
@@ -8,28 +8,34 @@
 Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips.
 </p>
 
+# Breinify's API Library
+
 
 [![Version](https://img.shields.io/cocoapods/v/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 
+<sup>Features: **PushNotifications**, **Temporal Data**, **(Reverse) Geocoding**, **Events**, **Weather**, **Holidays**, **Analytics** </sup>
 
-### Step By Step Introduction
 
-#### What is Breinify's DigitialDNA
+This library utilizes [Breinify's API](https://www.breinify.com) to provide tasks like `PushNotifications`, `geocoding`, `reverse geocoding`, `weather and events look up`, `holidays determination` through the API's endpoints, i.e., `/activity` and `/temporaldata`. Each endpoint provides different features, which are explained in the following paragraphs. In addition, this documentation gives detailed examples for each of the features available for the different endpoints.
 
-Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips. We believe that in many situations, a critical component of a great user experience is personalization. With all the data available on the web it should be easy to provide a unique experience to every visitor, and yet, sometimes you may find yourself wondering why it is so difficult.
+**PushNotifications**: *TODO*
 
-Thanks to **Breinify's DigitalDNA** you are now able to adapt your online presence to your visitors needs and **provide a unique experience**. Let's walk step-by-step through a simple example.
+
+**Activity Endpoint**: The endpoint is used to understand the usage-patterns and the behavior of a user using, e.g., an application, a mobile app, or a web-browser. The endpoint offers analytics and insights through Breinify's dashboard.
+
+**TemporalData Endpoint**: The endpoint offers features to resolve temporal information like a timestamp, a location (latitude and longitude or free-text), or an IP-address, to temporal information (e.g., timezone, epoch, formatted dates, day-name),  holidays at the specified time and location, city, zip-code, neighborhood, country, or county of the location, events at the specified time and location (e.g., description, size, type), weather at the specified time and location (e.g., description, temperature).
+
 
 
 ## Requirements
 
 - iOS 9.0+ 
-- Xcode 8.2+
-- AppCode 2016.3
-- Swift 3.0
+- Xcode 8.1+
+- AppCode 2016.3+
+- Swift 3.0+
 
 
 ## Installation
@@ -53,7 +59,7 @@ To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
@@ -83,6 +89,7 @@ You can install Carthage with Homebrew using the following command:
 You can install Carthage with homebrew. 
 
 ```bash
+$ brew update
 $ brew install carthage
 ```
 
@@ -106,7 +113,7 @@ To install the BreinifyApi, navigate to the directory where your `Cartfile`resid
 ```bash
 $ carthage update
 ```
-This will fetch dependencies into a Carthage/Checkouts folder. Drag BreinifyApi.framework into your Xcode project.
+This will fetch dependencies into a Carthage/Checkouts folder. Drag `BreinifyApi.framework` into your Xcode project.
 
 
 ## Dependencies
@@ -122,27 +129,202 @@ BreinifyApi is available under the MIT license. This applies also for Alamofire 
 See the LICENSE file for more info.
 
 
-## BreinifyApi Integration 
+## Getting Started
 
-#### Step 1: Request API-key
+### Retrieving an API-Key
 
-In order to use the library you need a valid API-key, which you can get for free at [https://www.breinify.com](https://www.breinify.com). In this example, we assume you have the following api-key:
+First of all, you need a valid API-key, which you can get for free at [https://www.breinify.com](https://www.breinify.com). In the examples, we assume you have the following api-key:
+
 
 **772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6**
 
 
-### Step 2: Include the BreinifyApi module
 
-Add the following line to your swift file (e.g. ViewController.swift)
+
+## PushNotifications: Selected Usage Examples
+
+
+Let's integrate Breinify's PushNotifications within an iOS App.
+
+
+### Configuring your app for push notifications
+
+Your app must first be configured and built with an App ID and provisioning profile configured to use the Apple Push Notifications service.
+
+#### XCode managed signing 
+
+You could either enable `Automatically manage signing` within XCode and XCode will create the appropriate profiles, App ID and certificate for you.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/Xcode_enable.png"
+	alt="Xcode" width="650">
+</p>
+
+
+Or you could handle it by your own. If this is your approach you have to do the following steps:
+
+
+#### Set up your App ID
+
+To begin, log in to the iOS developer center and browse to Certificates, Identifiers & Profiles.
+
+Select "App IDs" under the "Identifiers" section of the left-hand navigation pane and click the plus icon to the top-right to create a new App ID.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/app_id_setup.png" alt="App ID" width="650">
+</p>
+
+Give your App ID a descriptive name - then make sure the App ID prefix and Bundle ID are correct. Your Bundle ID should match the Bundle ID of your app in Xcode. Make sure to check "Push Notifications" under App Services, then click Continue.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/app_name.png" alt="App Name" width="650">
+</p>
+
+Once created, click your new App ID and then click Edit.
+
+
+
+### Setting up Push Certificate
+
+Apple supports the P8 and P12 certificates. This sample assumes that you use the new
+P8 certificate that can be used in development and production environment having the benefit that it won't expire.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/certifcate_first_page.png" alt="Certificate" width="650">
+</p>
+
+TODO: TEXT hier
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/certifcate_second_page.png" alt="Certificate" width="650">
+</p>
+
+
+After having pressed the `Continue` button the *APNs Auth Key* will be generated. You
+now have to download the key and provide it to our engine.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/certifcate_third_page.png" alt="Certificate" width="650">
+</p>
+
+The certifcate has been generated and you can now download it by clicking at the `Download` button. Please provide this certificate to your Technical Support Team in order to integrate this within the Breinify environment. 
+
+
+### Configuring iOS app
+
+You have to add the `PushNotification` capabilities to the App.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/capabilities.png" alt="Capabilities" width="650">
+</p>
+
+Furthermore you have to allow your app to provide location information. This is done by adding the following two
+properties to the `Info.plist` file:
+
+- Privacy - Location Always Usage Description
+- Privacy - Location When In Use Usage Description
+
+So it will look like this:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/info_plist.png" alt="Info-Plist" width="650">
+</p>
+
+### Integration
+
+
+Using Breinify Push Notifications in iOS apps is pretty straightforward. The Breinify SDK integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
+
+- didFinishLaunchingWithOptions
+- applicationDidEnterBackground
+- applicationDidBecomeActive
+- applicationWillTerminate
+- didRegisterForRemoteNotificationsWithDeviceToken
+- didReceiveRemoteNotification
+
+Add the following statement in your `AppDelegate.swift` file:
 
 ```Swift
 import BreinifyApi
+```
+
+The entry point `didFinishLaunchingWithOptions` is used to configure the Breinify SDK. 
+
+```
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
+  let kValidApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
+  let kValidSecret = "lmqwj4k27hbbszzyiqamhg=="
+       
+  Breinify.didFinishLaunchingWithOptions(apiKey: kValidApiKey, 
+            secret: kValidSecret, nil)
+  return true
+}
+```
+
+Perfect, the BreinifyApi is now configured, a default BreinUser is created and the communication to the Breinify Engine is now possible.
+
+Now we need to cover the situation when the app goes into background mode. So we add the lifecycle information to the BreinifyApi as well.
+
+
+```Swift
+func applicationDidEnterBackground(_ application: UIApplication) { 
+     Breinify.applicationDidEnterBackground()
+}
 
 ```
 
-### Step 3: Configure the Library
+Whenever the App is active again we need to tell this the BreinifyApi as well. So we 
+simply pass this information to the Breinfy class.
 
-The BreinifyApi needs to be configured with an instance of BreinConfig containing a valid API-key and a secret (optional).  
+```Swift
+func applicationDidBecomeActive(_ application: UIApplication) {         
+     Breinify.applicationDidBecomeActive()
+}
+
+```
+
+When the App terminates we pass this information in order to do some housekeeping. 
+
+```Swift
+func applicationWillTerminate(_ application: UIApplication) {
+        Breinify.applicationWillTerminate()
+}
+
+```
+
+Now we need to provide the device token to the Breinify Engine as well. So we add the following functionality to the *didRegisterForRemoteNotificationsWithDeviceToken* within AppDelegate.swift:
+
+```Swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+  // register device Token within the API
+  Breinify.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+}
+
+```
+
+
+Add the following lines to the function *didReceiveRemoteNotification*. This will
+provide a short dialog within the app.
+
+```Swift
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+   completionHandler(.newData)  
+   Breinify.didReceiveRemoteNotification(userInfo, nil)
+}
+```
+
+
+
+
+## Activity: Selected Usage Examples
+
+The endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g., [iOS](https://github.com/Breinify/brein-api-library-ios), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [nodeJs](https://github.com/Breinify/brein-api-library-node), [ruby](https://github.com/Breinify/brein-api-library-ruby), [php](https://github.com/Breinify/brein-api-library-php), [python](https://github.com/Breinify/brein-api-library-python)).
+
+
+### Configure the Library
+
+If you're not following the iOS Lifecycle approach that is described in above you have to configure the BreinifyApi by creating a BreinifyConfig object and assigning it to the Breinfy class.
 
 This would look like this:
 
@@ -157,6 +339,8 @@ let breinConfig = BreinConfig(validApiKey, secret: validSecret)
 // set configuration
 Breinify.setConfig(breinConfig)
 ```
+
+*Remark:* This step is not neceessary if you have integrated the BreinifyApi with the iOS Lifecycle approach.
 
 #### Step 3: Start using the library
 
@@ -202,13 +386,12 @@ do {
 
 That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
 
-##### Option 2 
-Assume that you have an asynchronous flow of information and will collect user data at first and
-will send activity requests later on. In this use case you could simlpy use class Breinify and collect the user data. When sending the activity request the class Breinify will use the previous saved user data.
+##### Collecting and Providing UserData  
+Assuming that you have an asynchronous flow of information and will collect user data at first and
+will send activity requests later on. In this case you could simlpy create an instance of class BreinUser, fill the properties and assign this instance to class Breinify before you invoke the *activity* request.
 
-We take a look at this example.
+This might look like this:
 
-Anywhere in your swift file you have the chance to identify the user like this:
 
 ```Swift
 // create the Breinify User
@@ -237,11 +420,14 @@ do {
 ```
 
 In this case the `activity` call will use the previously saved BreinUser object with all it's
-data.
+properties.
 
 
-#####  Placing temporalData triggers
+## TemporalData: Selected Usage Examples
 
+### Retrieve Client's Information (Location, Weather, Events, Timezone, Time)
+
+The endpoint is capable to retrieve some information about the client, based on client specific information (e.g., the IP-address). 
 Temporal Intelligence API provides temporal triggers and visualizes patterns
 enabling you to predict a visitor’s dynamic activities. Currently this will
 cover:
@@ -292,145 +478,6 @@ do {
  }
 ```
 
-##### Placing look-up triggers
-
-Look-ups are used to retrieve dedicated information for a given user. This code snippet assumes that the typealias and further objects from above are in the same scope. 
-
-```swift
-typealias apiSuccess = (result:BreinResult?) -> Void
-typealias apiFailure = (error:NSDictionary?) -> Void
-
-// create a user you are interested in with his email (mandatory field)
-let breinUser = BreinUser(email: "fred.firestone@email.com")
-
-// define an array of subjects of interest
-let dimensions: [String] = ["firstname", "gender",
-                                "age", "agegroup", 
-                                "digitalfootprint", "images"]
-
-// wrap this array into BreinDimension object
-let breinDimension = BreinDimension(dimensionFields: dimensions)
-
-// invoke the lookup
-let successBlock: apiSuccess = {(result: BreinResult?) -> Void in
-     print ("Api Success!")
-
-     if let dataFirstname = result!.get("firstname") {
-         print ("Firstname is: \(dataFirstname)")
-     }
-
-     if let dataGender = result!.get("gender") {
-         print ("Gender is: \(dataGender)")
-     }
-
-     if let dataAge = result!.get("age") {
-         print ("Age is: \(dataAge)")
-     }
-
-     if let dataAgeGroup = result!.get("agegroup") {
-         print ("AgeGroup is: \(dataAgeGroup)")
-     }
-
-     if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
-            print ("DigitalFootprinting is: \(dataDigitalFootprinting)")
-     }
-
-     if let dataImages = result!.get("images") {
-         print ("DataImages is: \(dataImages)")
-     }
- }
-
-let failureBlock: apiFailure = {(error: NSDictionary?) -> Void in
-     print ("Api Failure : error is:\n \(error)")
-}
-
-do {
-   try Breinify.lookup(breinUser,
-        dimension: breinDimension,
-          success: successBlock,
-          failure: failureBlock)
-} catch {
-    print("Error is: \(error)")
-}
-
-```
-
-## App Capabilities 
-The BreinifyApi can automatically send the users location information if the permission for this has been granted within the app. The following two options needs to be set within the info.plist file:
-
-```
-...
-<key>NSLocationAlwaysUsageDescription</key>
-<string>Please allow this app to provide location data.</string>
-
-<key>NSLocationWhenInUseUsageDescription</key>
-<string>Please allow this app to provide location data.</string>
-...
-```
-
-
-## Full working sample 
-
-Let’s navigate back to Xcode and inside the IDE, go to ViewController.swift. The code should look like this:
-
-```swift
-import UIKit
-import BreinifyApi
-
-class ViewController: UIViewController {
-
-    typealias apiSuccess = (_ result: BreinResult?) -> Void
-    typealias apiFailure = (_ error: NSDictionary?) -> Void
-
-    // create Brein user
-    let breinUser = BreinUser()         
-
-    // invoked when activityButton has been pressed
-    @IBAction func actionButtonPressed(sender: AnyObject) {
-
-        let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result)")
-        }
-
-        let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
-        }
-
-        // set additional user information
-        breinUser.setFirstName("Fred")
-                 .setLastName("Firestone")
-
-        // invoke activity call
-        do {
-            try Breinify.activity(breinUser,
-                    activityType: "paginaUno",
-                    category: "home",
-                    description: "paginaUno-Description",
-                    success: successBlock,
-                    failure: failureBlock)
-        } catch {
-            dump("Error is: \(error)")
-        }
-    }
-
-   override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // this has to be a valid api-key & secret
-    let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
-
-    // create the configuration object
-    let breinConfig = BreinConfig(validApiKey, secret: validSecret)
-    
-    // set configuration
-    Breinify.setConfig(breinConfig)    
-   }
-}
-
-```
 
 ### Additional Code Snippets
 
