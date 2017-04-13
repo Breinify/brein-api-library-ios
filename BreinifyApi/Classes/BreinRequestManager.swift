@@ -39,7 +39,7 @@ open class BreinRequestManager {
     var updateTimer: Timer?
 
     /// contains the background interval
-    var interval = 60.0
+    var interval = 120.0
 
     /// contains the delimiter between each element of the structure
     let kDelimiter = "°"
