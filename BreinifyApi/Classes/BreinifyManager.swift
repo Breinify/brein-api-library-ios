@@ -27,14 +27,11 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// interval in seconds
     let kBackGroundTimeInterval = 60.0
     
-    // each app user is associated with a Breinify User
-    var appUser = BreinUser()
-    
     /// singleton
     public static let sharedInstance: BreinifyManager = {
         let instance = BreinifyManager()
 
-        /// read userdata
+        /// read user data
         instance.readAndInitUserDefaults()
 
         // configure session
@@ -98,30 +95,30 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         // create a user you are interested in
         if self.userEmail != nil {
-            appUser.setEmail(self.userEmail)
+            Breinify.getBreinUser()?.setEmail(self.userEmail)
         }
         
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            // log.debug("Api Success : result is:\n \(result!)")
+            // print("Api Success : result is:\n \(result!)")
         }
         
         // callback in case of a failure
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            // log.debug("Api Failure: error is:\n \(error)")
+            // print("Api Failure: error is:\n \(error)")
         }
         
         if !additionalContent.isEmpty {
             // add additional content
-            // log.debug("Additional Content is: \(additionalContent)")
-            appUser.setAdditional("notification", map: additionalContent)
+            // print("Additional Content is: \(additionalContent)")
+            Breinify.getBreinUser()?.setAdditional("notification", map: additionalContent)
         }
         
         // invoke activity call
         do {
-            try Breinify.activity(appUser,
+            try Breinify.activity(Breinify.getBreinUser(),
                                   activityType: activityType,
                                   category: "",
                                   description: "from iOS device",
@@ -133,17 +130,17 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         if !additionalContent.isEmpty {
             // remove additional data
-            appUser.clearAdditional()
+            Breinify.getBreinUser()?.clearAdditional()
         }
     }
     
     public func sendIndentityInfo() {
-        // log.debug("sendIndentityInfo called")
+        // print("sendIndentityInfo called")
         sendActivity("identity", additionalContent: [:])
     }
     
     public func sendLocationInfo() {
-        // log.debug("sendLocationInfo called")
+        // print("sendLocationInfo called")
         sendActivity("sendLoc", additionalContent: [:])
     }
     
@@ -161,7 +158,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         // set unique user id
-        self.appUser.setUserId(self.userId)
+        Breinify.getBreinUser()?.setUserId(self.userId)
     }
     
     public func saveUserDefaults() {
@@ -176,14 +173,14 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     
     // Background Task Handling
     func reinstateBackgroundTask() {
-        // log.debug("reinstateBackgroundTask called")
+        // print("reinstateBackgroundTask called")
         if updateTimer != nil && (backgroundTask == UIBackgroundTaskInvalid) {
             registerBackgroundTask()
         }
     }
     
     func registerBackgroundTask() {
-        // log.debug("registerBackgroundTask called")
+        // print("registerBackgroundTask called")
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
         }
@@ -191,7 +188,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func endBackgroundTask() {
-        // log.debug("Background task ended.")
+        // print("Background task ended.")
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = UIBackgroundTaskInvalid
     }
@@ -201,7 +198,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // Called when a notification is delivered to a foreground app.
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // log.debug("willPresent: User Info = \(notification.request.content.userInfo)")
+        // print("willPresent: User Info = \(notification.request.content.userInfo)")
         // completionHandler([.alert, .badge, .sound])
         completionHandler([])
         
@@ -213,7 +210,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //Called to let your app know which action was selected by the user for a given notification.
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // log.debug("didReceive called with content: \(response)")
+        // print("didReceive called with content: \(response)")
         completionHandler()
         
         let aps = response.notification.request.content.userInfo["aps"] as! [String: AnyObject]
@@ -272,7 +269,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         registerBackgroundTask()
         
         // remove sessionId - mandatory when app is running in background
-        appUser.setSessionId("")
+        Breinify.getBreinUser()?.setSessionId("")
     }
 
     // This method should be invoked from the Application Delegate method
@@ -284,7 +281,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                                name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         // set session id
-        appUser.setSessionId(self.appSessionId)
+        Breinify.getBreinUser()?.setSessionId(self.appSessionId)
     }
 
     // This method should be invoked from the Application Delegate method
@@ -307,7 +304,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         self.deviceToken = retrieveDeviceToken(deviceToken)
         
         // 2. register within API
-        appUser.setDeviceToken(self.deviceToken)
+        Breinify.getBreinUser()?.setDeviceToken(self.deviceToken)
         
         // 3. send identify to the engine
         sendIndentityInfo()
@@ -320,7 +317,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // 
     public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any], _ controller: UIKit.UIViewController?) {
         
-        // log.debug("BreinifyManager - received notification is: \(notification)")
+        // print("BreinifyManager - received notification is: \(notification)")
         print(notification)
         var message = "The message"
         
