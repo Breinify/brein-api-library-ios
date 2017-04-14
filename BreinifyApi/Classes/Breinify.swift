@@ -12,7 +12,7 @@ open class Breinify {
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "1.0.0"
+    static let version: String! = "1.2.1"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -30,7 +30,7 @@ open class Breinify {
     static var breinTemporalData: BreinTemporalData = BreinTemporalData()
 
     /// contains the brein user
-    static var breinUser: BreinUser?
+    static var breinUser: BreinUser = BreinUser()
 
     /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
@@ -76,12 +76,12 @@ open class Breinify {
     /// sets the brein user for later usage
     public static func setBreinUser(_ user: BreinUser?) {
         if user != nil {
-            self.breinUser = user
+            self.breinUser = user!
         }
     }
 
     /// returns the brein user
-    public static func getBreinUser() -> BreinUser? {
+    public static func getBreinUser() -> BreinUser {
         return self.breinUser
     }
     
@@ -150,9 +150,14 @@ open class Breinify {
                                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         // firstly check if user is valid
-        guard let user = self.getBreinUser() else {
+        
+        let user = self.getBreinUser()
+
+        /*
+        if user == nil {
             throw BreinError.BreinRuntimeError("User not set.")
         }
+        */
 
         try activity(getBreinActivity(),
                 user: user,

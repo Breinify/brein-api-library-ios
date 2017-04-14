@@ -36,6 +36,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         // configure session
         instance.configureSession()
+
+        // set a breinUser to work on
+        // Breinify.setBreinUser(BreinUser())
         
         return instance
     }()
@@ -95,7 +98,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         // create a user you are interested in
         if self.userEmail != nil {
-            Breinify.getBreinUser()?.setEmail(self.userEmail)
+            Breinify.getBreinUser().setEmail(self.userEmail)
         }
         
         // callback in case of success
@@ -113,7 +116,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         if !additionalContent.isEmpty {
             // add additional content
             // print("Additional Content is: \(additionalContent)")
-            Breinify.getBreinUser()?.setAdditional("notification", map: additionalContent)
+            Breinify.getBreinUser().setAdditional("notification", map: additionalContent)
         }
         
         // invoke activity call
@@ -130,7 +133,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         if !additionalContent.isEmpty {
             // remove additional data
-            Breinify.getBreinUser()?.clearAdditional()
+            Breinify.getBreinUser().clearAdditional()
         }
     }
     
@@ -158,7 +161,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         // set unique user id
-        Breinify.getBreinUser()?.setUserId(self.userId)
+        Breinify.getBreinUser().setUserId(self.userId)
     }
     
     public func saveUserDefaults() {
@@ -269,7 +272,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         registerBackgroundTask()
         
         // remove sessionId - mandatory when app is running in background
-        Breinify.getBreinUser()?.setSessionId("")
+        Breinify.getBreinUser().setSessionId("")
     }
 
     // This method should be invoked from the Application Delegate method
@@ -281,7 +284,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                                name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         // set session id
-        Breinify.getBreinUser()?.setSessionId(self.appSessionId)
+        Breinify.getBreinUser().setSessionId(self.appSessionId)
     }
 
     // This method should be invoked from the Application Delegate method
@@ -304,7 +307,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         self.deviceToken = retrieveDeviceToken(deviceToken)
         
         // 2. register within API
-        Breinify.getBreinUser()?.setDeviceToken(self.deviceToken)
+        Breinify.getBreinUser().setDeviceToken(self.deviceToken)
         
         // 3. send identify to the engine
         sendIndentityInfo()
