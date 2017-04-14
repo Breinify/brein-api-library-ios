@@ -4,10 +4,6 @@
  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/logo.png" alt="Breinify API iOS Library" width="250">
 </p>
 
-<p align="center">
-Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips.
-</p>
-
 # Breinify's API Library
 
 
@@ -51,7 +47,7 @@ Simply run the following command to get started:
 $ sudo gem install cocoapods
 ```
 
-#####Note: If you are new to Cocopods further details can be found [here](http://guides.cocoapods.org/using/getting-started.html)
+*Note:* If you are new to Cocopods further details can be found [here](http://guides.cocoapods.org/using/getting-started.html)
 
 #### Step 2 - Create Podfile
 
