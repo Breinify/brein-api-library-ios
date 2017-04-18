@@ -18,7 +18,7 @@ public extension Breinify {
         - initializes the background timer
         
     */
-    open class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = nil) {
+    public class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = nil) {
         
         BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret, backgroundInterval: backgroundInterval)
     }
@@ -27,7 +27,7 @@ public extension Breinify {
 
         This method is invoked when the app is moving to background mode. 
     */
-    open class func applicationDidEnterBackground() {
+    public class func applicationDidEnterBackground() {
         
         BreinifyManager.sharedInstance.applicationDidEnterBackground()
     }
@@ -37,7 +37,7 @@ public extension Breinify {
         This method is invoked when the app is going to terminate.
 
     */
-    open class func applicationWillTerminate() {
+    public class func applicationWillTerminate() {
         
         BreinifyManager.sharedInstance.applicationWillTerminate()
     }
@@ -48,7 +48,7 @@ public extension Breinify {
         device token for the iOS device
 
     */
-    open class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
+    public class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
         
         let token = BreinifyManager.sharedInstance.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
         return token
@@ -59,7 +59,7 @@ public extension Breinify {
         This method is invoked when it was not possible to register for remote notifications
 
     */
-    open class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
+    public class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
         
         BreinifyManager.sharedInstance.didFailToRegisterForRemoteNotificationsWithError(error)
     }
@@ -69,9 +69,9 @@ public extension Breinify {
         This method is invoked when a remove notification is triggered
 
     */
-    open class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any], _ viewController: UIViewController?) {
+    public class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
         
-        BreinifyManager.sharedInstance.didReceiveRemoteNotification(userInfo, viewController)
+        BreinifyManager.sharedInstance.didReceiveRemoteNotification(userInfo)
     }
 
     /**
@@ -79,7 +79,7 @@ public extension Breinify {
         This method is invoked when the App becomes active again.
 
     */
-    open class func applicationDidBecomeActive() {
+    public class func applicationDidBecomeActive() {
         
         BreinifyManager.sharedInstance.applicationDidBecomeActive()
         

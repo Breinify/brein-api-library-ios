@@ -318,39 +318,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // This method should be invoked from the Application Delegate method
     //      didReceiveRemoteNotification
     // 
-    public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any], _ controller: UIKit.UIViewController?) {
+    public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any]) {
         
-        // print("BreinifyManager - received notification is: \(notification)")
-        print(notification)
-        var message = "The message"
-        
-        if let aps = notification["aps"] as? NSDictionary {
-            if let alert = aps["alert"] as? NSDictionary {
-                if let msg = alert["message"] as? String {
-                    message = msg
-                }
-            } else if let alert = aps["alert"] as? String {
-                //Do stuff
-                print(alert)
-                message = alert
-            }
-        }
+        print("BreinifyManager - received notification is: \(notification)")
         
         let notDic = notification["aps"] as! [String: AnyObject]
         self.sendActivity("receivedPushNotification", additionalContent: notDic)
         
-        // Todo: extract the message
-        let refreshAlert = UIAlertController(title: "Breinify Notification",
-                                             message: message,
-                                             preferredStyle: UIAlertControllerStyle.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
-        }))
-
-        if controller != nil {
-            controller?.present(refreshAlert, animated: true, completion: nil)
-        }
     }
 
     // This method should be invoked from the Application delegate method
