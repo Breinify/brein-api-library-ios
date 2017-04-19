@@ -327,7 +327,7 @@ open class BreinUser {
 
     /// returns addtional dic
     public func getAdditionalDic() -> [String: AnyObject]? {
-        return additional
+        return self.additional
     }
 
     /// sets the user map for for additional fields
@@ -339,7 +339,7 @@ open class BreinUser {
 
     /// returns the optional user dic
     public func getUserDic() -> [String: AnyObject]? {
-        return userDic
+        return self.userDic
     }
 
     /// sets location data

@@ -16,7 +16,7 @@ open class BreinBase {
     static let kNoValueDefined = ""
 
     //  contains the User that will be used for the request
-    var breinUser: BreinUser?
+    var breinUser = BreinUser()
 
     // contains the ipAddress
     var ipAddress: String = ""
@@ -107,7 +107,7 @@ open class BreinBase {
         }
         return self
     }
-
+    
     @discardableResult
     public func prepareJsonRequest() -> [String: AnyObject]! {
         let timeInterval = NSDate().timeIntervalSince1970

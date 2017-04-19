@@ -7,6 +7,49 @@
 import Foundation
 
 open class BreinTemporalData: BreinBase, ISecretStrategy {
+
+    /// The following fields are used within the location
+    let kTextField = "text"
+    let kLocationField = "location"
+    let kLatitudeField = "latitude"
+    let kLongitudeField = "longitude"
+
+    public func setLocation(key: String, value: AnyObject) -> BreinTemporalData {
+
+        var additionalDic = self.getBreinUser()?.getAdditionalDic()
+        if additionalDic == nil {
+            let newDic = [String: AnyObject]()
+            self.getBreinUser()?.setAdditionalDic(newDic)
+            additionalDic = self.getBreinUser()?.getAdditionalDic()
+        }
+        var hasLocationEntry = additionalDic?[kLocationField]
+
+        if hasLocationEntry == nil {
+            var locationDic = [String: AnyObject]()
+            locationDic[key] = value as AnyObject?
+            additionalDic?[kLocationField] = locationDic as AnyObject?
+        } else {
+            hasLocationEntry = value as AnyObject?
+        }
+
+        return self
+    }
+
+    @discardableResult
+    public func setLocation(freeText: String) -> BreinTemporalData {
+        self.setLocation(key: kTextField, value: freeText as AnyObject!)
+        return self
+    }
+
+    public func setLongitude(longitude: Double) -> BreinTemporalData {
+        self.setLocation(key: kLongitudeField, value: longitude as AnyObject!)
+        return self
+    }
+
+    public func setLatitude(latitude: Double) -> BreinTemporalData {
+        self.setLocation(key: kLatitudeField, value: latitude as AnyObject!)
+        return self
+    }
     
     /**
        TemporalData implementation. For a given user (BreinUser) a temporalData request will be performed.
@@ -46,7 +89,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         // base level data...
         self.prepareBaseRequestData(&requestData)
-                
+
         return requestData
     }
 
@@ -60,7 +103,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         // create a new recommendation object
         let clonedBreinTemporalData = BreinTemporalData()
-        
+
         // clone from base class
         clonedBreinTemporalData.cloneBase(self)
 
@@ -83,7 +126,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         let timezone = getBreinUser()?.getTimezone()
         let paraTimezone = timezone == nil ? "" : timezone
-        
+
         let message = String(getUnixTimestamp()) +
                 "-" +
                 paraLocalDateTime! +

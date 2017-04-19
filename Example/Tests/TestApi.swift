@@ -331,8 +331,7 @@ class TestApi: XCTestCase {
         }
 
     }
-
-
+    
     func testTemporalDataWithAdditionalMap() {
 
         let failureBlock: apiFailure = {
@@ -456,6 +455,44 @@ class TestApi: XCTestCase {
         BreinRequestManager.sharedInstance.safeMissedRequests()
         BreinRequestManager.sharedInstance.clearMissedRequests()
         BreinRequestManager.sharedInstance.loadMissedRequests()
+    }
+
+
+    func testFreeTextToLocations() {
+        
+        let failureBlock: apiFailure = {
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+        }
+        let successBlock: apiSuccess = {
+            (result: BreinResult?) -> Void in
+            print("Api Success : result is:\n \(result!)")
+
+            if let holiday = result!.get("holidays") {
+                print("Holiday is: \(holiday)")
+            }
+            if let weather = result!.get("weather") {
+                print("Weather is: \(weather)")
+            }
+            if let location = result!.get("location") {
+                print("Location is: \(location)")
+            }
+            if let time = result!.get("time") {
+                print("Time is: \(time)")
+            }
+        }
+
+
+        do {
+            let temporalData = BreinTemporalData().setLocation(freeText: "The Big Apple")
+            
+            try Breinify.temporalData(temporalData,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            print("Error")
+        }
+        
     }
     
 }

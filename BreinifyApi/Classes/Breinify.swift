@@ -305,8 +305,9 @@ open class Breinify {
                                    success successBlock: @escaping BreinEngine.apiSuccess,
                                    failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
+        self.breinTemporalData.setBreinUser(user)
+        
         return try temporalData(breinTemporalData,
-                user: user,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -318,24 +319,23 @@ open class Breinify {
         Furthermore it uses the internal instance of BreinTemporalData.
 
         - parameter breinTemporalData: contains a breinTemporalData object.
-        - parameter user: a plain object specifying information about the user to retrieve data for.
         - Parameter successBlock : A callback function that is invoked in case of success.
         - Parameter failureBlock : A callback function that is invoked in case of an error.
 
         - returns: result from the Breinify engine
      */
     public class func temporalData(_ breinTemporalData: BreinTemporalData!,
-                                   user: BreinUser!,
                                    success successBlock: @escaping BreinEngine.apiSuccess,
                                    failure failureBlock: @escaping BreinEngine.apiFailure) throws {
-
-        guard breinTemporalData?.getBreinEngine() != nil else {
-            throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
+        
+         if breinTemporalData?.getBreinEngine() == nil {
+            // apply the Breinify config
+            breinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+            guard breinTemporalData?.getBreinEngine() != nil else {
+                throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
+            }
         }
-
-        breinTemporalData.setBreinUser(user)
-
-
+        
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
@@ -343,9 +343,8 @@ open class Breinify {
         clonedBreinTemporalData.setFailureBlock(failureBlock)
 
         // apply the current configuration
-        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig());
-
-
+        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+        
         return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
                 success: successBlock,
                 failure: failureBlock)
