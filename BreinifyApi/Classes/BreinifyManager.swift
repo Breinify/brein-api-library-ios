@@ -208,6 +208,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         let aps = notification.request.content.userInfo["aps"] as! [String: AnyObject]
         
         self.sendActivity("openedPushNotification", additionalContent: aps)
+
+        // call BreinNotification-Handler
+        Breinify.getNotification()?.willPresent(notification)
     }
     
     //Called to let your app know which action was selected by the user for a given notification.
@@ -218,6 +221,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         let aps = response.notification.request.content.userInfo["aps"] as! [String: AnyObject]
         self.sendActivity("openedPushNotification", additionalContent: aps)
+
+        // call BreinNotification-Handler
+        Breinify.getNotification()?.didReceive(response)
     }
     
     func registerPushNotifications() {

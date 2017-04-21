@@ -12,7 +12,7 @@ open class Breinify {
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "1.2.1"
+    static let version: String! = "1.2.4"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -32,6 +32,17 @@ open class Breinify {
     /// contains the brein user
     static var breinUser: BreinUser = BreinUser()
 
+    /// contains the brein notification call back handling
+    static var notification: BreinNotificationHandler?
+
+    public static func setNotification(_ notification: BreinNotificationHandler) {
+        self.notification = notification
+    }
+
+    public static func getNotification() -> BreinNotificationHandler? {
+        return self.notification
+    }
+    
     /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
         return breinRecommendation
