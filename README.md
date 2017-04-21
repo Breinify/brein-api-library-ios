@@ -54,12 +54,12 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 
 #### Option 1 - Using CocoaPods
 
-Please follow this link if you're new to Cocoapods and need some information how to setup the environment.
+Please follow this [link](Example/Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment.
 
 
 #### Option 2 - Using Carthage
 
-As an alternative Carthage could also be used. Please follow this link for further information.
+As an alternative Carthage could also be used. Please follow this [link](Example/Documentation/carthage_instructions.md) for further information.
 
 
 ### Configuring the Library
@@ -251,7 +251,6 @@ Location is: {
     lon = "-73.9814311179";
     state = NY;
 }
-
 ```
 
 ### Reverse Geocoding (retrieve GeoJsons for, e.g., Cities, Neighborhoods, or Zip-Codes)
@@ -268,7 +267,7 @@ to a specific city or neighborhood (i.e., names of neighborhood, city, state, co
 ## PushNotifications: Selected Usage Example
 
 
-Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](documentation/carthage_instructions.md) to see how you can configure your app for receiving push notifications.
+Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Example/Documentation/carthage_instructions.md) to see how you can configure your app for receiving push notifications.
 
 ### Integration
 
