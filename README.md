@@ -282,46 +282,79 @@ Using Breinify Push Notifications in iOS apps is pretty straightforward. The Bre
 - didRegisterForRemoteNotificationsWithDeviceToken
 - didReceiveRemoteNotification
 
-Add the following statement in your `AppDelegate.swift` file:
+Add the following statements to your delegate swift file (e.g `AppDelegate.swift`):
 
 ```Swift
 import BreinifyApi
 ```
-
+#### Method didFinishLaunchingWithOptions
 The entry point `didFinishLaunchingWithOptions` is used to configure the Breinify SDK. 
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
-  let kValidApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-  let kValidSecret = "lmqwj4k27hbbszzyiqamhg=="
-       
-  Breinify.didFinishLaunchingWithOptions(apiKey: kValidApiKey, 
-            secret: kValidSecret, nil)
+  // configure the BreinifySDK and remote notification handling    
+  Breinify.didFinishLaunchingWithOptions(apiKey: "938D-3120-64DD-413F-BB55-6573-90CE-473A", 
+            secret: "utakxp7sm6weo5gvk7cytw==", nil)
   return true
 }
 ```
 
+**Note:** using `didFinishLaunchingWithOptions` will configure the Breinify-SDK like the  method `Breinify.setConfig(...)`. So no further call of `Breinify.setConfig(...)` is necessary.
+
 Perfect, the BreinifyApi is now configured, a default BreinUser is created and the communication to the Breinify Engine is now possible.
+
+#### Method didRegisterForRemoteNotificationsWithDeviceToken
+
+Now we need to provide the device token to the Breinify Engine as well. We do this by simply add the following call to the `didRegisterForRemoteNotificationsWithDeviceToken` method.
+
+```Swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+  // register device Token within the API
+  Breinify.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+}
+
+```
+
+#### Method didReceiveRemoteNotification
+
+This method is invoked when the remote notification is send from APNS (Apple Push Notification Service). Add the following lines to the function `didReceiveRemoteNotification`. 
+
+```Swift
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+   // inform the Breinify SDK      
+   Breinify.didReceiveRemoteNotification(userInfo)
+   completionHandler(.newData)  
+}
+```
+
+
+#### Method applicationDidEnterBackground
 
 Now we need to cover the situation when the app goes into background mode. So we add the lifecycle information to the BreinifyApi as well.
 
 
 ```Swift
 func applicationDidEnterBackground(_ application: UIApplication) { 
-     Breinify.applicationDidEnterBackground()
+   // App is now in background
+   Breinify.applicationDidEnterBackground()
 }
 
 ```
+
+#### Method applicationDidBecomeActive
 
 Whenever the App is active again we need to tell this the BreinifyApi as well. So we 
 simply pass this information to the Breinfy class.
 
 ```Swift
-func applicationDidBecomeActive(_ application: UIApplication) {         
-     Breinify.applicationDidBecomeActive()
+func applicationDidBecomeActive(_ application: UIApplication) {   
+   // App is now active again      
+   Breinify.applicationDidBecomeActive()
 }
 
 ```
+
+#### Method applicationWillTerminate
 
 When the App terminates we pass this information in order to do some housekeeping. 
 
@@ -332,61 +365,25 @@ func applicationWillTerminate(_ application: UIApplication) {
 
 ```
 
-Now we need to provide the device token to the Breinify Engine as well. So we add the following functionality to the *didRegisterForRemoteNotificationsWithDeviceToken* within AppDelegate.swift:
+### Capabilities
 
-```Swift
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-  // register device Token within the API
-  Breinify.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
-}
+#### Location Data
+The Breinify SDK can provide current location data if your app has configured the appropriate properties within the `Info.plist` file. Simply add the following location permissions:
 
 ```
-
-
-Add the following lines to the function *didReceiveRemoteNotification*. This will
-provide a short dialog within the app.
-
-```Swift
-func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-   Breinify.didReceiveRemoteNotification(userInfo)
-   completionHandler(.newData)  
-}
-```
-
-
-
-
-### Additional Code Snippets
-
-The following code snippets provides addtional information how to use the *BreinifyApi* library for iOS.
-
-
-#### BreinUser
-Class BreinUser provides additional methods to add further data. This example shows all possible options: 
-
-
-````swift
-let breinUser = BreinUser(email: "user.anywhere@email.com")
-
-breinUser.setFirstName("User")
-         .setLastName("Anywhere")
-         .setImei("356938035643809")
-         .setDateOfBirth(6, day: 20, year: 1985)
-         .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
-         .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
-      
-
-````
-
-
-
-### Adding permissions
-
-<TODO>
-	<key>NSLocationAlwaysUsageDescription</key>
+<key>NSLocationAlwaysUsageDescription</key>
 	<string>Please allow this app to provide location data.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow this app to provide location data.</string>
+```
+
+
+### Further links
+To understand all the capabilities of Breinify's APIs, have a look at:
+
+* the [sample application](documentation/sample-app.md),
+* the [change log](documentation/changelog.md), or
+* [Breinify's Website](https://www.breinify.com).
+
 
 
