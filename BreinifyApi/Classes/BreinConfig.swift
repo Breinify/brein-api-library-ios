@@ -30,7 +30,7 @@ open class BreinConfig {
     static let cDefaultBaseUrl: String! = "https://api.breinify.com"
 
     //  BASE URL
-    var baseUrl: String!
+    var baseUrl: String! = BreinConfig.cDefaultBaseUrl
 
     //  contains the api key
     var apiKey: String!

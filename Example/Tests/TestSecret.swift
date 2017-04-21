@@ -37,7 +37,7 @@ class TestSecret: XCTestCase {
         let breinActivity = BreinActivity()
 
         breinActivity.setUnixTimestamp(timestamp)
-        breinActivity.setBreinActivityType(activityType)
+        breinActivity.setActivityType(activityType)
         
         
         do {

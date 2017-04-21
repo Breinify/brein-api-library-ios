@@ -30,10 +30,10 @@ class TestDomain: XCTestCase {
 
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
-        breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType("login")
+        breinActivity.setUser(breinUser)
+        breinActivity.setActivityType("login")
                 .setDescription("Super-Desription")
-                .setBreinCategoryType("home")
+                .setCategoryType("home")
 
         if let jsonOutput = breinActivity.prepareJsonRequest() {
             dump("output is: \(jsonOutput)")
@@ -55,10 +55,10 @@ class TestDomain: XCTestCase {
 
         let breinActivity = BreinActivity()
         breinActivity.setConfig(breinConfig)
-        breinActivity.setBreinUser(breinUser)
-        breinActivity.setBreinActivityType("login")
+        breinActivity.setUser(breinUser)
+        breinActivity.setActivityType("login")
                 .setDescription("Super-Desription")
-                .setBreinCategoryType("food")
+                .setCategoryType("food")
 
         if let jsonOutput = breinActivity.prepareJsonRequest() {
             dump("output is: \(jsonOutput)")

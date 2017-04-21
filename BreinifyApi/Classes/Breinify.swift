@@ -52,6 +52,12 @@ open class Breinify {
         return breinLookup
     }
 
+    /// set and create BreinConfiguration 
+    public class func setConfig(_ apiKey: String, secret: String) {
+        let breinConfig = BreinConfig(apiKey, secret: secret)
+        self.setConfig(breinConfig)
+    }
+    
     /// set config to work with
     public class func setConfig(_ breinConfig: BreinConfig!) {
         self.config = breinConfig
@@ -84,6 +90,44 @@ open class Breinify {
     public static func getBreinUser() -> BreinUser {
         return self.breinUser
     }
+
+    /**
+       Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+       important that a valid API-key is configured prior to using this function.
+
+       This request is asynchronous.
+
+       - parameter user:          A plain object specifying the user information the activity belongs to.
+       - parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
+                                  removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
+                                  be used
+       - parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+                                  food, health, job, services, or other
+       - parameter description:   A string with further information about the activity performed
+       - parameter successBlock : A callback function that is invoked in case of success.
+       - parameter failureBlock : A callback function that is invoked in case of an error.
+   */
+    public class func activity(_ user: BreinUser!,
+                               activityType: String!,
+                               success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+
+        // set user in class Breinify ...
+        self.setBreinUser(user)
+
+        // ...and in class BreinActivity (will be used later when cloning)
+        if let breinAct = getBreinActivity() {
+            breinAct.setUser(user)
+
+            try activity(breinAct,
+                    user: user,
+                    activityType: activityType,
+                    category: "",
+                    description: "",
+                    success: successBlock,
+                    failure: failureBlock)
+        }
+    }
     
 
     /**
@@ -114,7 +158,7 @@ open class Breinify {
 
         // ...and in class BreinActivity (will be used later when cloning)
         if let breinAct = getBreinActivity() {
-            breinAct.setBreinUser(user)
+            breinAct.setUser(user)
             
             try activity(breinAct,
                     user: user,
@@ -183,11 +227,11 @@ open class Breinify {
         // use the own instance
         let activity = getBreinActivity()
 
-        guard activity?.getBreinUser() != nil else {
+        guard activity?.getUser() != nil else {
             throw BreinError.BreinRuntimeError("User not set.")
         }
 
-        guard activity?.getBreinActivityType() != nil else {
+        guard activity?.getActivityType() != nil else {
             throw BreinError.BreinRuntimeError("ActivityType not set.")
         }
 
@@ -195,10 +239,10 @@ open class Breinify {
             throw BreinError.BreinRuntimeError("No Rest Engine configured.")
         }
 
-        if activity?.getBreinCategoryType() == nil {
+        if activity?.getCategoryType() == nil {
             // check if there is an default category set
             if let defaultCategory = getConfig()?.getCategory() {
-                activity?.setBreinCategoryType(defaultCategory)
+                activity?.setCategoryType(defaultCategory)
             }
         }
 
@@ -213,6 +257,41 @@ open class Breinify {
                 failure: failureBlock)
     }
 
+    /**
+        Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
+        important that a valid API-key is configured prior to using this function.
+
+        This request is asynchronous.
+
+        - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
+        - Parameter successBlock : A callback function that is invoked in case of success.
+        - Parameter failureBlock : A callback function that is invoked in case of an error.
+    */
+    public class func activity(_ breinActivity: BreinActivity!,
+                               success successBlock: @escaping BreinEngine.apiSuccess,
+                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+
+        if breinActivity?.getConfig() == nil {
+            // apply previous config
+            breinActivity?.setConfig(self.getConfig())
+        }
+        
+        guard breinActivity?.getBreinEngine() != nil else {
+            throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
+        }
+
+        breinActivity.setSuccessBlock(successBlock)
+        breinActivity.setFailureBlock(failureBlock)
+
+        // clone breinActivity
+        let clonedBreinActivity = breinActivity.clone()
+
+        try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
+                success: successBlock,
+                failure: failureBlock)
+    }
+    
+    
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -238,13 +317,18 @@ open class Breinify {
                                success successBlock: @escaping BreinEngine.apiSuccess,
                                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
+        if breinActivity?.getConfig() == nil {
+            // apply previous config
+            breinActivity?.setConfig(self.getConfig())
+        }
+        
         guard breinActivity?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        breinActivity.setBreinUser(user)
-        breinActivity.setBreinActivityType(activityType)
-        breinActivity.setBreinCategoryType(category)
+        breinActivity.setUser(user)
+        breinActivity.setActivityType(activityType)
+        breinActivity.setCategoryType(category)
         breinActivity.setDescription(description)
         breinActivity.setSuccessBlock(successBlock)
         breinActivity.setFailureBlock(failureBlock)
@@ -305,9 +389,38 @@ open class Breinify {
                                    success successBlock: @escaping BreinEngine.apiSuccess,
                                    failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
-        self.breinTemporalData.setBreinUser(user)
+        self.breinTemporalData.setUser(user)
         
         return try temporalData(breinTemporalData,
+                success: successBlock,
+                failure: failureBlock)
+    }
+
+    /**
+       Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
+       important that a valid API-key is configured prior to using this function.
+
+       Furthermore it uses the internal instance of BreinTemporalData.
+
+       - parameter breinTemporalData: contains a breinTemporalData object.
+       - Parameter successBlock : A callback function that is invoked in case of success.
+       - Parameter failureBlock : A callback function that is invoked in case of an error.
+
+       - returns: result from the Breinify engine
+    */
+    public class func temporalData(success successBlock: @escaping BreinEngine.apiSuccess,
+                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+        
+        // clone breinTemporalData
+        let clonedBreinTemporalData = self.getBreinTemporalData().clone()
+
+        clonedBreinTemporalData.setSuccessBlock(successBlock)
+        clonedBreinTemporalData.setFailureBlock(failureBlock)
+
+        // apply the current configuration
+        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+
+        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
                 success: successBlock,
                 failure: failureBlock)
     }
@@ -395,7 +508,7 @@ open class Breinify {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        breinLookup.setBreinUser(user)
+        breinLookup.setUser(user)
         breinLookup.setBreinDimension(dimension)
 
         return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,

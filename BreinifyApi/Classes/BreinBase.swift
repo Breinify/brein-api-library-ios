@@ -40,6 +40,11 @@ open class BreinBase {
         self.unixTimestamp = 0
     }
 
+    public init(user: BreinUser) {
+        self.unixTimestamp = 0
+        self.breinUser = user
+    }
+
     @discardableResult
     public func setBaseDic(_ baseDic: [String: AnyObject]) -> BreinBase {
         self.baseDic = baseDic
@@ -59,12 +64,12 @@ open class BreinBase {
         self.breinConfig = breinConfig
     }
 
-    public func getBreinUser() -> BreinUser? {
+    public func getUser() -> BreinUser? {
         return breinUser
     }
 
     @discardableResult
-    public func setBreinUser(_ breinUser: BreinUser!) {
+    public func setUser(_ breinUser: BreinUser!) {
         self.breinUser = breinUser
     }
 
@@ -134,7 +139,7 @@ open class BreinBase {
             }
         }
 
-        if let ipAddress = self.getBreinUser()?.getIpAddress() {
+        if let ipAddress = self.getIpAddress() {
             requestData["ipAddress"] = ipAddress as AnyObject?
         }
 
@@ -199,9 +204,9 @@ open class BreinBase {
         self.setConfig(source.getConfig());
 
         // clone user
-        if let sourceUser = source.getBreinUser() {
+        if let sourceUser = source.getUser() {
             let clonedUser = BreinUser.clone(sourceUser);
-            self.setBreinUser(clonedUser);
+            self.setUser(clonedUser);
         }
 
         // clone maps

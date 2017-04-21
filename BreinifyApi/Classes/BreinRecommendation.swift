@@ -28,12 +28,12 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
 
     public init(breinUser: BreinUser?) {
         super.init()
-        self.setBreinUser(breinUser)
+        self.setUser(breinUser)
     }
 
     public init(breinUser: BreinUser?, numberOfRecommendation: Int!) {
         super.init()
-        self.setBreinUser(breinUser)
+        self.setUser(breinUser)
         self.setNumberOfRecommendations(numberOfRecommendations)
     }
 
@@ -76,7 +76,7 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
         var requestData = [String: AnyObject]()
 
         // firstly user data
-        if let breinUser = getBreinUser() {
+        if let breinUser = getUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
             requestData["user"] = userData as AnyObject?

@@ -87,6 +87,12 @@ open class BreinUser {
         self.email = email
     }
 
+    /// Initializer with firstName and lastName
+    public init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+
     /// returns the email
     public func getEmail() -> String? {
         return email
@@ -429,7 +435,7 @@ open class BreinUser {
       
         // additional part
         var additionalData = [String: AnyObject]()
-        if locationData != nil {
+        if self.locationData != nil {
             // only a valid location will be taken into consideration
             // this is the case when the corrdiantes are different from 0
             if locationData?.coordinate.latitude != 0 {

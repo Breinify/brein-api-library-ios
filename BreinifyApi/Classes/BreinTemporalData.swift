@@ -16,11 +16,11 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
     public func setLocation(key: String, value: AnyObject) -> BreinTemporalData {
 
-        var additionalDic = self.getBreinUser()?.getAdditionalDic()
+        var additionalDic = self.getUser()?.getAdditionalDic()
         if additionalDic == nil {
             let newDic = [String: AnyObject]()
-            self.getBreinUser()?.setAdditionalDic(newDic)
-            additionalDic = self.getBreinUser()?.getAdditionalDic()
+            self.getUser()?.setAdditionalDic(newDic)
+            additionalDic = self.getUser()?.getAdditionalDic()
         }
         var hasLocationEntry = additionalDic?[kLocationField]
 
@@ -28,6 +28,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
             var locationDic = [String: AnyObject]()
             locationDic[key] = value as AnyObject?
             additionalDic?[kLocationField] = locationDic as AnyObject?
+            self.getUser()?.setAdditional(kLocationField, map: locationDic)
         } else {
             hasLocationEntry = value as AnyObject?
         }
@@ -41,13 +42,23 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         return self
     }
 
-    public func setLongitude(longitude: Double) -> BreinTemporalData {
+    public func setLongitude(_ longitude: Double) -> BreinTemporalData {
         self.setLocation(key: kLongitudeField, value: longitude as AnyObject!)
         return self
     }
 
-    public func setLatitude(latitude: Double) -> BreinTemporalData {
+    public func setLatitude(_ latitude: Double) -> BreinTemporalData {
         self.setLocation(key: kLatitudeField, value: latitude as AnyObject!)
+        return self
+    }
+
+    public func setLocalDateTime(_ localDateTime: String) -> BreinTemporalData {
+        self.getUser()?.setLocalDateTime(localDateTime)
+        return self
+    }
+
+    public func setTimezone(_ timezone: String) -> BreinTemporalData {
+        self.getUser()?.setTimezone(timezone)
         return self
     }
     
@@ -68,7 +79,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        setBreinUser(breinUser)
+        setUser(breinUser)
 
         return try getBreinEngine()!.performTemporalDataRequest(self,
                 success: successBlock,
@@ -81,7 +92,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         var requestData = [String: AnyObject]()
 
-        if let breinUser = getBreinUser() {
+        if let breinUser = getUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
             requestData["user"] = userData as AnyObject?
@@ -121,10 +132,10 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
       
     */
     public override func createSignature() -> String! {
-        let localDateTime = getBreinUser()?.getLocalDateTime()
+        let localDateTime = getUser()?.getLocalDateTime()
         let paraLocalDateTime = localDateTime == nil ? "" : localDateTime
 
-        let timezone = getBreinUser()?.getTimezone()
+        let timezone = getUser()?.getTimezone()
         let paraTimezone = timezone == nil ? "" : timezone
 
         let message = String(getUnixTimestamp()) +

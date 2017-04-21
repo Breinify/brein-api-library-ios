@@ -14,10 +14,10 @@ import Foundation
 open class BreinActivity: BreinBase, ISecretStrategy {
 
     ///  ActivityType of the activity
-    var breinActivityType: String?
+    var activityType: String?
 
     ///  Category of the activity
-    var breinCategoryType: String?
+    var categoryType: String?
 
     ///  Description of the activity
     var description: String?
@@ -27,26 +27,26 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
     /// activity dictionary
     var actitivityDic: [String: AnyObject]?
-
+    
     /// returns activity type
     /// - return activity type as String
-    public func getBreinActivityType() -> String! {
-        return breinActivityType
+    public func getActivityType() -> String! {
+        return activityType
     }
 
     @discardableResult
-    public func setBreinActivityType(_ breinActivityType: String?) -> BreinActivity {
-        self.breinActivityType = breinActivityType
+    public func setActivityType(_ activityType: String?) -> BreinActivity {
+        self.activityType = activityType
         return self
     }
 
-    public func getBreinCategoryType() -> String! {
-        return breinCategoryType
+    public func getCategoryType() -> String! {
+        return categoryType
     }
 
     @discardableResult
-    public func setBreinCategoryType(_ breinCategoryType: String?) -> BreinActivity {
-        self.breinCategoryType = breinCategoryType
+    public func setCategoryType(_ categoryType: String?) -> BreinActivity {
+        self.categoryType = categoryType
         return self
     }
 
@@ -102,9 +102,9 @@ open class BreinActivity: BreinBase, ISecretStrategy {
                          failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  set the values for further usage
-        setBreinUser(breinUser)
-        setBreinActivityType(breinActivityType)
-        setBreinCategoryType(breinCategoryType)
+        setUser(breinUser)
+        setActivityType(breinActivityType)
+        setCategoryType(breinCategoryType)
         setDescription(description)
 
         //  invoke the request, "self" has all necessary information
@@ -126,7 +126,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
         var requestData = [String: AnyObject]()
 
-        if let breinUser = getBreinUser() {
+        if let breinUser = getUser() {
             var userData = [String: AnyObject]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
             requestData["user"] = userData as AnyObject?
@@ -134,13 +134,13 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
         //  activity data
         var activityData = [String: AnyObject]()
-        if let activityType = getBreinActivityType() {
+        if let activityType = getActivityType() {
             activityData["type"] = activityType as AnyObject?
         }
         if let description = getDescription() {
             activityData["description"] = description as AnyObject?
         }
-        if let categoryType = getBreinCategoryType() {
+        if let categoryType = getCategoryType() {
             activityData["category"] = categoryType as AnyObject?
         }
 
@@ -176,8 +176,8 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         
         // create a new activity object
         let clonedBreinActivity = BreinActivity()
-           .setBreinActivityType(self.getBreinActivityType())
-           .setBreinCategoryType(self.getBreinCategoryType())
+           .setActivityType(self.getActivityType())
+           .setCategoryType(self.getCategoryType())
            .setDescription(self.getDescription())
         
         // clone dictionaries => simple copy is enough
@@ -202,7 +202,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     */
     public override func createSignature() throws -> String! {
 
-        let breinActivityType = self.getBreinActivityType() ?? ""
+        let breinActivityType = self.getActivityType() ?? ""
         let unixTimestamp = self.getUnixTimestamp()
         let message = breinActivityType + String(unixTimestamp) + "1"
 

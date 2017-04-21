@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 
-<sup>Features: **PushNotifications**, **Temporal Data**, **(Reverse) Geocoding**, **Events**, **Weather**, **Holidays**, **Analytics** </sup>
+<sup>Features: **Temporal Data**, **(Reverse) Geocoding**, **Events**, **Weather**, **Holidays**, **Analytics**</sup>
 
 
 This library utilizes [Breinify's API](https://www.breinify.com) to provide tasks like `PushNotifications`, `geocoding`, `reverse geocoding`, `weather and events look up`, `holidays determination` through the API's endpoints, i.e., `/activity` and `/temporaldata`. Each endpoint provides different features, which are explained in the following paragraphs. In addition, this documentation gives detailed examples for each of the features available for the different endpoints.
@@ -26,104 +26,6 @@ This library utilizes [Breinify's API](https://www.breinify.com) to provide task
 
 
 
-## Requirements
-
-- iOS 9.0+ 
-- Xcode 8.1+
-- AppCode 2016.3+
-- Swift 3.0+
-
-
-## Installation
-
-### CocoaPods
-#### Step 1 - Install CocoaPods
-
-Installing the BreinifyApi via the iOS [CocoaPods](http://cocoapods.org) automates the majority of the installation process. Before beginning this process please ensure that you are using Ruby version 2.0.0 or greater. Don’t worry, knowledge of Ruby syntax isn’t necessary to install the Library.
-
-Simply run the following command to get started:
-
-```bash
-$ sudo gem install cocoapods
-```
-
-*Note:* If you are new to Cocopods further details can be found [here](http://guides.cocoapods.org/using/getting-started.html)
-
-#### Step 2 - Create Podfile
-
-To integrate BreinifyApi into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
-use_frameworks!
-
-target '<Your Target Name>' do
-    pod 'BreinifyApi'
-end
-```
-
-
-#### Step 3 - Install the BreinifyApi
-
-To install the BreinifyApi, navigate to the directory where your `Podfile`resides within your terminal and run the following command:
-
-```bash
-$ pod install
-```
-
-The BreinifyApi Dependency will be added and a XCode workspace will be generated. This workspace file bundles your original Xcode project, the BreinifyApi library, and its dependencies.
-
-At this point you should be able to open the new Xcode project workspace created by CocoaPods. From now on, you have to use <ProjectName>.xcworkspace instead of <ProjectName>.xcodeproj.
-
-### Carthage
-Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-You can install Carthage with Homebrew using the following command:
-
-#### Step 1 - Intall Carthage
-
-You can install Carthage with homebrew. 
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-Make sure you are running the latest version of Carthage.
-
-```bash
-$ brew upgrade carthage
-```
-
-#### Step 2 - Create Cartfile
-To integrate BreinifyApi into your Xcdoe project using Carthage, specify in your `Cartfile`:
-
-```
-github "Breinify/brein-api-library-ios"
-
-```
-
-#### Step 3 - Install the BreinifyApi 
-To install the BreinifyApi, navigate to the directory where your `Cartfile`resides within your terminal and run the following command:
-
-```bash
-$ carthage update
-```
-This will fetch dependencies into a Carthage/Checkouts folder. Drag `BreinifyApi.framework` into your Xcode project.
-
-
-## Dependencies
-
-BreinifyApi includes the following two libraries:
-
-- Alamofire
-- IDZSwiftCommonCrypto
-
-## License
-
-BreinifyApi is available under the MIT license. This applies also for Alamofire and IDZSwiftCommonCrypto. 
-See the LICENSE file for more info.
-
 
 ## Getting Started
 
@@ -132,15 +34,241 @@ See the LICENSE file for more info.
 First of all, you need a valid API-key, which you can get for free at [https://www.breinify.com](https://www.breinify.com). In the examples, we assume you have the following api-key:
 
 
-**772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6**
+**938D-3120-64DD-413F-BB55-6573-90CE-473A**
 
 
+It is recommended to use signed messages when utilizing the iOS library. A signed messages ensures, that the request is authorized. To activate signed message ensure that Verification Signature is enabled for your key (see Breinify's API Docs for further information). In this documentation we assume that the following secret is attached to the API key and used to sign a message.
+
+**utakxp7sm6weo5gvk7cytw==**
+
+### Requirements
+
+- iOS 9.0+ 
+- Xcode 8.1+
+- AppCode 2016.3+
+- Swift 3.0+
+
+
+### Installation 
+
+
+#### Option 1 - Using CocoaPods
+
+Please follow this link if you're new to Cocoapods and need some information how to setup the environment.
+
+
+#### Option 2 - Using Carthage
+
+As an alternative Carthage could also be used. Please follow this link for further information.
+
+
+### Configuring the Library
+
+Add the following statement in your Swift file:
+
+```Swift
+import BreinifyApi
+```
+
+Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret 
+(if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
+
+```swift
+Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
+                   secret: "utakxp7sm6weo5gvk7cytw==");
+```
+
+### Clean-Up after Usage
+
+Whenever the library is not used anymore, it is recommended to clean-up and release the resources held. To do so, the `Breinify.shutdown()`
+method is used. A typical framework may look like that:
+
+```swift
+// whenever the application utilizing the library is initialized
+Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A",
+                   secret: "utakxp7sm6weo5gvk7cytw==");
+
+// whenever the application utilizing the library is destroyed/released
+Breinify.shutdown();
+```
+
+
+## Activity: Selected Usage Examples
+
+The `/activity` endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g.,  [Node.js](https://github.com/Breinify/brein-api-library-node), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [JavaScript](https://github.com/Breinify/brein-api-library-javascript-browser), [ruby](https://github.com/Breinify/brein-api-library-ruby), [php](https://github.com/Breinify/brein-api-library-php), [python](https://github.com/Breinify/brein-api-library-python)).
+
+### Sending Login 
+
+The example shows, how to send a login activity, reading the data from an request. In general, activities are added to the interesting measure points within your applications process (e.g., `login`, `addToCart`, `readArticle`). The endpoint offers analytics and insights through Breinify's dashboard.
+
+
+
+```swift
+// create a user you're interested in
+let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
+        
+// invoke activity call
+do {
+   try Breinify.activity(breinUser,
+          activityType: "login",
+          success: {
+             // success block
+             (result: BreinResult?) -> Void in
+             print("Api Success : result is:\n \(result)")
+          },
+          failure: {
+            // failure block
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+        })
+  } catch {
+       print("Error is: \(error)")
+  }
+```
+
+### Sending readArticle
+
+Instead of sending an activity utilizing the `Breinify.activity(...)` method, it is also possible to create an instance of a `BreinActivity` and pass this later on to the `Breinify.activity(...)` method.
+
+```Swift
+// create a user you're interested in
+let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
+
+// create activity object and collect data        
+let breinActivity = BreinActivity(user: breinUser)
+            .setActivityType("readArticle")
+            .setDescription("A Homebody President Sits Out His Honeymoon Period")
+        
+// invoke activity call later
+do {
+   try Breinify.activity(breinActivity,
+          success: {
+             // success block
+             (result: BreinResult?) -> Void in
+             print("Api Success : result is:\n \(result)")
+          },
+          failure: {
+            // failure block
+            (error: NSDictionary?) -> Void in
+            print("Api Failure : error is:\n \(error)")
+         })
+   } catch {
+        print("Error is: \(error)")
+   } 
+```
+
+
+
+## TemporalData: Selected Usage Examples
+
+The `/temporalData` endpoint is used to transform your temporal data into temporal information, i.e., enrich your temporal data with information like 
+*current weather*, *upcoming holidays*, *regional and global events*, and *time-zones*, as well as geocoding and reverse geocoding.
+
+### Getting User Information
+
+Sometimes it is necessary to get some more information about the user of an application, e.g., to increase usability and enhance the user experience, 
+to handle time-dependent data correctly, to add geo-based services, or increase quality of service. The client's information can be retrieved easily 
+by calling the `/temporaldata` endpoint utilizing the `Breinify.temporalData(...)` method or by executing a `BreinTemporalData` instance, i.e.,:
+
+```swift
+do {   
+   try Breinify.temporalData(success: {
+       // success
+       (result: BreinResult?) -> Void in
+                
+          print("Api Success : result is:\n \(result!)")
+
+          if let holiday = result!.get("holidays") {
+             print("Holiday is: \(holiday)")
+          }
+          if let weather = result!.get("weather") {
+             print("Weather is: \(weather)")
+          }
+          if let location = result!.get("location") {
+             print("Location is: \(location)")
+          }
+          if let time = result!.get("time") {
+             print("Time is: \(time)")
+         }
+      },
+      failure: {
+       // failure
+       (error: NSDictionary?) -> Void in
+         print("Api Failure : error is:\n \(error)")
+      })
+   } catch {
+     print("Error")
+}
+```
+
+The returned result contains detailed information about the time, the location, the weather, holidays, and events at the time and the location. A detailed
+example of the returned values can be found <a target="_blank" href="https://www.breinify.com/documentation">here</a>.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-java/master/documentation/img/sample-user-information.png" alt="Sample output of the user information." width="500"><br/>
+  <sup>Possilbe sample output utilizing some commanly used features.</sup>
+</p>
+
+
+### Geocoding (resolve Free-Text to Locations)
+
+Sometimes it is necessary to resolve a textual representation to a specific geo-location. The textual representation can be
+structured and even partly unstructured, e.g., the textual representation `the Big Apple` is considered to be unstructured,
+whereby a structured location would be, e.g., `{ city: 'Seattle', state: 'Washington', country: 'USA' }`. It is also possible
+to pass in partial information and let the system try to resolve/complete the location, e.g., `{ city: 'New York', country: 'USA' }`.
+
+```swift
+do {
+   let breinTemporalData = BreinTemporalData()
+           .setLocation(freeText: "The Big Apple")
+            
+   try Breinify.temporalData(breinTemporalData,
+          success: {
+             // success
+             (result: BreinResult?) -> Void in
+          if let location = result!.get("location") {
+              print("Location is: \(location)")
+           }
+        },
+        failure: {
+           // failure
+           (error: NSDictionary?) -> Void in
+           print("Api Failure : error is:\n \(error)")
+        })
+  } catch {
+       print("Error")
+  }
+```
+
+This will lead to the following result:
+
+```
+Location is: {
+    city = "New York";
+    country = US;
+    granularity = city;
+    lat = "40.7614927583";
+    lon = "-73.9814311179";
+    state = NY;
+}
+
+```
+
+### Reverse Geocoding (retrieve GeoJsons for, e.g., Cities, Neighborhoods, or Zip-Codes)
+
+The library also offers the feature of reverse geocoding. Having a specific geo-location and resolving the coordinates
+to a specific city or neighborhood (i.e., names of neighborhood, city, state, country, and optionally GeoJson shapes). 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-java/master/documentation/img/sample-reverse-geocoding.png" alt="Sample results of reverse geocoding requests." width="400"><br/>
+  <sup>Formatted output utilizing the result of reverse geocoding requests.</sup>
+</p>
 
 
 ## PushNotifications: Selected Usage Example
 
 
-Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](documentation/configuration_for_pushnotifications.md) to see how you can configure your app for receiving push notifications.
+Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](documentation/carthage_instructions.md) to see how you can configure your app for receiving push notifications.
 
 ### Integration
 
@@ -229,167 +357,6 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 
 
-## Activity: Selected Usage Examples
-
-The endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g., [iOS](https://github.com/Breinify/brein-api-library-ios), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [nodeJs](https://github.com/Breinify/brein-api-library-node), [ruby](https://github.com/Breinify/brein-api-library-ruby), [php](https://github.com/Breinify/brein-api-library-php), [python](https://github.com/Breinify/brein-api-library-python)).
-
-
-### Configure the Library
-
-If you're not following the iOS Lifecycle approach that is described in above you have to configure the BreinifyApi by creating a BreinifyConfig object and assigning it to the Breinfy class.
-
-This would look like this:
-
-```Swift
-// this has to be a valid api key and secret
-let validApiKey = "772A-47D7-93A3-4EA9-9D73-85B9-479B-16C6"
-let validSecret = "iTttt=0=w2244="
-
-// create the configuration object
-let breinConfig = BreinConfig(validApiKey, secret: validSecret)
-    
-// set configuration
-Breinify.setConfig(breinConfig)
-```
-
-*Remark:* This step is not neceessary if you have integrated the BreinifyApi with the iOS Lifecycle approach.
-
-#### Step 3: Start using the library
-
-##### Placing activity triggers
-
-The engine powering the DigitalDNA API provides two endpoints. The first endpoint is used to inform the engine about the activities performed by visitors of your site. The activities are used to understand the user's current interest and infer the intent. It becomes more and more accurate across different users and verticals as more activities are collected. It should be noted, that any personal information is not stored within the engine, thus each individual's privacy is well protected. The engine understands several different activities performed by a user, e.g., landing, login, search, item selection, or logout.
-
-The engine is informed of an activity by executing *Breinify.activity(...)*. 
-
-```Swift
-typealias apiSuccess = (_ result:BreinResult?) -> Void
-typealias apiFailure = (_ error:NSDictionary?) -> Void
-
-// create a user you are interested in 
-let breinUser = BreinUser()
-   .setFirstName("Fred")
-
-// callback in case of success
-let successBlock: apiSuccess = {
-     (result: BreinResult?) -> Void in
-     print("Api Success : result is:\n \(result!)")
-}
-
-// callback in case of a failure
-let failureBlock: apiFailure = {
-     (error: NSDictionary?) -> Void in
-     print("Api Failure: error is:\n \(error)")
-}
-
-// invoke activity call
-do {
-    try Breinify.activity(breinUser,
-         activityType: "login",
-             category: "home",
-          description: "Login-Description",
-              success: successBlock,
-              failure: failureBlock)
-  } catch {
-    print("Error is: \(error)")
-} 
-```
-
-That's it! The call will be run asynchronously in the background and depending of the result the successBlock or failureBlock callback will be invoked.
-
-##### Collecting and Providing UserData  
-Assuming that you have an asynchronous flow of information and will collect user data at first and
-will send activity requests later on. In this case you could simlpy create an instance of class BreinUser, fill the properties and assign this instance to class Breinify before you invoke the *activity* request.
-
-This might look like this:
-
-
-```Swift
-// create the Breinify User
-let breinUser = BreinUser()
-          .setFirstName("Fred")
-          .setLastName("Firestone")
-          .setSessionId("TAAD8888HHdjh")
-
-// save it to class Breinfy
-Breinify.setBreinUser(breinUser)
-```
-
-Later on, maybe on a special event, you can trigger the activity request like this:
-
-```Swift
-// invoke activity call
-do {
-   try Breinify.activity("firstPage",
-        category: "home",
-     description: "firstPage-Description",
-         success: successBlock,
-         failure: failureBlock)
-} catch {
-    dump("Error is: \(error)")
-}
-```
-
-In this case the `activity` call will use the previously saved BreinUser object with all it's
-properties.
-
-
-## TemporalData: Selected Usage Examples
-
-### Retrieve Client's Information (Location, Weather, Events, Timezone, Time)
-
-The endpoint is capable to retrieve some information about the client, based on client specific information (e.g., the IP-address). 
-Temporal Intelligence API provides temporal triggers and visualizes patterns
-enabling you to predict a visitor’s dynamic activities. Currently this will
-cover:
-
-- Current Weather
-- Upcoming Holidays
-- Time Zone
-- Regional Events
-
-They can be requested like this:
-
-```swift
-let failureBlock: apiFailure = {
-     (error: NSDictionary?) -> Void in
-     print("Api Failure : error is:\n \(error)")
-}
-     
-let successBlock: apiSuccess = {
-    (result: BreinResult?) -> Void in
-    print("Api Success : result is:\n \(result!)")
-
-    if let holiday = result!.get("holidays") {
-        print("Holiday is: \(holiday)")
-    }
-    if let weather = result!.get("weather") {
-        print("Weather is: \(weather)")
-    }
-    if let location = result!.get("location") {
-        print("Location is: \(location)")
-    }
-    if let time = result!.get("time") {
-        print("Time is: \(time)")
-    }
-}
-
-do {
-    let user = BreinUser()
-          .setFirstName("Fred")
-          .setTimezone("America/Los_Angeles")
-          .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
-
-    try Breinify.temporalData(user,
-              success: successBlock,
-              failure: failureBlock)
-     } catch {
-         print("Error")
-     }
- }
-```
-
-
 ### Additional Code Snippets
 
 The following code snippets provides addtional information how to use the *BreinifyApi* library for iOS.
@@ -414,5 +381,12 @@ breinUser.setFirstName("User")
 
 
 
+### Adding permissions
+
+<TODO>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow this app to provide location data.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow this app to provide location data.</string>
 
 

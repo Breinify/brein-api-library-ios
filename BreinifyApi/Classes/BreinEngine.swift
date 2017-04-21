@@ -70,7 +70,7 @@ public class BreinEngine {
                     location, error in
 
                     // save the retrieved location data
-                    activity.getBreinUser()?.setLocationData(location)
+                    activity.getUser()?.setLocationData(location)
 
                     // print("latitude is: \(location?.coordinate.latitude)")
                     // print("longitude is: \(location?.coordinate.longitude)")
@@ -111,10 +111,10 @@ public class BreinEngine {
                     location, error in
 
                     // save the retrieved location data
-                    breinTemporalData.getBreinUser()?.setLocationData(location)
+                    breinTemporalData.getUser()?.setLocationData(location)
 
-                    // print("latitude is: \(location?.coordinate.latitude)")
-                    // print("longitude is: \(location?.coordinate.longitude)")
+                    print("latitude is: \(location?.coordinate.latitude)")
+                    print("longitude is: \(location?.coordinate.longitude)")
 
                     do {
                         return try self.restEngine.doTemporalDataRequest(breinTemporalData,
@@ -152,7 +152,7 @@ public class BreinEngine {
                     location, error in
 
                     // save the retrieved location data
-                    breinLookup.getBreinUser()?.setLocationData(location)
+                    breinLookup.getUser()?.setLocationData(location)
 
                     // print("latitude is: \(location?.coordinate.latitude)")
                     // print("longitude is: \(location?.coordinate.longitude)")
@@ -196,7 +196,7 @@ public class BreinEngine {
                     location, error in
 
                     // save the retrieved location data
-                    breinRecommendation.getBreinUser()?.setLocationData(location)
+                    breinRecommendation.getUser()?.setLocationData(location)
 
                     // print("latitude is: \(location?.coordinate.latitude)")
                     // print("longitude is: \(location?.coordinate.longitude)")

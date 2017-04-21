@@ -45,8 +45,6 @@ enum BreinLocationManagerErrors: Int {
     - kCLLocationAccuracyThreeKilometers –
                 Accurate to within three kilometers.
 
-
-	    
 */
 
 public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
@@ -168,10 +166,18 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
             // being connected to the internet
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         }
-        
-        // let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
-        // let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
 
+        // one of this has to be set in order to retrieve location information
+        let whenInUseUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription")
+        let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
+        
+        guard let whenInUseUsageCheck = whenInUseUsage, let alwaysUsageCheck = alwaysUsage else {
+            // no permissions given
+            // return with dummy location object
+            completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 101, userInfo: nil))
+            return
+        }
+        
         // indicates if the callback should be completed
         locationManager.requestAlwaysAuthorization()
         // when in use foreground
@@ -181,6 +187,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
 
         let status = CLLocationManager.authorizationStatus()
+        print("Status is: \(status)")
         if status == .restricted
                    || status == .denied {
             // return with dummy location object

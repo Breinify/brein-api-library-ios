@@ -161,6 +161,13 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinRecommendation)
         let body = try getRequestBody(breinRecommendation)
 
+        do {
+            let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+
+            print(jsonString)
+        }
+
         Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
@@ -251,6 +258,13 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinTemporalData)
         let body = try getRequestBody(breinTemporalData)
+        
+        do {
+            let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+
+            print(jsonString)
+        }
 
         Alamofire.request(url, method: .post,
                         parameters: body,

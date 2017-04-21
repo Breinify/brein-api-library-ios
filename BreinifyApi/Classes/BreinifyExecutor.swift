@@ -57,9 +57,9 @@ open class BreinifyExecutor {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        breinActivity.setBreinUser(user)
-        breinActivity.setBreinActivityType(activityType)
-        breinActivity.setBreinCategoryType(category)
+        breinActivity.setUser(user)
+        breinActivity.setActivityType(activityType)
+        breinActivity.setCategoryType(category)
         breinActivity.setDescription(description)
         
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
@@ -90,7 +90,7 @@ open class BreinifyExecutor {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        breinLookup.setBreinUser(user)
+        breinLookup.setUser(user)
         breinLookup.setBreinDimension(dimension)
        
         return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,

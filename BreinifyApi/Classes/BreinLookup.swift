@@ -39,7 +39,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        setBreinUser(breinUser)
+        setUser(breinUser)
         setBreinDimension(breinDimension)
 
         return try getBreinEngine()!.performLookUp(self, success: successBlock, failure: failureBlock)
@@ -56,7 +56,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
 
         var requestData = [String: AnyObject]()
 
-        if let breinUser = getBreinUser() {
+        if let breinUser = getUser() {
             var userData = [String: AnyObject]()
             userData["email"] = breinUser.getEmail() as AnyObject?
             requestData["user"] = userData as AnyObject?
