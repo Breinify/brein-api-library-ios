@@ -267,7 +267,7 @@ to a specific city or neighborhood (i.e., names of neighborhood, city, state, co
 ## PushNotifications: Selected Usage Example
 
 
-Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Example/Documentation/carthage_instructions.md) to see how you can configure your app for receiving push notifications.
+Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Example/Documentation/pushnotification_configuration.md) to see how you can configure your app for receiving push notifications.
 
 ### Integration
 
