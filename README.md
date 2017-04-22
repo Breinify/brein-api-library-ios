@@ -304,7 +304,7 @@ Perfect, the BreinifyApi is now configured, a default BreinUser is created and t
 
 #### Method didRegisterForRemoteNotificationsWithDeviceToken
 
-Now we need to provide the device token to the Breinify Engine as well. We do this by simply add the following call to the `didRegisterForRemoteNotificationsWithDeviceToken` method.
+Now we need to provide the device token to the Breinify Engine as well. We do this by simply adding the following call to the `didRegisterForRemoteNotificationsWithDeviceToken` method.
 
 ```Swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -343,7 +343,7 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 #### Method applicationDidBecomeActive
 
 Whenever the App is active again we need to tell this the BreinifyApi as well. So we 
-simply pass this information to the Breinfy class.
+simply pass this information as well. 
 
 ```Swift
 func applicationDidBecomeActive(_ application: UIApplication) {   
@@ -355,7 +355,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 #### Method applicationWillTerminate
 
-When the App terminates we pass this information in order to do some housekeeping. 
+When the App terminates we provide this information in order to do some housekeeping. 
 
 ```Swift
 func applicationWillTerminate(_ application: UIApplication) {
@@ -364,7 +364,7 @@ func applicationWillTerminate(_ application: UIApplication) {
 
 ```
 
-### Sample Screens
+### Notification Sample Screens
 
 The complete code for the sample application can be found [here](Example/Sample/Sample.swift). It assumes that you have configured the pushnotification as described [here](Example/Documentation/pushnotification_configuration.md).
 
@@ -384,6 +384,7 @@ Assuming the user will react to this particular notification a more detailed dia
   <sup>Detailed notification with more information.</sup>
 </p>
 
+It is just a sample to show a map. Further media content can be considered as well (e.g. Images, Videos).
 
 
 ### Application Capabilities
