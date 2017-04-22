@@ -48,7 +48,7 @@ P8 certificate that can be used in development and production environment having
 <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/certifcate_first_page.png" alt="Certificate" width="650">
 </p>
 
-TODO: TEXT hier
+Click on the selected option `Apple Push Notification Authentication Key (Sandbox & Production). This will generate a so call P8 certificate.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/certifcate_second_page.png" alt="Certificate" width="650">
