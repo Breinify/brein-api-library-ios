@@ -293,7 +293,7 @@ The entry point `didFinishLaunchingWithOptions` is used to configure the Breinif
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
   // configure the BreinifySDK and remote notification handling    
   Breinify.didFinishLaunchingWithOptions(apiKey: "938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-            secret: "utakxp7sm6weo5gvk7cytw==", nil)
+            secret: "utakxp7sm6weo5gvk7cytw==")
   return true
 }
 ```
@@ -364,24 +364,45 @@ func applicationWillTerminate(_ application: UIApplication) {
 
 ```
 
-### Capabilities
+### Sample Screens
+
+The complete code for the sample application can be found [here](Example/Sample/Sample.swift). It assumes that you have configured the pushnotification as described [here](Example/Documentation/pushnotification_configuration.md).
+
+The Breinify engine will trigger a notification that will be send through Apple Notification Service and will trigger notification to the user.
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Example/Documentation/img/notification.png" alt="Sample output of the user information." width="500"><br/>
+  <sup>Notification that will appear.</sup>
+</p>
+
+Assuming the user will react to this particular notification a more detailed dialog might appear if the App has been configured to use RichText-Notifications:
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Example/Documentation/img/richttextnotification.png" alt="Sample output of the user information." width="500"><br/>
+  <sup>Detailed notification with more information.</sup>
+</p>
+
+
+
+### Application Capabilities
 
 #### Location Data
 The Breinify SDK can provide current location data if your app has configured the appropriate properties within the `Info.plist` file. Simply add the following location permissions:
 
 ```
 <key>NSLocationAlwaysUsageDescription</key>
-	<string>Please allow this app to provide location data.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow this app to provide location data.</string>
+<string>Please allow this app to provide location data.</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Please allow this app to provide location data.</string>
 ```
 
 
 ### Further links
 To understand all the capabilities of Breinify's APIs, have a look at:
 
-* the [sample application](documentation/sample-app.md),
-* the [change log](documentation/changelog.md), or
 * [Breinify's Website](https://www.breinify.com).
 
 
