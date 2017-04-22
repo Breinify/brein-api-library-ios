@@ -18,7 +18,7 @@ public extension Breinify {
         - initializes the background timer
         
     */
-    public class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = nil) {
+    public class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = 60) {
         
         BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret, backgroundInterval: backgroundInterval)
     }
