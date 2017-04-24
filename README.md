@@ -87,6 +87,8 @@ method is used. A typical framework may look like that:
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A",
                    secret: "utakxp7sm6weo5gvk7cytw==");
 
+// ...
+
 // whenever the application utilizing the library is destroyed/released
 Breinify.shutdown();
 ```
