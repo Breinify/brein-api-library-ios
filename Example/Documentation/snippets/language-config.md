@@ -13,13 +13,13 @@ the different threads, otherwise it is impossible to foresee, which configuratio
 >
 ```swift
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-                   secret: "utakxp7sm6weo5gvk7cytw==");
+                   secret: "utakxp7sm6weo5gvk7cytw==")
 /*
  * After the configuration is set, you can use the library 
  * (multi-threading is supported). After the library is not used
  * anymore, it is recommended to release the used resources.
  */
-Breinify.shutdown();
+Breinify.shutdown()
 ```
 
 <blockquote class="lang-specific ios">
