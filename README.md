@@ -54,12 +54,12 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 
 #### Option 1 - Using CocoaPods
 
-Please follow this [link](Example/Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment.
+Please follow this [link](Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment.
 
 
 #### Option 2 - Using Carthage
 
-As an alternative Carthage could also be used. Please follow this [link](Example/Documentation/carthage_instructions.md) for further information.
+As an alternative Carthage could also be used. Please follow this [link](Documentation/carthage_instructions.md) for further information.
 
 
 ### Configuring the Library
@@ -113,12 +113,12 @@ do {
           activityType: "login",
           success: {
              // success block
-             (result: BreinResult?) -> Void in
+             (result: BreinResult) -> Void in
              print("Api Success : result is:\n \(result)")
           },
           failure: {
             // failure block
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         })
   } catch {
@@ -144,12 +144,12 @@ do {
    try Breinify.activity(breinActivity,
           success: {
              // success block
-             (result: BreinResult?) -> Void in
+             (result: BreinResult) -> Void in
              print("Api Success : result is:\n \(result)")
           },
           failure: {
             // failure block
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
          })
    } catch {
@@ -174,26 +174,26 @@ by calling the `/temporaldata` endpoint utilizing the `Breinify.temporalData(...
 do {   
    try Breinify.temporalData(success: {
        // success
-       (result: BreinResult?) -> Void in
+       (result: BreinResult) -> Void in
                 
-          print("Api Success : result is:\n \(result!)")
+          print("Api Success : result is:\n \(result)")
 
-          if let holiday = result!.get("holidays") {
+          if let holiday = result.get("holidays") {
              print("Holiday is: \(holiday)")
           }
-          if let weather = result!.get("weather") {
+          if let weather = result.get("weather") {
              print("Weather is: \(weather)")
           }
-          if let location = result!.get("location") {
+          if let location = result.get("location") {
              print("Location is: \(location)")
           }
-          if let time = result!.get("time") {
+          if let time = result.get("time") {
              print("Time is: \(time)")
          }
       },
       failure: {
        // failure
-       (error: NSDictionary?) -> Void in
+       (error: NSDictionary) -> Void in
          print("Api Failure : error is:\n \(error)")
       })
    } catch {
@@ -225,14 +225,14 @@ do {
    try Breinify.temporalData(breinTemporalData,
           success: {
              // success
-             (result: BreinResult?) -> Void in
-          if let location = result!.get("location") {
+             (result: BreinResult) -> Void in
+          if let location = result.get("location") {
               print("Location is: \(location)")
            }
         },
         failure: {
            // failure
-           (error: NSDictionary?) -> Void in
+           (error: NSDictionary) -> Void in
            print("Api Failure : error is:\n \(error)")
         })
   } catch {
@@ -267,7 +267,7 @@ to a specific city or neighborhood (i.e., names of neighborhood, city, state, co
 ## PushNotifications: Selected Usage Example
 
 
-Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Example/Documentation/pushnotification_configuration.md) to see how you can configure your app for receiving push notifications.
+Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Documentation/pushnotification_configuration.md) to see how you can configure your app for receiving push notifications.
 
 ### Integration
 
@@ -366,13 +366,13 @@ func applicationWillTerminate(_ application: UIApplication) {
 
 ### Notification Sample Screens
 
-The complete code for the sample application can be found [here](Example/Sample/Sample.swift). It assumes that you have configured the pushnotification as described [here](Example/Documentation/pushnotification_configuration.md).
+The complete code for the sample application can be found [here](Example/Sample/Sample.swift). It assumes that you have configured the pushnotification as described [here](Documentation/pushnotification_configuration.md).
 
 The Breinify engine will trigger a notification that will be send through Apple Notification Service and will trigger notification to the user.
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Example/Documentation/img/notification.png" alt="Sample output of the user information." width="500"><br/>
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/img/notification.png" alt="Sample output of the user information." width="500"><br/>
   <sup>Notification that will appear.</sup>
 </p>
 
@@ -380,7 +380,7 @@ Assuming the user will react to this particular notification a more detailed dia
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Example/Documentation/img/richttextnotification.png" alt="Sample output of the user information." width="500"><br/>
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/img/richttextnotification.png" alt="Sample output of the user information." width="500"><br/>
   <sup>Detailed notification with more information.</sup>
 </p>
 
