@@ -115,8 +115,8 @@ class TestExecutor: XCTestCase {
         do {
             try Breinify.lookup(breinUser,
                     dimension: breinDimension,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }

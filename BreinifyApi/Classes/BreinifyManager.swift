@@ -125,8 +125,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                   activityType: activityType,
                                   category: "",
                                   description: "from iOS device",
-                                  success: successBlock,
-                                  failure: failureBlock)
+                                  successBlock,
+                                  failureBlock)
         } catch {
             print("Error is: \(error)")
         }

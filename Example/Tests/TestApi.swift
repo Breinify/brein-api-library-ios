@@ -5,8 +5,8 @@ import BreinifyApi
 
 class TestApi: XCTestCase {
 
-    typealias apiSuccess = (_ result: BreinResult?) -> Void
-    typealias apiFailure = (_ error: NSDictionary?) -> Void
+    typealias apiSuccess = (_ result: BreinResult) -> Void
+    typealias apiFailure = (_ error: NSDictionary) -> Void
 
     let baseUrl = "https://api.breinify.com"
 
@@ -39,12 +39,12 @@ class TestApi: XCTestCase {
     func testLoginWithSecret() {
 
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
+            (result: BreinResult) -> Void in
             print("Api Success : result is:\n \(result)")
         }
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         }
 
@@ -58,8 +58,8 @@ class TestApi: XCTestCase {
                     activityType: "login",
                     category: "home",
                     description: "Login-Description",
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error is: \(error)")
         }
@@ -70,12 +70,12 @@ class TestApi: XCTestCase {
     func testLogin() {
 
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
+            (result: BreinResult) -> Void in
             print("Api Success : result is:\n \(result)")
 
         }
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
             XCTAssert(true, "Error is: \(error)")
         }
@@ -90,8 +90,8 @@ class TestApi: XCTestCase {
                     activityType: "login",
                     category: "home",
                     description: "Login-Description",
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
@@ -104,12 +104,12 @@ class TestApi: XCTestCase {
     func testLoginWithExtraMaps() {
 
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
+            (result: BreinResult) -> Void in
             print("Api Success : result is:\n \(result)")
 
         }
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
             XCTAssert(true, "Error is: \(error)")
         }
@@ -153,8 +153,8 @@ class TestApi: XCTestCase {
                         activityType: String.login,
                         category: String.home,
                         description: "Login-Description",
-                        success: successBlock,
-                        failure: failureBlock)
+                        successBlock,
+                        failureBlock)
             }
         } catch {
             XCTAssert(true, "Error is: \(error)")
@@ -168,12 +168,12 @@ class TestApi: XCTestCase {
     func testPageVisitWithTags() {
 
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
+            (result: BreinResult) -> Void in
             print("Api Success : result is:\n \(result)")
 
         }
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
             XCTAssert(true, "Error is: \(error)")
         }
@@ -197,8 +197,8 @@ class TestApi: XCTestCase {
                         activityType: "login",
                         category: "home",
                         description: "Login-Description",
-                        success: successBlock,
-                        failure: failureBlock)
+                        successBlock,
+                        failureBlock)
             } catch {
                 XCTAssert(true, "Error is: \(error)")
             }
@@ -217,35 +217,35 @@ class TestApi: XCTestCase {
         let breinDimension = BreinDimension(dimensionFields: dimensions)
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
             XCTAssert(true, "Error is: \(error)")
         }
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
 
-            if let dataFirstname = result!.get("firstname") {
+            if let dataFirstname = result.get("firstname") {
                 print("Firstname is: \(dataFirstname)")
             }
 
-            if let dataGender = result!.get("gender") {
+            if let dataGender = result.get("gender") {
                 print("Gender is: \(dataGender)")
             }
 
-            if let dataAge = result!.get("age") {
+            if let dataAge = result.get("age") {
                 print("Age is: \(dataAge)")
             }
 
-            if let dataAgeGroup = result!.get("agegroup") {
+            if let dataAgeGroup = result.get("agegroup") {
                 print("AgeGroup is: \(dataAgeGroup)")
             }
 
-            if let dataDigitalFootprinting = result!.get("digitalfootprinting") {
+            if let dataDigitalFootprinting = result.get("digitalfootprinting") {
                 print("DigitalFootprinting is: \(dataDigitalFootprinting)")
             }
 
-            if let dataImages = result!.get("images") {
+            if let dataImages = result.get("images") {
                 print("DataImages is: \(dataImages)")
             }
         }
@@ -253,8 +253,8 @@ class TestApi: XCTestCase {
         do {
             try Breinify.lookup(breinUser,
                     dimension: breinDimension,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
@@ -266,14 +266,14 @@ class TestApi: XCTestCase {
     func testRecommendation() {
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
             XCTAssert(true, "Error is: \(error)")
         }
 
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
         }
 
         do {
@@ -282,8 +282,8 @@ class TestApi: XCTestCase {
                     .setCategory("SampleCat")
 
             try Breinify.recommendation(breinRecommendation,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
@@ -295,23 +295,23 @@ class TestApi: XCTestCase {
     func testTemporalData() {
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         }
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
 
-            if let holiday = result!.get("holidays") {
+            if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
             }
-            if let weather = result!.get("weather") {
+            if let weather = result.get("weather") {
                 print("Weather is: \(weather)")
             }
-            if let location = result!.get("location") {
+            if let location = result.get("location") {
                 print("Location is: \(location)")
             }
-            if let time = result!.get("time") {
+            if let time = result.get("time") {
                 print("Time is: \(time)")
             }
         }
@@ -324,8 +324,8 @@ class TestApi: XCTestCase {
                     .setLocalDateTime("Sun Dec 25 2016 18:15:48 GMT-0800 (PST)")
 
             try Breinify.temporalData(user,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error")
         }
@@ -335,23 +335,23 @@ class TestApi: XCTestCase {
     func testTemporalDataWithAdditionalMap() {
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         }
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
 
-            if let holiday = result!.get("holidays") {
+            if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
             }
-            if let weather = result!.get("weather") {
+            if let weather = result.get("weather") {
                 print("Weather is: \(weather)")
             }
-            if let location = result!.get("location") {
+            if let location = result.get("location") {
                 print("Location is: \(location)")
             }
-            if let time = result!.get("time") {
+            if let time = result.get("time") {
                 print("Time is: \(time)")
             }
         }
@@ -377,8 +377,8 @@ class TestApi: XCTestCase {
                     .setAdditionalDic(locationAdditionalMap)
 
             try Breinify.temporalData(user,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error")
         }
@@ -387,23 +387,23 @@ class TestApi: XCTestCase {
     func testTemporalDataWithSimpleAdditionalMap() {
 
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         }
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
 
-            if let holiday = result!.get("holidays") {
+            if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
             }
-            if let weather = result!.get("weather") {
+            if let weather = result.get("weather") {
                 print("Weather is: \(weather)")
             }
-            if let location = result!.get("location") {
+            if let location = result.get("location") {
                 print("Location is: \(location)")
             }
-            if let time = result!.get("time") {
+            if let time = result.get("time") {
                 print("Time is: \(time)")
             }
         }
@@ -423,8 +423,8 @@ class TestApi: XCTestCase {
                     .setAdditional("location", map: locationValueMap)
 
             try Breinify.temporalData(user,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error")
         }
@@ -461,23 +461,23 @@ class TestApi: XCTestCase {
     func testFreeTextToLocations() {
         
         let failureBlock: apiFailure = {
-            (error: NSDictionary?) -> Void in
+            (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
         }
         let successBlock: apiSuccess = {
-            (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result!)")
+            (result: BreinResult) -> Void in
+            print("Api Success : result is:\n \(result)")
 
-            if let holiday = result!.get("holidays") {
+            if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
             }
-            if let weather = result!.get("weather") {
+            if let weather = result.get("weather") {
                 print("Weather is: \(weather)")
             }
-            if let location = result!.get("location") {
+            if let location = result.get("location") {
                 print("Location is: \(location)")
             }
-            if let time = result!.get("time") {
+            if let time = result.get("time") {
                 print("Time is: \(time)")
             }
         }
@@ -487,8 +487,8 @@ class TestApi: XCTestCase {
             let temporalData = BreinTemporalData().setLocation(freeText: "The Big Apple")
             
             try Breinify.temporalData(temporalData,
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error")
         }

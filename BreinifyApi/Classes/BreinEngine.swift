@@ -13,8 +13,8 @@ import Foundation
 
 public class BreinEngine {
 
-    public typealias apiSuccess = (_ result: BreinResult?) -> Void
-    public typealias apiFailure = (_ error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult) -> Void
+    public typealias apiFailure = (_ error: NSDictionary) -> Void
 
     /**
      creation of rest engine - currently it is only Alamofire

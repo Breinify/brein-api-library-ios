@@ -13,7 +13,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     let kLocationField = "location"
     let kLatitudeField = "latitude"
     let kLongitudeField = "longitude"
-
+    
     public func setLocation(key: String, value: AnyObject) -> BreinTemporalData {
 
         var additionalDic = self.getUser()?.getAdditionalDic()
@@ -60,6 +60,16 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     public func setTimezone(_ timezone: String) -> BreinTemporalData {
         self.getUser()?.setTimezone(timezone)
         return self
+    }
+
+    // Lookup ip is part of the user.additional section
+    public func setLookUpIpAddress(_ ipAddress: String)-> BreinTemporalData {
+        self.getUser()?.setIpAddress(ipAddress)
+        return self
+    }
+
+    public func getLookUpIpAddress() -> String? {
+        return self.getUser()?.getIpAddress()
     }
     
     /**

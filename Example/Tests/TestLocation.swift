@@ -64,8 +64,8 @@ class TestLocation: XCTestCase {
                                     activityType: "checkOut",
                                     category: "services",
                                     description: locationInfo,
-                                    success: successBlock,
-                                    failure: failureBlock)
+                                    successBlock,
+                                    failureBlock)
                         } catch {
                             print("Error is: \(error)")
                         }

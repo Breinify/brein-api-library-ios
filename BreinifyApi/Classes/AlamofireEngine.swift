@@ -10,8 +10,8 @@ import Alamofire
 public class AlamofireEngine: IRestEngine {
 
     /// some handy aliases
-    public typealias apiSuccess = (_ result: BreinResult?) -> Void
-    public typealias apiFailure = (_ error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult) -> Void
+    public typealias apiFailure = (_ error: NSDictionary) -> Void
 
     // contains a copy of the missedRequests from BreinRequestManager
     var missedRequests: [String: JsonRequest]?
@@ -153,8 +153,8 @@ public class AlamofireEngine: IRestEngine {
      - parameter failure failureBlock: will be invoked in case of an error
      */
     public func doRecommendation(_ breinRecommendation: BreinRecommendation,
-                                 success successBlock: @escaping (_ result: BreinResult?) -> Void,
-                                 failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws {
+                                 success successBlock: @escaping (_ result: BreinResult) -> Void,
+                                 failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws {
 
         try validate(breinRecommendation)
 
@@ -274,8 +274,9 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.request)  // original URL request
                     // print(response.response) // URL response
                     // print(response.data)     // server data
-                    // print(response.result)   // result of response serialization
-                    // print(response.result.value)
+                    print(response.result)   // result of response serialization
+                    print(response.result.value)
+                    dump(response)
 
                     if response.result.isSuccess {
                         let jsonDic = response.result.value as! NSDictionary

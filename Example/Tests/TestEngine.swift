@@ -54,8 +54,8 @@ class TestEngine: XCTestCase {
                     activityType: "selectProdcut",
                     category: "food",
                     description: "Selected Product Information",
-                    success: successBlock,
-                    failure: failureBlock)
+                    successBlock,
+                    failureBlock)
         } catch {
             print("Error is: \(error)")
         }

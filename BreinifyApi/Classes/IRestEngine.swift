@@ -28,8 +28,8 @@ public protocol IRestEngine {
        - parameter failure failureBlock: will be invoked in case of an error
      */
     func doRequest(_ breinActivity: BreinActivity,
-                   success successBlock: @escaping (_ result: BreinResult?) -> Void,
-                   failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws
+                   success successBlock: @escaping (_ result: BreinResult) -> Void,
+                   failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws
 
 
     /**
@@ -40,8 +40,8 @@ public protocol IRestEngine {
        - parameter failure: will be invoked in case of an error
      */
     func doLookup(_ breinLookup: BreinLookup,
-                  success successBlock: @escaping (_ result: BreinResult?) -> Void,
-                  failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws
+                  success successBlock: @escaping (_ result: BreinResult) -> Void,
+                  failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws
 
     /**
        Invokes the post request for recommendations
@@ -51,8 +51,8 @@ public protocol IRestEngine {
        - parameter failure: will be invoked in case of an error
      */
     func doRecommendation(_ breinRecommendation: BreinRecommendation,
-                          success successBlock: @escaping (_ result: BreinResult?) -> Void,
-                          failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws
+                          success successBlock: @escaping (_ result: BreinResult) -> Void,
+                          failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws
 
     /**
        Invokes the post request for temporalData
@@ -62,8 +62,8 @@ public protocol IRestEngine {
        - parameter failure: will be invoked in case of an error
      */
     func doTemporalDataRequest(_ breinTemporalData: BreinTemporalData,
-                               success successBlock: @escaping (_ result: BreinResult?) -> Void,
-                               failure failureBlock: @escaping (_ error: NSDictionary?) -> Void) throws
+                               success successBlock: @escaping (_ result: BreinResult) -> Void,
+                               failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws
 
     /**
        Terminates the rest engine

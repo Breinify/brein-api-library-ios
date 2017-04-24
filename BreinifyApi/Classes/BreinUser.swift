@@ -369,7 +369,10 @@ open class BreinUser {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US")
         formatter.timeZone = TimeZone.current
+        //  "localDateTime" : "Sun Apr 23 2017 18:15:48 GMT-0800 (PST)",
+        //  formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
+
 
         let defaultLocalDateTimeString = formatter.string(from: date as Date)
 
@@ -475,6 +478,11 @@ open class BreinUser {
             var identifierData = [String: AnyObject]()
             identifierData["iosPushDeviceToken"] = devToken as AnyObject?
             additionalData["identifiers"] = identifierData as AnyObject?
+        }
+
+        // ipAddress
+        if let additionalIpAddress = self.getIpAddress() {
+            additionalData["ipAddress"] = additionalIpAddress as AnyObject?
         }
 
         // add possible further fields coming from additional dictionary

@@ -8,8 +8,8 @@ import Foundation
 
 open class Breinify {
 
-    typealias apiSuccess = (_ result: BreinResult?) -> Void
-    typealias apiFailure = (_ error: NSDictionary?) -> Void
+    typealias apiSuccess = (_ result: BreinResult) -> Void
+    typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
     static let version: String! = "1.2.4"
@@ -115,13 +115,13 @@ open class Breinify {
        - parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                   food, health, job, services, or other
        - parameter description:   A string with further information about the activity performed
-       - parameter successBlock : A callback function that is invoked in case of success.
-       - parameter failureBlock : A callback function that is invoked in case of an error.
+       - parameter success:       A callback function that is invoked in case of success.
+       - parameter failure:       A callback function that is invoked in case of an error.
    */
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
-                               success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         // set user in class Breinify ...
         self.setBreinUser(user)
@@ -135,12 +135,11 @@ open class Breinify {
                     activityType: activityType,
                     category: "",
                     description: "",
-                    success: successBlock,
-                    failure: failureBlock)
+                    success,
+                    failure)
         }
     }
     
-
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -154,15 +153,15 @@ open class Breinify {
         - parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                    food, health, job, services, or other
         - parameter description:   A string with further information about the activity performed
-        - parameter successBlock : A callback function that is invoked in case of success.
-        - parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter success:       A callback function that is invoked in case of success.
+        - parameter failure:       A callback function that is invoked in case of an error.
     */
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         // set user in class Breinify ...
         self.setBreinUser(user)
@@ -176,8 +175,8 @@ open class Breinify {
                     activityType: activityType,
                     category: category,
                     description: description,
-                    success: successBlock,
-                    failure: failureBlock)
+                    success,
+                    failure)
         }
     }
 
@@ -195,14 +194,14 @@ open class Breinify {
         - parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                    food, health, job, services, or other
         - parameter description:   A string with further information about the activity performed
-        - parameter successBlock : A callback function that is invoked in case of success.
-        - parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter success:       A callback function that is invoked in case of success.
+        - parameter failure:       A callback function that is invoked in case of an error.
     */
     public class func activity(_ activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                               _ success : @escaping BreinEngine.apiSuccess  = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure  = { _ in }) throws {
 
         // firstly check if user is valid
         
@@ -219,8 +218,8 @@ open class Breinify {
                 activityType: activityType,
                 category: category,
                 description: description,
-                success: successBlock,
-                failure: failureBlock)
+                success,
+                failure)
     }
 
     /**
@@ -229,11 +228,11 @@ open class Breinify {
         
         This request is asynchronous. This method will used the already set objects of class Breinify.
 
-        - parameter successBlock : A callback function that is invoked in case of success.
-        - parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter success: A callback function that is invoked in case of success.
+        - parameter failure: A callback function that is invoked in case of an error.
     */
-    public class func activity(success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+    public class func activity(_ success : @escaping BreinEngine.apiSuccess = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         // use the own instance
         let activity = getBreinActivity()
@@ -257,15 +256,15 @@ open class Breinify {
             }
         }
 
-        activity?.setSuccessBlock(successBlock)
-        activity?.setFailureBlock(failureBlock)
+        activity?.setSuccessBlock(success)
+        activity?.setFailureBlock(failure)
 
         let clonedActivity = activity?.clone()
 
         // invoke the activity call
         try clonedActivity?.getBreinEngine()?.sendActivity(clonedActivity,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     /**
@@ -275,12 +274,12 @@ open class Breinify {
         This request is asynchronous.
 
         - Parameter breinActivity: Contains a valid object of class BreinActivity that will be used for this request.
-        - Parameter successBlock : A callback function that is invoked in case of success.
-        - Parameter failureBlock : A callback function that is invoked in case of an error.
+        - Parameter success: A callback function that is invoked in case of success.
+        - Parameter failure: A callback function that is invoked in case of an error.
     */
     public class func activity(_ breinActivity: BreinActivity!,
-                               success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
@@ -291,15 +290,15 @@ open class Breinify {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
 
-        breinActivity.setSuccessBlock(successBlock)
-        breinActivity.setFailureBlock(failureBlock)
+        breinActivity.setSuccessBlock(success)
+        breinActivity.setFailureBlock(failure)
 
         // clone breinActivity
         let clonedBreinActivity = breinActivity.clone()
 
         try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
     
     
@@ -317,16 +316,16 @@ open class Breinify {
         - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                    food, health, job, services, or other
         - Parameter description:   A string with further information about the activity performed
-        - Parameter successBlock : A callback function that is invoked in case of success.
-        - Parameter failureBlock : A callback function that is invoked in case of an error.
+        - Parameter success:       A callback function that is invoked in case of success.
+        - Parameter failure:       A callback function that is invoked in case of an error.
     */
     public class func activity(_ breinActivity: BreinActivity!,
                                user: BreinUser!,
                                activityType: String!,
                                category: String!,
                                description: String!,
-                               success successBlock: @escaping BreinEngine.apiSuccess,
-                               failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
@@ -341,30 +340,30 @@ open class Breinify {
         breinActivity.setActivityType(activityType)
         breinActivity.setCategoryType(category)
         breinActivity.setDescription(description)
-        breinActivity.setSuccessBlock(successBlock)
-        breinActivity.setFailureBlock(failureBlock)
+        breinActivity.setSuccessBlock(success)
+        breinActivity.setFailureBlock(failure)
 
         // clone breinActivity
         let clonedBreinActivity = breinActivity.clone()
 
         try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     /**
       Sends a recommendation request to the engine utilizing the API. The call is done synchronously as a POST request. It is
       important that a valid API-key is configured prior to using this function.
 
-        - parameter breinRecommendation: contains the brein recommendation object
-        - parameter successBlock : A callback function that is invoked in case of success.
-        - parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter breinRecommendation: Contains the brein recommendation object
+        - parameter success:    A callback function that is invoked in case of success.
+        - parameter failure:    A callback function that is invoked in case of an error.
 
         - returns:  BreinResult object
      */
     public class func recommendation(_ aBreinRecommendation: BreinRecommendation!,
-                                     success successBlock: @escaping BreinEngine.apiSuccess,
-                                     failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                                     _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                                     _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         if aBreinRecommendation == nil {
             throw BreinError.BreinRuntimeError("BreinRecommendation is nil");
@@ -376,12 +375,12 @@ open class Breinify {
         // clone given instance
         let clonedBreinRecommendation = aBreinRecommendation.clone()
 
-        clonedBreinRecommendation.setSuccessBlock(successBlock)
-        clonedBreinRecommendation.setFailureBlock(failureBlock)
+        clonedBreinRecommendation.setSuccessBlock(success)
+        clonedBreinRecommendation.setFailureBlock(failure)
 
         return try clonedBreinRecommendation.getBreinEngine()!.invokeRecommendation(clonedBreinRecommendation,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     /**
@@ -390,21 +389,21 @@ open class Breinify {
 
        Furthermore it uses the internal instance of BreinTemporalData.
 
-         - parameter user: a plain object specifying information about the user to retrieve data for.
-         - parameter successBlock : A callback function that is invoked in case of success.
-         - parameter failureBlock : A callback function that is invoked in case of an error.
+         - parameter user:    A plain object specifying information about the user to retrieve data for.
+         - parameter success: A callback function that is invoked in case of success.
+         - parameter failure: A callback function that is invoked in case of an error.
 
          - returns: result from the Breinify engine
     */
     public class func temporalData(_ user: BreinUser!,
-                                   success successBlock: @escaping BreinEngine.apiSuccess,
-                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         self.breinTemporalData.setUser(user)
         
         return try temporalData(breinTemporalData,
-                success: successBlock,
-                failure: failureBlock)
+                success,
+                failure)
     }
 
     /**
@@ -413,44 +412,76 @@ open class Breinify {
 
        Furthermore it uses the internal instance of BreinTemporalData.
 
-       - parameter breinTemporalData: contains a breinTemporalData object.
-       - Parameter successBlock : A callback function that is invoked in case of success.
-       - Parameter failureBlock : A callback function that is invoked in case of an error.
+       - Parameter success: A callback function that is invoked in case of success.
+       - Parameter failure: A callback function that is invoked in case of an error.
 
        - returns: result from the Breinify engine
     */
-    public class func temporalData(success successBlock: @escaping BreinEngine.apiSuccess,
-                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+    public class func temporalData(_ success : @escaping BreinEngine.apiSuccess = { _ in },
+                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
         
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
-        clonedBreinTemporalData.setSuccessBlock(successBlock)
-        clonedBreinTemporalData.setFailureBlock(failureBlock)
+        clonedBreinTemporalData.setSuccessBlock(success)
+        clonedBreinTemporalData.setFailureBlock(failure)
 
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
 
         return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
+    /**
+       Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
+       important that a valid API-key is configured prior to using this function.
+
+       Furthermore it uses the internal instance of BreinTemporalData.
+
+       - parameter ipAddress: Contains an ipAddress to resolve.
+       - Parameter success:   A callback function that is invoked in case of success.
+       - Parameter failure:   A callback function that is invoked in case of an error.
+
+       - returns: result from the Breinify engine
+    */
+    public class func temporalData(ipAddress: String,
+                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+
+        // set ipAddress
+        self.getBreinTemporalData().setLookUpIpAddress(ipAddress)
+        
+        // clone breinTemporalData
+        let clonedBreinTemporalData = self.getBreinTemporalData().clone()
+
+        clonedBreinTemporalData.setSuccessBlock(success)
+        clonedBreinTemporalData.setFailureBlock(failure)
+
+        // apply the current configuration
+        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+
+        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
+                success: success,
+                failure: failure)
+    }
+    
     /**
         Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
 
         Furthermore it uses the internal instance of BreinTemporalData.
 
-        - parameter breinTemporalData: contains a breinTemporalData object.
-        - Parameter successBlock : A callback function that is invoked in case of success.
-        - Parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter breinTemporalData: Contains a breinTemporalData object.
+        - Parameter success:           A callback function that is invoked in case of success.
+        - Parameter failure:           A callback function that is invoked in case of an error.
 
         - returns: result from the Breinify engine
      */
     public class func temporalData(_ breinTemporalData: BreinTemporalData!,
-                                   success successBlock: @escaping BreinEngine.apiSuccess,
-                                   failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
         
          if breinTemporalData?.getBreinEngine() == nil {
             // apply the Breinify config
@@ -463,57 +494,57 @@ open class Breinify {
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
-        clonedBreinTemporalData.setSuccessBlock(successBlock)
-        clonedBreinTemporalData.setFailureBlock(failureBlock)
+        clonedBreinTemporalData.setSuccessBlock(success)
+        clonedBreinTemporalData.setFailureBlock(failure)
 
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
         
         return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     /**
       Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
       This request is synchronous.
 
-        - parameter user:      a plain object specifying information about the user to retrieve data for.
-        - parameter dimension: an object (with an array) containing the names of the dimensions to lookup.
-        - Parameter successBlock : A callback function that is invoked in case of success.
-        - Parameter failureBlock : A callback function that is invoked in case of an error.
+        - parameter user:       A plain object specifying information about the user to retrieve data for.
+        - parameter dimension:  An object (with an array) containing the names of the dimensions to lookup.
+        - Parameter success:    A callback function that is invoked in case of success.
+        - Parameter failure:    A callback function that is invoked in case of an error.
 
         - returns response from request wrapped in an object called BreinResponse
     */
     public class func lookup(_ user: BreinUser!,
                              dimension: BreinDimension!,
-                             success successBlock: @escaping BreinEngine.apiSuccess,
-                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                             _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                             _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         return try lookup(breinLookup,
                 user: user,
                 dimension: dimension,
-                success: successBlock,
-                failure: failureBlock)
+                success,
+                failure)
     }
 
     /**
        Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
        This request is synchronous.
 
-         - parameter breinLookup:     an instance of BreinLookup.
-         - parameter user:      a plain object specifying information about the user to retrieve data for.
-         - parameter dimension: an object (with an array) containing the names of the dimensions to lookup.
-         - Parameter successBlock : A callback function that is invoked in case of success.
-         - Parameter failureBlock : A callback function that is invoked in case of an error.
+         - parameter breinLookup: An instance of BreinLookup.
+         - parameter user:        A plain object specifying information about the user to retrieve data for.
+         - parameter dimension:   An object (with an array) containing the names of the dimensions to lookup.
+         - Parameter success:     A callback function that is invoked in case of success.
+         - Parameter failure:     A callback function that is invoked in case of an error.
 
          - returns response from request wrapped in an object called BreinResponse
      */
     public class func lookup(_ breinLookup: BreinLookup!,
                              user: BreinUser!,
                              dimension: BreinDimension!,
-                             success successBlock: @escaping BreinEngine.apiSuccess,
-                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                             _ success : @escaping BreinEngine.apiSuccess = { _ in },
+                             _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         guard breinLookup?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -523,8 +554,8 @@ open class Breinify {
         breinLookup.setBreinDimension(dimension)
 
         return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     /// Initiates the shutdown of the engine

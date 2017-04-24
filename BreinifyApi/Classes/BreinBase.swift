@@ -9,8 +9,8 @@ import Foundation
 
 open class BreinBase {
 
-    public typealias apiSuccess = (_ result: BreinResult?) -> Void
-    public typealias apiFailure = (_ error: NSDictionary?) -> Void
+    public typealias apiSuccess = (_ result: BreinResult) -> Void
+    public typealias apiFailure = (_ error: NSDictionary) -> Void
 
     // means nothing -> no value
     static let kNoValueDefined = ""
@@ -18,7 +18,7 @@ open class BreinBase {
     //  contains the User that will be used for the request
     var breinUser = BreinUser()
 
-    // contains the ipAddress
+    // contains the ipAddress for base level
     var ipAddress: String = ""
 
     //  Configuration
@@ -73,6 +73,7 @@ open class BreinBase {
         self.breinUser = breinUser
     }
 
+    /// IpAddress for base level
     @discardableResult
     public func setIpAddress(_ ipAddressPara: String?) -> BreinBase {
         if let ipAdr = ipAddressPara {
@@ -81,6 +82,7 @@ open class BreinBase {
         return self
     }
 
+    /// IpAddress for base level
     public func getIpAddress() -> String? {
         return self.ipAddress
     }
@@ -94,10 +96,8 @@ open class BreinBase {
     }
 
     @discardableResult
-    public func setSuccessBlock(_ success: BreinBase.apiSuccess?) -> BreinBase {
-        if let sucBlock = success {
-            self.successBlock = sucBlock
-        }
+    public func setSuccessBlock(_ success: @escaping BreinBase.apiSuccess) -> BreinBase {
+        self.successBlock = success
         return self
     }
 
@@ -106,13 +106,11 @@ open class BreinBase {
     }
 
     @discardableResult
-    public func setFailureBlock(_ failure: BreinBase.apiFailure?) -> BreinBase {
-        if let faiBlock = failure {
-            self.failureBlock = faiBlock
-        }
+    public func setFailureBlock(_ failure: @escaping BreinBase.apiFailure) -> BreinBase {
+        self.failureBlock = failure
         return self
     }
-    
+
     @discardableResult
     public func prepareJsonRequest() -> [String: AnyObject]! {
         let timeInterval = NSDate().timeIntervalSince1970
@@ -181,10 +179,10 @@ open class BreinBase {
         if breinConfig?.getSecret() == nil {
             return false
         }
-        
+
         return (breinConfig?.getSecret().characters.count)! > 0
     }
-    
+
     /**
     * Clones from base class
     *
@@ -197,8 +195,13 @@ open class BreinBase {
         self.unixTimestamp = source.unixTimestamp
 
         // callback_s
-        self.setSuccessBlock(source.getSuccessBlock())
-        self.setFailureBlock(source.getFailureBlock())
+        if let suc = source.getSuccessBlock() {
+            self.setSuccessBlock(suc)
+        }
+
+        if let fail = source.getFailureBlock() {
+            self.setFailureBlock(fail)
+        }
 
         // configuration
         self.setConfig(source.getConfig());

@@ -109,20 +109,9 @@ let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
         
 // invoke activity call
 do {
-   try Breinify.activity(breinUser,
-          activityType: "login",
-          success: {
-             // success block
-             (result: BreinResult) -> Void in
-             print("Api Success : result is:\n \(result)")
-          },
-          failure: {
-            // failure block
-            (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-        })
+    try Breinify.activity(breinUser, activityType: "login")
   } catch {
-       print("Error is: \(error)")
+    print("Error is: \(error)")
   }
 ```
 
@@ -141,19 +130,9 @@ let breinActivity = BreinActivity(user: breinUser)
         
 // invoke activity call later
 do {
-   try Breinify.activity(breinActivity,
-          success: {
-             // success block
-             (result: BreinResult) -> Void in
-             print("Api Success : result is:\n \(result)")
-          },
-          failure: {
-            // failure block
-            (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-         })
+     try Breinify.activity(breinActivity)
    } catch {
-        print("Error is: \(error)")
+     print("Error is: \(error)")
    } 
 ```
 
@@ -173,29 +152,24 @@ by calling the `/temporaldata` endpoint utilizing the `Breinify.temporalData(...
 ```swift
 do {   
    try Breinify.temporalData(success: {
-       // success
-       (result: BreinResult) -> Void in
+      // success
+      (result: BreinResult) -> Void in
                 
-          print("Api Success : result is:\n \(result)")
+      print("Api Success : result is:\n \(result)")
 
-          if let holiday = result.get("holidays") {
-             print("Holiday is: \(holiday)")
-          }
-          if let weather = result.get("weather") {
-             print("Weather is: \(weather)")
-          }
-          if let location = result.get("location") {
-             print("Location is: \(location)")
-          }
-          if let time = result.get("time") {
-             print("Time is: \(time)")
-         }
-      },
-      failure: {
-       // failure
-       (error: NSDictionary) -> Void in
-         print("Api Failure : error is:\n \(error)")
-      })
+      if let holiday = result.get("holidays") {
+         print("Holiday is: \(holiday)")
+      }
+      if let weather = result.get("weather") {
+         print("Weather is: \(weather)")
+      }
+      if let location = result.get("location") {
+         print("Location is: \(location)")
+      }
+      if let time = result.get("time") {
+         print("Time is: \(time)")
+      }
+   })
    } catch {
      print("Error")
 }
@@ -223,17 +197,11 @@ do {
            .setLocation(freeText: "The Big Apple")
             
    try Breinify.temporalData(breinTemporalData,
-          success: {
-             // success
-             (result: BreinResult) -> Void in
+          success: 
+          (result: BreinResult) -> Void in
           if let location = result.get("location") {
               print("Location is: \(location)")
            }
-        },
-        failure: {
-           // failure
-           (error: NSDictionary) -> Void in
-           print("Api Failure : error is:\n \(error)")
         })
   } catch {
        print("Error")
