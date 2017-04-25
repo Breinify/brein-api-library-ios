@@ -42,7 +42,7 @@ a pair of coordinates (latitude/longitude), or a specific ip-address. Have a loo
 do {
     let breinTemporalData = BreinTemporalData()
     breinTemporalData.setLookUpIpAddress("204.28.127.66")
-            
+>           
     try Breinify.temporalData(breinTemporalData,
         success: {
             (result: BreinResult) -> Void in

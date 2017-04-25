@@ -42,7 +42,7 @@ one. To specify the ip-address to resolve, the library provides an overloaded ve
 >
 ```ios
 do {
-    let ip = "72.229.28.185"
+   let ip = "72.229.28.185"
    try Breinify.temporalData(ipAddress: ip, {
        // success
        (result: BreinResult) -> Void in
