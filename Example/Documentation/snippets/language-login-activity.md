@@ -11,5 +11,4 @@ do {
     } catch {
         print("Error is: \(error)")
 }
-
 ```

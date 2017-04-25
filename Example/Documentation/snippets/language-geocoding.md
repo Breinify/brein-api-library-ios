@@ -27,6 +27,5 @@ do {
        })
    } catch {
        print("Error")
-   }    
-    
+   }        
 ```
