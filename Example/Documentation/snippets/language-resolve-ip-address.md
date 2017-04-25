@@ -6,7 +6,7 @@ data.</p>
 </blockquote>
 
 >
-```ios
+```swift
 do {
    try Breinify.temporalData({
        // success
@@ -40,14 +40,14 @@ one. To specify the ip-address to resolve, the library provides an overloaded ve
 </blockquote>
 
 >
-```ios
+```swift
 do {
    let ip = "72.229.28.185"
    try Breinify.temporalData(ipAddress: ip, {
        // success
        (result: BreinResult) -> Void in
        print("Api Success : result is:\n \(result)")
-
+>
        if let holiday = result.get("holidays") {
           print("Holiday is: \(holiday)")
        }
