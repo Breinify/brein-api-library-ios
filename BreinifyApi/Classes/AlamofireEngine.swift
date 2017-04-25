@@ -65,7 +65,8 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result.value)
 
                     let uuidEntry = response.request?.allHTTPHeaderFields!["uuid"]
-                    if response.result.isSuccess {
+                    let status = response.response?.statusCode
+                    if status == 200 {
                         BreinRequestManager.sharedInstance.removeEntry(uuidEntry!)
                     } else {
                         print("could not send request with uuid: \(uuidEntry)")
@@ -184,8 +185,6 @@ public class AlamofireEngine: IRestEngine {
 
                     // http status
                     let status = response.response?.statusCode
-
-                    // if response.result.isSuccess {
                     if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
                         // dump(jsonDic)
@@ -231,7 +230,8 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result)   // result of response serialization
                     // print(response.result.value)
 
-                    if response.result.isSuccess {
+                    let status = response.response?.statusCode
+                    if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
                         let breinResult = BreinResult(dictResponse: jsonDic)
                         success(breinResult)
@@ -281,7 +281,8 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result.value)
                     // dump(response)
 
-                    if response.result.isSuccess {
+                    let status = response.response?.statusCode
+                    if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
                         let breinResult = BreinResult(dictResponse: jsonDic)
                         successBlock(breinResult)
@@ -315,8 +316,6 @@ public class AlamofireEngine: IRestEngine {
 
                     // http status
                     let status = response.response?.statusCode
-
-                    // if response.result.isSuccess {
                     if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
                         // dump(jsonDic)
