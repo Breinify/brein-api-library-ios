@@ -65,8 +65,7 @@ do {
         })
     } catch {
         print("Error")
-    }
-    
+    }    
 ```
 
 <blockquote class="lang-specific ios">
