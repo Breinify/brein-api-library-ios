@@ -47,7 +47,6 @@ do {
        // success
        (result: BreinResult) -> Void in
        print("Api Success : result is:\n \(result)")
->
        if let holiday = result.get("holidays") {
           print("Holiday is: \(holiday)")
        }
