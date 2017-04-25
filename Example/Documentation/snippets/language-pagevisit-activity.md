@@ -26,9 +26,7 @@ returned value. The returned value can be read by utilizing a callback function,
 >
 ```swift
 /*
- * In this example the `execute(...)` method is used with a callback, 
- * it is also possible ot use the Breinify.activity() method and
- * provide a callback.
+ * This example uses the success and failure callbacks.
  */
 let breinUser = BreinUser(email: "max@sample.com")
 breinUser.setSessionId("966542c6-2399-11e7-93ae-92361f002671")
