@@ -1,21 +1,23 @@
 >
-```java--native
-final BreinTemporalDataResult result;
-result = Breinify.temporalData(37.7609295, -122.4194155,
-                               "STATE", "CITY", "NEIGHBORHOOD");
-```
-
+```swift
+do {
+   let breinTemporalData = BreinTemporalData()
+                    .setLatitude(37.7609295)
+                    .setLongitude(-122.4194155)
+                    .addShapeTypes(["CITY", "NEIGHBORHOOD"])
 >
-```java--native
-final BreinTemporalDataResult result;
-result = new BreinTemporalData()
-   .setLatitude(37.7609295)
-   .setLongitude(-122.4194155)
-   .addShapeTypes("CITY", "NEIGHBORHOOD")
-   .execute();
+   try Breinify.temporalData(breinTemporalData,
+      {
+      // success
+      (result: BreinResult) -> Void in
+      print("Api Success : result is:\n \(result)")
+      })
+   } catch {
+     print("Error")
+   }
 ```
 
-<blockquote class="lang-specific java--native">
+<blockquote class="lang-specific ios">
 <p>The returned <code class="prettyprint">GeoJson</code> instances can be read and used via
 <code class="prettyprint">result.getLocation().getGeoJson("CITY")</code>. If a shape is not
 available, the <code class="prettyprint">getGeoJson(...)</code> method returns 
