@@ -13,26 +13,10 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     let kLocationField = "location"
     let kLatitudeField = "latitude"
     let kLongitudeField = "longitude"
-    
+    let kShapeTypesField = "shapeTypes"
+
     public func setLocation(key: String, value: AnyObject) -> BreinTemporalData {
-
-        var additionalDic = self.getUser()?.getAdditionalDic()
-        if additionalDic == nil {
-            let newDic = [String: AnyObject]()
-            self.getUser()?.setAdditionalDic(newDic)
-            additionalDic = self.getUser()?.getAdditionalDic()
-        }
-        var hasLocationEntry = additionalDic?[kLocationField]
-
-        if hasLocationEntry == nil {
-            var locationDic = [String: AnyObject]()
-            locationDic[key] = value as AnyObject?
-            additionalDic?[kLocationField] = locationDic as AnyObject?
-            self.getUser()?.setAdditional(kLocationField, map: locationDic)
-        } else {
-            hasLocationEntry = value as AnyObject?
-        }
-
+        self.getUser()?.setAdditionalLocationEntry(key: key, value: value)
         return self
     }
 
@@ -63,7 +47,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
     // Lookup ip is part of the user.additional section
-    public func setLookUpIpAddress(_ ipAddress: String)-> BreinTemporalData {
+    public func setLookUpIpAddress(_ ipAddress: String) -> BreinTemporalData {
         self.getUser()?.setIpAddress(ipAddress)
         return self
     }
@@ -71,19 +55,50 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     public func getLookUpIpAddress() -> String? {
         return self.getUser()?.getIpAddress()
     }
-    
+
     /**
-       TemporalData implementation. For a given user (BreinUser) a temporalData request will be performed.
+     * Adds the specified {@code shapeTypes} to the currently defined shape-types to be returned with the response of
+     * the request, i.e.:
+     * <p>
+     * <pre>
+     *     {
+     *         user: {
+     *              additional: {
+     *                  location: {
+     *                      'shapeTypes': [...]
+     *                  }
+     *              }
+     *         }
+     *     }
+     * </pre>
+     *
+     * @param shapeTypes the shapeTypes to be added
+     *
+     * @return {@code this}
+     */
+    public func addShapeTypes(_ shapeTypes: [String]) -> BreinTemporalData {
+        
+        if shapeTypes.count > 0 {
+            self.setLocation(key: kShapeTypesField, value: shapeTypes as AnyObject!)
+        }
+        
+        return self
+    }
 
-         - parameter breinUser:  contains the breinify user
-         - parameter successBlock : A callback function that is invoked in case of success.
-         - parameter failureBlock : A callback function that is invoked in case of an error.
+/**
+   TemporalData implementation. For a given user (BreinUser) a temporalData request will be performed.
 
-         - returns response: from request or null if no data can be retrieved
-    */
+     - parameter breinUser:  contains the breinify user
+     - parameter success:    A callback function that is invoked in case of success.
+     - parameter failure:    A callback function that is invoked in case of an error.
+
+     - returns response: from request or null if no data can be retrieved
+*/
     public func temporalData(_ breinUser: BreinUser!,
-                             success successBlock: @escaping BreinEngine.apiSuccess,
-                             failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                             _ success: @escaping BreinEngine.apiSuccess = { _ in
+                             },
+                             _ failure: @escaping BreinEngine.apiFailure = { _ in
+                             }) throws {
 
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -92,8 +107,8 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         setUser(breinUser)
 
         return try getBreinEngine()!.performTemporalDataRequest(self,
-                success: successBlock,
-                failure: failureBlock)
+                success: success,
+                failure: failure)
     }
 
     override public func prepareJsonRequest() -> [String: AnyObject]! {

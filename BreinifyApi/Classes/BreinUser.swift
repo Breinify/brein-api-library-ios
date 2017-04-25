@@ -63,6 +63,9 @@ open class BreinUser {
     /// contains additional dictionary
     var additional = [String: AnyObject]()
 
+    /// contains additional.location dictionary
+    var additionalLocation = [String: AnyObject]()
+
     /// contains user dictionary
     var userDic = [String: AnyObject]()
 
@@ -77,7 +80,7 @@ open class BreinUser {
 
     /// contains network.carrier name
     var nw_carrier = ""
-    
+
     /// Initializer with "nothing"
     public init() {
     }
@@ -138,9 +141,9 @@ open class BreinUser {
     @discardableResult
     public func setDateOfBirth(_ month: Int, day: Int, year: Int) -> BreinUser! {
 
-        if case 1 ... 12 = month {
-            if case 1 ... 31 = day {
-                if case 1900 ... 2100 = year {
+        if case 1...12 = month {
+            if case 1...31 = day {
+                if case 1900...2100 = year {
                     self.dateOfBirth = "\(month)/\(day)/\(year)"
                 }
             }
@@ -348,6 +351,24 @@ open class BreinUser {
         return self.userDic
     }
 
+    /// sets the user.additional dic for additional fields within the user.additional structure
+    @discardableResult
+    public func setAdditionalLocationDic(_ dic: [String: AnyObject]) -> BreinUser! {
+        self.additionalLocation = dic
+        return self
+    }
+    
+    /// returns the additionalLocationDic
+    public func getAdditionalLocationDic() -> [String: AnyObject]? {
+        return self.additionalLocation
+    }
+    
+    /// set an additional location entry in location dictionry
+    public func setAdditionalLocationEntry(key: String, value: AnyObject) -> BreinUser {
+        self.additionalLocation[key] = value
+        return self
+    }
+
     /// sets location data
     @discardableResult
     public func setLocationData(_ locationData: CLLocation?) -> BreinUser {
@@ -361,25 +382,14 @@ open class BreinUser {
         // print("local time zone is: \(localTimeZoneName)")
         return localTimeZoneName
     }
-
+    
     /// detect current localDateTime
     public func detectLocalDateTime() -> String! {
-        let date = Date()
-
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.timeZone = TimeZone.current
-        //  "localDateTime" : "Sun Apr 23 2017 18:15:48 GMT-0800 (PST)",
-        //  formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ (zz)"
-
-
-        let defaultLocalDateTimeString = formatter.string(from: date as Date)
-
-        // print("local time is: \(defaultLocalDateTimeStr)")
-        return defaultLocalDateTimeString
+        
+        let stringFromDate = Date().breinifyFormat
+        return stringFromDate
     }
-
+    
     /// prepares user related map for json request
     public func prepareUserRequest(_ userData: inout [String: AnyObject], breinConfig: BreinConfig!) {
 
@@ -435,21 +445,32 @@ open class BreinUser {
     /// prepares user.additional map for json request
     public func prepareAdditionalFields() -> [String: AnyObject]! {
 
-      
         // additional part
         var additionalData = [String: AnyObject]()
+
+        // location Data
+        var locData = [String: AnyObject]()
+
+        // check location values
         if self.locationData != nil {
             // only a valid location will be taken into consideration
-            // this is the case when the corrdiantes are different from 0
+            // this is the case when the corrdinates are different from 0
             if locationData?.coordinate.latitude != 0 {
-                var locData = [String: AnyObject]()
                 locData["accuracy"] = locationData?.horizontalAccuracy as AnyObject?
                 locData["latitude"] = locationData?.coordinate.latitude as AnyObject?
                 locData["longitude"] = locationData?.coordinate.longitude as AnyObject?
                 locData["speed"] = locationData?.speed as AnyObject?
-
-                additionalData["location"] = locData as AnyObject?
             }
+        }
+
+        // loop thru locationDic 
+        for (key, value) in self.additionalLocation {
+            // print("\(key) = \(value)")
+            locData[key] = value
+        }
+
+        if locData.count > 0 {
+            additionalData["location"] = locData as AnyObject?
         }
 
         if let userAgentValue = self.getUserAgent() {
@@ -510,7 +531,7 @@ open class BreinUser {
         if network.count > 0 {
             additionalData["network"] = network as AnyObject?
         }
-        
+
         return additionalData
     }
 
@@ -521,7 +542,7 @@ open class BreinUser {
      * @return a copy of the original brein user
      */
     public static func clone(_ sourceUser: BreinUser?) -> BreinUser {
-        
+
         if let orgUser = sourceUser {
 
             // then a new user with the new created brein user request
@@ -548,6 +569,11 @@ open class BreinUser {
             if let clonedAdditionalDic = orgUser.getAdditionalDic() {
                 let _ = newUser?.setAdditionalDic(clonedAdditionalDic)
             }
+
+            if let clonedAdditionalLocDic = orgUser.getAdditionalLocationDic() {
+                let _ = newUser?.setAdditionalLocationDic(clonedAdditionalLocDic)
+            }
+
 
             if let clonedUserDic = orgUser.getUserDic() {
                 let _ = newUser?.setUserDic(clonedUserDic)
@@ -632,8 +658,7 @@ open class BreinUser {
 
             return "Breinify"
         }()
-
-
+        
         return userAgent
     }
 
@@ -655,7 +680,7 @@ open class BreinUser {
                 }
             }
         }
-        
+
         let networkInfo = CTTelephonyNetworkInfo()
         if networkInfo != nil {
             // print(networkInfo)

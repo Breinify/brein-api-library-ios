@@ -52,8 +52,8 @@ class TestEngine: XCTestCase {
         do {
             try Breinify.activity(breinUser,
                     activityType: "selectProdcut",
-                    category: "food",
-                    description: "Selected Product Information",
+                    "food",
+                    "Selected Product Information",
                     successBlock,
                     failureBlock)
         } catch {

@@ -83,12 +83,12 @@ public class AlamofireEngine: IRestEngine {
      Invokes the post request for activities
      
      - parameter breinActivity: activity object
-     - parameter success successBlock: will be invoked in case of success
-     - parameter failure failureBlock: will be invoked in case of an error
+     - parameter success: will be invoked in case of success
+     - parameter failure: will be invoked in case of an error
      */
     public func doRequest(_ breinActivity: BreinActivity,
-                          success successBlock: @escaping apiSuccess,
-                          failure failureBlock: @escaping apiFailure) throws {
+                          success: @escaping apiSuccess,
+                          failure: @escaping apiFailure) throws {
 
         try validate(breinActivity)
 
@@ -118,11 +118,14 @@ public class AlamofireEngine: IRestEngine {
                     // let result = response.result
                     // let httpStatusCode = response.response?.statusCode
 
-                    if response.result.isSuccess {
+                    let status = response.response?.statusCode
+                    // print("HTTP-Status: \(status)")
+                    
+                    if status == 200 {
 
                         let jsonDic: NSDictionary = ["success": 200]
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(breinResult)
+                        success(breinResult)
 
                     } else {
 
@@ -140,7 +143,7 @@ public class AlamofireEngine: IRestEngine {
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
-                        failureBlock(error)
+                        failure(error)
                     }
                 }
     }
@@ -149,12 +152,12 @@ public class AlamofireEngine: IRestEngine {
      Invokes the post request for recommendations
      
      - parameter breinRecommendation: recommendation object
-     - parameter success successBlock: will be invoked in case of success
-     - parameter failure failureBlock: will be invoked in case of an error
+     - parameter success: will be invoked in case of success
+     - parameter failure: will be invoked in case of an error
      */
     public func doRecommendation(_ breinRecommendation: BreinRecommendation,
-                                 success successBlock: @escaping (_ result: BreinResult) -> Void,
-                                 failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws {
+                                 success: @escaping (_ result: BreinResult) -> Void,
+                                 failure: @escaping (_ error: NSDictionary) -> Void) throws {
 
         try validate(breinRecommendation)
 
@@ -188,7 +191,7 @@ public class AlamofireEngine: IRestEngine {
                         // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(breinResult)
+                        success(breinResult)
                     } else {
                         /*
                          let httpError: NSError = response.result.error!
@@ -196,7 +199,7 @@ public class AlamofireEngine: IRestEngine {
                          */
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
-                        failureBlock(error)
+                        failure(error)
                     }
                 }
     }
@@ -205,12 +208,12 @@ public class AlamofireEngine: IRestEngine {
      Invokes the post request for lookups
      
      - parameter breinLookup: lookup object
-     - parameter success successBlock: will be invoked in case of success
-     - parameter failure failureBlock: will be invoked in case of an error
+     - parameter success success: will be invoked in case of success
+     - parameter failure failure: will be invoked in case of an error
      */
     public func doLookup(_ breinLookup: BreinLookup,
-                         success successBlock: @escaping apiSuccess,
-                         failure failureBlock: @escaping apiFailure) throws {
+                         success: @escaping apiSuccess,
+                         failure: @escaping apiFailure) throws {
 
         try validate(breinLookup)
 
@@ -231,14 +234,14 @@ public class AlamofireEngine: IRestEngine {
                     if response.result.isSuccess {
                         let jsonDic = response.result.value as! NSDictionary
                         let breinResult = BreinResult(dictResponse: jsonDic)
-                        successBlock(breinResult)
+                        success(breinResult)
 
                     } else {
                         let httpError: NSError = response.result.error! as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
-                        failureBlock(error)
+                        failure(error)
                     }
                 }
     }
@@ -274,9 +277,9 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.request)  // original URL request
                     // print(response.response) // URL response
                     // print(response.data)     // server data
-                    print(response.result)   // result of response serialization
-                    print(response.result.value)
-                    dump(response)
+                    // print(response.result)   // result of response serialization
+                    // print(response.result.value)
+                    // dump(response)
 
                     if response.result.isSuccess {
                         let jsonDic = response.result.value as! NSDictionary

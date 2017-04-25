@@ -161,6 +161,12 @@ class TestDomain: XCTestCase {
 
 
     }
+    
+    func testLocalDateTimeFormat() {
+        let user = BreinUser()
+        let localDateTime = user.detectLocalDateTime()
+        print("LocaldateTime is: \(localDateTime)")
+    }
 
 
 }

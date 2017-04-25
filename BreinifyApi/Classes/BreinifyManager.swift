@@ -123,8 +123,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         do {
             try Breinify.activity(Breinify.getBreinUser(),
                                   activityType: activityType,
-                                  category: "",
-                                  description: "from iOS device",
+                                  nil,
+                                  "from iOS device",
                                   successBlock,
                                   failureBlock)
         } catch {

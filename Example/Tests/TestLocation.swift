@@ -62,8 +62,8 @@ class TestLocation: XCTestCase {
                         do {
                             try Breinify.activity(self.breinUser,
                                     activityType: "checkOut",
-                                    category: "services",
-                                    description: locationInfo,
+                                    "services",
+                                    locationInfo,
                                     successBlock,
                                     failureBlock)
                         } catch {

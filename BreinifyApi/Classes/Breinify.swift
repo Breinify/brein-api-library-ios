@@ -133,8 +133,8 @@ open class Breinify {
             try activity(breinAct,
                     user: user,
                     activityType: activityType,
-                    category: "",
-                    description: "",
+                    nil,
+                    nil,
                     success,
                     failure)
         }
@@ -158,8 +158,8 @@ open class Breinify {
     */
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
-                               category: String!,
-                               description: String!,
+                               _ category: String! = nil,
+                               _ description: String! = nil,
                                _ success : @escaping BreinEngine.apiSuccess = { _ in },
                                _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
@@ -173,8 +173,8 @@ open class Breinify {
             try activity(breinAct,
                     user: user,
                     activityType: activityType,
-                    category: category,
-                    description: description,
+                    category,
+                    description,
                     success,
                     failure)
         }
@@ -198,8 +198,8 @@ open class Breinify {
         - parameter failure:       A callback function that is invoked in case of an error.
     */
     public class func activity(_ activityType: String!,
-                               category: String!,
-                               description: String!,
+                               _ category: String! = nil,
+                               _ description: String! = nil,
                                _ success : @escaping BreinEngine.apiSuccess  = { _ in },
                                _ failure : @escaping BreinEngine.apiFailure  = { _ in }) throws {
 
@@ -216,8 +216,8 @@ open class Breinify {
         try activity(getBreinActivity(),
                 user: user,
                 activityType: activityType,
-                category: category,
-                description: description,
+                category,
+                description,
                 success,
                 failure)
     }
@@ -322,8 +322,8 @@ open class Breinify {
     public class func activity(_ breinActivity: BreinActivity!,
                                user: BreinUser!,
                                activityType: String!,
-                               category: String!,
-                               description: String!,
+                               _ category: String! = nil,
+                               _ description: String! = nil,
                                _ success : @escaping BreinEngine.apiSuccess = { _ in },
                                _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 
@@ -446,7 +446,7 @@ open class Breinify {
 
        - returns: result from the Breinify engine
     */
-    public class func temporalData(ipAddress: String,
+    public class func temporalData(_ ipAddress: String,
                                    _ success : @escaping BreinEngine.apiSuccess = { _ in },
                                    _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
 

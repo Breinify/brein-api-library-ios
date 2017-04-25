@@ -27,7 +27,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
     /// activity dictionary
     var actitivityDic: [String: AnyObject]?
-    
+
     /// returns activity type
     /// - return activity type as String
     public func getActivityType() -> String! {
@@ -74,6 +74,16 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return self.tagsDic
     }
 
+    public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
+
+        if self.tagsDic == nil {
+            self.tagsDic = [String : AnyObject] ()
+        }
+
+        tagsDic?[key] = value
+        return self
+    }
+
     @discardableResult
     public func setActivityDic(_ activityDic: [String: AnyObject]) -> BreinActivity {
         self.actitivityDic = activityDic
@@ -91,15 +101,15 @@ open class BreinActivity: BreinBase, ISecretStrategy {
       - parameter breinActivityType: the type of activity
       - parameter breinCategoryType: the category (can be null or undefined)
       - parameter description:       the description for the activity
-      - parameter successBlock : A callback function that is invoked in case of success.
-      - parameter failureBlock : A callback function that is invoked in case of an error.
+      - parameter success:           A callback function that is invoked in case of success.
+      - parameter failure:           A callback function that is invoked in case of an error.
     */
     public func activity(_ breinUser: BreinUser!,
                          breinActivityType: String!,
-                         breinCategoryType: String!,
-                         description: String!,
-                         success successBlock: @escaping BreinEngine.apiSuccess,
-                         failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                         _ breinCategoryType: String! = nil,
+                         _ description: String! = nil,
+                         _ success: @escaping BreinEngine.apiSuccess = { _ in },
+                         _ failure: @escaping BreinEngine.apiFailure = { _ in }) throws {
 
         //  set the values for further usage
         setUser(breinUser)
@@ -111,7 +121,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine.")
         }
-        try getBreinEngine()?.sendActivity(self, success: successBlock, failure: failureBlock)
+        try getBreinEngine()?.sendActivity(self, success: success, failure: failure)
     }
 
     /**
@@ -173,13 +183,13 @@ open class BreinActivity: BreinBase, ISecretStrategy {
       - returns: the clone of the activity object
     */
     public func clone() -> BreinActivity {
-        
+
         // create a new activity object
         let clonedBreinActivity = BreinActivity()
-           .setActivityType(self.getActivityType())
-           .setCategoryType(self.getCategoryType())
-           .setDescription(self.getDescription())
-        
+                .setActivityType(self.getActivityType())
+                .setCategoryType(self.getCategoryType())
+                .setDescription(self.getDescription())
+
         // clone dictionaries => simple copy is enough
         if let clonedActivityDic = self.getActitivityDic() {
             clonedBreinActivity.setActivityDic(clonedActivityDic)
@@ -194,7 +204,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
         return clonedBreinActivity
     }
-    
+
     /**
       Generates the signature for the request
      

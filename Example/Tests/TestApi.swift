@@ -56,14 +56,14 @@ class TestApi: XCTestCase {
         do {
             try Breinify.activity(breinUser,
                     activityType: "login",
-                    category: "home",
-                    description: "Login-Description",
+                    "home",
+                    "Login-Description",
                     successBlock,
                     failureBlock)
         } catch {
             print("Error is: \(error)")
         }
-        
+
     }
 
     // test case how to use the activity api
@@ -88,8 +88,8 @@ class TestApi: XCTestCase {
         do {
             try Breinify.activity(breinUser,
                     activityType: "login",
-                    category: "home",
-                    description: "Login-Description",
+                    "home",
+                    "Login-Description",
                     successBlock,
                     failureBlock)
         } catch {
@@ -151,8 +151,8 @@ class TestApi: XCTestCase {
                 try Breinify.activity(breinActivity,
                         user: breinUser,
                         activityType: String.login,
-                        category: String.home,
-                        description: "Login-Description",
+                        String.home,
+                        "Login-Description",
                         successBlock,
                         failureBlock)
             }
@@ -195,8 +195,8 @@ class TestApi: XCTestCase {
             do {
                 try Breinify.activity(breinUser,
                         activityType: "login",
-                        category: "home",
-                        description: "Login-Description",
+                        "home",
+                        "Login-Description",
                         successBlock,
                         failureBlock)
             } catch {
@@ -331,7 +331,7 @@ class TestApi: XCTestCase {
         }
 
     }
-    
+
     func testTemporalDataWithAdditionalMap() {
 
         let failureBlock: apiFailure = {
@@ -355,14 +355,12 @@ class TestApi: XCTestCase {
                 print("Time is: \(time)")
             }
         }
-
-
+        
         do {
-
             // create dictionary here...
             var locationAdditionalMap = [String: AnyObject]()
             var locationValueMap = [String: AnyObject]()
-            
+
 
             let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
             let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
@@ -433,14 +431,14 @@ class TestApi: XCTestCase {
 
     func testStressRequests() {
 
-        for index in 0 ... 100 {
+        for index in 0...100 {
             print("Request: # \(index)")
             testLogin()
         }
     }
 
     func testBreinRequestManager() {
-        
+
         let jsonString = "{ dfdjdskfkjdsfjkdjsj } "
         let jsonString2 = "werewr xcvnxnnvn 898889"
 
@@ -459,7 +457,7 @@ class TestApi: XCTestCase {
 
 
     func testFreeTextToLocations() {
-        
+
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
             print("Api Failure : error is:\n \(error)")
@@ -485,14 +483,43 @@ class TestApi: XCTestCase {
 
         do {
             let temporalData = BreinTemporalData().setLocation(freeText: "The Big Apple")
-            
+
             try Breinify.temporalData(temporalData,
                     successBlock,
                     failureBlock)
         } catch {
             print("Error")
         }
-        
+
     }
-    
+
+
+    func testTag() {
+
+        let breinUser = BreinUser(email: "max@sample.com")
+        breinUser.setSessionId("966542c6-2399-11e7-93ae-92361f002671")
+
+        let breinActivity = BreinActivity()
+        breinActivity.setTag("productPrices", [134.23, 15.13, 12.99] as AnyObject)
+        breinActivity.setTag("productIds", ["125689", "982361", "157029"] as AnyObject)
+
+        // invoke activity call
+        do {
+            try Breinify.activity(breinActivity, user: breinUser, activityType: "checkOut", nil, nil,
+                    {
+                        // success block
+                        (result: BreinResult) -> Void in
+                        print("Api Success : result is:\n \(result)")
+                    },
+                    {
+                        // failure block
+                        (error: NSDictionary) -> Void in
+                        print("Api Failure : error is:\n \(error)")
+                    })
+        } catch {
+            print("Error is: \(error)")
+        }
+    }
+
+
 }
