@@ -11,6 +11,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
+
 <sup>Features: **Temporal Data**, **(Reverse) Geocoding**, **Events**, **Weather**, **Holidays**, **Analytics**</sup>
 
 
@@ -74,7 +75,7 @@ Whenever the library is used, it needs to be configured, i.e., the configuration
 
 ```swift
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-                   secret: "utakxp7sm6weo5gvk7cytw==");
+           secret: "utakxp7sm6weo5gvk7cytw==")
 ```
 
 ### Clean-Up after Usage
@@ -85,9 +86,7 @@ method is used. A typical framework may look like that:
 ```swift
 // whenever the application utilizing the library is initialized
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A",
-                   secret: "utakxp7sm6weo5gvk7cytw==");
-
-// ...
+           secret: "utakxp7sm6weo5gvk7cytw==")
 
 // whenever the application utilizing the library is destroyed/released
 Breinify.shutdown();
@@ -262,7 +261,7 @@ The entry point `didFinishLaunchingWithOptions` is used to configure the Breinif
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
   // configure the BreinifySDK and remote notification handling    
   Breinify.didFinishLaunchingWithOptions(apiKey: "938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-            secret: "utakxp7sm6weo5gvk7cytw==")
+                                         secret: "utakxp7sm6weo5gvk7cytw==")
   return true
 }
 ```
