@@ -17,16 +17,9 @@ the <code class="prettyprint">ipAddress</code>) to determine the different tempo
 >
 ```swift
 do {          
-   try Breinify.temporalData(
-      success: {
-         (result: BreinResult) -> Void in
-          print("Api Success : result is:\n \(result)")
-   }, failure: {
-         (error: NSDictionary) -> Void in
-         print("Api Failure : error is:\n \(error)")
-      })
+     try Breinify.temporalData()
    } catch {
-     print("Error")
+     print("Error is: \(error)")
 }
 ```
 
@@ -40,31 +33,12 @@ a pair of coordinates (latitude/longitude), or a specific ip-address. Have a loo
 >
 ```swift
 do {
-    let breinTemporalData = BreinTemporalData()
-    breinTemporalData.setLookUpIpAddress("204.28.127.66")
+      let breinTemporalData = BreinTemporalData()
+      breinTemporalData.setLookUpIpAddress("204.28.127.66")
 >           
-    try Breinify.temporalData(breinTemporalData,
-        success: {
-            (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
-            if let holiday = result.get("holidays") {
-                print("Holiday is: \(holiday)")
-            }
-            if let weather = result.get("weather") {
-                print("Weather is: \(weather)")
-            }
-            if let location = result.get("location") {
-                print("Location is: \(location)")
-            }
-            if let time = result.get("time") {
-                print("Time is: \(time)")
-            }
-            if let events = result.get("events") {
-                print("Events are: \(events)")
-            }
-        })
+      try Breinify.temporalData(breinTemporalData)
     } catch {
-        print("Error")
+      print("Error is: \(error)")
     }    
 ```
 

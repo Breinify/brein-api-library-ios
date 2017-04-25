@@ -8,30 +8,10 @@ data.</p>
 >
 ```swift
 do {
-   try Breinify.temporalData({
-       // success
-       (result: BreinResult) -> Void in
-       print("Api Success : result is:\n \(result)")
-
-       if let holiday = result.get("holidays") {
-          print("Holiday is: \(holiday)")
-       }
-       if let weather = result.get("weather") {
-          print("Weather is: \(weather)")
-       }
-       if let location = result.get("location") {
-          print("Location is: \(location)")
-       }
-       if let time = result.get("time") {
-          print("Time is: \(time)")
-       }
-       if let events = result.get("events") {
-          print("Events are: \(events)")
-       } })
+     try Breinify.temporalData()
    } catch {
-      print("Error")
+     print("Error is: \(error)")
    }
-
 ```
 
 <blockquote class="lang-specific ios">
@@ -42,27 +22,9 @@ one. To specify the ip-address to resolve, the library provides an overloaded ve
 >
 ```swift
 do {
-   let ip = "72.229.28.185"
-   try Breinify.temporalData(ipAddress: ip, {
-       // success
-       (result: BreinResult) -> Void in
-       print("Api Success : result is:\n \(result)")
-       if let holiday = result.get("holidays") {
-          print("Holiday is: \(holiday)")
-       }
-       if let weather = result.get("weather") {
-          print("Weather is: \(weather)")
-       }
-       if let location = result.get("location") {
-          print("Location is: \(location)")
-       }
-       if let time = result.get("time") {
-          print("Time is: \(time)")
-       }
-       if let events = result.get("events") {
-          print("Events are: \(events)")
-       } })
+     let ip = "72.229.28.185"
+     try Breinify.temporalData(ip)
    } catch {
-      print("Error")
+     print("Error is: \(error)")
    }
 ```

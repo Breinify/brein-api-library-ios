@@ -26,6 +26,6 @@ do {
            }                                   
        })
    } catch {
-       print("Error")
+       print("Error is: \(error)")
    }        
 ```
