@@ -14,7 +14,7 @@ public extension Breinify {
 
         It invokes the appropriate method from the BreinifyManager and:
         - configures the API key
-        - register the pushNotifictaions
+        - register the pushNotifications
         - initializes the background timer
         
     */
