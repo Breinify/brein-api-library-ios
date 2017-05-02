@@ -3,9 +3,9 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 import IDZSwiftCommonCrypto
+import NetUtils
 
 
 public class BreinUtil {
@@ -23,7 +23,7 @@ public class BreinUtil {
         if message == nil || secret == nil {
             throw BreinError.BreinRuntimeError("Illegal value for message or secret in method generateSignature")
         }
-       return message.digestHMac256(secret)
+        return message.digestHMac256(secret)
     }
 
     // should check if an url is valid
@@ -32,64 +32,39 @@ public class BreinUtil {
         return true;
     }
 
+    static public func containsValue(_ value: String) -> String? {
+        if value == nil {
+            return nil
+        }
 
-    /*
-    func getIFAddresses() -> [String] {
-        var addresses = [String]()
-        
-        // Get list of all interfaces on the local machine:
-        var ifaddr : UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0 else { return [] }
-        guard let firstAddr = ifaddr else { return [] }
-        
-        // For each interface ...
-        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-            let flags = Int32(ptr.pointee.ifa_flags)
-            var addr = ptr.pointee.ifa_addr.pointee
-            
-            // Check for running IPv4, IPv6 interfaces. Skip the loopback interface.
-            if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
-                if addr.sa_family == UInt8(AF_INET) || addr.sa_family == UInt8(AF_INET6) {
-                    
-                    // Convert interface address to a human readable string:
-                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                    if (getnameinfo(&addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count),
-                                    nil, socklen_t(0), NI_NUMERICHOST) == 0) {
-                        let address = String(cString: hostname)
-                        addresses.append(address)
+        if value.characters.count == 0 {
+            return nil
+        }
+
+        return value
+    }
+    
+    static public func detectIpAddress() -> String {
+
+        let interfaces = Interface.allInterfaces()
+
+        // only en0, running & up
+        for i in interfaces {
+            if i.isRunning && i.isUp {
+                if i.name.lowercased() == "en0" {
+                    if i.family.toString().lowercased() == "ipv4" {
+                        if let ip = i.address {
+                            // print("Address: \(ip)")
+                            return ip
+                        }
                     }
                 }
             }
         }
-        
-        freeifaddrs(ifaddr)
-        return addresses
-    }
-    */
-    
-    
-    
-    /*
-    
-    public func interfaceAddress(forInterfaceWithName interfaceName: String) throws -> sockaddr_in {
-        
-        guard let cString = interfaceName.cString(using: String.Encoding.ascii) else {
-            throw "Error"
-        }
-        
-        let addressPtr = UnsafeMutablePointer<sockaddr>.allocate(capacity: 1)
-        let ioctl_res = _interfaceAddressForName(strdup(cString), addressPtr)
-        let address = addressPtr.move()
-        addressPtr.deallocate(capacity: 1)
-        
-        if ioctl_res < 0 {
-            throw "Failed"
-        } else {
-            return unsafeBitCast(address, to: sockaddr_in.self)
-        }
+        return ""
     }
 
- */
+   
 }
 
 extension Formatter {
@@ -111,8 +86,9 @@ extension Formatter {
         formatter.dateFormat = "EEE MMM dd yyyy HH:mm:ss ZZZZ (zz)"
         return formatter
     }()
-    
+
 }
+
 extension Date {
     var iso8601: String {
         return Formatter.iso8601.string(from: self)
@@ -124,6 +100,6 @@ extension Date {
 
 extension String {
     var dateFromISO8601: Date? {
-        return Formatter.iso8601.date(from: self)   
+        return Formatter.iso8601.date(from: self)
     }
 }

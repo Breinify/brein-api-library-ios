@@ -95,7 +95,7 @@ Breinify.shutdown();
 
 ## Activity: Selected Usage Examples
 
-The `/activity` endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g.,  [Node.js](https://github.com/Breinify/brein-api-library-node), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [JavaScript](https://github.com/Breinify/brein-api-library-javascript-browser), [ruby](https://github.com/Breinify/brein-api-library-ruby), [php](https://github.com/Breinify/brein-api-library-php), [python](https://github.com/Breinify/brein-api-library-python)).
+The `/activity` endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g.,  [Node.js](https://github.com/Breinify/brein-api-library-node), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [JavaScript](https://github.com/Breinify/brein-api-library-javascript-browser), [Ruby](https://github.com/Breinify/brein-api-library-ruby), [PHP](https://github.com/Breinify/brein-api-library-php), [Python](https://github.com/Breinify/brein-api-library-python)).
 
 ### Sending Login 
 
@@ -192,20 +192,19 @@ whereby a structured location would be, e.g., `{ city: 'Seattle', state: 'Washin
 to pass in partial information and let the system try to resolve/complete the location, e.g., `{ city: 'New York', country: 'USA' }`.
 
 ```swift
-do {
-   let breinTemporalData = BreinTemporalData()
-           .setLocation(freeText: "The Big Apple")
-            
-   try Breinify.temporalData(breinTemporalData,
-          success: 
-          (result: BreinResult) -> Void in
-          if let location = result.get("location") {
-              print("Location is: \(location)")
-           }
-        })
-  } catch {
-       print("Error")
-  }
+	do {
+	   let breinTemporalData = BreinTemporalData()
+	           .setLocation(freeText: "The Big Apple")
+	            
+	   try Breinify.temporalData(breinTemporalData, {           
+	          (result: BreinResult) -> Void in
+	          if let location = result.get("location") {
+	              print("Location is: \(location)")
+	           }
+	        })
+	  } catch {
+	       print("Error")
+	  }
 ```
 
 This will lead to the following result:
@@ -240,7 +239,7 @@ Let's integrate Breinify's PushNotifications within an iOS App. Follow this [lin
 ### Integration
 
 
-Using Breinify Push Notifications in iOS apps is pretty straightforward. The Breinify SDK integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
+Using Breinify Push Notifications in iOS apps is straightforward. The Breinify SDK integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
 
 - didFinishLaunchingWithOptions
 - applicationDidEnterBackground

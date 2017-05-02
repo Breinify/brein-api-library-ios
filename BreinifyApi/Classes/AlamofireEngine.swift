@@ -16,10 +16,18 @@ public class AlamofireEngine: IRestEngine {
     // contains a copy of the missedRequests from BreinRequestManager
     var missedRequests: [String: JsonRequest]?
 
+    let sessionManager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 15
+
+        return SessionManager(configuration: configuration)
+    }()
+    
     /**
-     Configures the rest engine
+        Configures the rest engine
      
-     - parameter breinConfig: configuration object
+        - parameter breinConfig: configuration object
+        
      */
     public func configure(_ breinConfig: BreinConfig) {
     }
@@ -103,7 +111,8 @@ public class AlamofireEngine: IRestEngine {
             print(jsonString)
         }
 
-        Alamofire.request(url, method: .post,
+        // Alamofire.request(url, method: .post,
+        sessionManager.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -263,13 +272,15 @@ public class AlamofireEngine: IRestEngine {
         let body = try getRequestBody(breinTemporalData)
         
         do {
+            // dump(body)
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             print(jsonString)
         }
-
-        Alamofire.request(url, method: .post,
+        
+        // Alamofire.request(url, method: .post,
+        sessionManager.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {

@@ -137,8 +137,15 @@ open class BreinBase {
             }
         }
 
-        if let ipAddress = self.getIpAddress() {
+        // check if an ip has been set or if it should be detected
+        if let ipAddress = BreinUtil.containsValue(self.getIpAddress()!) {
             requestData["ipAddress"] = ipAddress as AnyObject?
+        } else {
+            // detect ip
+            let ip = BreinUtil.detectIpAddress()
+            if ip.characters.count > 0 {
+                requestData["ipAddress"] = ip as AnyObject?
+            }
         }
 
         if let bMap = self.getBaseDic() {

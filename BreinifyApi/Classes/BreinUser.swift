@@ -357,12 +357,12 @@ open class BreinUser {
         self.additionalLocation = dic
         return self
     }
-    
+
     /// returns the additionalLocationDic
     public func getAdditionalLocationDic() -> [String: AnyObject]? {
         return self.additionalLocation
     }
-    
+
     /// set an additional location entry in location dictionry
     public func setAdditionalLocationEntry(key: String, value: AnyObject) -> BreinUser {
         self.additionalLocation[key] = value
@@ -382,10 +382,9 @@ open class BreinUser {
         // print("local time zone is: \(localTimeZoneName)")
         return localTimeZoneName
     }
-    
+
     /// detect current localDateTime
     public func detectLocalDateTime() -> String! {
-        
         let stringFromDate = Date().breinifyFormat
         return stringFromDate
     }
@@ -658,7 +657,7 @@ open class BreinUser {
 
             return "Breinify"
         }()
-        
+
         return userAgent
     }
 

@@ -35,11 +35,12 @@ open class Breinify {
     /// contains the brein notification call back handling
     static var notification: BreinNotificationHandler = BreinNotificationHandler()
 
-    public static func setNotification(_ notification: BreinNotificationHandler) {
+    
+    public static func setNotificationHandler(_ notification: BreinNotificationHandler) {
         self.notification = notification
     }
 
-    public static func getNotification() -> BreinNotificationHandler? {
+    public static func getNotificationHandler() -> BreinNotificationHandler? {
         return self.notification
     }
     

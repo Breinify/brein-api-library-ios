@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 4.0.0'
   #'~> 4.3'
   s.dependency 'IDZSwiftCommonCrypto', '~> 0.9'
+  s.dependency 'NetUtils', '~> 3.0'
 end
 
