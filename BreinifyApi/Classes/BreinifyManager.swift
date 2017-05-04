@@ -213,7 +213,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Breinify.getNotificationHandler()?.willPresent(notification)
     }
     
-    //Called to let your app know which action was selected by the user for a given notification.
+    // Called to let your app know which action was selected by the user for a given notification.
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // print("didReceive called with content: \(response)")
