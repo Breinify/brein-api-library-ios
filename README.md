@@ -1,8 +1,9 @@
 
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/logo.png" alt="Breinify API iOS Library" width="250">
+  <img src="https://www.breinify.com/img/Breinify_logo.png" alt="Breinify: Leading Temporal AI Engine" width="250">
 </p>
+
 
 # Breinify's API Library
 
