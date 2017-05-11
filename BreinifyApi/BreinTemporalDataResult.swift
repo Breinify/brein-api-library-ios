@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 open class BreinTemporalDataResult : BreinResult {
 
     static let kWheatherKey = "weather"

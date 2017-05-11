@@ -6,7 +6,6 @@
 
 import Foundation
 
-
 open class BreinBase {
 
     public typealias apiSuccess = (_ result: BreinResult) -> Void

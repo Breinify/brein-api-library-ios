@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 open class BreinResult {
 
     var dic = NSDictionary()

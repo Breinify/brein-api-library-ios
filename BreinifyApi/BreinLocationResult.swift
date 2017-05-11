@@ -4,6 +4,7 @@
 
 import Foundation
 
+
 open class BreinLocationResult: BreinResult {
 
     static let kCountryKey = "country"

@@ -3,7 +3,6 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
 open class BreinTemporalData: BreinBase, ISecretStrategy {

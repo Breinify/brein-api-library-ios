@@ -5,7 +5,6 @@
 
 import Foundation
 
-
 /**
  Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request.
  It is important, that a valid API-key is configured prior to using this function.

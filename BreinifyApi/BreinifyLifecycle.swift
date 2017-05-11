@@ -3,7 +3,6 @@
 //
 // Intended to support the iOS Application Lifecycle
 
-
 import Foundation
 
 public extension Breinify {
