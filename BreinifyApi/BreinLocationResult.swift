@@ -4,50 +4,55 @@
 
 import Foundation
 
-open class BreinLocationResult {
+open class BreinLocationResult: BreinResult {
 
+    static let kCountryKey = "country"
     static let kStateKey = "state"
     static let kCityKey = "city"
     static let kGranularityKey = "granularity"
     static let kGeoJsonKey = "geojson"
-
+    static let kLocationIdentifierKey = "location"
     static let kLatKey = "lat"
     static let kLonKey = "lon"
+    static let kZipCode = "zipCode"
 
-    var country: String?
-    var state: String?
-    var city: String?
-    var granularity: String?
-    var lat: Double?
-    var lon: Double?
-    
-    //var geoJsons:[String, AnyObject]?
-    // private final Map<String, Map<String, Object>> geojsons;
+    public init(_ breinResult: BreinResult) {
+        let location = breinResult.get(BreinLocationResult.kLocationIdentifierKey)
+        print("Location is: \(location)")
+        super.init(dictResult: location as! NSDictionary)
+    }
 
-    public init() {
-
+    public init(_ locationData: NSDictionary) {
+        super.init(dictResult: locationData)
     }
 
     public func getCountry() -> String? {
-        return country
+        return self.get(BreinLocationResult.kCountryKey) as! String
     }
 
     public func getState() -> String? {
-        return state
+        return self.get(BreinLocationResult.kStateKey) as! String
     }
 
     public func getCity() -> String? {
-        return city
+        return self.get(BreinLocationResult.kCityKey) as! String
+    }
+
+    public func getGranularity() -> String? {
+        return self.get(BreinLocationResult.kGranularityKey) as! String
     }
 
     public func getLatitude() -> Double? {
-        return lat
+        return self.get(BreinLocationResult.kLatKey) as! Double
     }
 
     public func getLongitude() -> Double? {
-        return lon
+        return self.get(BreinLocationResult.kLonKey) as! Double
     }
-    
+
+    public func getZipCode() -> String? {
+        return self.get(BreinLocationResult.kZipCode) as! String
+    }
 
 }
 

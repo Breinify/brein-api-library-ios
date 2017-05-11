@@ -134,7 +134,7 @@ public class AlamofireEngine: IRestEngine {
                     if status == 200 {
 
                         let jsonDic: NSDictionary = ["success": 200]
-                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
 
                     } else {
@@ -198,7 +198,7 @@ public class AlamofireEngine: IRestEngine {
                         let jsonDic = response.result.value as! NSDictionary
                         // dump(jsonDic)
 
-                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
                     } else {
                         /*
@@ -242,7 +242,7 @@ public class AlamofireEngine: IRestEngine {
                     let status = response.response?.statusCode
                     if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
-                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
 
                     } else {
@@ -295,7 +295,7 @@ public class AlamofireEngine: IRestEngine {
                     let status = response.response?.statusCode
                     if status == 200 {
                         let jsonDic = response.result.value as! NSDictionary
-                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
 
                     } else {
@@ -331,7 +331,7 @@ public class AlamofireEngine: IRestEngine {
                         let jsonDic = response.result.value as! NSDictionary
                         // dump(jsonDic)
 
-                        let breinResult = BreinResult(dictResponse: jsonDic)
+                        let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
                     } else {
                         /*
