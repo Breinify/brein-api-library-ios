@@ -19,7 +19,7 @@ open class BreinLocationResult: BreinResult {
 
     public init(_ breinResult: BreinResult) {
         let location = breinResult.get(BreinLocationResult.kLocationIdentifierKey)
-        print("Location is: \(location)")
+        // print("Location is: \(location)")
         super.init(dictResult: location as! NSDictionary)
     }
 
@@ -44,11 +44,13 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getLatitude() -> Double? {
-        return self.get(BreinLocationResult.kLatKey) as! Double
+        let value = self.get(BreinLocationResult.kLatKey)
+        return BreinUtil.getDoubleValue(value)
     }
 
     public func getLongitude() -> Double? {
-        return self.get(BreinLocationResult.kLonKey) as! Double
+        let value = self.get(BreinLocationResult.kLonKey) 
+        return BreinUtil.getDoubleValue(value)
     }
 
     public func getZipCode() -> String? {
