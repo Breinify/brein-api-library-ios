@@ -100,6 +100,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         if self.userEmail != nil {
             Breinify.getBreinUser().setEmail(self.userEmail)
         }
+
+        if self.getUserId() != nil {
+            Breinify.getBreinUser().setUserId(self.getUserId())
+        }
         
         // callback in case of success
         let successBlock: apiSuccess = {
