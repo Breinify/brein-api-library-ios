@@ -14,7 +14,7 @@ open class BreinTimeResult : BreinResult {
     static let kLocalSecond = "localSecond"
     static let kLocalDayName = "localDayName"
     static let kLocalDay = "localDay"
-    static let kLocalFormatIso8601 = "localFormatiso8601"
+    static let kLocalFormatIso8601 = "localFormatIso8601"
     static let kEpochMonth = "epochMonth"
     static let kEpochHour = "epochHour"
     static let kEpochDay = "epochDay"
@@ -23,7 +23,7 @@ open class BreinTimeResult : BreinResult {
     static let kEpochDayName = "epochDayName"
     static let kEpoch = "epoch"
     static let kEpochSecond = "epochSecond"
-    static let kEpochFormatIso8601 = "epochFormatiso8601"
+    static let kEpochFormatIso8601 = "epochFormatIso8601"
     static let kTimezone = "timezone"
     
     public init(_ breinResult: BreinResult) {
@@ -56,8 +56,8 @@ open class BreinTimeResult : BreinResult {
         return self.get(BreinTimeResult.kLocalDayName) as! String?
     }
 
-    public func getLocalDay() -> String? {
-        return self.get(BreinTimeResult.kLocalDay) as! String?
+    public func getLocalDay() -> Int? {
+        return self.get(BreinTimeResult.kLocalDay) as! Int?
     }
 
     public func getLocalFormatIso8601() -> String? {
@@ -88,8 +88,8 @@ open class BreinTimeResult : BreinResult {
         return self.get(BreinTimeResult.kEpochDayName) as! String?
     }
 
-    public func getEpochDay() -> String? {
-        return self.get(BreinTimeResult.kEpochDay) as! String?
+    public func getEpochDay() -> Int? {
+        return self.get(BreinTimeResult.kEpochDay) as! Int?
     }
 
     public func getEpochFormatIso8601() -> String? {
