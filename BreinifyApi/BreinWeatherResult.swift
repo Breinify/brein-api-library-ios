@@ -51,7 +51,6 @@ open class BreinWeatherResult: BreinResult {
         if let celsius = self.getTemperatureCelsius() {
             return celsius + 273.15
         }
-        }
         return 0
     }
 
