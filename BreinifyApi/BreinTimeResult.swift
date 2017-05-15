@@ -31,6 +31,7 @@ open class BreinTimeResult : BreinResult {
         print("TimeDic is: \(timeDic)")
         super.init(dictResult: timeDic as! NSDictionary)
     }
+
     
     public func getLocalMinute() -> Int? {
         return self.get(BreinTimeResult.kLocalMinute) as! Int?
