@@ -65,7 +65,7 @@ public class BreinUtil {
     }
 
 
-    static public func getDoubleValue(_ value: Any) -> Double? {
+    static public func getDoubleValue(_ value: AnyObject?) -> Double? {
         
         if let doubleValue = value as? Double {
             return doubleValue
