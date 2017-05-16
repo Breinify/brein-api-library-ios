@@ -148,12 +148,10 @@ by calling the `/temporaldata` endpoint utilizing the `Breinify.temporalData(...
 
 ```swift
 do {   
-   try Breinify.temporalData(success: {
+   try Breinify.temporalData({
       // success
       (result: BreinResult) -> Void in
                 
-      print("Api Success : result is:\n \(result)")
-
       if let holiday = result.get("holidays") {
          print("Holiday is: \(holiday)")
       }
@@ -195,9 +193,14 @@ to pass in partial information and let the system try to resolve/complete the lo
 	            
 	   try Breinify.temporalData(breinTemporalData, {           
 	          (result: BreinResult) -> Void in
-	          if let location = result.get("location") {
-	              print("Location is: \(location)")
-	           }
+	        
+             let breinLocationResult = BreinLocationResult(result)
+             print("Latitude is: \(breinLocationResult.getLatitude())")
+             print("Longitude is: \(breinLocationResult.getLongitude())")
+             print("Country is: \(breinLocationResult.getCountry())")
+             print("State is: \(breinLocationResult.getState())")
+             print("City is: \(breinLocationResult.getCity())")
+             print("Granularity is: \(breinLocationResult.getGranularity())")
 	        })
 	  } catch {
 	       print("Error")
@@ -207,25 +210,61 @@ to pass in partial information and let the system try to resolve/complete the lo
 This will lead to the following result:
 
 ```
-Location is: {
-    city = "New York";
-    country = US;
-    granularity = city;
-    lat = "40.7614927583";
-    lon = "-73.9814311179";
-    state = NY;
-}
+Latitude is: 40.7614927583
+Longitude is: -73.9814311179
+Country is: US
+State is: NY
+City is: New York
 ```
+
+Or shown as an Apple Map result:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-ios/master/Documentation/img/geomap.png" alt="Sample Map of the results from the geocoding requests." width="400"><br/>
+  <sup>Map output by utilizing the result of reverse geocoding requests.</sup>
+</p>
+
+
+
 
 ### Reverse Geocoding (retrieve GeoJsons for, e.g., Cities, Neighborhoods, or Zip-Codes)
 
 The library also offers the feature of reverse geocoding. Having a specific geo-location and resolving the coordinates
 to a specific city or neighborhood (i.e., names of neighborhood, city, state, country, and optionally GeoJson shapes). 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-java/master/documentation/img/sample-reverse-geocoding.png" alt="Sample results of reverse geocoding requests." width="400"><br/>
-  <sup>Formatted output utilizing the result of reverse geocoding requests.</sup>
-</p>
+A possible request if you're interesed in events might look like this:
+
+```swift
+do {
+   let breinTemporalData = BreinTemporalData()
+         .setLatitude(37.7609295)
+         .setLongitude(-122.4194155)
+         .addShapeTypes(["CITY"]) 
+  
+   try Breinify.temporalData(breinTemporalData, {
+      (result: BreinResult) -> Void in
+      print("Api Success : result is:\n \(result)")
+
+     // Events
+     let breinEventResult = BreinEventResult(result)
+     breinEventResult.getEventList().forEach { (entry) in
+
+     let eventResult = BreinEventResult(entry)
+     print("Starttime is: \(eventResult.getStartTime())")
+     print("Endtime is: \(eventResult.getEndTime())")
+     print("Name is: \(eventResult.getName())")
+     print("Size is: \(eventResult.getSize())")
+
+     let breinLocationResult = eventResult.getLocationResult()
+     print("Latitude is: \(breinLocationResult.getLatitude())")
+     print("Longitude is: \(breinLocationResult.getLongitude())")
+     print("Country is: \(breinLocationResult.getCountry())")
+     print("State is: \(breinLocationResult.getState())")
+     print("City is: \(breinLocationResult.getCity())")
+     print("Granularity is: \(breinLocationResult.getGranularity())")
+     }
+   } 
+```
 
 
 ## PushNotifications: Selected Usage Example

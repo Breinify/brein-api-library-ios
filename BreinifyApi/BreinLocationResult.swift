@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 open class BreinLocationResult: BreinResult {
 
     static let kCountryKey = "country"
@@ -18,9 +17,11 @@ open class BreinLocationResult: BreinResult {
     static let kZipCode = "zipCode"
 
     public init(_ breinResult: BreinResult) {
-        let location = breinResult.get(BreinLocationResult.kLocationIdentifierKey)
-        // print("Location is: \(location)")
-        super.init(dictResult: location as! NSDictionary)
+        if let location = breinResult.get(BreinLocationResult.kLocationIdentifierKey) {
+            super.init(dictResult: location as! NSDictionary)
+        } else {
+            super.init(dictResult: NSDictionary())
+        }
     }
 
     public init(_ locationData: NSDictionary) {
@@ -28,19 +29,19 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getCountry() -> String? {
-        return self.get(BreinLocationResult.kCountryKey) as! String
+        return self.get(BreinLocationResult.kCountryKey) as? String
     }
 
     public func getState() -> String? {
-        return self.get(BreinLocationResult.kStateKey) as! String
+        return self.get(BreinLocationResult.kStateKey) as? String
     }
 
     public func getCity() -> String? {
-        return self.get(BreinLocationResult.kCityKey) as! String
+        return self.get(BreinLocationResult.kCityKey) as? String
     }
 
     public func getGranularity() -> String? {
-        return self.get(BreinLocationResult.kGranularityKey) as! String
+        return self.get(BreinLocationResult.kGranularityKey) as? String
     }
 
     public func getLatitude() -> Double? {
@@ -49,12 +50,12 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getLongitude() -> Double? {
-        let value = self.get(BreinLocationResult.kLonKey) 
+        let value = self.get(BreinLocationResult.kLonKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getZipCode() -> String? {
-        return self.get(BreinLocationResult.kZipCode) as! String
+        return self.get(BreinLocationResult.kZipCode) as? String
     }
 
 }

@@ -65,7 +65,7 @@ public class BreinUtil {
     }
 
 
-    static public func getDoubleValue(_ value: Any) -> Double {
+    static public func getDoubleValue(_ value: Any) -> Double? {
         
         if let doubleValue = value as? Double {
             return doubleValue
@@ -73,11 +73,11 @@ public class BreinUtil {
 
         if let stringValue = value as? String {
             // convert to Double
-            let convertedDoubleValue = Double(stringValue ?? "") ?? 0.0
+            let convertedDoubleValue = Double(stringValue) ?? 0.0
             return convertedDoubleValue
         }
 
-        return 0.0
+        return nil
     }
    
 }

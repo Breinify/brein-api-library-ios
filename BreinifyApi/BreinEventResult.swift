@@ -2,7 +2,6 @@
 // Created by Marco on 28.04.17.
 //
 
-
 import Foundation
 
 open class BreinEventResult: BreinTemporalDataResult {
@@ -15,9 +14,11 @@ open class BreinEventResult: BreinTemporalDataResult {
 
     public init(_ breinResult: BreinResult) {
 
-        let eventList = breinResult.get(BreinTemporalDataResult.kEventListKey) as! [NSDictionary]
-        // print("Events are: \(eventList)")
-        super.init(eventList)
+        if let eventList = breinResult.get(BreinTemporalDataResult.kEventListKey) {      
+            super.init(eventList as! [NSDictionary])
+        } else {
+            super.init([NSDictionary]())
+        }
     }
 
     public init(_ eventDic: NSDictionary) {

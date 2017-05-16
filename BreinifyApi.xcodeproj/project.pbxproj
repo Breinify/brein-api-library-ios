@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		08D34D172D6AC6C732CD50CB /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5398B33439DC8CC031D8AA0F /* Pods_BreinifyApiTests.framework */; };
+		62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
 		62DD2146C62B9355533DD290 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
 		62DD2441F562F5128AE948E7 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
 		62DD2637829DB28147CEB1AB /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
+		62DD28365B55B7DD50A377DA /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
 		62DD2E6F6B06F5FC25CA07D9 /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
 		801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */; };
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
@@ -76,6 +78,7 @@
 		5398B33439DC8CC031D8AA0F /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTimeResult.swift; sourceTree = "<group>"; };
 		62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalDataResult.swift; sourceTree = "<group>"; };
+		62DD2FC943DD9E0125DBCA2B /* geomap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geomap.png; sourceTree = "<group>"; };
 		6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.release.xcconfig"; sourceTree = "<group>"; };
 		A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,6 +309,7 @@
 				A93945CB1EBCAE56003440C0 /* notification.png */,
 				A93945CC1EBCAE56003440C0 /* richttextnotification.png */,
 				A93945CD1EBCAE56003440C0 /* Xcode_enable.png */,
+				62DD2FC943DD9E0125DBCA2B /* geomap.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -440,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DD28365B55B7DD50A377DA /* geomap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
