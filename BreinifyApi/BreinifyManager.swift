@@ -16,7 +16,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     
     /// configuration part
     var userEmail: String?
-    var userId: String?
+    var user_Id: String?
     
     // contains the sessionId of the app
     var appSessionId: String?
@@ -63,9 +63,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func getUserEmail() -> String? {
         return self.userEmail
     }
-    
+
+    public func setUserId(_ userId: String) {
+        self.user_Id = userId
+    }
+
     public func getUserId() -> String? {
-        return self.userId
+        return self.user_Id
     }
     
     /// setup configuration
@@ -158,14 +162,14 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         if let uuid = defaults.string(forKey: "Breinify.userId") {
-            self.userId = uuid
+            self.user_Id = uuid
         } else {
             // generate unique user id
-            self.userId = UUID().uuidString
+            self.user_Id = UUID().uuidString
         }
         
         // set unique user id
-        Breinify.getBreinUser().setUserId(self.userId)
+        Breinify.getBreinUser().setUserId(self.user_Id)
     }
     
     public func saveUserDefaults() {

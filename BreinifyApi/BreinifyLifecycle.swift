@@ -83,5 +83,17 @@ public extension Breinify {
         BreinifyManager.sharedInstance.applicationDidBecomeActive()
         
     }
+
+    public class func setUserId(_ userId: String) {
+
+        BreinifyManager.sharedInstance.setUserId(userId)
+        
+    }
+
+    public class func setEmail(_ email: String) {
+
+        BreinifyManager.sharedInstance.setEmail(email)
+        
+    }
     
 }
