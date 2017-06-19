@@ -43,7 +43,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         return instance
     }()
     
-    // Can't init is singleton
+    // Can't init the singleton
     override
     private init() {
     }
@@ -176,7 +176,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         
         let defaults = UserDefaults.standard
         defaults.setValue(getUserEmail(), forKey: "Breinify.userEmail")
-        
+
         defaults.setValue(getUserId(), forKey: "Breinify.userId")
         defaults.synchronize()
     }
