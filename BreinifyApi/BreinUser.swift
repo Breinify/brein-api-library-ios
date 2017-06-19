@@ -391,39 +391,35 @@ open class BreinUser {
     /// prepares user related map for json request
     public func prepareUserRequest(_ userData: inout [String: AnyObject], breinConfig: BreinConfig!) {
 
-        if let dateOfBirth = self.getDateOfBirth() {
+        if let dateOfBirth = BreinUtil.containsValue(self.getDateOfBirth()) {
             userData["dateOfBirth"] = dateOfBirth as AnyObject?
         }
 
-        if let imei = self.getImei() {
+        if let imei = BreinUtil.containsValue(self.getImei()) {
             userData["imei"] = imei as AnyObject?
         }
 
-        if let deviceId = self.getDeviceId() {
+        if let deviceId = BreinUtil.containsValue(self.getDeviceId()) {
             userData["deviceId"] = deviceId as AnyObject?
         }
 
-        if let email = self.getEmail() {
+        if let email = BreinUtil.containsValue(self.getEmail()) {
             userData["email"] = email as AnyObject?
         }
 
-        if let session = self.getSessionId() {
+        if let session = BreinUtil.containsValue(self.getSessionId()) {
             userData["sessionId"] = session as AnyObject?
         }
 
-        if self.getUserId() == nil {
-            self.setUserId(UUID().uuidString)
-        }
-
-        if let userid = self.getUserId() {
+        if let userid = BreinUtil.containsValue(self.getUserId()) {
             userData["userId"] = userid as AnyObject?
         }
 
-        if let firstName = self.getFirstName() {
+        if let firstName = BreinUtil.containsValue(self.getFirstName()) {
             userData["firstName"] = firstName as AnyObject?
         }
 
-        if let user = self.getLastName() {
+        if let user = BreinUtil.containsValue(self.getLastName()) {
             userData["lastName"] = user as AnyObject?
         }
 
