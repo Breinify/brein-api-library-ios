@@ -148,9 +148,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    public func sendIndentityInfo() {
-        // print("sendIndentityInfo called")
-        sendActivity("identity", additionalContent: [:])
+    public func sendIndentifyInfo() {
+        // print("sendIndentifyInfo called")
+        sendActivity("identify", additionalContent: [:])
     }
 
     /**
@@ -337,7 +337,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Breinify.getBreinUser().setDeviceToken(self.deviceToken)
 
         // 3. send identify to the engine
-        sendIndentityInfo()
+        sendIndentifyInfo()
 
         return self.deviceToken
     }
