@@ -79,7 +79,22 @@ public class BreinUtil {
 
         return nil
     }
-   
+
+    static public func executionTimeInterval(block: () -> ()) -> CFTimeInterval {
+        let start = CACurrentMediaTime()
+        block();
+        let end = CACurrentMediaTime()
+        return end - start
+    }
+
+    static public func currentTime() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        return "\(hour):\(minutes)"
+    }
+
 }
 
 extension Formatter {
