@@ -11,7 +11,7 @@ open class Breinify {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "1.2.4"
+    static let version: String! = "1.4.4"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -34,7 +34,6 @@ open class Breinify {
     /// contains the brein notification call back handling
     static var notification: BreinNotificationHandler = BreinNotificationHandler()
 
-    
     public static func setNotificationHandler(_ notification: BreinNotificationHandler) {
         self.notification = notification
     }
@@ -206,13 +205,7 @@ open class Breinify {
         // firstly check if user is valid
         
         let user = self.getBreinUser()
-
-        /*
-        if user == nil {
-            throw BreinError.BreinRuntimeError("User not set.")
-        }
-        */
-
+        
         try activity(getBreinActivity(),
                 user: user,
                 activityType: activityType,
