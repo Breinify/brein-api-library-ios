@@ -39,13 +39,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         // configure session
         instance.configureSession()
-
-        // set a breinUser to work on
-        // Breinify.setBreinUser(BreinUser())
-
+        
         return instance
     }()
-
+    
     // Can't init the singleton
     override
     private init() {
@@ -116,12 +113,14 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             // print("Api Success : result is:\n \(result!)")
+            BreinLogger.debug("sendActivity success")
         }
 
         // callback in case of a failure
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             // print("Api Failure: error is:\n \(error)")
+            BreinLogger.debug("sendActivity failure with error: \(error)")
         }
 
         if !additionalContent.isEmpty {
@@ -139,7 +138,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error is: \(error)")
+            BreinLogger.debug("Error is: \(error)")
         }
 
         if !additionalContent.isEmpty {
@@ -149,7 +148,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func sendIndentifyInfo() {
-        // print("sendIndentifyInfo called")
+        BreinLogger.debug("sendIndentifyInfo called")
         sendActivity("identify", additionalContent: [:])
     }
 
@@ -162,7 +161,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     */
     public func sendLocationInfo() {
-        // print("sendLocationInfo called")
+        BreinLogger.debug("sendLocation called at \(BreinUtil.currentTime())")
 
         if hasPermissionToSendLocationUpdates == true {
             sendActivity("sendLoc", additionalContent: [:])
@@ -170,6 +169,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func readAndInitUserDefaults() {
+        BreinLogger.debug("readAndInitUserDefaults called")
+
         let defaults = UserDefaults.standard
         if let email = defaults.string(forKey: "Breinify.userEmail") {
             self.userEmail = email
@@ -184,33 +185,32 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func saveUserDefaults() {
+        BreinLogger.debug("readAndInitUserDefaults called")
 
         let defaults = UserDefaults.standard
         defaults.setValue(getUserEmail(), forKey: "Breinify.userEmail")
-
         defaults.setValue(getUserId(), forKey: "Breinify.userId")
         defaults.synchronize()
     }
 
-
     // Background Task Handling
     func reinstateBackgroundTask() {
-        // print("reinstateBackgroundTask called")
+        BreinLogger.debug("reinstateBackgroundTask called")
         if updateTimer != nil && (backgroundTask == UIBackgroundTaskInvalid) {
             registerBackgroundTask()
         }
     }
 
     func registerBackgroundTask() {
-        // print("registerBackgroundTask called")
+        BreinLogger.debug("registerBackgroundTask called")
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
         }
-        assert(backgroundTask != UIBackgroundTaskInvalid)
+        // assert(backgroundTask != UIBackgroundTaskInvalid)
     }
 
     func endBackgroundTask() {
-        // print("Background task ended.")
+        BreinLogger.debug("endBackgroundTask called")
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = UIBackgroundTaskInvalid
     }
@@ -273,26 +273,34 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // is displayed to the user
     public func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double?) {
 
-        // configure the API key
-        self.configure(apiKey: apiKey, secret: secret)
+        let time = BreinUtil.executionTimeInterval {
 
-        // register PushNotifications
-        self.registerPushNotifications()
+            // configure the API key
+            self.configure(apiKey: apiKey, secret: secret)
 
-        // init background Timer take parameter if set, otherwise default
-        let interval = backgroundInterval ?? BreinifyManager.sharedInstance.kBackGroundTimeInterval
+            // register PushNotifications
+            self.registerPushNotifications()
 
-        updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
-                selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
+            // init background Timer take parameter if set, otherwise default
+            let interval = backgroundInterval ?? BreinifyManager.sharedInstance.kBackGroundTimeInterval
 
-        // check if unsent message are there
-        BreinRequestManager.sharedInstance.loadMissedRequests()
+            updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
+                    selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
+
+            // check if unsent message are there
+            BreinRequestManager.sharedInstance.loadMissedRequests()
+        }
+
+        BreinLogger.debug("Time in didFinishLaunchingWithOptions was " + String(time))
     }
 
     // This method should be invoked from the Application Delegate method
     //      applicationDidEnterBackground
     // It ensures that background processing is invoked
     public func applicationDidEnterBackground() {
+
+        BreinLogger.debug("applicationDidEnterBackground called")
+
         // additional stuff
         NotificationCenter.default.removeObserver(self)
 
@@ -307,6 +315,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // 
     public func applicationDidBecomeActive() {
 
+        BreinLogger.debug("applicationDidBecomeActive called")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask),
                 name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
 
@@ -319,6 +329,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //
     public func applicationWillTerminate() {
 
+        BreinLogger.debug("applicationWillTerminate called")
+
         // shutdown the engine
         Breinify.shutdown()
 
@@ -329,6 +341,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // This method should be invoked from the Application Delegate method
     //      didRegisterForRemoteNotificationsWithDeviceToken
     public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) -> String! {
+
+        BreinLogger.debug("didRegisterForRemoteNotificationsWithDeviceToken called")
 
         // 1. read deviceToken
         self.deviceToken = retrieveDeviceToken(deviceToken)
@@ -347,7 +361,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // 
     public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any]) {
 
-        print("BreinifyManager - received notification is: \(notification)")
+        BreinLogger.debug("didReceiveRemoteNotification called with notification: \(notification)")
+
+        // print("BreinifyManager - received notification is: \(notification)")
 
         let notDic = notification["aps"] as! [String: AnyObject]
         self.sendActivity("receivedPushNotification", additionalContent: notDic)
