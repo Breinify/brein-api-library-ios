@@ -11,6 +11,15 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     typealias apiSuccess = (_ result: BreinResult?) -> Void
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
+    /// some constants
+    static let kActivityTypeIdentify = "identify"
+    static let kActivityTypeSendLocation = "sendLoc"
+    static let kNotificationLabel = "notification"
+
+    static let kUserDefaultUserEmail = "Breinify.userEmail"
+    static let kUserDefaultUserId = "Breinify.userId"
+
+    /// background handling
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
 
@@ -24,7 +33,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// contains the deviceToken
     var deviceToken: String = ""
 
-    /// interval in seconds
+    /// interval in seconds with default of 60 seconds
     let kBackGroundTimeInterval = 60.0
 
     /// permission to send locationUpdate
@@ -39,10 +48,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         // configure session
         instance.configureSession()
-        
+
         return instance
     }()
-    
+
     // Can't init the singleton
     override
     private init() {
@@ -126,7 +135,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         if !additionalContent.isEmpty {
             // add additional content
             // print("Additional Content is: \(additionalContent)")
-            Breinify.getBreinUser().setAdditional("notification", map: additionalContent)
+            Breinify.getBreinUser().setAdditional(BreinifyManager.kNotificationLabel, map: additionalContent)
         }
 
         // invoke activity call
@@ -149,7 +158,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     public func sendIndentifyInfo() {
         BreinLogger.debug("sendIndentifyInfo called")
-        sendActivity("identify", additionalContent: [:])
+        sendActivity(BreinifyManager.kActivityTypeIdentify, additionalContent: [:])
     }
 
     /**
@@ -164,19 +173,22 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.debug("sendLocation called at \(BreinUtil.currentTime())")
 
         if hasPermissionToSendLocationUpdates == true {
-            sendActivity("sendLoc", additionalContent: [:])
+            sendActivity(BreinifyManager.kActivityTypeSendLocation, additionalContent: [:])
         }
     }
 
+    /**
+        Reads the user defaults
+    */
     public func readAndInitUserDefaults() {
         BreinLogger.debug("readAndInitUserDefaults called")
 
         let defaults = UserDefaults.standard
-        if let email = defaults.string(forKey: "Breinify.userEmail") {
+        if let email = defaults.string(forKey: BreinifyManager.kUserDefaultUserEmail) {
             self.userEmail = email
         }
 
-        if let uuid = defaults.string(forKey: "Breinify.userId") {
+        if let uuid = defaults.string(forKey: BreinifyManager.kUserDefaultUserId) {
             self.user_Id = uuid
         }
 
@@ -184,13 +196,20 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Breinify.getBreinUser().setUserId(self.user_Id)
     }
 
+    /**
+
+        Saves the user defaults and sends an identify activity to the engine
+    */
     public func saveUserDefaults() {
         BreinLogger.debug("readAndInitUserDefaults called")
 
         let defaults = UserDefaults.standard
-        defaults.setValue(getUserEmail(), forKey: "Breinify.userEmail")
-        defaults.setValue(getUserId(), forKey: "Breinify.userId")
+        defaults.setValue(getUserEmail(), forKey: BreinifyManager.kUserDefaultUserEmail)
+        defaults.setValue(getUserId(), forKey: BreinifyManager.kUserDefaultUserId)
         defaults.synchronize()
+
+        // send a new identify => credentials might have changed
+        sendIndentifyInfo()
     }
 
     // Background Task Handling
@@ -316,7 +335,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func applicationDidBecomeActive() {
 
         BreinLogger.debug("applicationDidBecomeActive called")
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask),
                 name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
 

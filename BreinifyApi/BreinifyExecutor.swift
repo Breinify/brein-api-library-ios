@@ -26,7 +26,11 @@ open class BreinifyExecutor {
         return config
     }
 
-    // Todo: Comment missing
+    /**
+
+      Invokes an activity request
+
+    */
     public func activity(_ user: BreinUser!,
                   activityType: String!,
                   category: String!,
@@ -43,7 +47,11 @@ open class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    // Todo: Comment missing
+    /**
+
+      Invokes an activity request
+
+    */
     public func activity(_ breinActivity: BreinActivity!,
                   user: BreinUser!,
                   activityType: String!,
@@ -65,7 +73,11 @@ open class BreinifyExecutor {
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
-    // Todo: Comment missing
+    /**
+
+      Invokes a lookup request
+
+    */
     public func lookup(_ user: BreinUser!,
                 dimension: BreinDimension!,
                 success successBlock: @escaping BreinEngine.apiSuccess,
@@ -78,7 +90,11 @@ open class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    // Todo: Comment missing
+    /**
+
+       Invokes a lookup request
+
+     */
     public func lookup(_ breinLookup: BreinLookup!,
                 user: BreinUser!,
                 dimension: BreinDimension!,

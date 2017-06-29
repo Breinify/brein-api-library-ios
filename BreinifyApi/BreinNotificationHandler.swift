@@ -72,9 +72,7 @@ open class BreinNotificationHandler {
             }
         }
 
-
-        // Todo: extract the message
-        let refreshAlert = UIAlertController(title: "Breinify Notification",
+       let refreshAlert = UIAlertController(title: "Breinify Notification",
                 message: message,
                 preferredStyle: UIAlertControllerStyle.alert)
 

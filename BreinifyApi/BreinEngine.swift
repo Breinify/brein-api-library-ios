@@ -80,8 +80,7 @@ public class BreinEngine {
                                 success: successBlock,
                                 failure: failureBlock)
                     } catch {
-                        // TODO throw error
-                        print("\(error)")
+                        BreinLogger.debug("\(error)")
                     }
                 }
             }

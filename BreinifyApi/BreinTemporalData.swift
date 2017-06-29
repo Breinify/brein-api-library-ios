@@ -172,8 +172,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         do {
             signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
-            // TODO: throw error ?
-            print("Ups: Error while trying to generate signature")
+            BreinLogger.debug("Ups: Error while trying to generate signature")
         }
 
         return signature
