@@ -190,6 +190,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         if let uuid = defaults.string(forKey: BreinifyManager.kUserDefaultUserId) {
             self.user_Id = uuid
+        } else {
+            // not set yet generate an UUID
+            self.user_Id = UUID().uuidString
         }
 
         // set unique user id
