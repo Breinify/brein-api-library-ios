@@ -32,6 +32,9 @@ open class BreinUser {
     /// user sessionId
     var sessionId: String!
 
+    /// phone 
+    var phone: String?
+
     /// an ID (e.g. UUID) used to identify the user
     /// this is the case for instance if the email is not set
     var userId: String!
@@ -209,6 +212,18 @@ open class BreinUser {
         return self
     }
 
+    /// returns phone
+    public func getPhone() -> String! {
+        return self.phone
+    }
+
+    /// sets phone
+    @discardableResult
+    public func setPhone(_ phone: String!) -> BreinUser! {
+        self.phone = phone
+        return self
+    }
+    
     /// sets userAgent
     @discardableResult
     public func setUserAgent(_ userAgent: String!) -> BreinUser! {
@@ -413,6 +428,10 @@ open class BreinUser {
 
         if let userid = BreinUtil.containsValue(self.getUserId()) {
             userData["userId"] = userid as AnyObject?
+        }
+
+        if let phone = BreinUtil.containsValue(self.getPhone()) {
+            userData["phone"] = phone as AnyObject?
         }
 
         if let firstName = BreinUtil.containsValue(self.getFirstName()) {
