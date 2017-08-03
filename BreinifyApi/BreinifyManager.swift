@@ -43,11 +43,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public static let sharedInstance: BreinifyManager = {
         let instance = BreinifyManager()
 
+        initialize()
+
         /// read user data
-        instance.readAndInitUserDefaults()
+        // instance.readAndInitUserDefaults()
 
         // configure session
-        instance.configureSession()
+        // instance.configureSession()
 
         return instance
     }()
@@ -84,11 +86,14 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// setup configuration
     private func initialize() {
 
-        /// read userdata
+        // read saved user data
         readAndInitUserDefaults()
 
         // configure session
         configureSession()
+
+        // invoke ipAddress detection to be prepared for the next call
+        _ = BreinIpInfo.sharedInstance
     }
 
     public func configure(apiKey: String, secret: String) {

@@ -11,7 +11,7 @@ open class BreinLogger {
     }
 
     public static func debug(_ message: String?) {
-         print(message);
+         print(message ?? "empty");
     }
 
 }

@@ -134,7 +134,7 @@ open class BreinBase {
             }
         }
 
-        // check if an ip has been set or if it should be detected
+        // check if an ip address has been set or if it should be detected
         if let ipAddress = BreinUtil.containsValue(self.getIpAddress()!) {
             requestData["ipAddress"] = ipAddress as AnyObject?
         } else {

@@ -45,12 +45,15 @@ public class BreinUtil {
     }
     
     static public func detectIpAddress() -> String {
-
-        let interfaces = Interface.allInterfaces()
-
+        return BreinIpInfo.sharedInstance.getExternalIp()!
+       
         // only en0, running & up
-        for i in interfaces {
+        /* this will only provide the local Ip
+         let interfaces = Interface.allInterfaces()
+         
+         for i in interfaces {
             if i.isRunning && i.isUp {
+                print("Adr is: \(i.address)")
                 if i.name.lowercased() == "en0" {
                     if i.family.toString().lowercased() == "ipv4" {
                         if let ip = i.address {
@@ -62,6 +65,7 @@ public class BreinUtil {
             }
         }
         return ""
+        */
     }
 
 
