@@ -15,7 +15,7 @@ the <code class="prettyprint">ipAddress</code>) to determine the different tempo
 </blockquote>
 
 >
-```swift
+```ios
 do {          
      try Breinify.temporalData()
    } catch {
@@ -31,7 +31,7 @@ a pair of coordinates (latitude/longitude), or a specific ip-address. Have a loo
 </blockquote>
 
 >
-```swift
+```ios
 do {
       let breinTemporalData = BreinTemporalData()
       breinTemporalData.setLookUpIpAddress("204.28.127.66")
