@@ -11,7 +11,7 @@ the different threads, otherwise it is impossible to foresee, which configuratio
 </blockquote>
 
 >
-```swift
+```ios
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
                    secret: "utakxp7sm6weo5gvk7cytw==")
 /*
