@@ -1,5 +1,5 @@
 >
-```swift
+```ios
 let breinUser = BreinUser(email: "max@sample.com")
    .setSessionId("966542c6-2399-11e7-93ae-92361f002671")
 >        
