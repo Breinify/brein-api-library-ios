@@ -5,7 +5,7 @@ on GitHub. The library is compatible with <b>Swift 3</b>.</p>
 </blockquote>
 
 >
-```swift
+```ios
 /*
  * I'm an example snippet of the iOS library. The following
  * documentation should help you to get started with the library.
