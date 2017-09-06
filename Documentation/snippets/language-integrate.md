@@ -4,7 +4,7 @@ You can add it as a typical pod dependency like this:</p>
 </blockquote>
 
 >
-```swift
+```ios
 target 'MyApp' do
   pod 'BreinifyApi'
 end
