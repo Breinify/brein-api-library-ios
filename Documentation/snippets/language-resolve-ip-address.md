@@ -6,7 +6,7 @@ data.</p>
 </blockquote>
 
 >
-```swift
+```ios
 do {
      try Breinify.temporalData()
    } catch {
@@ -20,7 +20,7 @@ one. To specify the ip-address to resolve, the library provides an overloaded ve
 </blockquote>
 
 >
-```swift
+```ios
 do {
      let ip = "72.229.28.185"
      try Breinify.temporalData(ip)
