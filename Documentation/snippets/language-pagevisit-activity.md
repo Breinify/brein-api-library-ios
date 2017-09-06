@@ -5,7 +5,7 @@ that the activity happened, but the returned information is ignored. Thus, the i
 </blockquote>
 
 >
-```swift
+```ios
 // create a user of interest
 let breinUser = BreinUser(email: "max@sample.com")
 breinUser.setSessionId("966542c6-2399-11e7-93ae-92361f002671")
@@ -24,7 +24,7 @@ returned value. The returned value can be read by utilizing a callback function,
 </blockquote>
 
 >
-```swift
+```ios
 /*
  * This example uses the success and failure callbacks.
  */
