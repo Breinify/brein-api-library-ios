@@ -1,5 +1,5 @@
 >
-```swift   
+```swift
 do {
    let breinTemporalData = BreinTemporalData()
        .setLocation(freeText: "NYC")
