@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import BreinifyApi
 
 open class BreinTimeResult : BreinResult {
 

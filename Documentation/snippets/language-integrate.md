@@ -1,4 +1,4 @@
-<blockquote class="lang-specific ios">
+<blockquote class="lang-specific swift">
 <p>The library is available on <a target="_blank" href="https://cocoapods.org/pods/BreinifyApi">Cocoapods</a>.
 You can add it as a typical pod dependency like this:</p>
 </blockquote>
@@ -10,7 +10,7 @@ target 'MyApp' do
 end
 ```
 
-<blockquote class="lang-specific ios">
+<blockquote class="lang-specific swift">
 <p>The library utilizes a query engine, to send requests to the API endpoint. Currently <code class="prettyprint">Alamofire</code>
 is used for this. Furthermore <code class="prettyprint">IDZSwiftCommonCrypto</code> is used as a wrapper for Apple's CommonCrypto library.
 Both dependencies will automatically be included.

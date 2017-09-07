@@ -1,7 +1,8 @@
 //
 // Created by Marco 
 //
-// Intended to support the iOS Application Lifecycle
+// Intended to support the iOS Application Lifecycle and provides convenient access
+// to userEmail and userId
 
 import Foundation
 
@@ -18,7 +19,6 @@ public extension Breinify {
         
     */
     public class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = 60) {
-        
         BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret, backgroundInterval: backgroundInterval)
     }
     
@@ -27,7 +27,6 @@ public extension Breinify {
         This method is invoked when the app is moving to background mode. 
     */
     public class func applicationDidEnterBackground() {
-        
         BreinifyManager.sharedInstance.applicationDidEnterBackground()
     }
 
@@ -37,7 +36,6 @@ public extension Breinify {
 
     */
     public class func applicationWillTerminate() {
-        
         BreinifyManager.sharedInstance.applicationWillTerminate()
     }
 
@@ -48,7 +46,6 @@ public extension Breinify {
 
     */
     public class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
-        
         let token = BreinifyManager.sharedInstance.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
         return token
     }
@@ -59,7 +56,6 @@ public extension Breinify {
 
     */
     public class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
-        
         BreinifyManager.sharedInstance.didFailToRegisterForRemoteNotificationsWithError(error)
     }
 
@@ -69,7 +65,6 @@ public extension Breinify {
 
     */
     public class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
-        
         BreinifyManager.sharedInstance.didReceiveRemoteNotification(userInfo)
     }
 
@@ -79,21 +74,32 @@ public extension Breinify {
 
     */
     public class func applicationDidBecomeActive() {
-        
         BreinifyManager.sharedInstance.applicationDidBecomeActive()
-        
     }
 
+    /**
+        BreinifyManager contains an instance of BreinUser in order to support
+        the settings of userId. The userId is part of the request.
+
+    */
     public class func setUserId(_ userId: String) {
-
         BreinifyManager.sharedInstance.setUserId(userId)
-        
     }
 
+    public class func getUserId() -> String? {
+        return BreinifyManager.sharedInstance.getUserId()
+    }
+
+    /**
+        BreinifyManager contains an instance of BreinUser in order to support
+        the settings of user email. The user email is part of the request.
+
+    */
     public class func setEmail(_ email: String) {
-
         BreinifyManager.sharedInstance.setEmail(email)
-        
     }
-    
+
+    public class func getEmail() -> String? {
+        return BreinifyManager.sharedInstance.getUserEmail()
+    }
 }

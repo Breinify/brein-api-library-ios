@@ -107,7 +107,7 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            print(jsonString)
+            // print(jsonString)
         }
 
         // Alamofire.request(url, method: .post,
@@ -177,7 +177,7 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            print(jsonString)
+            // print(jsonString)
         }
 
         Alamofire.request(url, method: .post,
@@ -275,7 +275,7 @@ public class AlamofireEngine: IRestEngine {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
-            print(jsonString)
+            // print(jsonString)
         }
         
         // Alamofire.request(url, method: .post,

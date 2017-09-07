@@ -111,6 +111,9 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
              .notDetermined:
             self.locationManager.startUpdatingLocation()
 
+            // it's fine to send sendLoc information
+            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = true
+
         default:
             completionHandler(location: dummyLocation, error: NSError(domain: self.classForCoder.description(),
                     code: BreinLocationManagerErrors.AuthorizationDenied.rawValue,
@@ -172,7 +175,9 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         let alwaysUsage = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription")
         
         guard let _ = whenInUseUsage, let _ = alwaysUsage else {
-            // no permissions given
+            // no permissions given, inform BreinifyManager to stop sending sendLoc requests
+            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = false
+
             // return with dummy location object
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 101, userInfo: nil))
             return
@@ -190,9 +195,11 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         print("Status is: \(status)")
         if status == .restricted
                    || status == .denied {
+            // no permissions given, inform BreinifyManager to stop sending sendLoc requests
+            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = false
+
             // return with dummy location object
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 102, userInfo: nil))
         }
-        
     }
 }
