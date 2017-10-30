@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 open class BreinWeatherResult: BreinResult {
 
     static let kDescriptionKey = "description"
@@ -21,7 +20,7 @@ open class BreinWeatherResult: BreinResult {
 
     static let kLatitudekey = "lat"
     static let kLongitudeKey = "lon"
-    
+
     public init(_ breinResult: BreinResult) {
         if let weather = breinResult.get(BreinTemporalDataResult.kWheatherKey) {
             super.init(dictResult: weather as! NSDictionary)
@@ -60,7 +59,6 @@ open class BreinWeatherResult: BreinResult {
         return self.get(BreinWeatherResult.kCloudCoverKey) as? Int
     }
 
-
     public func getWindStrength() -> Double? {
         return self.get(BreinWeatherResult.kWindStrengthKey) as? Double
     }
@@ -88,5 +86,4 @@ open class BreinWeatherResult: BreinResult {
 
         return nil
     }
-    
 }

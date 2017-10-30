@@ -7,7 +7,6 @@ import Foundation
 import IDZSwiftCommonCrypto
 
 extension String {
-    
     // pre-defined constants for Category
     public static let apparel = "apparel"
     public static let home = "home"
@@ -30,11 +29,10 @@ extension String {
 
     // used for the signature
     func digestHMac256(_ key: String) -> String! {
-        
         let message = self
         let bytes = message.utf16.count
         let hmac256 = HMAC(algorithm: .sha256, key: key).update(buffer: message, byteCount: bytes)?.final()
-        
+
         if let hmac = hmac256 {
             
             //Convert [UInt8] to NSData

@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestSecret: XCTestCase {
 
     override func setUp() {
@@ -31,15 +30,14 @@ class TestSecret: XCTestCase {
     func testActivitySecret() {
 
         // let expected:String = "WbHv67OJ5LPSCJu7kfh9QOX8b7wkuLiTmE6OTyPqT0g\u003d"
-        let timestamp:TimeInterval =  1487235949
+        let timestamp: TimeInterval = 1487235949
         let activityType = "paginaUno"
 
         let breinActivity = BreinActivity()
 
         breinActivity.setUnixTimestamp(timestamp)
         breinActivity.setActivityType(activityType)
-        
-        
+
         do {
             let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
             let validSecret = "lmcoj4k27hbbszzyiqamhg=="
@@ -47,12 +45,12 @@ class TestSecret: XCTestCase {
 
             breinActivity.setConfig(breinConfig)
 
-            let generated:String = try breinActivity.createSignature()
+            let generated: String = try breinActivity.createSignature()
             // XCTAssertEqual(expected, generated)
             print(generated)
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
-        
+
     }
 }

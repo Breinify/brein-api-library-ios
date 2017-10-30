@@ -59,4 +59,3 @@ open class BreinLocationResult: BreinResult {
     }
 
 }
-

@@ -41,7 +41,7 @@ open class Breinify {
     public static func getNotificationHandler() -> BreinNotificationHandler? {
         return self.notification
     }
-    
+
     /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
         return breinRecommendation
@@ -67,7 +67,7 @@ open class Breinify {
         let breinConfig = BreinConfig(apiKey, secret: secret)
         self.setConfig(breinConfig)
     }
-    
+
     /// set config to work with
     public class func setConfig(_ breinConfig: BreinConfig!) {
         self.config = breinConfig
@@ -119,8 +119,10 @@ open class Breinify {
    */
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
-                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                               _ success: @escaping BreinEngine.apiSuccess = { _ in
+                               },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         // set user in class Breinify ...
         self.setBreinUser(user)
@@ -138,7 +140,7 @@ open class Breinify {
                     failure)
         }
     }
-    
+
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -159,8 +161,10 @@ open class Breinify {
                                activityType: String!,
                                _ category: String! = nil,
                                _ description: String! = nil,
-                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                               _ success: @escaping BreinEngine.apiSuccess = { _ in
+                               },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         // set user in class Breinify ...
         self.setBreinUser(user)
@@ -168,7 +172,7 @@ open class Breinify {
         // ...and in class BreinActivity (will be used later when cloning)
         if let breinAct = getBreinActivity() {
             breinAct.setUser(user)
-            
+
             try activity(breinAct,
                     user: user,
                     activityType: activityType,
@@ -199,13 +203,15 @@ open class Breinify {
     public class func activity(_ activityType: String!,
                                _ category: String! = nil,
                                _ description: String! = nil,
-                               _ success : @escaping BreinEngine.apiSuccess  = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure  = { _ in }) throws {
+                               _ success: @escaping BreinEngine.apiSuccess = { _ in
+                               },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         // firstly check if user is valid
-        
+
         let user = self.getBreinUser()
-        
+
         try activity(getBreinActivity(),
                 user: user,
                 activityType: activityType,
@@ -224,8 +230,10 @@ open class Breinify {
         - parameter success: A callback function that is invoked in case of success.
         - parameter failure: A callback function that is invoked in case of an error.
     */
-    public class func activity(_ success : @escaping BreinEngine.apiSuccess = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+    public class func activity(_ success: @escaping BreinEngine.apiSuccess = { _ in
+    },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         // use the own instance
         let activity = getBreinActivity()
@@ -271,14 +279,16 @@ open class Breinify {
         - Parameter failure: A callback function that is invoked in case of an error.
     */
     public class func activity(_ breinActivity: BreinActivity!,
-                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                               _ success: @escaping BreinEngine.apiSuccess = { _ in
+                               },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
             breinActivity?.setConfig(self.getConfig())
         }
-        
+
         guard breinActivity?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
@@ -293,8 +303,8 @@ open class Breinify {
                 success: success,
                 failure: failure)
     }
-    
-    
+
+
     /**
         Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -317,14 +327,16 @@ open class Breinify {
                                activityType: String!,
                                _ category: String! = nil,
                                _ description: String! = nil,
-                               _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                               _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                               _ success: @escaping BreinEngine.apiSuccess = { _ in
+                               },
+                               _ failure: @escaping BreinEngine.apiFailure = { _ in
+                               }) throws {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
             breinActivity?.setConfig(self.getConfig())
         }
-        
+
         guard breinActivity?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
         }
@@ -355,13 +367,15 @@ open class Breinify {
         - returns:  BreinResult object
      */
     public class func recommendation(_ aBreinRecommendation: BreinRecommendation!,
-                                     _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                                     _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                                     _ success: @escaping BreinEngine.apiSuccess = { _ in
+                                     },
+                                     _ failure: @escaping BreinEngine.apiFailure = { _ in
+                                     }) throws {
 
         if aBreinRecommendation == nil {
             throw BreinError.BreinRuntimeError("BreinRecommendation is nil");
         }
-        
+
         // apply the current configuration
         aBreinRecommendation.setConfig(self.getConfig())
 
@@ -389,11 +403,13 @@ open class Breinify {
          - returns: result from the Breinify engine
     */
     public class func temporalData(_ user: BreinUser!,
-                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                                   _ success: @escaping BreinEngine.apiSuccess = { _ in
+                                   },
+                                   _ failure: @escaping BreinEngine.apiFailure = { _ in
+                                   }) throws {
 
         self.breinTemporalData.setUser(user)
-        
+
         return try temporalData(breinTemporalData,
                 success,
                 failure)
@@ -410,9 +426,11 @@ open class Breinify {
 
        - returns: result from the Breinify engine
     */
-    public class func temporalData(_ success : @escaping BreinEngine.apiSuccess = { _ in },
-                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
-        
+    public class func temporalData(_ success: @escaping BreinEngine.apiSuccess = { _ in
+    },
+                                   _ failure: @escaping BreinEngine.apiFailure = { _ in
+                                   }) throws {
+
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
@@ -440,12 +458,14 @@ open class Breinify {
        - returns: result from the Breinify engine
     */
     public class func temporalData(_ ipAddress: String,
-                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                                   _ success: @escaping BreinEngine.apiSuccess = { _ in
+                                   },
+                                   _ failure: @escaping BreinEngine.apiFailure = { _ in
+                                   }) throws {
 
         // set ipAddress
         _ = self.getBreinTemporalData().setLookUpIpAddress(ipAddress)
-        
+
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
@@ -459,7 +479,7 @@ open class Breinify {
                 success: success,
                 failure: failure)
     }
-    
+
     /**
         Sends a temporalData to the engine utilizing the API. The call is done synchronously as a POST request. It is
         important that a valid API-key is configured prior to using this function.
@@ -473,17 +493,19 @@ open class Breinify {
         - returns: result from the Breinify engine
      */
     public class func temporalData(_ breinTemporalData: BreinTemporalData!,
-                                   _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                                   _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
-        
-         if breinTemporalData?.getBreinEngine() == nil {
+                                   _ success: @escaping BreinEngine.apiSuccess = { _ in
+                                   },
+                                   _ failure: @escaping BreinEngine.apiFailure = { _ in
+                                   }) throws {
+
+        if breinTemporalData?.getBreinEngine() == nil {
             // apply the Breinify config
             breinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
             guard breinTemporalData?.getBreinEngine() != nil else {
                 throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
             }
         }
-        
+
         // clone breinTemporalData
         let clonedBreinTemporalData = self.getBreinTemporalData().clone()
 
@@ -492,7 +514,7 @@ open class Breinify {
 
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
-        
+
         return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
                 success: success,
                 failure: failure)
@@ -511,8 +533,10 @@ open class Breinify {
     */
     public class func lookup(_ user: BreinUser!,
                              dimension: BreinDimension!,
-                             _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                             _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                             _ success: @escaping BreinEngine.apiSuccess = { _ in
+                             },
+                             _ failure: @escaping BreinEngine.apiFailure = { _ in
+                             }) throws {
 
         return try lookup(breinLookup,
                 user: user,
@@ -536,8 +560,10 @@ open class Breinify {
     public class func lookup(_ breinLookup: BreinLookup!,
                              user: BreinUser!,
                              dimension: BreinDimension!,
-                             _ success : @escaping BreinEngine.apiSuccess = { _ in },
-                             _ failure : @escaping BreinEngine.apiFailure = { _ in }) throws {
+                             _ success: @escaping BreinEngine.apiSuccess = { _ in
+                             },
+                             _ failure: @escaping BreinEngine.apiFailure = { _ in
+                             }) throws {
 
         guard breinLookup?.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -557,7 +583,7 @@ open class Breinify {
 
             // save possible unsend requests
             BreinRequestManager.sharedInstance.shutdown()
-            
+
             getConfig().shutdownEngine()
         }
     }

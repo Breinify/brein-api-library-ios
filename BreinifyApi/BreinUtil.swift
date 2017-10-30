@@ -7,7 +7,6 @@ import Foundation
 import IDZSwiftCommonCrypto
 import NetUtils
 
-
 public class BreinUtil {
 
     /**
@@ -43,10 +42,10 @@ public class BreinUtil {
 
         return value
     }
-    
+
     static public func detectIpAddress() -> String {
         return BreinIpInfo.sharedInstance.getExternalIp()!
-       
+
         // only en0, running & up
         /* this will only provide the local Ip
          let interfaces = Interface.allInterfaces()
@@ -68,9 +67,8 @@ public class BreinUtil {
         */
     }
 
-
     static public func getDoubleValue(_ value: AnyObject?) -> Double? {
-        
+
         if let doubleValue = value as? Double {
             return doubleValue
         }
@@ -86,7 +84,7 @@ public class BreinUtil {
 
     static public func executionTimeInterval(block: () -> ()) -> CFTimeInterval {
         let start = CACurrentMediaTime()
-        block();
+        block()
         let end = CACurrentMediaTime()
         return end - start
     }

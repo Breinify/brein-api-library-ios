@@ -9,7 +9,6 @@ public class BreinMapUtil {
     public typealias Dic = [String: AnyObject]
 
     public class func fillMap(_ dataMap: Dic, requestStructure: inout Dic ) {
-        
         for (key, value) in dataMap {
             // print("\(key) = \(value)")
 

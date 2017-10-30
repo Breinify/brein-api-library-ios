@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestEngine: XCTestCase {
 
     typealias apiSuccess = (_ result: BreinResult?) -> Void

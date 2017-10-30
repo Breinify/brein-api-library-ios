@@ -6,7 +6,7 @@
 import Foundation
 import BreinifyApi
 
-open class BreinTemporalDataResult : BreinResult {
+open class BreinTemporalDataResult: BreinResult {
 
     static let kWheatherKey = "weather"
     static let kTimeKey = "time"

@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestApi: XCTestCase {
 
     typealias apiSuccess = (_ result: BreinResult) -> Void
@@ -355,7 +354,7 @@ class TestApi: XCTestCase {
                 print("Time is: \(time)")
             }
         }
-        
+
         do {
             // create dictionary here...
             var locationAdditionalMap = [String: AnyObject]()

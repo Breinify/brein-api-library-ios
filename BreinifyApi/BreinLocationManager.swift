@@ -69,8 +69,8 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     // default => do not ignore
     private var ignoreLocationRequestState = false
-    
-    /// 
+
+    ///
     public override init() {
         super.init()
         self.ignoreLocationRequestState = false
@@ -104,7 +104,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     /// location authorization status changed
     @nonobjc
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-
+        
         switch status {
         case .authorizedWhenInUse,
              .authorizedAlways,

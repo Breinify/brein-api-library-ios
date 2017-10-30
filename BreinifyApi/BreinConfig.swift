@@ -130,13 +130,13 @@ open class BreinConfig {
     public func initEngine() {
         self.breinEngine = BreinEngine(engineType: getRestEngineType())
     }
-    
+
     // initializes the brein logger for swiftyBeaver
     public func initLoggerForSwiftyBeaver(appId: String, appSecret: String, encryptionKey: String) {
         // BreinLogger.initialize(appId: appId, appSecret: appSecret, encryptionKey: encryptionKey)
         // BreinLogger.setLoggerType(logger: .SwiftyBeaver)
     }
-    
+
     public func build() throws -> BreinifyExecutor {
         let breinifyExecutor = BreinifyExecutor()
         breinifyExecutor.setConfig(self)

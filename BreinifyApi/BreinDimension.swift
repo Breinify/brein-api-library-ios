@@ -22,5 +22,5 @@ open class BreinDimension {
         self.dimensionFields = dimensionFields
         return self
     }
-    
+
 }

@@ -13,7 +13,6 @@ open class BreinNotificationHandler {
 
     @available(iOS 10.0, *)
     open func willPresent(_ notification: UNNotification) {
-        
         print("BreinNotificationHandler willPresent called - received notification is: \(notification)")
 
         var message = "The message"
@@ -33,7 +32,7 @@ open class BreinNotificationHandler {
                 message = alert
             }
         }
-        
+
         let refreshAlert = UIAlertController(title: "Breinify Notification",
                 message: message,
                 preferredStyle: UIAlertControllerStyle.alert)
@@ -41,14 +40,12 @@ open class BreinNotificationHandler {
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
         }))
-        
     }
-    
+
     @available(iOS 10.0, *)
     open func didReceive(_ response: UNNotificationResponse) {
 
         print("BreinNotificationHandler didReceive calld - received response is: \(response)")
-        
     }
 
     public func showDialog() {
@@ -80,7 +77,5 @@ open class BreinNotificationHandler {
             print("Handle Ok logic here")
         }))
         */
-        
     }
-    
 }

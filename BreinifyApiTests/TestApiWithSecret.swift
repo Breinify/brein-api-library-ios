@@ -61,7 +61,7 @@ class TestApiWithSecret: XCTestCase {
         } catch {
             print("Error is: \(error)")
         }
-        
+
     }
 
     // testcase how to use the activity api
@@ -79,9 +79,9 @@ class TestApiWithSecret: XCTestCase {
 
         // set additional user information
         breinUser.setFirstName("Marco")
-        .setLastName("Recchioni")
-        .setIpAddress("10.11.12.130")
-        .setUrl("http://sample.com")
+                .setLastName("Recchioni")
+                .setIpAddress("10.11.12.130")
+                .setUrl("http://sample.com")
 
         let tagsDic: [String: AnyObject] = ["A": "STRING" as AnyObject,
                                             "B": 100 as AnyObject,

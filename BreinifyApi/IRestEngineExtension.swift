@@ -32,7 +32,7 @@ extension IRestEngine {
     }
 
     /// returns request body
-    func getRequestBody(_ breinBase: BreinBase!) throws -> [String:AnyObject]! {
+    func getRequestBody(_ breinBase: BreinBase!) throws -> [String: AnyObject]! {
         return breinBase.prepareJsonRequest()
     }
 

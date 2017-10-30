@@ -18,8 +18,8 @@ public protocol IRestEngine {
     */
     func configure(_ breinConfig: BreinConfig)
 
-    func executeSavedRequests() 
-
+    func executeSavedRequests()
+    
     /**
        Invokes the post request for activities
 
@@ -30,7 +30,6 @@ public protocol IRestEngine {
     func doRequest(_ breinActivity: BreinActivity,
                    success successBlock: @escaping (_ result: BreinResult) -> Void,
                    failure failureBlock: @escaping (_ error: NSDictionary) -> Void) throws
-
 
     /**
        Invokes the post request for lookups
@@ -70,8 +69,3 @@ public protocol IRestEngine {
     */
     func terminate()
 }
-
-
-
-
-

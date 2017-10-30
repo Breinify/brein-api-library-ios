@@ -6,7 +6,7 @@
 import Foundation
 
 open class BreinifyExecutor {
-    
+
     //  contains the configuration
     var config: BreinConfig!
 
@@ -32,11 +32,11 @@ open class BreinifyExecutor {
 
     */
     public func activity(_ user: BreinUser!,
-                  activityType: String!,
-                  category: String!,
-                  description: String!,
-                  success successBlock: @escaping BreinEngine.apiSuccess,
-                  failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                         activityType: String!,
+                         category: String!,
+                         description: String!,
+                         success successBlock: @escaping BreinEngine.apiSuccess,
+                         failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         try activity(breinActivity,
                 user: user,
@@ -53,12 +53,12 @@ open class BreinifyExecutor {
 
     */
     public func activity(_ breinActivity: BreinActivity!,
-                  user: BreinUser!,
-                  activityType: String!,
-                  category: String!,
-                  description: String!,
-                  success successBlock: @escaping BreinEngine.apiSuccess,
-                  failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                         user: BreinUser!,
+                         activityType: String!,
+                         category: String!,
+                         description: String!,
+                         success successBlock: @escaping BreinEngine.apiSuccess,
+                         failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  invoke the request, "this" has all necessary information
         if nil == breinActivity.getBreinEngine() {
@@ -69,7 +69,7 @@ open class BreinifyExecutor {
         breinActivity.setActivityType(activityType)
         breinActivity.setCategoryType(category)
         breinActivity.setDescription(description)
-        
+
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
@@ -79,10 +79,10 @@ open class BreinifyExecutor {
 
     */
     public func lookup(_ user: BreinUser!,
-                dimension: BreinDimension!,
-                success successBlock: @escaping BreinEngine.apiSuccess,
-                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
-        
+                       dimension: BreinDimension!,
+                       success successBlock: @escaping BreinEngine.apiSuccess,
+                       failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+
         return try lookup(breinLookup,
                 user: user,
                 dimension: dimension,
@@ -96,10 +96,10 @@ open class BreinifyExecutor {
 
      */
     public func lookup(_ breinLookup: BreinLookup!,
-                user: BreinUser!,
-                dimension: BreinDimension!,
-                success successBlock: @escaping BreinEngine.apiSuccess,
-                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                       user: BreinUser!,
+                       dimension: BreinDimension!,
+                       success successBlock: @escaping BreinEngine.apiSuccess,
+                       failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         //  invoke the lookup request
         if nil == breinLookup.getBreinEngine() {
@@ -108,7 +108,7 @@ open class BreinifyExecutor {
 
         breinLookup.setUser(user)
         breinLookup.setBreinDimension(dimension)
-       
+
         return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
                 success: successBlock,
                 failure: failureBlock)

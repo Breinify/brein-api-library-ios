@@ -121,10 +121,10 @@ class TestExecutor: XCTestCase {
             XCTAssert(true, "Error is: \(error)")
         }
 
-        
+
         let when = DispatchTime.now() + 15 // wait for 15 seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-           print("Finish")
+            print("Finish")
         }
     }
 

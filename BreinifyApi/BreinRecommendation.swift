@@ -3,17 +3,16 @@
 //
 //
 
-
 import Foundation
 
 open class BreinRecommendation: BreinBase, ISecretStrategy {
 
     /// default number of recommendations
     static let cDefaultNumberOfRecommendation = 3
-    
+
     ///  contains the number of recommendations
     var numberOfRecommendations: Int = BreinRecommendation.cDefaultNumberOfRecommendation
-    
+
     /// contains the category for the recommendation
     var category: String?
 
@@ -113,13 +112,13 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
         let clonedBreinRecommendation = BreinRecommendation()
                 .setNumberOfRecommendations(self.getNumberOfRecommendations())
                 .setCategory(self.getCategory())
-        
+
         // clone from base class
         clonedBreinRecommendation.cloneBase(self)
 
         return clonedBreinRecommendation
     }
-    
+
     /**
       Create signature for recommendation request
     */

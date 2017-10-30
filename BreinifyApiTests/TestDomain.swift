@@ -160,9 +160,8 @@ class TestDomain: XCTestCase {
     func testNetworkInformation() {
 
 
-
     }
-    
+
     func testLocalDateTimeFormat() {
         let user = BreinUser()
         let localDateTime = user.detectLocalDateTime()

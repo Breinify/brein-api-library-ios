@@ -76,11 +76,9 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
      * @return {@code this}
      */
     public func addShapeTypes(_ shapeTypes: [String]) -> BreinTemporalData {
-        
         if shapeTypes.count > 0 {
             _ = self.setLocation(key: kShapeTypesField, value: shapeTypes as AnyObject!)
         }
-        
         return self
     }
 
@@ -179,4 +177,3 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
 }
-

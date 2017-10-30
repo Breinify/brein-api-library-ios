@@ -223,7 +223,7 @@ open class BreinUser {
         self.phone = phone
         return self
     }
-    
+
     /// sets userAgent
     @discardableResult
     public func setUserAgent(_ userAgent: String!) -> BreinUser! {
@@ -586,7 +586,6 @@ open class BreinUser {
             if let clonedAdditionalLocDic = orgUser.getAdditionalLocationDic() {
                 let _ = newUser?.setAdditionalLocationDic(clonedAdditionalLocDic)
             }
-
 
             if let clonedUserDic = orgUser.getUserDic() {
                 let _ = newUser?.setUserDic(clonedUserDic)

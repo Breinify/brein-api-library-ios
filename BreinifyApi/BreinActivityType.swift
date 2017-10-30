@@ -6,7 +6,7 @@
 import Foundation
 
 public enum BreinActivityType: String {
-    
+
     case SEARCH = "search"
     case LOGIN = "login"
     case LOGOUT = "logout"

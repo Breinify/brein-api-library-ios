@@ -52,29 +52,29 @@ class TestLocation: XCTestCase {
 
         BreinLocationManager().fetchWithCompletion { location, error in
 
-                    // fetch location or an error
-                    if location != nil {
-                        print(location!)
+            // fetch location or an error
+            if location != nil {
+                print(location!)
 
-                        let locationInfo = ""
+                let locationInfo = ""
 
-                        // invoke activity call
-                        do {
-                            try Breinify.activity(self.breinUser,
-                                    activityType: "checkOut",
-                                    "services",
-                                    locationInfo,
-                                    successBlock,
-                                    failureBlock)
-                        } catch {
-                            print("Error is: \(error)")
-                        }
-
-
-                    } else if let err = error {
-                        print(err.localizedDescription)
-                    }
+                // invoke activity call
+                do {
+                    try Breinify.activity(self.breinUser,
+                            activityType: "checkOut",
+                            "services",
+                            locationInfo,
+                            successBlock,
+                            failureBlock)
+                } catch {
+                    print("Error is: \(error)")
                 }
+
+
+            } else if let err = error {
+                print(err.localizedDescription)
+            }
+        }
     }
 
 }

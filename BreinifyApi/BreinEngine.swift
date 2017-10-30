@@ -3,7 +3,6 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
 /**
@@ -59,12 +58,12 @@ public class BreinEngine {
     public func sendActivity(_ activity: BreinActivity!,
                              success successBlock: @escaping BreinEngine.apiSuccess,
                              failure failureBlock: @escaping BreinEngine.apiFailure) throws {
-        
+
         if activity != nil {
             // necessary to invoke CLLocationManager
             // need to come back to main thread
             DispatchQueue.main.async {
-                
+
                 self.locationManager.fetchWithCompletion {
 
                     location, error in
@@ -213,7 +212,7 @@ public class BreinEngine {
             }
         }
     }
-    
+
     /**
      Returns the rest engine
 

@@ -246,7 +246,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //
     // Called when a notification is delivered to a foreground app.
     @available(iOS 10.0, *)
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                       willPresent notification: UNNotification,
+                                       withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // print("willPresent: User Info = \(notification.request.content.userInfo)")
         // completionHandler([.alert, .badge, .sound])
         completionHandler([])
@@ -261,7 +263,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     // Called to let your app know which action was selected by the user for a given notification.
     @available(iOS 10.0, *)
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                       didReceive response: UNNotificationResponse,
+                                       withCompletionHandler completionHandler: @escaping () -> Void) {
         // print("didReceive called with content: \(response)")
         completionHandler()
 

@@ -3,11 +3,10 @@
 // Copyright (c) 2016 Breinify. All rights reserved.
 //
 
-
 import Foundation
 
-public enum BreinCategoryType : String {
-    
+public enum BreinCategoryType: String {
+
     case APPAREL = "apparel"
     case HOME = "home"
     case EDUCATION = "education"

@@ -174,7 +174,6 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return requestData
     }
 
-
     /**
       Used to create a clone of an activity. This is important in order to prevent
       concurrency issues.

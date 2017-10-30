@@ -6,7 +6,7 @@
 import Foundation
 import BreinifyApi
 
-open class BreinTimeResult : BreinResult {
+open class BreinTimeResult: BreinResult {
 
     static let kLocalMinute = "localMinute"
     static let kLocalMonth = "localMonth"
@@ -26,7 +26,7 @@ open class BreinTimeResult : BreinResult {
     static let kEpochSecond = "epochSecond"
     static let kEpochFormatIso8601 = "epochFormatIso8601"
     static let kTimezone = "timezone"
-    
+
     public init(_ breinResult: BreinResult) {
         if let timeDic = breinResult.get("time") {
             super.init(dictResult: timeDic as! NSDictionary)
@@ -34,7 +34,7 @@ open class BreinTimeResult : BreinResult {
             super.init(dictResult: NSDictionary())
         }
     }
-    
+
     public func getLocalMinute() -> Int? {
         return self.get(BreinTimeResult.kLocalMinute) as? Int
     }
@@ -66,7 +66,7 @@ open class BreinTimeResult : BreinResult {
     public func getLocalFormatIso8601() -> String? {
         return self.get(BreinTimeResult.kLocalFormatIso8601) as? String
     }
-    
+
     public func getEpochMinute() -> Int? {
         return self.get(BreinTimeResult.kEpochMinute) as? Int
     }

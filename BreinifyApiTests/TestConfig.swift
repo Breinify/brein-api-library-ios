@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestConfig: XCTestCase {
 
     let validApiKey = "9D9C-C9E9-BC93-4D1D-9A61-3A0F-9BD9-CF14"

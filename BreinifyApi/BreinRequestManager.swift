@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 open class BreinRequestManager {
 
     /// singleton
@@ -197,7 +196,6 @@ open class BreinRequestManager {
                 } catch {
                     print("Could not remove file: \(filePathName)")
                 }
-                    
             }
         }
     }

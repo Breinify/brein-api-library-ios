@@ -12,13 +12,11 @@ import XCTest
 import BreinifyApi
 import SystemConfiguration.CaptiveNetwork
 
-
 class TestNetwork: XCTestCase {
 
     func testNetworkInfo() {
-         print("WifiSSID is: \(getWiFiSsid())")
+        print("WifiSSID is: \(getWiFiSsid())")
     }
-
 
     // retrieves the Wifi-String
     func getWiFiSsid() -> String? {
@@ -34,14 +32,13 @@ class TestNetwork: XCTestCase {
         return ssid
     }
 
-
     func testIp() {
 
         let ip = detectIp()
         print("IP is: \(ip)")
-        
+
     }
-    
+
     func detectIp() -> Bool {
 
         var zeroAddress = sockaddr_in()
@@ -62,7 +59,6 @@ class TestNetwork: XCTestCase {
         return false
     }
 
-    
     func testFlightMode() {
 
         let networkConnected = connectedToNetwork()
@@ -74,8 +70,7 @@ class TestNetwork: XCTestCase {
 
     }
 
-
-    func connectedToNetwork() -> Bool{
+    func connectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -99,5 +94,4 @@ class TestNetwork: XCTestCase {
         return (isReachable && !needsConnection)
     }
     
-
 }

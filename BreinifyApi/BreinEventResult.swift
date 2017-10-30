@@ -14,7 +14,7 @@ open class BreinEventResult: BreinTemporalDataResult {
 
     public init(_ breinResult: BreinResult) {
 
-        if let eventList = breinResult.get(BreinTemporalDataResult.kEventListKey) {      
+        if let eventList = breinResult.get(BreinTemporalDataResult.kEventListKey) {
             super.init(eventList as! [NSDictionary])
         } else {
             super.init([NSDictionary]())
@@ -28,7 +28,7 @@ open class BreinEventResult: BreinTemporalDataResult {
 
         setDictionary(eventDic)
     }
-    
+
     public func getEventList() -> [NSDictionary] {
         return self.getDataList()
     }
