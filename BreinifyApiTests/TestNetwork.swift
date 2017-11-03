@@ -1,11 +1,3 @@
-//
-//  TestLogger.swift
-//  BreinifyApi
-//
-//  Created by Marco on 22.03.17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
-//
-
 import Foundation
 
 import XCTest
@@ -93,5 +85,4 @@ class TestNetwork: XCTestCase {
 
         return (isReachable && !needsConnection)
     }
-    
 }

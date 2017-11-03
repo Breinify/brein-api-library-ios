@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestExecutor: XCTestCase {
 
     typealias apiSuccess = (_ result: BreinResult?) -> Void
@@ -111,7 +110,6 @@ class TestExecutor: XCTestCase {
             XCTAssert(true, "Error is: \(error)")
         }
 
-
         do {
             try Breinify.lookup(breinUser,
                     dimension: breinDimension,
@@ -120,7 +118,6 @@ class TestExecutor: XCTestCase {
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
-
 
         let when = DispatchTime.now() + 15 // wait for 15 seconds
         DispatchQueue.main.asyncAfter(deadline: when) {

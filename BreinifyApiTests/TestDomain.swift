@@ -3,7 +3,6 @@ import XCTest
 import BreinifyApi
 import NetUtils
 
-
 class TestDomain: XCTestCase {
 
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
@@ -107,31 +106,18 @@ class TestDomain: XCTestCase {
                 .setDeviceId("AAAAAAAAA-BBBB-CCCC-1111-222222220000")
                 .setSessionId("SID:ANON:w3.org:j6oAOxCWZh/CD723LGeXlf-01:034")
 
-        dump(breinUser.description())
-        XCTAssertFalse(breinUser.description().isEmpty)
+        dump(breinUser.getFirstName()!)
+        XCTAssertFalse(breinUser.getFirstName()!.isEmpty)
     }
-
-    /*
-    func testNetworkInfo() {
-
-        var breinUser = BreinUser()
-        var data = [String: AnyObject]()
-
-        // breinUser.prepareNetworkInfo(&data)
-
-        dump(data)
-    }
-    */
-
 
     /**
-    * Tests all BreinUser Methods
+      * Tests all BreinUser Methods
     */
     func testBreinUserWithNoMethods() {
         let breinUser = BreinUser(email: "user.anywhere@email.com")
 
-        dump(breinUser.description())
-        XCTAssertFalse(breinUser.description().isEmpty)
+        dump(breinUser.getEmail()!)
+        XCTAssertFalse(breinUser.getEmail()!.isEmpty)
     }
 
     func testUser() {
@@ -153,21 +139,11 @@ class TestDomain: XCTestCase {
         // XCTAssertEqual(kUUID, getUserId)
     }
 
-    /**
-       This test is intended to retrieve the network information
-
-    */
-    func testNetworkInformation() {
-
-
-    }
-
     func testLocalDateTimeFormat() {
         let user = BreinUser()
         let localDateTime = user.detectLocalDateTime()
         print("LocaldateTime is: \(localDateTime)")
     }
-
 
     func testWifiDetection() {
 
@@ -194,45 +170,5 @@ class TestDomain: XCTestCase {
             let mc = i.supportsMulticast ? "yes" : "no"
             print("    multicast: \(mc)")
         }
-
-
     }
-
-    /*
-    func getWiFiAddress() -> String? {
-        var address : String?
-
-        // Get list of all interfaces on the local machine:
-        var ifaddr : UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0 else { return nil }
-        guard let firstAddr = ifaddr else { return nil }
-
-        // For each interface ...
-        for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-            let interface = ifptr.pointee
-
-            // Check for IPv4 or IPv6 interface:
-            let addrFamily = interface.ifa_addr.pointee.sa_family
-            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-
-                // Check interface name:
-                let name = String(cString: interface.ifa_name)
-                if  name == "en0" {
-
-                    // Convert interface address to a human readable string:
-                    var addr = interface.ifa_addr.pointee
-                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                    getnameinfo(&addr, socklen_t(interface.ifa_addr.pointee.sa_len),
-                            &hostname, socklen_t(hostname.count),
-                            nil, socklen_t(0), NI_NUMERICHOST)
-                    address = String(cString: hostname)
-                }
-            }
-        }
-        freeifaddrs(ifaddr)
-
-        return address
-    }
-    */
-
 }

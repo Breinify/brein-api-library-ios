@@ -10,17 +10,17 @@ import Foundation
 import Alamofire
 
 open class BreinIpInfo {
-    
+
     /// some constants
     static let kIpField = "query"
     static let kTimezoneField = "timezone"
-    
+
     /// contains the read data
     var infoMap: NSDictionary?
 
     private init() {
     }
-    
+
     /// singleton
     public static let sharedInstance: BreinIpInfo = {
         let instance = BreinIpInfo()
@@ -28,13 +28,12 @@ open class BreinIpInfo {
         instance.refreshData()
         return instance
     }()
-    
-    
+
     /// async call to retrieve the data
     public func refreshData() -> Void {
        invokeRequest()
     }
-    
+
     /// invokes the http request to retrieve the ipAddress
     public func invokeRequest() -> Void {
         // service url provides external ipAddress
@@ -47,7 +46,6 @@ open class BreinIpInfo {
                 // print(response.data)     // server data
                 // print(response.result)   // result of response serialization
                 // print(response.result.value)
-                
                 // http status
                 let status = response.response?.statusCode
                 if status == 200 {
@@ -56,8 +54,8 @@ open class BreinIpInfo {
                 }
         }
     }
-    
-    /// provides external ipAddress 
+
+    /// provides external ipAddress
     public func getExternalIp() -> String? {
         if let map = self.infoMap {
             return map.object(forKey: BreinIpInfo.kIpField) as? String

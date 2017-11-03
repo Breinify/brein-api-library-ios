@@ -103,7 +103,8 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     /// location authorization status changed
     @nonobjc
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager,
+                                didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
         switch status {
         case .authorizedWhenInUse,

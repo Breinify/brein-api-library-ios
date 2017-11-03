@@ -1,11 +1,3 @@
-//
-//  BreinifyApiTests.swift
-//  BreinifyApiTests
-//
-//  Created by Marco on 05.05.17.
-//  Copyright © 2017 Breinify. All rights reserved.
-//
-
 import XCTest
 @testable import BreinifyApi
 

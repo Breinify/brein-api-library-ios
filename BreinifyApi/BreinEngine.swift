@@ -182,16 +182,13 @@ public class BreinEngine {
                                      success successBlock: @escaping BreinEngine.apiSuccess,
                                      failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
-
         if breinRecommendation != nil {
 
             // necessary to invoke CLLocationManager
             // need to come back to main thread
             DispatchQueue.main.async {
 
-                self.locationManager.fetchWithCompletion {
-
-                    location, error in
+                self.locationManager.fetchWithCompletion { location, error in
 
                     // save the retrieved location data
                     breinRecommendation.getUser()?.setLocationData(location)

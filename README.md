@@ -41,9 +41,9 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 ### Requirements
 
 - iOS 9.0+ 
-- Xcode 8.1+
-- AppCode 2016.3+
-- Swift 3.0+
+- Xcode 9.0
+- AppCode 2017.1+
+- Swift 3.2
 
 
 ### Installation 

@@ -675,7 +675,6 @@ open class BreinUser {
     }
 
     func detectNetworkInfo() {
-
         /// init
         nw_ssid = ""
         nw_bssid = ""
@@ -713,17 +712,5 @@ open class BreinUser {
         nw_macadr = UIDevice.current.identifierForVendor?.uuidString as String!
         // print(uid)
 
-    }
-
-    public func description() -> String! {
-        return (((((((((((((((("BreinUser details: "
-                + "\r") + " name: ")
-                + (self.firstName == nil ? "n/a" : self.firstName))
-                + " ") + (self.lastName == nil ? "n/a" : self.lastName))
-                + " email: ") + (self.email == nil ? "n/a" : self.email))
-                + " dateOfBirth: ") + (self.dateOfBirth == nil ? "n/a" : self.dateOfBirth))
-                + "\r") + " imei: ") + (self.imei == nil ? "n/a" : self.imei))
-                + " deviceId: ") + (self.deviceId == nil ? "n/a" : self.deviceId))
-                + "\r") + " sessionId: ") + (self.sessionId == nil ? "n/a" : self.sessionId)
     }
 }

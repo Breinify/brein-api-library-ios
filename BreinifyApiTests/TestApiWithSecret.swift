@@ -7,7 +7,7 @@ class TestApiWithSecret: XCTestCase {
     typealias apiSuccess = (_ result: BreinResult?) -> Void
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
-    let baseUrl = "https://api.breinify.com";
+    let baseUrl = "https://api.breinify.com"
     let validApiKey = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8549"
 
     let breinUser = BreinUser(email: "fred.firestone@email.com")
@@ -31,7 +31,6 @@ class TestApiWithSecret: XCTestCase {
         Breinify.shutdown()
         super.tearDown()
     }
-
 
     // testcase how to use the activity api with secret
     func testLoginWithSecret() {
@@ -106,7 +105,6 @@ class TestApiWithSecret: XCTestCase {
         Thread.sleep(forTimeInterval: 5)
         print("Test finished")
     }
-
 
     //
     // Test lookup functionality

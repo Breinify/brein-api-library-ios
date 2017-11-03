@@ -98,7 +98,6 @@ class TestApi: XCTestCase {
         print("Test finished")
     }
 
-
     // test case how to use the activity api
     func testLoginWithExtraMaps() {
 
@@ -162,7 +161,6 @@ class TestApi: XCTestCase {
         print("Test finished")
     }
 
-
     // testcase how to use the activity api
     func testPageVisitWithTags() {
 
@@ -205,7 +203,6 @@ class TestApi: XCTestCase {
             print("Test finished")
         }
     }
-
 
     //
     // Test lookup functionality
@@ -359,8 +356,6 @@ class TestApi: XCTestCase {
             // create dictionary here...
             var locationAdditionalMap = [String: AnyObject]()
             var locationValueMap = [String: AnyObject]()
-
-
             let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
             let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
 
@@ -404,7 +399,6 @@ class TestApi: XCTestCase {
                 print("Time is: \(time)")
             }
         }
-
 
         do {
             // create dictionary here...
@@ -454,7 +448,6 @@ class TestApi: XCTestCase {
         BreinRequestManager.sharedInstance.loadMissedRequests()
     }
 
-
     func testFreeTextToLocations() {
 
         let failureBlock: apiFailure = {
@@ -479,7 +472,6 @@ class TestApi: XCTestCase {
             }
         }
 
-
         do {
             let temporalData = BreinTemporalData().setLocation(freeText: "The Big Apple")
 
@@ -491,7 +483,6 @@ class TestApi: XCTestCase {
         }
 
     }
-
 
     func testTag() {
 
@@ -519,6 +510,4 @@ class TestApi: XCTestCase {
             print("Error is: \(error)")
         }
     }
-
-
 }

@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import BreinifyApi
 
-
 class TestLocation: XCTestCase {
 
     typealias apiSuccess = (_ result: BreinResult?) -> Void
@@ -69,7 +68,6 @@ class TestLocation: XCTestCase {
                 } catch {
                     print("Error is: \(error)")
                 }
-
 
             } else if let err = error {
                 print(err.localizedDescription)

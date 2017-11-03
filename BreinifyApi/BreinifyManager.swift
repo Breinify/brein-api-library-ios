@@ -293,7 +293,8 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                 }
             }
         } else {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge],
+                    categories: nil))
             UIApplication.shared.registerForRemoteNotifications()
         }
     }

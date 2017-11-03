@@ -175,5 +175,4 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         return signature
     }
-
 }

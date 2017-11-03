@@ -51,6 +51,5 @@ class TestSecret: XCTestCase {
         } catch {
             XCTAssert(true, "Error is: \(error)")
         }
-
     }
 }

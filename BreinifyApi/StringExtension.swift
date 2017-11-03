@@ -34,13 +34,12 @@ extension String {
         let hmac256 = HMAC(algorithm: .sha256, key: key).update(buffer: message, byteCount: bytes)?.final()
 
         if let hmac = hmac256 {
-            
             //Convert [UInt8] to NSData
             let data = NSData(bytes: hmac, length: hmac.count)
-            
+
             //Encode to base64
             let base64Data = data.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
-            
+
             return base64Data
         }
         return ""
