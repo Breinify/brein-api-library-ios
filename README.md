@@ -398,11 +398,28 @@ The Breinify SDK can provide current location data if your app has configured th
 ```
 <key>NSLocationAlwaysUsageDescription</key>
 <string>Please allow this app to provide location data.</string>
-
+    
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Please allow this app to provide location data.</string>
+    
+<key>NSLocationUsageDescription</key>
+<string>Please allow this app to provide location data.</string>
+    
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>Please allow this app to provide location data.</string>
+
 ```
 
+#### Transport Security
+The Breinify SDK will send information via TCP. This needs to be enabled by with an appropriate entry within the `Info.plist` file like this:
+
+```
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+```
 
 ### Further links
 To understand all the capabilities of Breinify's APIs, have a look at:
