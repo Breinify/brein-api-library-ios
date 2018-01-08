@@ -62,6 +62,8 @@
 		A93945BC1EBC8B20003440C0 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B31EBC8B20003440C0 /* TestLocation.swift */; };
 		A93945BD1EBC8B20003440C0 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B41EBC8B20003440C0 /* TestNetwork.swift */; };
 		A93945BE1EBC8B20003440C0 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B51EBC8B20003440C0 /* TestSecret.swift */; };
+		A9B555251FAC91E300803641 /* BreinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555231FAC91E200803641 /* BreinLogger.swift */; };
+		A9B555261FAC91E300803641 /* BreinIpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555241FAC91E300803641 /* BreinIpInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,9 +133,9 @@
 		A93945B31EBC8B20003440C0 /* TestLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
 		A93945B41EBC8B20003440C0 /* TestNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
 		A93945B51EBC8B20003440C0 /* TestSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSecret.swift; sourceTree = "<group>"; };
-		A93945C01EBCAE56003440C0 /* carthage_instructions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = carthage_instructions.md; sourceTree = "<group>"; };
+		A93945C01EBCAE56003440C0 /* carthage_instructions.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = carthage_instructions.md; sourceTree = "<group>"; };
 		A93945C11EBCAE56003440C0 /* cocoapods_instructions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = cocoapods_instructions.md; sourceTree = "<group>"; };
-		A93945C21EBCAE56003440C0 /* configuration_for_pushnotifications.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = configuration_for_pushnotifications.md; sourceTree = "<group>"; };
+		A93945C21EBCAE56003440C0 /* configuration_for_pushnotifications.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = configuration_for_pushnotifications.md; sourceTree = "<group>"; };
 		A93945C41EBCAE56003440C0 /* app_id_setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_id_setup.png; sourceTree = "<group>"; };
 		A93945C51EBCAE56003440C0 /* app_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_name.png; sourceTree = "<group>"; };
 		A93945C61EBCAE56003440C0 /* capabilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capabilities.png; sourceTree = "<group>"; };
@@ -144,20 +146,22 @@
 		A93945CB1EBCAE56003440C0 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		A93945CC1EBCAE56003440C0 /* richttextnotification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = richttextnotification.png; sourceTree = "<group>"; };
 		A93945CD1EBCAE56003440C0 /* Xcode_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Xcode_enable.png; sourceTree = "<group>"; };
-		A93945CE1EBCAE56003440C0 /* pushnotification_configuration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = pushnotification_configuration.md; sourceTree = "<group>"; };
-		A93945D01EBCAE56003440C0 /* language-config.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-config.md"; sourceTree = "<group>"; };
-		A93945D11EBCAE56003440C0 /* language-example.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-example.md"; sourceTree = "<group>"; };
-		A93945D21EBCAE56003440C0 /* language-geocoding.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-geocoding.md"; sourceTree = "<group>"; };
-		A93945D31EBCAE56003440C0 /* language-integrate.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-integrate.md"; sourceTree = "<group>"; };
-		A93945D41EBCAE56003440C0 /* language-login-activity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-login-activity.md"; sourceTree = "<group>"; };
-		A93945D51EBCAE56003440C0 /* language-pagevisit-activity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-pagevisit-activity.md"; sourceTree = "<group>"; };
-		A93945D61EBCAE56003440C0 /* language-purchase-activity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-purchase-activity.md"; sourceTree = "<group>"; };
-		A93945D71EBCAE56003440C0 /* language-request-temporal-data.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-request-temporal-data.md"; sourceTree = "<group>"; };
-		A93945D81EBCAE56003440C0 /* language-resolve-ip-address.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-resolve-ip-address.md"; sourceTree = "<group>"; };
-		A93945D91EBCAE56003440C0 /* language-reverse-geocoding.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "language-reverse-geocoding.md"; sourceTree = "<group>"; };
-		A93945DA1EBCAE56003440C0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A93945CE1EBCAE56003440C0 /* pushnotification_configuration.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = pushnotification_configuration.md; sourceTree = "<group>"; };
+		A93945D01EBCAE56003440C0 /* language-config.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-config.md"; sourceTree = "<group>"; };
+		A93945D11EBCAE56003440C0 /* language-example.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-example.md"; sourceTree = "<group>"; };
+		A93945D21EBCAE56003440C0 /* language-geocoding.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-geocoding.md"; sourceTree = "<group>"; };
+		A93945D31EBCAE56003440C0 /* language-integrate.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-integrate.md"; sourceTree = "<group>"; };
+		A93945D41EBCAE56003440C0 /* language-login-activity.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-login-activity.md"; sourceTree = "<group>"; };
+		A93945D51EBCAE56003440C0 /* language-pagevisit-activity.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-pagevisit-activity.md"; sourceTree = "<group>"; };
+		A93945D61EBCAE56003440C0 /* language-purchase-activity.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-purchase-activity.md"; sourceTree = "<group>"; };
+		A93945D71EBCAE56003440C0 /* language-request-temporal-data.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-request-temporal-data.md"; sourceTree = "<group>"; };
+		A93945D81EBCAE56003440C0 /* language-resolve-ip-address.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-resolve-ip-address.md"; sourceTree = "<group>"; };
+		A93945D91EBCAE56003440C0 /* language-reverse-geocoding.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-reverse-geocoding.md"; sourceTree = "<group>"; };
+		A93945DA1EBCAE56003440C0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A93945DB1EBCAE56003440C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; };
+		A9B555231FAC91E200803641 /* BreinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLogger.swift; sourceTree = "<group>"; };
+		A9B555241FAC91E300803641 /* BreinIpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinIpInfo.swift; sourceTree = "<group>"; };
 		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.debug.xcconfig"; sourceTree = "<group>"; };
 		EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				A93945721EBC8B14003440C0 /* BreinLocationManager.swift */,
 				A93945731EBC8B14003440C0 /* BreinLocationResult.swift */,
 				A93945741EBC8B14003440C0 /* BreinLookup.swift */,
+				A9B555241FAC91E300803641 /* BreinIpInfo.swift */,
+				A9B555231FAC91E200803641 /* BreinLogger.swift */,
 				A93945751EBC8B14003440C0 /* BreinMapUtil.swift */,
 				A93945781EBC8B14003440C0 /* BreinNotificationHandler.swift */,
 				A93945791EBC8B14003440C0 /* BreinReachability.swift */,
@@ -480,9 +486,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.framework",
+				"${BUILT_PRODUCTS_DIR}/NetUtils/NetUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDZSwiftCommonCrypto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -495,13 +508,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BreinifyApiTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2EBC1C22867EF91F2D5B8D4 /* [CP] Copy Pods Resources */ = {
@@ -525,13 +541,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BreinifyApi-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -541,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B555251FAC91E300803641 /* BreinLogger.swift in Sources */,
 				A93945881EBC8B14003440C0 /* BreinActivityType.swift in Sources */,
 				A93945941EBC8B14003440C0 /* Breinify.swift in Sources */,
 				A93945A11EBC8B14003440C0 /* BreinRecommendation.swift in Sources */,
@@ -557,6 +577,7 @@
 				A93945A31EBC8B14003440C0 /* BreinResult.swift in Sources */,
 				A93945AA1EBC8B14003440C0 /* ISecretStrategy.swift in Sources */,
 				A93945911EBC8B14003440C0 /* BreinError.swift in Sources */,
+				A9B555261FAC91E300803641 /* BreinIpInfo.swift in Sources */,
 				A93945A61EBC8B14003440C0 /* BreinUtil.swift in Sources */,
 				A939458B1EBC8B14003440C0 /* BreinConfig.swift in Sources */,
 				A93945A01EBC8B14003440C0 /* BreinReachability.swift in Sources */,

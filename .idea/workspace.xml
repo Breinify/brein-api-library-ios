@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_9A445303-F0F7-4E94-BC77-7CE9B1E39E42" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="BreinifyApi.podspec" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-config.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-example.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-geocoding.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-integrate.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-login-activity.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-pagevisit-activity.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlamofireEngine.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language-purchase-activity.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>user</find>
+      <find>setus</find>
+      <find>setLocalDateTime</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinUser.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinUtil.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/JsonRequest.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinRequestManager.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinRecommendation.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinReachability.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinNotificationHandler.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinMapUtil.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinLookup.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinLocationResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyExecutor.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinActivity.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinActivityType.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinBase.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinCategoryType.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinConfig.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinDimension.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinEngineType.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinError.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinEventResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/Breinify.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinTemporalDataResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinTimeResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/IRestEngineExtension.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestConfig.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestEngine.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi.podspec" />
+        <option value="$PROJECT_DIR$/Podfile" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestExecutor.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestLocation.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestSecret.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestNetwork.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/BreinifyApiTests.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinEngine.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinHolidayResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyLifecycle.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinLocationManager.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinLogger.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinTemporalData.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/BreinWeatherResult.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/IRestEngine.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApi/StringExtension.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestDomain.swift" />
+        <option value="$PROJECT_DIR$/BreinifyApiTests/TestApiWithSecret.swift" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="35" />
+    <option name="y" value="23" />
+    <option name="width" value="2509" />
+    <option name="height" value="1314" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
+              <item name="Pods" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
+              <item name="Source" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
+              <item name="Pods" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
+              <item name="Pods" type="fcab9f18:XcodeViewNode" />
+              <item name="NetUtils" type="fcab9f18:XcodeViewNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="XCTest/Kiwi.All in TestSecret.swift">
+    <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" MAKE_ACTIVE="TRUE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+    </configuration>
+    <configuration name="All in TestEngine.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestEngine.swift" TEST_PATTERN="TestEngine" TEST_MODE="PATTERN">
+      <envs />
+    </configuration>
+    <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
+      <envs />
+    </configuration>
+    <configuration name="All in TestLocation.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLocation.swift" TEST_PATTERN="TestLocation" TEST_MODE="PATTERN">
+      <envs />
+    </configuration>
+    <configuration name="All in TestNetwork.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestNetwork.swift" TEST_PATTERN="TestNetwork" TEST_MODE="PATTERN">
+      <envs />
+    </configuration>
+    <configuration name="All in TestSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestSecret.swift" TEST_PATTERN="TestSecret" TEST_MODE="PATTERN">
+      <envs />
+    </configuration>
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" MAKE_ACTIVE="TRUE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.BreinifyApi" />
+      <item index="1" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
+      <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
+      <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestLocation.swift" />
+      <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestNetwork.swift" />
+      <item index="5" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestSecret.swift" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestSecret.swift" />
+        <item index="1" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestNetwork.swift" />
+        <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestLocation.swift" />
+        <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
+        <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="" />
+      <created>1495121907485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1495121907485</updated>
+      <workItem from="1495121909706" duration="4476000" />
+      <workItem from="1495456753592" duration="5851000" />
+      <workItem from="1495696554323" duration="2375000" />
+      <workItem from="1495788917748" duration="953000" />
+      <workItem from="1496160172499" duration="594000" />
+      <workItem from="1496758480855" duration="2081000" />
+      <workItem from="1499932038338" duration="510000" />
+      <workItem from="1499933401255" duration="1343000" />
+      <workItem from="1503221805822" duration="92000" />
+      <workItem from="1506113282161" duration="148000" />
+      <workItem from="1507706893547" duration="1343000" />
+      <workItem from="1507847631199" duration="22000" />
+      <workItem from="1507881420815" duration="550000" />
+      <workItem from="1508317216688" duration="210000" />
+      <workItem from="1508317455419" duration="39000" />
+      <workItem from="1508425407025" duration="578000" />
+      <workItem from="1508426451021" duration="564000" />
+      <workItem from="1508792773789" duration="26000" />
+      <workItem from="1509363617842" duration="5379000" />
+      <workItem from="1509537543996" duration="361000" />
+      <workItem from="1509660241374" duration="5122000" />
+      <workItem from="1509812411515" duration="41000" />
+      <workItem from="1509812579833" duration="163000" />
+      <workItem from="1510412794506" duration="278000" />
+      <workItem from="1511436987100" duration="45000" />
+      <workItem from="1511949180116" duration="253000" />
+      <workItem from="1513433163695" duration="41000" />
+      <workItem from="1513433299151" duration="143000" />
+      <workItem from="1514544976449" duration="471000" />
+      <workItem from="1514549788463" duration="32000" />
+      <workItem from="1514551594038" duration="424000" />
+    </task>
+    <task id="LOCAL-00001" summary="Code beautifying">
+      <created>1509405330844</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509405330844</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Code clean up and adaptations for Swift 3.2">
+      <created>1509717348458</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1509717348458</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_TestApiWithSecret_swift - 2017.11.03 at 13h 20m 17s.xml">
+      <configuration name="All in TestApiWithSecret.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestApi_swift - 2017.11.03 at 13h 19m 25s.xml">
+      <configuration name="All in TestApi.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestConfig_swift - 2017.11.03 at 13h 22m 15s.xml">
+      <configuration name="All in TestConfig.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestDomain_swift - 2017.11.03 at 13h 18m 43s.xml">
+      <configuration name="All in TestDomain.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestEngine_swift - 2017.11.03 at 13h 22m 27s.xml">
+      <configuration name="All in TestEngine.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestExecutor_swift - 2017.11.03 at 13h 22m 31s.xml">
+      <configuration name="All in TestExecutor.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestLocation_swift - 2017.11.03 at 13h 22m 39s.xml">
+      <configuration name="All in TestLocation.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestNetwork_swift - 2017.11.03 at 13h 22m 47s.xml">
+      <configuration name="All in TestNetwork.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+    <history-entry file="All_in_TestSecret_swift - 2017.11.03 at 13h 23m 01s.xml">
+      <configuration name="All in TestSecret.swift" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="34508000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="35" y="23" width="2509" height="1314" extended-state="0" />
+    <layout>
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2322659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.051884882" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33110368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Code beautifying" />
+    <MESSAGE value="Code clean up and adaptations for Swift 3.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code clean up and adaptations for Swift 3.2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
+    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
