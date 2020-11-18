@@ -40,10 +40,10 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 
 ### Requirements
 
-- iOS 9.0+ 
-- Xcode 9.0
-- AppCode 2017.1+
-- Swift 3.2
+- iOS 10.0+ 
+- Xcode 12.1
+- AppCode 2020.2+
+- Swift 5.0
 
 
 ### Installation 
@@ -71,6 +71,7 @@ Whenever the library is used, it needs to be configured, i.e., the configuration
 (if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
 
 ```swift
+// whenever the application utilizing the library is initialized
 Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
            secret: "utakxp7sm6weo5gvk7cytw==")
 ```
@@ -81,10 +82,6 @@ Whenever the library is not used anymore, it is recommended to clean-up and rele
 method is used. A typical framework may look like that:
 
 ```swift
-// whenever the application utilizing the library is initialized
-Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A",
-           secret: "utakxp7sm6weo5gvk7cytw==")
-
 // whenever the application utilizing the library is destroyed/released
 Breinify.shutdown()
 ```
@@ -97,8 +94,6 @@ The `/activity` endpoint is used to track the usage of, e.g., an application, an
 ### Sending Login 
 
 The example shows, how to send a login activity, reading the data from an request. In general, activities are added to the interesting measure points within your applications process (e.g., `login`, `addToCart`, `readArticle`). The endpoint offers analytics and insights through Breinify's dashboard.
-
-
 
 ```swift
 // create a user you're interested in
@@ -120,12 +115,12 @@ Instead of sending an activity utilizing the `Breinify.activity(...)` method, it
 // create a user you're interested in
 let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
 
-// create activity object and collect data        
+// create activity object with collected data        
 let breinActivity = BreinActivity(user: breinUser)
             .setActivityType("readArticle")
             .setDescription("A Homebody President Sits Out His Honeymoon Period")
         
-// invoke activity call later
+// invoke activity call
 do {
      try Breinify.activity(breinActivity)
    } catch {
@@ -292,7 +287,7 @@ import BreinifyApi
 #### Method didFinishLaunchingWithOptions
 The entry point `didFinishLaunchingWithOptions` is used to configure the Breinify SDK. 
 
-```
+```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
   // configure the BreinifySDK and remote notification handling    
   Breinify.didFinishLaunchingWithOptions(apiKey: "938D-3120-64DD-413F-BB55-6573-90CE-473A", 
@@ -395,7 +390,7 @@ It is just a sample to show a map. Further media content can be considered as we
 #### Location Data
 The Breinify SDK can provide current location data if your app has configured the appropriate properties within the `Info.plist` file. Simply add the following location permissions:
 
-```
+```xml
 <key>NSLocationAlwaysUsageDescription</key>
 <string>Please allow this app to provide location data.</string>
     
@@ -413,7 +408,7 @@ The Breinify SDK can provide current location data if your app has configured th
 #### Transport Security
 The Breinify SDK will send information via TCP. This needs to be enabled by with an appropriate entry within the `Info.plist` file like this:
 
-```
+```xml
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
