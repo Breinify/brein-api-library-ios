@@ -421,5 +421,3 @@ To understand all the capabilities of Breinify's APIs, have a look at:
 
 * [Breinify's Website](https://www.breinify.com).
 
-
-
