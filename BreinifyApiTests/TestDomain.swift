@@ -1,23 +1,18 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
+
 import UIKit
 import XCTest
-import BreinifyApi
-import NetUtils
+@testable import BreinifyApi
+@testable import NetUtils
 
 class TestDomain: XCTestCase {
 
     let validApiKey = "41B2-F48C-156A-409A-B465-317F-A0B4-E0E8"
     let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
     let validSecret = "lmcoj4k27hbbszzyiqamhg=="
-
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
 
     func testBreinRequest() {
         // This is an example of a functional test case.
@@ -132,9 +127,9 @@ class TestDomain: XCTestCase {
     func testLocalDateTime() {
         let breinUser = BreinUser()
 
-        TimeZone.current
+        // TimeZone.current
 
-        print(breinUser.detectLocalDateTime())
+        print(breinUser.detectLocalDateTime()!)
 
         // XCTAssertEqual(kUUID, getUserId)
     }
@@ -142,7 +137,7 @@ class TestDomain: XCTestCase {
     func testLocalDateTimeFormat() {
         let user = BreinUser()
         let localDateTime = user.detectLocalDateTime()
-        print("LocaldateTime is: \(localDateTime)")
+        print("LocaldateTime is: \(String(describing: localDateTime))")
     }
 
     func testWifiDetection() {

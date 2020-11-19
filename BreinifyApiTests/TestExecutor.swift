@@ -1,6 +1,11 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
+
 import UIKit
 import XCTest
-import BreinifyApi
+@testable import BreinifyApi
 
 class TestExecutor: XCTestCase {
 
@@ -27,7 +32,9 @@ class TestExecutor: XCTestCase {
 
     override func tearDown() {
 
-        // Thread.sleep(15)
+        Breinify.shutdown()
+
+        Thread.sleep(forTimeInterval: 5)
         super.tearDown()
     }
 
@@ -36,13 +43,11 @@ class TestExecutor: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result)")
-
+            print("Api Success : result is: \(String(describing: result))")
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(String(describing: error))")
         }
 
         // set additional user information
@@ -51,7 +56,6 @@ class TestExecutor: XCTestCase {
 
         // invoke activity call
         do {
-
             let breinifyExecutor = try BreinConfig()
                     .setApiKey(validApiKey)
                     .setRestEngineType(.Alamofire)
@@ -64,7 +68,7 @@ class TestExecutor: XCTestCase {
                     success: successBlock,
                     failure: failureBlock)
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
     }
 
@@ -106,8 +110,7 @@ class TestExecutor: XCTestCase {
 
         }
         let failureBlock: apiFailure = { (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(String(describing: error))")
         }
 
         do {
@@ -116,7 +119,7 @@ class TestExecutor: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
         let when = DispatchTime.now() + 15 // wait for 15 seconds

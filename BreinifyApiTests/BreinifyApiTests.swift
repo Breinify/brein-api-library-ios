@@ -1,3 +1,8 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
+
 import XCTest
 @testable import BreinifyApi
 

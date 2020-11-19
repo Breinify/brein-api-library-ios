@@ -1,6 +1,11 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
+
 import UIKit
 import XCTest
-import BreinifyApi
+@testable import BreinifyApi
 
 class TestApi: XCTestCase {
 
@@ -39,12 +44,12 @@ class TestApi: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
         }
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
 
         // set additional user information
@@ -60,7 +65,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
     }
@@ -70,13 +75,11 @@ class TestApi: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
-
+            print("Api Success : result is: \(result)")
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error)")
         }
 
         // set additional user information
@@ -92,7 +95,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
         print("Test finished")
@@ -103,13 +106,11 @@ class TestApi: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
-
+            print("Api Success : result is: \(result)")
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error)")
         }
 
         // set additional user information
@@ -155,7 +156,7 @@ class TestApi: XCTestCase {
                         failureBlock)
             }
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
         print("Test finished")
@@ -166,13 +167,12 @@ class TestApi: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error)")
         }
 
         // set additional user information
@@ -197,7 +197,7 @@ class TestApi: XCTestCase {
                         successBlock,
                         failureBlock)
             } catch {
-                XCTAssert(true, "Error is: \(error)")
+                XCTFail("Error is: \(error.localizedDescription)")
             }
 
             print("Test finished")
@@ -214,12 +214,11 @@ class TestApi: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
             if let dataFirstname = result.get("firstname") {
                 print("Firstname is: \(dataFirstname)")
@@ -252,7 +251,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
     }
 
@@ -263,8 +262,7 @@ class TestApi: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
 
         let successBlock: apiSuccess = {
@@ -281,7 +279,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            XCTAssert(true, "Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
     }
 
@@ -292,11 +290,11 @@ class TestApi: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
             if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
@@ -323,7 +321,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error")
+            XCTFail("error")
         }
 
     }
@@ -332,11 +330,11 @@ class TestApi: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
             if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
@@ -372,7 +370,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error")
+            XCTFail("Error")
         }
     }
 
@@ -380,11 +378,11 @@ class TestApi: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
             if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
@@ -417,7 +415,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error")
+            XCTFail("Error")
         }
 
     }
@@ -435,28 +433,28 @@ class TestApi: XCTestCase {
         let jsonString = "{ dfdjdskfkjdsfjkdjsj } "
         let jsonString2 = "werewr xcvnxnnvn 898889"
 
-        BreinRequestManager.sharedInstance.addRequest(timeStamp: 1489512440,
+        BreinRequestManager.shared.addRequest(timeStamp: 1489512440,
                 fullUrl: "https://api.breinify.com/activity",
                 json: jsonString)
 
-        BreinRequestManager.sharedInstance.addRequest(timeStamp: 1489512441,
+        BreinRequestManager.shared.addRequest(timeStamp: 1489512441,
                 fullUrl: "https://api.breinify.com/activity",
                 json: jsonString2)
 
-        BreinRequestManager.sharedInstance.safeMissedRequests()
-        BreinRequestManager.sharedInstance.clearMissedRequests()
-        BreinRequestManager.sharedInstance.loadMissedRequests()
+        BreinRequestManager.shared.safeMissedRequests()
+        BreinRequestManager.shared.clearMissedRequests()
+        BreinRequestManager.shared.loadMissedRequests()
     }
 
     func testFreeTextToLocations() {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(error)")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(result)")
 
             if let holiday = result.get("holidays") {
                 print("Holiday is: \(holiday)")
@@ -479,7 +477,7 @@ class TestApi: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error")
+            XCTFail("Error")
         }
 
     }
@@ -490,8 +488,8 @@ class TestApi: XCTestCase {
         breinUser.setSessionId("966542c6-2399-11e7-93ae-92361f002671")
 
         let breinActivity = BreinActivity()
-        _ = breinActivity.setTag("productPrices", [134.23, 15.13, 12.99] as AnyObject)
-        _ = breinActivity.setTag("productIds", ["125689", "982361", "157029"] as AnyObject)
+        breinActivity.setTag("productPrices", [134.23, 15.13, 12.99] as AnyObject)
+                .setTag("productIds", ["125689", "982361", "157029"] as AnyObject)
 
         // invoke activity call
         do {
@@ -499,15 +497,15 @@ class TestApi: XCTestCase {
                     {
                         // success block
                         (result: BreinResult) -> Void in
-                        print("Api Success : result is:\n \(result)")
+                        print("Api Success : result is: \(result)")
                     },
                     {
                         // failure block
                         (error: NSDictionary) -> Void in
-                        print("Api Failure : error is:\n \(error)")
+                        XCTFail("Api Failure : error is: \(error)")
                     })
         } catch {
-            print("Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
     }
 }

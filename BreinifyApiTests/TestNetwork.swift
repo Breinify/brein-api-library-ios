@@ -1,13 +1,17 @@
-import Foundation
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
 
+import Foundation
 import XCTest
-import BreinifyApi
 import SystemConfiguration.CaptiveNetwork
+@testable import BreinifyApi
 
 class TestNetwork: XCTestCase {
 
     func testNetworkInfo() {
-        print("WifiSSID is: \(getWiFiSsid())")
+        print("WifiSSID is: \(String(describing: getWiFiSsid()))")
     }
 
     // retrieves the Wifi-String

@@ -1,6 +1,11 @@
+//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
+//
+
 import UIKit
 import XCTest
-import BreinifyApi
+@testable import BreinifyApi
 
 class TestApiWithSecret: XCTestCase {
 
@@ -37,12 +42,12 @@ class TestApiWithSecret: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(String(describing: result))")
 
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(String(describing: error))")
         }
 
         // set additional user information
@@ -58,7 +63,7 @@ class TestApiWithSecret: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
     }
@@ -68,12 +73,12 @@ class TestApiWithSecret: XCTestCase {
 
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            print("Api Success : result is:\n \(result)")
+            print("Api Success : result is: \(String(describing: result))")
 
         }
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            XCTFail("Api Failure : error is: \(String(describing: error))")
         }
 
         // set additional user information
@@ -98,7 +103,7 @@ class TestApiWithSecret: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error is: \(error)")
+            XCTFail("Error is: \(error.localizedDescription)")
         }
 
         // allow processing
@@ -116,7 +121,7 @@ class TestApiWithSecret: XCTestCase {
 
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            print("Api Failure : error is:\n \(error)")
+            print("Api Failure : error is:\n \(String(describing: error))")
         }
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
@@ -145,7 +150,6 @@ class TestApiWithSecret: XCTestCase {
             if let dataImages = result!.get("images") {
                 print("DataImages is: \(dataImages)")
             }
-
         }
 
         do {
@@ -154,7 +158,7 @@ class TestApiWithSecret: XCTestCase {
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error")
+            XCTFail("Error")
         }
 
         // allow processing
