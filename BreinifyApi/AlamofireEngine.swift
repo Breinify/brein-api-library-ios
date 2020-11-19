@@ -15,13 +15,13 @@ public class AlamofireEngine: IRestEngine {
     // contains a copy of the missedRequests from BreinRequestManager
     var missedRequests: [String: JsonRequest]?
 
-    let sessionManager: SessionManager = {
+    let session: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15
 
-        return SessionManager(configuration: configuration)
+        return Session(configuration: configuration)
     }()
-    
+
     /**
         Configures the rest engine
      
@@ -33,19 +33,19 @@ public class AlamofireEngine: IRestEngine {
 
     public func executeSavedRequests() {
 
-        print("executeSavedRequests invoked")
+        BreinLogger.shared.log("executeSavedRequests invoked")
 
         // 1. loop over entries
-        missedRequests = BreinRequestManager.sharedInstance.getMissedRequests()
+        missedRequests = BreinRequestManager.shared.getMissedRequests()
 
-        print("Number of elements in queue is: \(missedRequests?.count ?? -1)")
+        BreinLogger.shared.log("Number of elements in queue is: \(missedRequests?.count ?? -1)")
 
         for (uuid, entry) in (missedRequests)! {
 
-            print("Working on UUID: \(uuid)")
+            BreinLogger.shared.log("Working on UUID: \(uuid)")
 
             // 1. is this entry in time range?
-            let considerEntry = BreinRequestManager.sharedInstance.checkIfValid(currentEntry: entry)
+            let considerEntry = BreinRequestManager.shared.checkIfValid(currentEntry: entry)
             if considerEntry == true {
 
                 let urlString = entry.fullUrl
@@ -60,7 +60,7 @@ public class AlamofireEngine: IRestEngine {
                 request.setValue(uuid, forHTTPHeaderField: "uuid")
                 request.httpBody = jsonData?.data(using: .utf8, allowLossyConversion: false)!
 
-                Alamofire.request(request).responseJSON {
+                AF.request(request).responseJSON {
                     (response) in
 
                     // dump(response)
@@ -74,15 +74,15 @@ public class AlamofireEngine: IRestEngine {
                     let uuidEntry = response.request?.allHTTPHeaderFields!["uuid"]
                     let status = response.response?.statusCode
                     if status == 200 {
-                        BreinRequestManager.sharedInstance.removeEntry(uuidEntry!)
+                        BreinRequestManager.shared.removeEntry(uuidEntry!)
                     } else {
-                        print("could not send request with uuid: \(uuidEntry ?? "Nothing")")
+                        BreinLogger.shared.log("could not send request with uuid: \(uuidEntry ?? "Nothing")")
                     }
                 }
 
             } else {
-                print("Removing from Queue: \(uuid)")
-                BreinRequestManager.sharedInstance.removeEntry(uuid)
+                BreinLogger.shared.log("Removing from Queue: \(uuid)")
+                BreinRequestManager.shared.removeEntry(uuid)
             }
         }
     }
@@ -105,13 +105,11 @@ public class AlamofireEngine: IRestEngine {
 
         do {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-
-            // print(jsonString)
+            _ = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
         }
 
         // Alamofire.request(url, method: .post,
-        sessionManager.request(url, method: .post,
+        session.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -127,17 +125,17 @@ public class AlamofireEngine: IRestEngine {
                     // let result = response.result
                     // let httpStatusCode = response.response?.statusCode
 
-                    let status = response.response?.statusCode
+//                    let status = response.response?.statusCode
                     // print("HTTP-Status: \(status)")
-                    
-                    if status == 200 {
 
+                    switch response.result {
+                    case let .success(value):
+                        print(value)
                         let jsonDic: NSDictionary = ["success": 200]
                         let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
-
-                    } else {
-
+                    case let .failure(error):
+                        print(error)
                         // add for resending later...
                         let jsonRequest = String(data: (response.request?.httpBody)!,
                                 encoding: .utf8)
@@ -145,21 +143,22 @@ public class AlamofireEngine: IRestEngine {
                         let creationTime = Int(NSDate().timeIntervalSince1970)
 
                         // add to BreinRequestManager in case of an error
-                        BreinRequestManager.sharedInstance.addRequest(timeStamp: creationTime,
+                        BreinRequestManager.shared.addRequest(timeStamp: creationTime,
                                 fullUrl: urlRequest, json: jsonRequest)
 
-                        let httpError: NSError = response.result.error! as NSError
+                        let httpError: NSError = error as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
                         failure(error)
                     }
+
                 }
     }
 
     /**
      Invokes the post request for recommendations
-     
+
      - parameter breinRecommendation: recommendation object
      - parameter success: will be invoked in case of success
      - parameter failure: will be invoked in case of an error
@@ -175,12 +174,12 @@ public class AlamofireEngine: IRestEngine {
 
         do {
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+            _ = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             // print(jsonString)
         }
 
-        Alamofire.request(url, method: .post,
+        AF.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -192,28 +191,27 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result.value)
 
                     // http status
+
                     let status = response.response?.statusCode
-                    if status == 200 {
-                        let jsonDic = response.result.value as! NSDictionary
+                    switch response.result {
+                    case let .success(value):
+                        let jsonDic = value as! NSDictionary
                         // dump(jsonDic)
 
-                        let breinResult = BreinResult(dictResult: jsonDic)
-                        success(breinResult)
-                    } else {
-                        /*
-                         let httpError: NSError = response.result.error!
-                         let statusCode = httpError.code
-                         */
-                        let error: NSDictionary = ["error": "httpError",
-                                                   "statusCode": status!]
-                        failure(error)
+                        _ = BreinResult(dictResult: jsonDic)
+                        print(value)
+                    case let .failure(error):
+                        let failError: NSDictionary = ["error": "httpError",
+                                                       "statusCode": status!]
+                        print(error)
+                        print(failError)
                     }
                 }
     }
 
     /**
      Invokes the post request for lookups
-     
+
      - parameter breinLookup: lookup object
      - parameter success success: will be invoked in case of success
      - parameter failure failure: will be invoked in case of an error
@@ -226,8 +224,8 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinLookup)
         let body = try getRequestBody(breinLookup)
-        
-        Alamofire.request(url, method: .post,
+
+        AF.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -238,25 +236,29 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result)   // result of response serialization
                     // print(response.result.value)
 
-                    let status = response.response?.statusCode
-                    if status == 200 {
-                        let jsonDic = response.result.value as! NSDictionary
+//                        let status = response.response?.statusCode
+
+                    switch response.result {
+                    case let .success(value):
+                        print(value)
+                        let jsonDic = value as! NSDictionary
                         let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
-
-                    } else {
-                        let httpError: NSError = response.result.error! as NSError
+                    case let .failure(error):
+                        print(error)
+                        let httpError: NSError = error as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
                         failure(error)
                     }
+
                 }
     }
 
     /**
      Invokes the post request for temporalData
-     
+
      - parameter breinTemporalData: temporalData object
      - parameter success successBlock: will be invoked in case of success
      - parameter failure failureBlock: will be invoked in case of an error
@@ -269,17 +271,17 @@ public class AlamofireEngine: IRestEngine {
 
         let url = try getFullyQualifiedUrl(breinTemporalData)
         let body = try getRequestBody(breinTemporalData)
-        
+
         do {
             // dump(body)
             let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+            _ = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
 
             // print(jsonString)
         }
-        
+
         // Alamofire.request(url, method: .post,
-        sessionManager.request(url, method: .post,
+        session.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -291,14 +293,17 @@ public class AlamofireEngine: IRestEngine {
                     // print(response.result.value)
                     // dump(response)
 
-                    let status = response.response?.statusCode
-                    if status == 200 {
-                        let jsonDic = response.result.value as! NSDictionary
+//                        let status = response.response?.statusCode
+
+                    switch response.result {
+                    case let .success(value):
+                        print(value)
+                        let jsonDic = value as! NSDictionary
                         let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
-
-                    } else {
-                        let httpError: NSError = response.result.error! as NSError
+                    case let .failure(error):
+                        print(error)
+                        let httpError: NSError = error as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
                                                    "statusCode": statusCode]
@@ -313,7 +318,7 @@ public class AlamofireEngine: IRestEngine {
                         success successBlock: @escaping apiSuccess,
                         failure failureBlock: @escaping apiFailure) {
 
-        Alamofire.request(url, method: .post,
+        AF.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -326,17 +331,17 @@ public class AlamofireEngine: IRestEngine {
 
                     // http status
                     let status = response.response?.statusCode
-                    if status == 200 {
-                        let jsonDic = response.result.value as! NSDictionary
+
+                    switch response.result {
+                    case let .success(value):
+                        print(value)
+                        let jsonDic = value as! NSDictionary
                         // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
-                    } else {
-                        /*
-                         let httpError: NSError = response.result.error!
-                         let statusCode = httpError.code
-                         */
+                    case let .failure(error):
+                        print(error)
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
                         failureBlock(error)
@@ -349,7 +354,7 @@ public class AlamofireEngine: IRestEngine {
     }
 }
 
-
+/*
 extension DataRequest {
 
     /// Adds a handler to be called once the request has finished.
@@ -362,12 +367,13 @@ extension DataRequest {
     public func responseJSONWithId(
             queue: DispatchQueue? = nil,
             options: JSONSerialization.ReadingOptions = .allowFragments,
-            completionHandler: @escaping (DataResponse<Any>) -> Void)
+            completionHandler: @escaping (AFDataResponse<Any>) -> Void)
                     -> Self {
-        return response(
+        response(
                 queue: queue,
                 responseSerializer: DataRequest.jsonResponseSerializer(options: options),
                 completionHandler: completionHandler
         )
     }
 }
+*/
