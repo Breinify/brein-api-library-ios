@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -50,11 +50,11 @@ open class BreinBase {
     }
 
     public func getBaseDic() -> [String: AnyObject]? {
-        return self.baseDic
+        self.baseDic
     }
 
     public func getConfig() -> BreinConfig! {
-        return breinConfig
+        breinConfig
     }
 
     public func setConfig(_ breinConfig: BreinConfig!) {
@@ -62,7 +62,7 @@ open class BreinBase {
     }
 
     public func getUser() -> BreinUser? {
-        return breinUser
+        breinUser
     }
 
     public func setUser(_ breinUser: BreinUser!) {
@@ -80,15 +80,15 @@ open class BreinBase {
 
     /// IpAddress for base level
     public func getIpAddress() -> String? {
-        return self.ipAddress
+        self.ipAddress
     }
 
     public func getBreinEngine() -> BreinEngine? {
-        return self.getConfig()?.getBreinEngine()
+        self.getConfig()?.getBreinEngine()
     }
 
     public func getSuccessBlock() -> BreinBase.apiSuccess? {
-        return successBlock
+        successBlock
     }
 
     @discardableResult
@@ -98,7 +98,7 @@ open class BreinBase {
     }
 
     public func getFailureBlock() -> BreinBase.apiFailure? {
-        return failureBlock
+        failureBlock
     }
 
     @discardableResult
@@ -129,7 +129,7 @@ open class BreinBase {
                 requestData["signature"] = try self.createSignature() as AnyObject?
                 requestData["signatureType"] = "HmacSHA256" as AnyObject?
             } catch {
-                print("not possible to generate signature")
+                BreinLogger.shared.log("not possible to generate signature")
             }
         }
 
@@ -139,7 +139,7 @@ open class BreinBase {
         } else {
             // detect ip
             let ip = BreinUtil.detectIpAddress()
-            if ip.characters.count > 0 {
+            if ip.count > 0 {
                 requestData["ipAddress"] = ip as AnyObject?
             }
         }
@@ -153,17 +153,17 @@ open class BreinBase {
 
     /// empty -> needs to be implemented by subclass
     public func createSignature() throws -> String! {
-        return BreinBase.kNoValueDefined
+        BreinBase.kNoValueDefined
     }
 
     /// empty -> needs to be implemented by subclass
     public func getEndPoint() -> String! {
-        return BreinBase.kNoValueDefined
+        BreinBase.kNoValueDefined
     }
 
     /// returns the unixtimestamp (as part of the request)
     public func getUnixTimestamp() -> Int {
-        return Int(unixTimestamp)
+        Int(unixTimestamp)
     }
 
     /// sets the unixtimestamp
@@ -182,7 +182,7 @@ open class BreinBase {
             return false
         }
 
-        return (breinConfig?.getSecret().characters.count)! > 0
+        return (breinConfig?.getSecret().count)! > 0
     }
 
     /**

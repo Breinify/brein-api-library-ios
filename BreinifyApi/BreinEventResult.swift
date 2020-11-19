@@ -1,5 +1,6 @@
 //
-// Created by Marco on 28.04.17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -30,30 +31,28 @@ open class BreinEventResult: BreinTemporalDataResult {
     }
 
     public func getEventList() -> [NSDictionary] {
-        return self.getDataList()
+        self.getDataList()
     }
 
     public func getStartTime() -> Double? {
-        return self.get(BreinEventResult.kStartTimeKey) as! Double?
+        self.get(BreinEventResult.kStartTimeKey) as! Double?
     }
 
     public func getEndTime() -> Double? {
-        return self.get(BreinEventResult.kEndTimeKey) as! Double?
+        self.get(BreinEventResult.kEndTimeKey) as! Double?
     }
 
     public func getName() -> String? {
-        return self.get(BreinEventResult.kNameKey) as! String?
+        self.get(BreinEventResult.kNameKey) as! String?
     }
 
     public func getSize() -> Int? {
-        return self.get(BreinEventResult.kSizeKey) as! Int?
+        self.get(BreinEventResult.kSizeKey) as! Int?
     }
 
-    /*
     public func getCategory() -> Double? {
-        return self.get(BreinEventResult.kEndTimeKey) as! Double?
+        self.get(BreinEventResult.kCategoryKey) as! Double?
     }
-    */
 
     public func getLocationResult() -> BreinLocationResult {
         let locDic = self.get(BreinEventResult.kLocationKey) as! NSDictionary

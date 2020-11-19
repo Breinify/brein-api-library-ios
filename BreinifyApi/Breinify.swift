@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ open class Breinify {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "1.4.4"
+    static let version: String! = "2.0.0"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -39,27 +39,27 @@ open class Breinify {
     }
 
     public static func getNotificationHandler() -> BreinNotificationHandler? {
-        return self.notification
+        self.notification
     }
 
     /// returns the brein recommendation instance
     public static func getBreinRecommendation() -> BreinRecommendation! {
-        return breinRecommendation
+        breinRecommendation
     }
 
     /// returns the brein temporal data instance
     public static func getBreinTemporalData() -> BreinTemporalData! {
-        return breinTemporalData
+        breinTemporalData
     }
 
     /// returns breinActivity
     public static func getBreinActivity() -> BreinActivity! {
-        return breinActivity
+        breinActivity
     }
 
     ///  returns breinLookup
     public static func getBreinLookup() -> BreinLookup! {
-        return breinLookup
+        breinLookup
     }
 
     /// set and create BreinConfiguration 
@@ -81,12 +81,12 @@ open class Breinify {
 
     /// retrieves the configuration
     public class func getConfig() -> BreinConfig! {
-        return config
+        config
     }
 
     /// retrieves the version
     public static func getVersion() -> String! {
-        return version
+        version
     }
 
     /// sets the brein user for later usage
@@ -98,7 +98,7 @@ open class Breinify {
 
     /// returns the brein user
     public static func getBreinUser() -> BreinUser {
-        return self.breinUser
+        self.breinUser
     }
 
     /**
@@ -117,6 +117,15 @@ open class Breinify {
        - parameter success:       A callback function that is invoked in case of success.
        - parameter failure:       A callback function that is invoked in case of an error.
    */
+
+    ///
+    ///
+    /// - Parameters:
+    ///   - user:
+    ///   - activityType:
+    ///   - success:
+    ///   - failure:
+    /// - Throws:
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
                                _ success: @escaping BreinEngine.apiSuccess = { _ in
@@ -582,7 +591,7 @@ open class Breinify {
         if getConfig() != nil {
 
             // save possible unsend requests
-            BreinRequestManager.sharedInstance.shutdown()
+            BreinRequestManager.shared.shutdown()
 
             getConfig().shutdownEngine()
         }

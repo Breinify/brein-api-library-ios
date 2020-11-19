@@ -1,9 +1,6 @@
 //
-//  BreinReachability.swift
-//  Pods
-//
-//  Created by Marco on 07.04.17.
-//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation

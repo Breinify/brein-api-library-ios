@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -21,17 +21,17 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
     @discardableResult
     public func setLocation(freeText: String) -> BreinTemporalData {
-        _ = self.setLocation(key: kTextField, value: freeText as AnyObject!)
+        _ = self.setLocation(key: kTextField, value: freeText as AnyObject)
         return self
     }
 
     public func setLongitude(_ longitude: Double) -> BreinTemporalData {
-        _ = self.setLocation(key: kLongitudeField, value: longitude as AnyObject!)
+        _ = self.setLocation(key: kLongitudeField, value: longitude as AnyObject)
         return self
     }
 
     public func setLatitude(_ latitude: Double) -> BreinTemporalData {
-        _ = self.setLocation(key: kLatitudeField, value: latitude as AnyObject!)
+        _ = self.setLocation(key: kLatitudeField, value: latitude as AnyObject)
         return self
     }
 
@@ -52,7 +52,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
     public func getLookUpIpAddress() -> String? {
-        return self.getUser()?.getIpAddress()
+        self.getUser()?.getIpAddress()
     }
 
     /**
@@ -77,7 +77,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
      */
     public func addShapeTypes(_ shapeTypes: [String]) -> BreinTemporalData {
         if shapeTypes.count > 0 {
-            _ = self.setLocation(key: kShapeTypesField, value: shapeTypes as AnyObject!)
+            _ = self.setLocation(key: kShapeTypesField, value: shapeTypes as AnyObject)
         }
         return self
     }
@@ -170,7 +170,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         do {
             signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
-            BreinLogger.debug("Ups: Error while trying to generate signature")
+            BreinLogger.shared.log("Ups: Error while trying to generate signature")
         }
 
         return signature

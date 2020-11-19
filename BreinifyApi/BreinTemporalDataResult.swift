@@ -1,6 +1,6 @@
 //
-// Created by Marco on 09.05.17.
-// Copyright (c) 2017 Breinify. All rights reserved.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -25,6 +25,6 @@ open class BreinTemporalDataResult: BreinResult {
     }
 
     public func getDataList() -> [NSDictionary] {
-        return self.dataList
+        self.dataList
     }
 }

@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -25,32 +25,48 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     var tagsDic: [String: AnyObject]?
 
     /// activity dictionary
-    var actitivityDic: [String: AnyObject]?
+    var activityDic: [String: AnyObject]?
 
     /// returns activity type
-    /// - return activity type as String
+    ///
+    /// - Returns: the BreinActivity itself
     public func getActivityType() -> String! {
-        return activityType
+        activityType
     }
 
+    /// sets the activity type
+    ///
+    /// - Parameter activityType: an activityType as String
+    /// - Returns: the BreinActivity itself
     @discardableResult
     public func setActivityType(_ activityType: String?) -> BreinActivity {
         self.activityType = activityType
         return self
     }
 
+    /// Provides the categoryType
+    ///
+    /// - Returns: the categoryType as String
+    @discardableResult
     public func getCategoryType() -> String! {
-        return categoryType
+        categoryType
     }
 
+    /// Sets the categoryType.
+    ///
+    /// - Parameter categoryType:
+    /// - Returns: the BreinActivity itself
     @discardableResult
     public func setCategoryType(_ categoryType: String?) -> BreinActivity {
         self.categoryType = categoryType
         return self
     }
 
+    /// Provides the description of the activity
+    ///
+    /// - Returns: the description as String
     public func getDescription() -> String! {
-        return description
+        description
     }
 
     @discardableResult
@@ -59,8 +75,11 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return self
     }
 
+    /// Provides the Activity Endpoint for HTTP requests to the Breinify Engine
+    ///
+    /// - Returns: the HTTP endpoint as String
     override public func getEndPoint() -> String! {
-        return getConfig()?.getActivityEndpoint()
+        getConfig()?.getActivityEndpoint()
     }
 
     @discardableResult
@@ -70,11 +89,11 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     public func getTagsDic() -> [String: AnyObject]? {
-        return self.tagsDic
+        self.tagsDic
     }
 
+    @discardableResult
     public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
-
         if self.tagsDic == nil {
             self.tagsDic = [String : AnyObject] ()
         }
@@ -85,24 +104,24 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
     @discardableResult
     public func setActivityDic(_ activityDic: [String: AnyObject]) -> BreinActivity {
-        self.actitivityDic = activityDic
+        self.activityDic = activityDic
         return self
     }
 
-    public func getActitivityDic() -> [String: AnyObject]? {
-        return self.actitivityDic
+    public func getActivityDic() -> [String: AnyObject]? {
+        self.activityDic
     }
 
-    /**
-      Sends an activity to the Breinify server.
-
-      - parameter breinUser:         the user-information
-      - parameter breinActivityType: the type of activity
-      - parameter breinCategoryType: the category (can be null or undefined)
-      - parameter description:       the description for the activity
-      - parameter success:           A callback function that is invoked in case of success.
-      - parameter failure:           A callback function that is invoked in case of an error.
-    */
+    /// Sends an activity to the Breinify server.
+    ///
+    /// - Parameters:
+    ///   - breinUser: the user-information
+    ///   - breinActivityType: the type of activity
+    ///   - breinCategoryType: the category (can be null or undefined)
+    ///   - description: the description for the activity
+    ///   - success: a callback function that is invoked in case of success.
+    ///   - failure: a callback function that is invoked in case of an error.
+    /// - Throws: BreinRuntimeError
     public func activity(_ breinUser: BreinUser!,
                          breinActivityType: String!,
                          _ breinCategoryType: String! = nil,
@@ -123,11 +142,9 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         try getBreinEngine()?.sendActivity(self, success: success, failure: failure)
     }
 
-    /**
-      Creates a dictionary that will be used for the request.
-
-      returns: Dictionary
-    */
+    /// Creates a dictionary that will be used for the request.
+    ///
+    /// - Returns: Dictionary
     override public func prepareJsonRequest() -> [String: AnyObject]! {
 
         // call base class
@@ -159,7 +176,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         }
 
         // activity dic
-        if let aActivityDic = self.getActitivityDic() {
+        if let aActivityDic = self.getActivityDic() {
             if aActivityDic.count > 0 {
                 BreinMapUtil.fillMap(aActivityDic, requestStructure: &activityData)
             }
@@ -174,12 +191,10 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return requestData
     }
 
-    /**
-      Used to create a clone of an activity. This is important in order to prevent
-      concurrency issues.
-
-      - returns: the clone of the activity object
-    */
+    /// Used to create a clone of an activity. This is important in order to prevent
+    /// concurrency issues.
+    ///
+    /// - Returns: the clone of the activity object
     public func clone() -> BreinActivity {
 
         // create a new activity object
@@ -189,7 +204,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
                 .setDescription(self.getDescription())
 
         // clone dictionaries => simple copy is enough
-        if let clonedActivityDic = self.getActitivityDic() {
+        if let clonedActivityDic = self.getActivityDic() {
             clonedBreinActivity.setActivityDic(clonedActivityDic)
         }
 
@@ -203,11 +218,10 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return clonedBreinActivity
     }
 
-    /**
-      Generates the signature for the request
-     
-      returns: full signature
-    */
+    /// Generates the signature for the request
+    ///
+    /// - Returns: full signature
+    /// - Throws: BreinRuntimeError
     public override func createSignature() throws -> String! {
 
         let breinActivityType = self.getActivityType() ?? ""

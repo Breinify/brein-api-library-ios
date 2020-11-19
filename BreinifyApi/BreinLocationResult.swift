@@ -1,5 +1,6 @@
 //
-// Created by Marco on 28.04.17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -29,19 +30,19 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getCountry() -> String? {
-        return self.get(BreinLocationResult.kCountryKey) as? String
+        self.get(BreinLocationResult.kCountryKey) as? String
     }
 
     public func getState() -> String? {
-        return self.get(BreinLocationResult.kStateKey) as? String
+        self.get(BreinLocationResult.kStateKey) as? String
     }
 
     public func getCity() -> String? {
-        return self.get(BreinLocationResult.kCityKey) as? String
+        self.get(BreinLocationResult.kCityKey) as? String
     }
 
     public func getGranularity() -> String? {
-        return self.get(BreinLocationResult.kGranularityKey) as? String
+        self.get(BreinLocationResult.kGranularityKey) as? String
     }
 
     public func getLatitude() -> Double? {
@@ -55,7 +56,7 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getZipCode() -> String? {
-        return self.get(BreinLocationResult.kZipCode) as? String
+        self.get(BreinLocationResult.kZipCode) as? String
     }
 
 }

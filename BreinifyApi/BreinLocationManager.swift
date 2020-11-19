@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import UIKit
@@ -50,7 +50,7 @@ enum BreinLocationManagerErrors: Int {
 public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     // handy typealias
-    public typealias LocationClosure = ((_ location: CLLocation?, _ error: NSError?) -> ())
+    public typealias LocationClosure = (_ location: CLLocation?, _ error: NSError?) -> ()
 
     // location manager
     private var locationManager = CLLocationManager()
@@ -84,7 +84,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
 
     // ignore request
     public func ignoreLocationRequest() -> Bool {
-        return self.ignoreLocationRequestState
+        self.ignoreLocationRequestState
     }
 
     // ignore request
@@ -113,7 +113,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
             self.locationManager.startUpdatingLocation()
 
             // it's fine to send sendLoc information
-            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = true
+            BreinifyManager.shared.hasPermissionToSendLocationUpdates = true
 
         default:
             completionHandler(location: dummyLocation, error: NSError(domain: self.classForCoder.description(),
@@ -177,7 +177,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         
         guard let _ = whenInUseUsage, let _ = alwaysUsage else {
             // no permissions given, inform BreinifyManager to stop sending sendLoc requests
-            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = false
+            BreinifyManager.shared.hasPermissionToSendLocationUpdates = false
 
             // return with dummy location object
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 101, userInfo: nil))
@@ -193,11 +193,11 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
 
         let status = CLLocationManager.authorizationStatus()
-        print("Status is: \(status)")
+        BreinLogger.shared.log("Status is: \(status)")
         if status == .restricted
                    || status == .denied {
             // no permissions given, inform BreinifyManager to stop sending sendLoc requests
-            BreinifyManager.sharedInstance.hasPermissionToSendLocationUpdates = false
+            BreinifyManager.shared.hasPermissionToSendLocationUpdates = false
 
             // return with dummy location object
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 102, userInfo: nil))

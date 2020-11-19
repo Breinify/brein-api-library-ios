@@ -1,5 +1,6 @@
 //
-// Created by Marco 
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 // Intended to support the iOS Application Lifecycle and provides convenient access
 // to userEmail and userId
@@ -18,16 +19,16 @@ public extension Breinify {
         - initializes the background timer
         
     */
-    public class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = 60) {
-        BreinifyManager.sharedInstance.didFinishLaunchingWithOptions(apiKey: apiKey,
+    class func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double? = 60) {
+        BreinifyManager.shared.didFinishLaunchingWithOptions(apiKey: apiKey,
                 secret: secret, backgroundInterval: backgroundInterval)
     }
     /**
 
         This method is invoked when the app is moving to background mode. 
     */
-    public class func applicationDidEnterBackground() {
-        BreinifyManager.sharedInstance.applicationDidEnterBackground()
+    class func applicationDidEnterBackground() {
+        BreinifyManager.shared.applicationDidEnterBackground()
     }
 
     /**
@@ -35,8 +36,8 @@ public extension Breinify {
         This method is invoked when the app is going to terminate.
 
     */
-    public class func applicationWillTerminate() {
-        BreinifyManager.sharedInstance.applicationWillTerminate()
+    class func applicationWillTerminate() {
+        BreinifyManager.shared.applicationWillTerminate()
     }
 
     /**
@@ -45,8 +46,8 @@ public extension Breinify {
         device token for the iOS device
 
     */
-    public class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
-        let token = BreinifyManager.sharedInstance.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
+        let token = BreinifyManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
         return token
     }
 
@@ -55,8 +56,8 @@ public extension Breinify {
         This method is invoked when it was not possible to register for remote notifications
 
     */
-    public class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
-        BreinifyManager.sharedInstance.didFailToRegisterForRemoteNotificationsWithError(error)
+    class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
+        BreinifyManager.shared.didFailToRegisterForRemoteNotificationsWithError(error)
     }
 
     /**
@@ -64,8 +65,8 @@ public extension Breinify {
         This method is invoked when a remove notification is triggered
 
     */
-    public class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
-        BreinifyManager.sharedInstance.didReceiveRemoteNotification(userInfo)
+    class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
+        BreinifyManager.shared.didReceiveRemoteNotification(userInfo)
     }
 
     /**
@@ -73,8 +74,8 @@ public extension Breinify {
         This method is invoked when the App becomes active again.
 
     */
-    public class func applicationDidBecomeActive() {
-        BreinifyManager.sharedInstance.applicationDidBecomeActive()
+    class func applicationDidBecomeActive() {
+        BreinifyManager.shared.applicationDidBecomeActive()
     }
 
     /**
@@ -82,12 +83,12 @@ public extension Breinify {
         the settings of userId. The userId is part of the request.
 
     */
-    public class func setUserId(_ userId: String) {
-        BreinifyManager.sharedInstance.setUserId(userId)
+    class func setUserId(_ userId: String) {
+        BreinifyManager.shared.setUserId(userId)
     }
 
-    public class func getUserId() -> String? {
-        return BreinifyManager.sharedInstance.getUserId()
+    class func getUserId() -> String? {
+        return BreinifyManager.shared.getUserId()
     }
 
     /**
@@ -95,11 +96,11 @@ public extension Breinify {
         the settings of user email. The user email is part of the request.
 
     */
-    public class func setEmail(_ email: String) {
-        BreinifyManager.sharedInstance.setEmail(email)
+    class func setEmail(_ email: String) {
+        BreinifyManager.shared.setEmail(email)
     }
 
-    public class func getEmail() -> String? {
-        return BreinifyManager.sharedInstance.getUserEmail()
+    class func getEmail() -> String? {
+        return BreinifyManager.shared.getUserEmail()
     }
 }

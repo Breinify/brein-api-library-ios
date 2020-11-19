@@ -1,9 +1,6 @@
 //
-//  BreinIpInfo.swift
-//  BreinifyApi
-//
-//  Created by Marco Recchioni
-//  Copyright © 2017 Breinify. All rights reserved.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -16,13 +13,13 @@ open class BreinIpInfo {
     static let kTimezoneField = "timezone"
 
     /// contains the read data
-    var infoMap: NSDictionary?
+    var readDataMap: NSDictionary?
 
     private init() {
     }
 
     /// singleton
-    public static let sharedInstance: BreinIpInfo = {
+    public static let shared: BreinIpInfo = {
         let instance = BreinIpInfo()
 
         instance.refreshData()
@@ -38,7 +35,7 @@ open class BreinIpInfo {
     public func invokeRequest() -> Void {
         // service url provides external ipAddress
         let url = "http://www.ip-api.com/json"
-        Alamofire.request(url)
+        AF.request(url)
             .responseJSON {
                 response in
                 // print(response.request)  // original URL request
@@ -49,15 +46,20 @@ open class BreinIpInfo {
                 // http status
                 let status = response.response?.statusCode
                 if status == 200 {
-                    self.infoMap = response.result.value as? NSDictionary
-                    dump(self.infoMap)
+                    switch response.result {
+                    case let .success(value):
+                        dump(value)
+                        self.readDataMap = value as? NSDictionary
+                    case let .failure(error):
+                        dump(error)
+                    }
                 }
         }
     }
 
     /// provides external ipAddress
     public func getExternalIp() -> String? {
-        if let map = self.infoMap {
+        if let map = self.readDataMap {
             return map.object(forKey: BreinIpInfo.kIpField) as? String
         }
       return ""

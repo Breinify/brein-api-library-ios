@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -18,11 +18,11 @@ open class BreinResult {
     }
 
     public func get(_ key: String) -> AnyObject? {
-        return self.dic.object(forKey: key) as AnyObject?
+        self.dic.object(forKey: key) as AnyObject?
     }
 
     public func getDictionary() -> NSDictionary {
-        return self.dic
+        self.dic
     }
 
 }

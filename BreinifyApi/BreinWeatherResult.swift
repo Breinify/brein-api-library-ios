@@ -1,5 +1,6 @@
 //
-// Created by Marco on 28.04.17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -30,7 +31,7 @@ open class BreinWeatherResult: BreinResult {
     }
 
     public func getDescription() -> String? {
-        return self.get(BreinWeatherResult.kDescriptionKey) as? String
+        self.get(BreinWeatherResult.kDescriptionKey) as? String
     }
 
     public func getTemperature() -> Double? {
@@ -56,15 +57,15 @@ open class BreinWeatherResult: BreinResult {
     }
 
     public func getCloudCover() -> Int? {
-        return self.get(BreinWeatherResult.kCloudCoverKey) as? Int
+        self.get(BreinWeatherResult.kCloudCoverKey) as? Int
     }
 
     public func getWindStrength() -> Double? {
-        return self.get(BreinWeatherResult.kWindStrengthKey) as? Double
+        self.get(BreinWeatherResult.kWindStrengthKey) as? Double
     }
 
     public func getLastMeasured() -> Int? {
-        return self.get(BreinWeatherResult.kLastMeasuredKey) as? Int
+        self.get(BreinWeatherResult.kLastMeasuredKey) as? Int
     }
 
     public func getPrecipitationType() -> String? {

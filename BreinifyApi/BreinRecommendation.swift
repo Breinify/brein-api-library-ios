@@ -1,6 +1,6 @@
 //
-//  BreinRecommendation.swift
-//
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -37,7 +37,7 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
     }
 
     public func getCategory() -> String! {
-        return self.category
+        self.category
     }
 
     @discardableResult
@@ -47,7 +47,7 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
     }
 
     public func getNumberOfRecommendations() -> Int {
-        return self.numberOfRecommendations
+        self.numberOfRecommendations
     }
 
     @discardableResult
@@ -60,7 +60,7 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
       Contains the recommendation endpoint
     */
     override public func getEndPoint() -> String! {
-        return getConfig()?.getRecommendationEndpoint()
+        getConfig()?.getRecommendationEndpoint()
     }
 
     /**

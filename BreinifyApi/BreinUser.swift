@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -113,7 +113,7 @@ open class BreinUser {
 
     /// returns the first name
     public func getFirstName() -> String? {
-        return firstName
+        firstName
     }
 
     /// sets the first name
@@ -125,7 +125,7 @@ open class BreinUser {
 
     /// returns the last name
     public func getLastName() -> String? {
-        return lastName
+        lastName
     }
 
     /// sets the last name
@@ -137,13 +137,12 @@ open class BreinUser {
 
     /// returns the date of birth
     public func getDateOfBirth() -> String! {
-        return dateOfBirth
+        dateOfBirth
     }
 
     /// sets the date of birth
     @discardableResult
     public func setDateOfBirth(_ month: Int, day: Int, year: Int) -> BreinUser! {
-
         if case 1...12 = month {
             if case 1...31 = day {
                 if case 1900...2100 = year {
@@ -166,7 +165,7 @@ open class BreinUser {
 
     /// returns imei
     public func getImei() -> String? {
-        return imei
+        imei
     }
 
     /// sets imei
@@ -178,7 +177,7 @@ open class BreinUser {
 
     /// returns deviceId
     public func getDeviceId() -> String! {
-        return deviceId
+        deviceId
     }
 
     /// sets deviceId
@@ -190,7 +189,7 @@ open class BreinUser {
 
     /// returns sessionId
     public func getSessionId() -> String! {
-        return sessionId
+        sessionId
     }
 
     /// sets sessionId
@@ -202,7 +201,7 @@ open class BreinUser {
 
     /// returns userId
     public func getUserId() -> String! {
-        return self.userId
+        self.userId
     }
 
     /// sets userId
@@ -214,7 +213,7 @@ open class BreinUser {
 
     /// returns phone
     public func getPhone() -> String! {
-        return self.phone
+        self.phone
     }
 
     /// sets phone
@@ -240,7 +239,7 @@ open class BreinUser {
 
     /// returns refferer
     public func getReferrer() -> String? {
-        return referrer
+        referrer
     }
 
     /// sets localDateTime
@@ -290,7 +289,7 @@ open class BreinUser {
 
     /// returns deviceToken
     public func getDeviceToken() -> String! {
-        return self.deviceToken
+        self.deviceToken
     }
 
     /// sets url
@@ -302,7 +301,7 @@ open class BreinUser {
 
     /// returns url
     public func getUrl() -> String! {
-        return url
+        url
     }
 
     /// sets ipAddress
@@ -314,7 +313,7 @@ open class BreinUser {
 
     /// gets ipAddress
     public func getIpAddress() -> String! {
-        return ipAddress
+        ipAddress
     }
 
     /// sets additional dic
@@ -338,7 +337,7 @@ open class BreinUser {
 
     /// clear additional dictionary
     public func clearAdditional() -> BreinUser! {
-        return setAdditionalDic([:])
+        setAdditionalDic([:])
     }
 
     /// sets the user.additional dic for additional fields within the user.additional structure
@@ -348,9 +347,9 @@ open class BreinUser {
         return self
     }
 
-    /// returns addtional dic
+    /// returns additional dic
     public func getAdditionalDic() -> [String: AnyObject]? {
-        return self.additional
+         self.additional
     }
 
     /// sets the user map for for additional fields
@@ -362,7 +361,7 @@ open class BreinUser {
 
     /// returns the optional user dic
     public func getUserDic() -> [String: AnyObject]? {
-        return self.userDic
+        self.userDic
     }
 
     /// sets the user.additional dic for additional fields within the user.additional structure
@@ -374,7 +373,7 @@ open class BreinUser {
 
     /// returns the additionalLocationDic
     public func getAdditionalLocationDic() -> [String: AnyObject]? {
-        return self.additionalLocation
+        self.additionalLocation
     }
 
     /// set an additional location entry in location dictionry
@@ -530,15 +529,15 @@ open class BreinUser {
         detectNetworkInfo()
 
         var network = [String: AnyObject]()
-        if nw_ssid.characters.count > 0 {
+        if nw_ssid.count > 0 {
             network["ssid"] = nw_ssid as AnyObject?
         }
 
-        if nw_bssid.characters.count > 0 {
+        if nw_bssid.count > 0 {
             network["bssid"] = nw_bssid as AnyObject?
         }
 
-        if nw_macadr.characters.count > 0 {
+        if nw_macadr.count > 0 {
             network["macAddress"] = nw_macadr as AnyObject?
         }
         if network.count > 0 {
@@ -611,7 +610,6 @@ open class BreinUser {
         let wifi = NEHotspotNetwork()
         dump(wifi)
 
-
         let st = "SSID：\(wifi.SSID)， BSSID：\(wifi.BSSID)， strength: \(wifi.signalStrength)， secure: \(wifi.secure)\n"
 
         let telInfo = CTTelephonyNetworkInfo()
@@ -647,19 +645,19 @@ open class BreinUser {
                     }
 
                     let osName: String = {
-#if os(iOS)
+                        #if os(iOS)
                         return "iOS"
-#elseif os(watchOS)
+                        #elseif os(watchOS)
                         return "watchOS"
-#elseif os(tvOS)
+                        #elseif os(tvOS)
                         return "tvOS"
-#elseif os(OSX)
+                        #elseif os(OSX)
                         return "OS X"
-#elseif os(Linux)
+                        #elseif os(Linux)
                         return "Linux"
-#else
+                        #else
                         return "Unknown"
-#endif
+                        #endif
                     }()
 
                     return "\(osName) \(versionString)"
@@ -692,25 +690,130 @@ open class BreinUser {
             }
         }
 
-        // Todo: check result
-        let networkInfo = CTTelephonyNetworkInfo()
+
+        /// TEST TEST TEST
+//        let telephonyInfo: CTTelephonyNetworkInfo = CTTelephonyNetworkInfo()
+//
+//
+//        var carrierNetwork = telephonyInfo.serviceCurrentRadioAccessTechnology?.first?.value ?? "null"
+//        carrierNetwork = carrierNetwork.replacingOccurrences(of: "CTRadioAccessTechnology", with: "", options: NSString.CompareOptions.literal, range: nil)
+//
+//        let carrier = telephonyInfo.serviceSubscriberCellularProviders?.first?.value
+//
+//        let countryCode = carrier?.mobileCountryCode ?? "null"
+//        let mobileNetworkName = carrier?.mobileNetworkCode ?? "null"
+//        let carrierName = carrier?.carrierName ?? "null"
+//        let isoCountryCode = carrier?.isoCountryCode?.uppercased() ?? "null"
+
+        ///
+
+        /*
+        let telephonyInfo: CTTelephonyNetworkInfo = CTTelephonyNetworkInfo()
+        let carriers = networkInfo.serviceSubscriberCellularProviders?.values
+        let result = carriers?.map { ($0.mobileNetworkCode, $0.mobileCountryCode) }
+        BreinLogger.shared.debug("Carrier result is: \(String(describing: result))")
+        */
+        
+        /// TODO: collect provider
+        /// nw_carrier = xxxx
+
+
         // print(networkInfo)
         // e.g. CTRadioAccessTechnologyEdge
-        _ = networkInfo.currentRadioAccessTechnology
+//        _ = networkInfo.serviceCurrentRadioAccessTechnology
+//
+//        if let carrier = networkInfo.serviceSubscriberCellularProviders {
+//            // something like 1&1
+//
+//            let nw_carrier = carrier.carrierName ?? "null"
+//
+//            // let mobileCountryCode = carrier?.mobileCountryCode
+//        }
 
-        let carrier = networkInfo.subscriberCellularProvider
-        if carrier != nil {
-            // print(carrier)
-
-            // something like 1&1
-            nw_carrier = carrier?.carrierName as String!
-            // let mobileCountryCode = carrier?.mobileCountryCode
-        }
 
         // MAC Address is not supported by Apple. Instead this should be
         // used:
-        nw_macadr = UIDevice.current.identifierForVendor?.uuidString as String!
-        // print(uid)
+        if let value = UIDevice.current.identifierForVendor?.uuidString {
+            nw_macadr = value
+        }
 
     }
+
+    /*
+    func getTelephonyInfo() -> String? {
+        let networkInfo = CTTelephonyNetworkInfo()
+
+        let currCarrierType: String?
+        if #available(iOS 12.0, *) {
+
+            let serviceSubscriberCellularProviders = networkInfo.serviceSubscriberCellularProviders
+
+            // get curr value:
+            guard let dict = networkInfo.serviceCurrentRadioAccessTechnology else {
+                return nil
+            }
+            // as apple states
+            // https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo/3024510-servicecurrentradioaccesstechnol
+            // 1st value is our string:
+            let key = dict.keys.first! // Apple assures is present...
+
+            // use it on previous dict:
+            let carrierType = dict[key]
+
+            // to compare:
+            guard networkInfo.currentRadioAccessTechnology != nil else {
+                return nil
+            }
+            currCarrierType = carrierType
+
+        } else {
+            // Fall back to pre iOS12
+            guard let carrierType = networkInfo.currentRadioAccessTechnology else {
+                return nil
+            }
+            currCarrierType = carrierType
+        }
+
+        switch currCarrierType {
+        case CTRadioAccessTechnologyGPRS:
+            return "2G" + " (GPRS)"
+
+        case CTRadioAccessTechnologyEdge:
+            return "2G" + " (Edge)"
+
+        case CTRadioAccessTechnologyCDMA1x:
+            return "2G" + " (CDMA1x)"
+
+        case CTRadioAccessTechnologyWCDMA:
+            return "3G" + " (WCDMA)"
+
+        case CTRadioAccessTechnologyHSDPA:
+            return "3G" + " (HSDPA)"
+
+        case CTRadioAccessTechnologyHSUPA:
+            return "3G" + " (HSUPA)"
+
+        case CTRadioAccessTechnologyCDMAEVDORev0:
+            return "3G" + " (CDMAEVDORev0)"
+
+        case CTRadioAccessTechnologyCDMAEVDORevA:
+            return "3G" + " (CDMAEVDORevA)"
+
+        case CTRadioAccessTechnologyCDMAEVDORevB:
+            return "3G" + " (CDMAEVDORevB)"
+
+        case CTRadioAccessTechnologyeHRPD:
+            return "3G" + " (eHRPD)"
+
+        case CTRadioAccessTechnologyLTE:
+            return "4G" + " (LTE)"
+
+        default:
+            break;
+        }
+
+        return "newer type!"
+    }
+    */
+
 }

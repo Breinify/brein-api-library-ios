@@ -1,5 +1,6 @@
 //
-// Created by Marco on 28.04.17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -20,15 +21,14 @@ open class BreinHolidayResult: BreinTemporalDataResult {
     }
 
     public func getHolidayList() -> [NSDictionary] {
-        return self.getDataList()
+        self.getDataList()
     }
 
     public func getTypes(_ entry: NSDictionary) -> String? {
 
         if let newArr: NSArray = entry.object(forKey: BreinHolidayResult.kHolidayTypesKey) as? NSArray {
-            let yourArray = NSMutableArray(array: newArr)
-            print("\(yourArray)")
-            let stringList = yourArray.componentsJoined(by: ",")
+            let myArray = NSMutableArray(array: newArr)
+            let stringList = myArray.componentsJoined(by: ",")
             return stringList
         }
 
@@ -36,11 +36,11 @@ open class BreinHolidayResult: BreinTemporalDataResult {
     }
 
     public func getSource(_ entry: NSDictionary) -> String? {
-        return entry.object(forKey: BreinHolidayResult.kHolidaySourceKey) as? String
+        entry.object(forKey: BreinHolidayResult.kHolidaySourceKey) as? String
     }
 
     public func getName(_ entry: NSDictionary) -> String? {
-        return entry.object(forKey: BreinHolidayResult.kHolidayNameKey) as? String
+        entry.object(forKey: BreinHolidayResult.kHolidayNameKey) as? String
     }
 
 }

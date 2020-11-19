@@ -11,7 +11,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
     var breinDimension: BreinDimension!
 
     public func getBreinDimension() -> BreinDimension! {
-        return breinDimension
+        breinDimension
     }
 
     public func setBreinDimension(_ breinDimension: BreinDimension!) {
@@ -30,9 +30,9 @@ open class BreinLookup: BreinBase, ISecretStrategy {
       - returns: response from request or null if no data can be retrieved
     */
     public func lookUp(_ breinUser: BreinUser!,
-                breinDimension: BreinDimension!,
-                success successBlock: @escaping BreinEngine.apiSuccess,
-                failure failureBlock: @escaping BreinEngine.apiFailure) throws {
+                       breinDimension: BreinDimension!,
+                       success successBlock: @escaping BreinEngine.apiSuccess,
+                       failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
@@ -49,7 +49,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
 
       - returns: Dictionary that will be used for rest call (body)
     */
-    override public func prepareJsonRequest() -> [String:AnyObject]! {
+    override public func prepareJsonRequest() -> [String: AnyObject]! {
         // call base class
         super.prepareJsonRequest()
 
@@ -85,7 +85,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
             do {
                 requestData["signatureType"] = try createSignature() as AnyObject?
             } catch {
-                print("not possible to generate signature")
+                BreinLogger.shared.log("not possible to generate signature")
             }
         }
 
@@ -102,7 +102,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
     }
 
     override public func getEndPoint() -> String? {
-        return getConfig()?.getLookupEndpoint()
+        getConfig()?.getLookupEndpoint()
     }
 
     /**

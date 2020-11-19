@@ -1,5 +1,6 @@
 //
-// Created by Marco Recchioni on 14/03/17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -7,7 +8,7 @@ import Foundation
 open class BreinRequestManager {
 
     /// singleton
-    static public let sharedInstance: BreinRequestManager = {
+    static public let shared: BreinRequestManager = {
         let instance = BreinRequestManager()
 
         // setup code
@@ -59,11 +60,10 @@ open class BreinRequestManager {
 
     @objc
     public func sendActivityRequests() {
-        print("sendActivityRequests invoked")
-        print("number of missed requests are: \(self.missedRequests.count)")
+        BreinLogger.shared.log("sendActivityRequests invoked - number of missed requests are: \(self.missedRequests.count)")
 
         if missedRequests.count > 0 {
-            print("invoking new request...")
+            BreinLogger.shared.log("invoking new request...")
             Breinify.getConfig().getBreinEngine().getRestEngine().executeSavedRequests()
         }
     }
@@ -78,7 +78,7 @@ open class BreinRequestManager {
 
         missedRequests[uuid] = jsonRequest
 
-        print("Adding to Queue: \(uuid)")
+        BreinLogger.shared.log("Adding to Queue: \(uuid)")
     }
 
     public func getMissedRequests() -> [String: JsonRequest] {
@@ -100,11 +100,9 @@ open class BreinRequestManager {
 
     */
     public func removeEntry(_ key: String) {
-
-        print("size before is: \(missedRequests.count)")
+        BreinLogger.shared.log("size before removeEntry is: \(missedRequests.count)")
         missedRequests.removeValue(forKey: key)
-        print("size after is: \(missedRequests.count)")
-
+        BreinLogger.shared.log("size after removeEntry is: \(missedRequests.count)")
     }
 
     /**
@@ -169,13 +167,13 @@ open class BreinRequestManager {
                     let bytesWritten = outputStream.write(output,
                             maxLength: output.lengthOfBytes(using: .utf8))
                     if bytesWritten < 0 {
-                        print("write failure")
+                        BreinLogger.shared.log("write failure in safeMissedRequests")
                     }
                 }
 
                 outputStream.close()
             } else {
-                print("Unable to open file")
+                BreinLogger.shared.log("Unable to open file in safeMissedRequests")
             }
         }
 
@@ -194,7 +192,7 @@ open class BreinRequestManager {
                 do {
                     try fileManager.removeItem(atPath: filePathName)
                 } catch {
-                    print("Could not remove file: \(filePathName)")
+                    BreinLogger.shared.log("safeMissedRequests - could not remove file: \(filePathName)")
                 }
             }
         }
@@ -223,7 +221,7 @@ open class BreinRequestManager {
                 var inString = ""
                 do {
                     inString = try String(contentsOf: fileURL)
-                    print(inString)
+                    BreinLogger.shared.log("loadMissedRequests - line is: \(inString)")
 
                     let fileContent = inString.components(separatedBy: .newlines)
 
@@ -240,7 +238,7 @@ open class BreinRequestManager {
                         }
                     }
                 } catch {
-                    print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+                    BreinLogger.shared.log("loadMissedRequests - failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
                 }
             }
         }

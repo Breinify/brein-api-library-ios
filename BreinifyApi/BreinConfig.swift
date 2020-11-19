@@ -1,36 +1,35 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
-
 
 import Foundation
 
 open class BreinConfig {
 
     //  default endpoint of activity
-    static let cDefaultActivityEndpoint: String! = "/activity"
+    static let kDefaultActivityEndpoint: String! = "/activity"
 
     //  default endpoint of lookup
-    static let cDefaultLookupEndpoint: String! = "/lookup"
+    static let kDefaultLookupEndpoint: String! = "/lookup"
 
     //  default endpoint of lookup
-    static let cDefaultRecommendationEndpoint: String! = "/recommendation"
+    static let kDefaultRecommendationEndpoint: String! = "/recommendation"
 
     //  default endpoint of lookup
-    static let cDefaultTemporalDataEndpoint: String! = "/temporaldata"
+    static let kDefaultTemporalDataEndpoint: String! = "/temporaldata"
 
     //  default connection timeout
-    static let cDefaultConnectionTimeout: Int = 1000
+    static let kDefaultConnectionTimeout: Int = 1000
 
     //  default socket timeout
-    static let cDefaultSocketTimeout: Int = 6000
+    static let kDefaultSocketTimeout: Int = 6000
 
-    //  default breinify base url
-    static let cDefaultBaseUrl: String! = "https://api.breinify.com"
+    //  default Breinify base url
+    static let kDefaultBaseUrl: String! = "https://api.breinify.com"
 
     //  BASE URL
-    var baseUrl: String! = BreinConfig.cDefaultBaseUrl
+    var baseUrl: String! = BreinConfig.kDefaultBaseUrl
 
     //  contains the api key
     var apiKey: String!
@@ -39,16 +38,16 @@ open class BreinConfig {
     var restEngineType: BreinEngineType! = BreinEngineType.Alamofire
 
     //  contains the activity endpoint (default = ACTIVITY_ENDPOINT)
-    var activityEndpoint: String! = cDefaultActivityEndpoint
+    var activityEndpoint: String! = kDefaultActivityEndpoint
 
     //  contains the activity endpoint (default = ACTIVITY_ENDPOINT)
-    var recommendationEndpoint: String! = cDefaultRecommendationEndpoint
+    var recommendationEndpoint: String! = kDefaultRecommendationEndpoint
 
     //  contains the lookup endpoint (default = LOOKUP_ENDPOINT)
-    var lookupEndpoint: String! = cDefaultLookupEndpoint
+    var lookupEndpoint: String! = kDefaultLookupEndpoint
 
     //  contains the temporalData endpoint (default = DEFAULT_TEMPORAL_DATA_ENDPOINT)
-    var temporalDataEndpoint: String! = cDefaultTemporalDataEndpoint
+    var temporalDataEndpoint: String! = kDefaultTemporalDataEndpoint
 
     //  connection timeout
     var connectionTimeout: Int!
@@ -71,11 +70,9 @@ open class BreinConfig {
         self.initEngine()
     }
 
-    /**
-       init with
-
-       - parameter apiKey: contains the apiKey
-    */
+    ///  init with
+    ///
+    /// - Parameter apiKey: contains the apiKey
     convenience public init(_ apiKey: String!) {
         self.init()
         self.setApiKey(apiKey)
@@ -113,13 +110,13 @@ open class BreinConfig {
 
     // initializes the values
     func initValues() {
-        self.lookupEndpoint = BreinConfig.cDefaultLookupEndpoint
-        self.activityEndpoint = BreinConfig.cDefaultActivityEndpoint
-        self.recommendationEndpoint = BreinConfig.cDefaultRecommendationEndpoint
-        self.temporalDataEndpoint = BreinConfig.cDefaultTemporalDataEndpoint
-        self.baseUrl = BreinConfig.cDefaultBaseUrl
-        self.connectionTimeout = BreinConfig.cDefaultConnectionTimeout
-        self.socketTimeout = BreinConfig.cDefaultSocketTimeout
+        self.lookupEndpoint = BreinConfig.kDefaultLookupEndpoint
+        self.activityEndpoint = BreinConfig.kDefaultActivityEndpoint
+        self.recommendationEndpoint = BreinConfig.kDefaultRecommendationEndpoint
+        self.temporalDataEndpoint = BreinConfig.kDefaultTemporalDataEndpoint
+        self.baseUrl = BreinConfig.kDefaultBaseUrl
+        self.connectionTimeout = BreinConfig.kDefaultConnectionTimeout
+        self.socketTimeout = BreinConfig.kDefaultSocketTimeout
         self.category = ""
 
         // default rest-engine
@@ -131,12 +128,6 @@ open class BreinConfig {
         self.breinEngine = BreinEngine(engineType: getRestEngineType())
     }
 
-    // initializes the brein logger for swiftyBeaver
-    public func initLoggerForSwiftyBeaver(appId: String, appSecret: String, encryptionKey: String) {
-        // BreinLogger.initialize(appId: appId, appSecret: appSecret, encryptionKey: encryptionKey)
-        // BreinLogger.setLoggerType(logger: .SwiftyBeaver)
-    }
-
     public func build() throws -> BreinifyExecutor {
         let breinifyExecutor = BreinifyExecutor()
         breinifyExecutor.setConfig(self)
@@ -146,7 +137,7 @@ open class BreinConfig {
     }
 
     public func getBaseUrl() -> String! {
-        return baseUrl
+        baseUrl
     }
 
     @discardableResult
@@ -166,7 +157,7 @@ open class BreinConfig {
     }
 
     public func getRestEngineType() -> BreinEngineType! {
-        return self.restEngineType
+        self.restEngineType
     }
 
     @discardableResult
@@ -176,7 +167,7 @@ open class BreinConfig {
     }
 
     public func getBreinEngine() -> BreinEngine! {
-        return self.breinEngine
+        self.breinEngine
     }
 
     @discardableResult
@@ -186,19 +177,19 @@ open class BreinConfig {
     }
 
     public func getApiKey() -> String! {
-        return apiKey
+        apiKey
     }
 
     public func getUrl() -> String! {
-        return baseUrl
+        baseUrl
     }
 
     public func getConnectionTimeout() -> Int {
-        return connectionTimeout
+        connectionTimeout
     }
 
     public func getSocketTimeout() -> Int {
-        return socketTimeout
+        socketTimeout
     }
 
     @discardableResult
@@ -214,7 +205,7 @@ open class BreinConfig {
     }
 
     public func getActivityEndpoint() -> String! {
-        return self.activityEndpoint
+        self.activityEndpoint
     }
 
     @discardableResult
@@ -224,7 +215,7 @@ open class BreinConfig {
     }
 
     public func getRecommendationEndpoint() -> String! {
-        return self.recommendationEndpoint
+        self.recommendationEndpoint
     }
 
     @discardableResult
@@ -234,7 +225,7 @@ open class BreinConfig {
     }
 
     public func getLookupEndpoint() -> String! {
-        return lookupEndpoint
+        lookupEndpoint
     }
 
     @discardableResult
@@ -244,7 +235,7 @@ open class BreinConfig {
     }
 
     public func getTemporalDataEndpoint() -> String! {
-        return temporalDataEndpoint
+        temporalDataEndpoint
     }
 
     @discardableResult
@@ -254,7 +245,7 @@ open class BreinConfig {
     }
 
     public func getSecret() -> String! {
-        return secret
+        secret
     }
 
     @discardableResult
@@ -264,7 +255,7 @@ open class BreinConfig {
     }
 
     public func getCategory() -> String! {
-        return category
+        category
     }
 
     @discardableResult
@@ -281,7 +272,7 @@ open class BreinConfig {
     }
 
     public func isUrlValid(_ url: String!) -> Bool {
-        return BreinUtil.isUrlValid(url)
+        BreinUtil.isUrlValid(url)
     }
 
 }

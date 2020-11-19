@@ -1,5 +1,6 @@
 //
-// Created by Marco on 21.04.17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +14,7 @@ open class BreinNotificationHandler {
 
     @available(iOS 10.0, *)
     open func willPresent(_ notification: UNNotification) {
-        print("BreinNotificationHandler willPresent called - received notification is: \(notification)")
+        BreinLogger.shared.log("BreinNotificationHandler willPresent called - received notification is: \(notification)")
 
         var message = "The message"
 
@@ -28,24 +29,23 @@ open class BreinNotificationHandler {
                 }
             } else if let alert = aps["alert"] as? String {
                 //Do stuff
-                print(alert)
+                BreinLogger.shared.log(alert)
                 message = alert
             }
         }
 
         let refreshAlert = UIAlertController(title: "Breinify Notification",
                 message: message,
-                preferredStyle: UIAlertControllerStyle.alert)
+                preferredStyle: UIAlertController.Style.alert)
 
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            BreinLogger.shared.log("Handle Ok logic here")
         }))
     }
 
     @available(iOS 10.0, *)
     open func didReceive(_ response: UNNotificationResponse) {
-
-        print("BreinNotificationHandler didReceive calld - received response is: \(response)")
+        BreinLogger.shared.log("BreinNotificationHandler didReceive called - received response is: \(response)")
     }
 
     public func showDialog() {

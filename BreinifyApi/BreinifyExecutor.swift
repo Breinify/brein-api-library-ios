@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -16,21 +16,32 @@ open class BreinifyExecutor {
     //  contains the lookup object
     var breinLookup: BreinLookup! = BreinLookup()
 
+    /// Set the config
+    ///
+    /// - Parameter breinConfig:
     public func setConfig(_ breinConfig: BreinConfig!) {
         config = breinConfig
         breinActivity.setConfig(breinConfig)
         breinLookup.setConfig(breinConfig)
     }
 
+    /// Returns the config
+    ///
+    /// - Returns:
     public func getConfig() -> BreinConfig! {
-        return config
+        config
     }
 
-    /**
-
-      Invokes an activity request
-
-    */
+    /// Invokes an activity request
+    ///
+    /// - Parameters:
+    ///   - user:
+    ///   - activityType:
+    ///   - category:
+    ///   - description:
+    ///   - successBlock:
+    ///   - failureBlock:
+    /// - Throws:
     public func activity(_ user: BreinUser!,
                          activityType: String!,
                          category: String!,
@@ -47,11 +58,17 @@ open class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    /**
-
-      Invokes an activity request
-
-    */
+    /// Invokes an activity request
+    ///
+    /// - Parameters:
+    ///   - breinActivity:
+    ///   - user:
+    ///   - activityType:
+    ///   - category:
+    ///   - description:
+    ///   - successBlock:
+    ///   - failureBlock:
+    /// - Throws:
     public func activity(_ breinActivity: BreinActivity!,
                          user: BreinUser!,
                          activityType: String!,
@@ -73,11 +90,14 @@ open class BreinifyExecutor {
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
     }
 
-    /**
-
-      Invokes a lookup request
-
-    */
+    /// Invokes a lookup request
+    ///
+    /// - Parameters:
+    ///   - user:
+    ///   - dimension:
+    ///   - successBlock:
+    ///   - failureBlock:
+    /// - Throws:
     public func lookup(_ user: BreinUser!,
                        dimension: BreinDimension!,
                        success successBlock: @escaping BreinEngine.apiSuccess,
@@ -90,11 +110,15 @@ open class BreinifyExecutor {
                 failure: failureBlock)
     }
 
-    /**
-
-       Invokes a lookup request
-
-     */
+    /// Invokes a lookup request
+    ///
+    /// - Parameters:
+    ///   - breinLookup:
+    ///   - user:
+    ///   - dimension:
+    ///   - successBlock:
+    ///   - failureBlock:
+    /// - Throws:
     public func lookup(_ breinLookup: BreinLookup!,
                        user: BreinUser!,
                        dimension: BreinDimension!,

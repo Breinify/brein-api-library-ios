@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -28,7 +28,8 @@ public class BreinUtil {
     // should check if an url is valid
     // for the time being we assume that this is the case
     static public func isUrlValid(_ url: String!) -> Bool {
-        return true;
+        // todo check missing
+        true;
     }
 
     static public func containsValue(_ value: String?) -> String? {
@@ -36,7 +37,7 @@ public class BreinUtil {
             return nil
         }
 
-        if value?.characters.count == 0 {
+        if value?.count == 0 {
             return nil
         }
 
@@ -44,7 +45,7 @@ public class BreinUtil {
     }
 
     static public func detectIpAddress() -> String {
-        return BreinIpInfo.sharedInstance.getExternalIp()!
+        BreinIpInfo.shared.getExternalIp()!
 
         // only en0, running & up
         /* this will only provide the local Ip
@@ -123,15 +124,15 @@ extension Formatter {
 
 extension Date {
     var iso8601: String {
-        return Formatter.iso8601.string(from: self)
+        Formatter.iso8601.string(from: self)
     }
     var breinifyFormat: String {
-        return Formatter.breinifyFormat.string(from: self)
+        Formatter.breinifyFormat.string(from: self)
     }
 }
 
 extension String {
     var dateFromISO8601: Date? {
-        return Formatter.iso8601.date(from: self)
+        Formatter.iso8601.date(from: self)
     }
 }

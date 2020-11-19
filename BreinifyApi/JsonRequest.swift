@@ -1,5 +1,6 @@
 //
-// Created by Marco Recchioni on 14/03/17.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation

@@ -1,5 +1,6 @@
 //
-// Created by Marco on 23.11.16.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -10,8 +11,6 @@ public class BreinMapUtil {
 
     public class func fillMap(_ dataMap: Dic, requestStructure: inout Dic ) {
         for (key, value) in dataMap {
-            // print("\(key) = \(value)")
-
             if let dataDic = value as? Dic {
                 var extra = Dic()
                 fillMap(dataDic, requestStructure: &extra)

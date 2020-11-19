@@ -1,6 +1,6 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
@@ -79,7 +79,7 @@ public class BreinEngine {
                                 success: successBlock,
                                 failure: failureBlock)
                     } catch {
-                        BreinLogger.debug("\(error)")
+                        BreinLogger.shared.log("\(error)")
                     }
                 }
             }
@@ -111,15 +111,15 @@ public class BreinEngine {
                     // save the retrieved location data
                     breinTemporalData.getUser()?.setLocationData(location)
 
-                    print("latitude is: \(location?.coordinate.latitude ?? -1)")
-                    print("longitude is: \(location?.coordinate.longitude ?? -1)")
+                    BreinLogger.shared.log("latitude is: \(location?.coordinate.latitude ?? -1)")
+                    BreinLogger.shared.log("longitude is: \(location?.coordinate.longitude ?? -1)")
 
                     do {
                         return try self.restEngine.doTemporalDataRequest(breinTemporalData,
                                 success: successBlock,
                                 failure: failureBlock)
                     } catch {
-                        print("performTemporalDataRequest error is: \(error)")
+                        BreinLogger.shared.log("performTemporalDataRequest error is: \(error)")
                     }
                 }
             }
@@ -152,8 +152,8 @@ public class BreinEngine {
                     // save the retrieved location data
                     breinLookup.getUser()?.setLocationData(location)
 
-                    // print("latitude is: \(location?.coordinate.latitude)")
-                    // print("longitude is: \(location?.coordinate.longitude)")
+                    BreinLogger.shared.log("latitude is: \(String(describing: location?.coordinate.latitude))")
+                    BreinLogger.shared.log("longitude is: \(String(describing: location?.coordinate.longitude))")
 
                     do {
                         if breinLookup != nil {
@@ -162,7 +162,7 @@ public class BreinEngine {
                                     failure: failureBlock)
                         }
                     } catch {
-                        print("performLookUp error is: \(error)")
+                        BreinLogger.shared.log("performLookUp error is: \(error)")
                     }
                 }
             }
@@ -193,8 +193,10 @@ public class BreinEngine {
                     // save the retrieved location data
                     breinRecommendation.getUser()?.setLocationData(location)
 
-                    // print("latitude is: \(location?.coordinate.latitude)")
-                    // print("longitude is: \(location?.coordinate.longitude)")
+                    if let loc = location {
+                        BreinLogger.shared.log("latitude is: \(loc.coordinate.latitude)")
+                        BreinLogger.shared.log("longitude is: \(loc.coordinate.longitude)")
+                    }
 
                     do {
                         if breinRecommendation != nil {
@@ -203,7 +205,7 @@ public class BreinEngine {
                                     failure: failureBlock)
                         }
                     } catch {
-                        print("invokeRecommendation error is: \(error)")
+                        BreinLogger.shared.log("invokeRecommendation error is: \(error)")
                     }
                 }
             }
@@ -216,7 +218,7 @@ public class BreinEngine {
      - returns: engine itself
     */
     public func getRestEngine() -> IRestEngine! {
-        return restEngine
+        restEngine
     }
 
     /**

@@ -1,12 +1,12 @@
 //
 // Created by Marco Recchioni
-// Copyright (c) 2016 Breinify. All rights reserved.
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 import Foundation
 
 ///
-/// Interface for all possible rest  engines
+/// Interface for all possible rest engines
 ///
 
 public protocol IRestEngine {

@@ -1,9 +1,6 @@
 //
-//  BreinifyApi.h
-//  BreinifyApi
-//
-//  Created by Marco on 05.05.17.
-//  Copyright © 2017 Breinify. All rights reserved.
+// Created by Marco Recchioni
+// Copyright (c) 2020 Breinify. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
