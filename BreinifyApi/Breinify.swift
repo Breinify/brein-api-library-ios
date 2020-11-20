@@ -218,7 +218,6 @@ open class Breinify {
                                }) throws {
 
         // firstly check if user is valid
-
         let user = self.getBreinUser()
 
         try activity(getBreinActivity(),
