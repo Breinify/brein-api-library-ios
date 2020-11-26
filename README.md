@@ -104,7 +104,7 @@ do {
     try Breinify.activity(breinUser, activityType: "login")
   } catch {
     print("Error is: \(error)")
-  }
+}
 ```
 
 ### Sending readArticle
@@ -125,7 +125,7 @@ do {
      try Breinify.activity(breinActivity)
    } catch {
      print("Error is: \(error)")
-   } 
+} 
 ```
 
 
