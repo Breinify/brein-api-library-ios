@@ -31,28 +31,19 @@ public class BreinEngine {
      Creates the BreinEngine instance with a given breinEngineType
     */
     public init(engineType: BreinEngineType) {
-
         self.restEngine = AlamofireEngine()
-
-        /*
-
-        switch engineType {
-        case BreinEngineType.ALAMOFIRE:
-            self.restEngine = AlamofireEngine()
-        }
-        */
     }
 
     /**
      Sends an activity to the Breinify server
-     
+
        - parameter activity: data to be send
        - Parameter successBlock : A callback function that is invoked in case of success.
        - Parameter failureBlock : A callback function that is invoked in case of an error.
 
        Important:
        * due to the fact that the locationManager will invoke CLLocationManager it must run on the
-         main thread 
+         main thread
 
      */
     public func sendActivity(_ activity: BreinActivity!,
@@ -60,30 +51,41 @@ public class BreinEngine {
                              failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
         if activity != nil {
-            // necessary to invoke CLLocationManager
-            // need to come back to main thread
-            DispatchQueue.main.async {
+            if activity.getConfig().getWithLocationManagerUsage() == true {
+                // necessary to invoke CLLocationManager
+                // need to come back to main thread
+                DispatchQueue.main.async {
 
-                self.locationManager.fetchWithCompletion {
+                    self.locationManager.fetchWithCompletion {
 
-                    location, error in
+                        location, error in
 
-                    // save the retrieved location data
-                    activity.getUser()?.setLocationData(location)
+                        // save the retrieved location data
+                        activity.getUser()?.setLocationData(location)
 
-                    // print("latitude is: \(location?.coordinate.latitude)")
-                    // print("longitude is: \(location?.coordinate.longitude)")
+                        // print("latitude is: \(location?.coordinate.latitude)")
+                        // print("longitude is: \(location?.coordinate.longitude)")
 
-                    do {
-                        try self.restEngine.doRequest(activity,
-                                success: successBlock,
-                                failure: failureBlock)
-                    } catch {
-                        BreinLogger.shared.log("\(error)")
+                        do {
+                            try self.restEngine.doRequest(activity,
+                                    success: successBlock,
+                                    failure: failureBlock)
+                        } catch {
+                            BreinLogger.shared.log("\(error)")
+                        }
                     }
+                }
+            } else {
+                do {
+                    try self.restEngine.doRequest(activity,
+                            success: successBlock,
+                            failure: failureBlock)
+                } catch {
+                    BreinLogger.shared.log("\(error)")
                 }
             }
         }
+
     }
 
     /**

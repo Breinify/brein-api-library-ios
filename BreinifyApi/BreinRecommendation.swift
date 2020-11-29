@@ -68,31 +68,31 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
 
        - returns: Dictionary
      */
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
+    override public func prepareJsonRequest() -> [String: Any]! {
         // call base class
         super.prepareJsonRequest()
 
-        var requestData = [String: AnyObject]()
+        var requestData = [String: Any]()
 
         // firstly user data
         if let breinUser = getUser() {
-            var userData = [String: AnyObject]()
+            var userData = [String: Any]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData as AnyObject?
+            requestData["user"] = userData as Any?
         }
 
         //  recommendation data
-        var recommendationData = [String: AnyObject]()
+        var recommendationData = [String: Any]()
 
         // optional field
         if let category = self.getCategory() {
-            recommendationData["recommendationCategory"] = category as AnyObject?
+            recommendationData["recommendationCategory"] = category as Any?
         }
 
         // mandatory field
-        recommendationData["numRecommendations"] = self.getNumberOfRecommendations() as AnyObject?
+        recommendationData["numRecommendations"] = self.getNumberOfRecommendations() as Any?
 
-        requestData["recommendation"] = recommendationData as AnyObject?;
+        requestData["recommendation"] = recommendationData as Any?;
 
         // base level data...
         prepareBaseRequestData(&requestData);

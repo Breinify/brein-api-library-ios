@@ -7,7 +7,7 @@ import Foundation
 
 public class BreinMapUtil {
 
-    public typealias Dic = [String: AnyObject]
+    public typealias Dic = [String: Any]
 
     public class func fillMap(_ dataMap: Dic, requestStructure: inout Dic ) {
         for (key, value) in dataMap {
@@ -15,7 +15,7 @@ public class BreinMapUtil {
                 var extra = Dic()
                 fillMap(dataDic, requestStructure: &extra)
                 if extra.count > 0 {
-                    requestStructure[key] = extra as AnyObject?
+                    requestStructure[key] = extra as Any?
                 }
             } else {
                 requestStructure[key] = value

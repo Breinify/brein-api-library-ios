@@ -64,13 +64,13 @@ open class BreinUser {
     var deviceToken: String?
 
     /// contains additional dictionary
-    var additional = [String: AnyObject]()
+    var additional = [String: Any]()
 
     /// contains additional.location dictionary
-    var additionalLocation = [String: AnyObject]()
+    var additionalLocation = [String: Any]()
 
     /// contains user dictionary
-    var userDic = [String: AnyObject]()
+    var userDic = [String: Any]()
 
     /// contains network.ssid
     var nw_ssid = ""
@@ -318,7 +318,7 @@ open class BreinUser {
 
     /// sets additional dic
     @discardableResult
-    public func setAdditional(_ key: String?, map: [String: AnyObject]?) -> BreinUser! {
+    public func setAdditional(_ key: String?, map: [String: Any]?) -> BreinUser! {
         if map == nil {
             return self
         }
@@ -326,8 +326,8 @@ open class BreinUser {
             return self
         }
         if let pKey = key {
-            var enhancedDic = [String: AnyObject]()
-            enhancedDic[pKey] = map as AnyObject?
+            var enhancedDic = [String: Any]()
+            enhancedDic[pKey] = map as Any?
 
             return setAdditionalDic(enhancedDic)
         }
@@ -342,37 +342,37 @@ open class BreinUser {
 
     /// sets the user.additional dic for additional fields within the user.additional structure
     @discardableResult
-    public func setAdditionalDic(_ dic: [String: AnyObject]) -> BreinUser! {
+    public func setAdditionalDic(_ dic: [String: Any]) -> BreinUser! {
         self.additional = dic
         return self
     }
 
     /// returns additional dic
-    public func getAdditionalDic() -> [String: AnyObject]? {
+    public func getAdditionalDic() -> [String: Any]? {
          self.additional
     }
 
     /// sets the user map for for additional fields
     @discardableResult
-    public func setUserDic(_ map: [String: AnyObject]) -> BreinUser! {
+    public func setUserDic(_ map: [String: Any]) -> BreinUser! {
         self.userDic = map
         return self
     }
 
     /// returns the optional user dic
-    public func getUserDic() -> [String: AnyObject]? {
+    public func getUserDic() -> [String: Any]? {
         self.userDic
     }
 
     /// sets the user.additional dic for additional fields within the user.additional structure
     @discardableResult
-    public func setAdditionalLocationDic(_ dic: [String: AnyObject]) -> BreinUser! {
+    public func setAdditionalLocationDic(_ dic: [String: Any]) -> BreinUser! {
         self.additionalLocation = dic
         return self
     }
 
     /// returns the additionalLocationDic
-    public func getAdditionalLocationDic() -> [String: AnyObject]? {
+    public func getAdditionalLocationDic() -> [String: Any]? {
         self.additionalLocation
     }
 
@@ -403,42 +403,42 @@ open class BreinUser {
     }
 
     /// prepares user related map for json request
-    public func prepareUserRequest(_ userData: inout [String: AnyObject], breinConfig: BreinConfig!) {
+    public func prepareUserRequest(_ userData: inout [String: Any], breinConfig: BreinConfig!) {
 
         if let dateOfBirth = BreinUtil.containsValue(self.getDateOfBirth()) {
-            userData["dateOfBirth"] = dateOfBirth as AnyObject?
+            userData["dateOfBirth"] = dateOfBirth as Any?
         }
 
         if let imei = BreinUtil.containsValue(self.getImei()) {
-            userData["imei"] = imei as AnyObject?
+            userData["imei"] = imei as Any?
         }
 
         if let deviceId = BreinUtil.containsValue(self.getDeviceId()) {
-            userData["deviceId"] = deviceId as AnyObject?
+            userData["deviceId"] = deviceId as Any?
         }
 
         if let email = BreinUtil.containsValue(self.getEmail()) {
-            userData["email"] = email as AnyObject?
+            userData["email"] = email as Any?
         }
 
         if let session = BreinUtil.containsValue(self.getSessionId()) {
-            userData["sessionId"] = session as AnyObject?
+            userData["sessionId"] = session as Any?
         }
 
         if let userid = BreinUtil.containsValue(self.getUserId()) {
-            userData["userId"] = userid as AnyObject?
+            userData["userId"] = userid as Any?
         }
 
         if let phone = BreinUtil.containsValue(self.getPhone()) {
-            userData["phone"] = phone as AnyObject?
+            userData["phone"] = phone as Any?
         }
 
         if let firstName = BreinUtil.containsValue(self.getFirstName()) {
-            userData["firstName"] = firstName as AnyObject?
+            userData["firstName"] = firstName as Any?
         }
 
         if let user = BreinUtil.containsValue(self.getLastName()) {
-            userData["lastName"] = user as AnyObject?
+            userData["lastName"] = user as Any?
         }
 
         // add possible further fields coming from user dictionary
@@ -450,28 +450,28 @@ open class BreinUser {
 
         // only add if something is there
         if let addData = prepareAdditionalFields() {
-            userData["additional"] = addData as AnyObject?
+            userData["additional"] = addData as Any?
         }
     }
 
     /// prepares user.additional map for json request
-    public func prepareAdditionalFields() -> [String: AnyObject]! {
+    public func prepareAdditionalFields() -> [String: Any]! {
 
         // additional part
-        var additionalData = [String: AnyObject]()
+        var additionalData = [String: Any]()
 
         // location Data
-        var locData = [String: AnyObject]()
+        var locData = [String: Any]()
 
         // check location values
         if self.locationData != nil {
             // only a valid location will be taken into consideration
             // this is the case when the corrdinates are different from 0
             if locationData?.coordinate.latitude != 0 {
-                locData["accuracy"] = locationData?.horizontalAccuracy as AnyObject?
-                locData["latitude"] = locationData?.coordinate.latitude as AnyObject?
-                locData["longitude"] = locationData?.coordinate.longitude as AnyObject?
-                locData["speed"] = locationData?.speed as AnyObject?
+                locData["accuracy"] = locationData?.horizontalAccuracy as Any?
+                locData["latitude"] = locationData?.coordinate.latitude as Any?
+                locData["longitude"] = locationData?.coordinate.longitude as Any?
+                locData["speed"] = locationData?.speed as Any?
             }
         }
 
@@ -482,40 +482,40 @@ open class BreinUser {
         }
 
         if locData.count > 0 {
-            additionalData["location"] = locData as AnyObject?
+            additionalData["location"] = locData as Any?
         }
 
         if let userAgentValue = self.getUserAgent() {
-            additionalData["userAgent"] = userAgentValue as AnyObject?
+            additionalData["userAgent"] = userAgentValue as Any?
         }
 
         if let referrerValue = self.getReferrer() {
-            additionalData["referrer"] = referrerValue as AnyObject?
+            additionalData["referrer"] = referrerValue as Any?
         }
 
         if let urlValue = self.getUrl() {
-            additionalData["url"] = urlValue as AnyObject?
+            additionalData["url"] = urlValue as Any?
         }
 
         /// use the one that may be defined
         if let localDateTimeValue = self.getLocalDateTime() {
-            additionalData["localDateTime"] = localDateTimeValue as AnyObject?
+            additionalData["localDateTime"] = localDateTimeValue as Any?
         }
 
         if let timezoneValue = self.getTimezone() {
-            additionalData["timezone"] = timezoneValue as AnyObject?
+            additionalData["timezone"] = timezoneValue as Any?
         }
 
         // deviceToken for pushNotifications
         if let devToken = self.getDeviceToken() {
-            var identifierData = [String: AnyObject]()
-            identifierData["iosPushDeviceToken"] = devToken as AnyObject?
-            additionalData["identifiers"] = identifierData as AnyObject?
+            var identifierData = [String: Any]()
+            identifierData["iosPushDeviceToken"] = devToken as Any?
+            additionalData["identifiers"] = identifierData as Any?
         }
 
         // ipAddress
         if let additionalIpAddress = self.getIpAddress() {
-            additionalData["ipAddress"] = additionalIpAddress as AnyObject?
+            additionalData["ipAddress"] = additionalIpAddress as Any?
         }
 
         // add possible further fields coming from additional dictionary
@@ -528,20 +528,20 @@ open class BreinUser {
         // detect network
         detectNetworkInfo()
 
-        var network = [String: AnyObject]()
+        var network = [String: Any]()
         if nw_ssid.count > 0 {
-            network["ssid"] = nw_ssid as AnyObject?
+            network["ssid"] = nw_ssid as Any?
         }
 
         if nw_bssid.count > 0 {
-            network["bssid"] = nw_bssid as AnyObject?
+            network["bssid"] = nw_bssid as Any?
         }
 
         if nw_macadr.count > 0 {
-            network["macAddress"] = nw_macadr as AnyObject?
+            network["macAddress"] = nw_macadr as Any?
         }
         if network.count > 0 {
-            additionalData["network"] = network as AnyObject?
+            additionalData["network"] = network as Any?
         }
 
         return additionalData
@@ -598,7 +598,7 @@ open class BreinUser {
 
     // provides networkinformation
     /*
-    public func prepareNetworkInfo(inout requestStructure: [String: AnyObject]) {
+    public func prepareNetworkInfo(inout requestStructure: [String: Any]) {
 
         let networkInfo = CTTelephonyNetworkInfo()
         let carrier = networkInfo.subscriberCellularProvider
@@ -691,44 +691,9 @@ open class BreinUser {
         }
 
 
-        /// TEST TEST TEST
-//        let telephonyInfo: CTTelephonyNetworkInfo = CTTelephonyNetworkInfo()
-//
-//
-//        var carrierNetwork = telephonyInfo.serviceCurrentRadioAccessTechnology?.first?.value ?? "null"
-//        carrierNetwork = carrierNetwork.replacingOccurrences(of: "CTRadioAccessTechnology", with: "", options: NSString.CompareOptions.literal, range: nil)
-//
-//        let carrier = telephonyInfo.serviceSubscriberCellularProviders?.first?.value
-//
-//        let countryCode = carrier?.mobileCountryCode ?? "null"
-//        let mobileNetworkName = carrier?.mobileNetworkCode ?? "null"
-//        let carrierName = carrier?.carrierName ?? "null"
-//        let isoCountryCode = carrier?.isoCountryCode?.uppercased() ?? "null"
 
-        ///
-
-        /*
-        let telephonyInfo: CTTelephonyNetworkInfo = CTTelephonyNetworkInfo()
-        let carriers = networkInfo.serviceSubscriberCellularProviders?.values
-        let result = carriers?.map { ($0.mobileNetworkCode, $0.mobileCountryCode) }
-        BreinLogger.shared.debug("Carrier result is: \(String(describing: result))")
-        */
-        
         /// TODO: collect provider
         /// nw_carrier = xxxx
-
-
-        // print(networkInfo)
-        // e.g. CTRadioAccessTechnologyEdge
-//        _ = networkInfo.serviceCurrentRadioAccessTechnology
-//
-//        if let carrier = networkInfo.serviceSubscriberCellularProviders {
-//            // something like 1&1
-//
-//            let nw_carrier = carrier.carrierName ?? "null"
-//
-//            // let mobileCountryCode = carrier?.mobileCountryCode
-//        }
 
 
         // MAC Address is not supported by Apple. Instead this should be
@@ -739,81 +704,5 @@ open class BreinUser {
 
     }
 
-    /*
-    func getTelephonyInfo() -> String? {
-        let networkInfo = CTTelephonyNetworkInfo()
-
-        let currCarrierType: String?
-        if #available(iOS 12.0, *) {
-
-            let serviceSubscriberCellularProviders = networkInfo.serviceSubscriberCellularProviders
-
-            // get curr value:
-            guard let dict = networkInfo.serviceCurrentRadioAccessTechnology else {
-                return nil
-            }
-            // as apple states
-            // https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo/3024510-servicecurrentradioaccesstechnol
-            // 1st value is our string:
-            let key = dict.keys.first! // Apple assures is present...
-
-            // use it on previous dict:
-            let carrierType = dict[key]
-
-            // to compare:
-            guard networkInfo.currentRadioAccessTechnology != nil else {
-                return nil
-            }
-            currCarrierType = carrierType
-
-        } else {
-            // Fall back to pre iOS12
-            guard let carrierType = networkInfo.currentRadioAccessTechnology else {
-                return nil
-            }
-            currCarrierType = carrierType
-        }
-
-        switch currCarrierType {
-        case CTRadioAccessTechnologyGPRS:
-            return "2G" + " (GPRS)"
-
-        case CTRadioAccessTechnologyEdge:
-            return "2G" + " (Edge)"
-
-        case CTRadioAccessTechnologyCDMA1x:
-            return "2G" + " (CDMA1x)"
-
-        case CTRadioAccessTechnologyWCDMA:
-            return "3G" + " (WCDMA)"
-
-        case CTRadioAccessTechnologyHSDPA:
-            return "3G" + " (HSDPA)"
-
-        case CTRadioAccessTechnologyHSUPA:
-            return "3G" + " (HSUPA)"
-
-        case CTRadioAccessTechnologyCDMAEVDORev0:
-            return "3G" + " (CDMAEVDORev0)"
-
-        case CTRadioAccessTechnologyCDMAEVDORevA:
-            return "3G" + " (CDMAEVDORevA)"
-
-        case CTRadioAccessTechnologyCDMAEVDORevB:
-            return "3G" + " (CDMAEVDORevB)"
-
-        case CTRadioAccessTechnologyeHRPD:
-            return "3G" + " (eHRPD)"
-
-        case CTRadioAccessTechnologyLTE:
-            return "4G" + " (LTE)"
-
-        default:
-            break;
-        }
-
-        return "newer type!"
-    }
-    */
 
 }

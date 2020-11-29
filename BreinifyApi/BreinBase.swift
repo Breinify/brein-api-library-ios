@@ -26,7 +26,7 @@ open class BreinBase {
     var unixTimestamp: TimeInterval!
 
     /// base dictionary
-    var baseDic: [String: AnyObject]?
+    var baseDic: [String: Any]?
 
     /// contains block invoked in case of success
     var successBlock: BreinBase.apiSuccess?
@@ -44,12 +44,12 @@ open class BreinBase {
     }
 
     @discardableResult
-    public func setBaseDic(_ baseDic: [String: AnyObject]) -> BreinBase {
+    public func setBaseDic(_ baseDic: [String: Any]) -> BreinBase {
         self.baseDic = baseDic
         return self
     }
 
-    public func getBaseDic() -> [String: AnyObject]? {
+    public func getBaseDic() -> [String: Any]? {
         self.baseDic
     }
 
@@ -108,26 +108,26 @@ open class BreinBase {
     }
 
     @discardableResult
-    public func prepareJsonRequest() -> [String: AnyObject]! {
+    public func prepareJsonRequest() -> [String: Any]! {
         let timeInterval = NSDate().timeIntervalSince1970
         setUnixTimestamp(timeInterval)
-        return [String: AnyObject]()
+        return [String: Any]()
     }
 
     // prepares the map on base level for the json request
-    public func prepareBaseRequestData(_ requestData: inout [String: AnyObject]) {
+    public func prepareBaseRequestData(_ requestData: inout [String: Any]) {
 
         if let apiKey = getConfig()?.getApiKey(), !apiKey.isEmpty {
-            requestData["apiKey"] = apiKey as AnyObject?
+            requestData["apiKey"] = apiKey as Any?
         }
 
-        requestData["unixTimestamp"] = getUnixTimestamp() as AnyObject?
+        requestData["unixTimestamp"] = getUnixTimestamp() as Any?
 
         // if sign is active
         if isSign() {
             do {
-                requestData["signature"] = try self.createSignature() as AnyObject?
-                requestData["signatureType"] = "HmacSHA256" as AnyObject?
+                requestData["signature"] = try self.createSignature() as Any?
+                requestData["signatureType"] = "HmacSHA256" as Any?
             } catch {
                 BreinLogger.shared.log("not possible to generate signature")
             }
@@ -135,12 +135,12 @@ open class BreinBase {
 
         // check if an ip address has been set or if it should be detected
         if let ipAddress = BreinUtil.containsValue(self.getIpAddress()!) {
-            requestData["ipAddress"] = ipAddress as AnyObject?
+            requestData["ipAddress"] = ipAddress as Any?
         } else {
             // detect ip
             let ip = BreinUtil.detectIpAddress()
             if ip.count > 0 {
-                requestData["ipAddress"] = ip as AnyObject?
+                requestData["ipAddress"] = ip as Any?
             }
         }
 

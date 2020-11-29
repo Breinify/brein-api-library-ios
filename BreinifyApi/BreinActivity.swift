@@ -22,10 +22,10 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     var description: String?
 
     /// tags dictionary
-    var tagsDic: [String: AnyObject]?
+    var tagsDic: [String: Any]?
 
     /// activity dictionary
-    var activityDic: [String: AnyObject]?
+    var activityDic: [String: Any]?
 
     /// returns activity type
     ///
@@ -83,19 +83,19 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     @discardableResult
-    public func setTagsDic(_ tagsDic: [String: AnyObject]) -> BreinActivity {
+    public func setTagsDic(_ tagsDic: [String: Any]) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
     }
 
-    public func getTagsDic() -> [String: AnyObject]? {
+    public func getTagsDic() -> [String: Any]? {
         self.tagsDic
     }
 
     @discardableResult
     public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
         if self.tagsDic == nil {
-            self.tagsDic = [String : AnyObject] ()
+            self.tagsDic = [String : Any] ()
         }
 
         tagsDic?[key] = value
@@ -103,12 +103,12 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     @discardableResult
-    public func setActivityDic(_ activityDic: [String: AnyObject]) -> BreinActivity {
+    public func setActivityDic(_ activityDic: [String: Any]) -> BreinActivity {
         self.activityDic = activityDic
         return self
     }
 
-    public func getActivityDic() -> [String: AnyObject]? {
+    public func getActivityDic() -> [String: Any]? {
         self.activityDic
     }
 
@@ -145,34 +145,34 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     /// Creates a dictionary that will be used for the request.
     ///
     /// - Returns: Dictionary
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
+    override public func prepareJsonRequest() -> [String: Any]! {
 
         // call base class
         super.prepareJsonRequest()
 
-        var requestData = [String: AnyObject]()
+        var requestData = [String: Any]()
 
         if let breinUser = getUser() {
-            var userData = [String: AnyObject]()
+            var userData = [String: Any]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData as AnyObject?
+            requestData["user"] = userData as Any?
         }
 
         //  activity data
-        var activityData = [String: AnyObject]()
+        var activityData = [String: Any]()
         if let activityType = getActivityType() {
-            activityData["type"] = activityType as AnyObject?
+            activityData["type"] = activityType as Any?
         }
         if let description = getDescription() {
-            activityData["description"] = description as AnyObject?
+            activityData["description"] = description as Any?
         }
         if let categoryType = getCategoryType() {
-            activityData["category"] = categoryType as AnyObject?
+            activityData["category"] = categoryType as Any?
         }
 
         // add tags
         if tagsDic?.isEmpty == false {
-            activityData["tags"] = tagsDic as AnyObject?
+            activityData["tags"] = tagsDic as Any?
         }
 
         // activity dic
@@ -183,7 +183,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         }
 
         // add all to the activity dictionary
-        requestData["activity"] = activityData as AnyObject?
+        requestData["activity"] = activityData as Any?
 
         // add base stuff
         self.prepareBaseRequestData(&requestData)

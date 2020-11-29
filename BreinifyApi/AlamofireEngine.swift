@@ -104,8 +104,9 @@ public class AlamofireEngine: IRestEngine {
         let body = try getRequestBody(breinActivity)
 
         do {
-            let jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
-            _ = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+            let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            BreinLogger.shared.log("jsonString is: \(jsonString)")
         }
 
         // Alamofire.request(url, method: .post,
@@ -130,30 +131,36 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-                        print(value)
-                        let jsonDic: NSDictionary = ["success": 200]
-                        let breinResult = BreinResult(dictResult: jsonDic)
-                        success(breinResult)
+                        if success != nil {
+                            print(value)
+                            let jsonDic: NSDictionary = ["success": 200]
+                            let breinResult = BreinResult(dictResult: jsonDic)
+                            success(breinResult)
+                        }
                     case let .failure(error):
-                        print(error)
-                        // add for resending later...
-                        let jsonRequest = String(data: (response.request?.httpBody)!,
-                                encoding: .utf8)
-                        let urlRequest = response.request?.url?.absoluteString
-                        let creationTime = Int(NSDate().timeIntervalSince1970)
+                        if failure != nil {
+                            print(error)
+                            // add for resending later...
+                            let jsonRequest = String(data: (response.request?.httpBody)!,
+                                    encoding: .utf8)
+                            let urlRequest = response.request?.url?.absoluteString
+                            let creationTime = Int(NSDate().timeIntervalSince1970)
 
-                        // add to BreinRequestManager in case of an error
-                        BreinRequestManager.shared.addRequest(timeStamp: creationTime,
-                                fullUrl: urlRequest, json: jsonRequest)
+                            // add to BreinRequestManager in case of an error
+                            BreinRequestManager.shared.addRequest(timeStamp: creationTime,
+                                    fullUrl: urlRequest, json: jsonRequest)
 
-                        let httpError: NSError = error as NSError
-                        let statusCode = httpError.code
-                        let error: NSDictionary = ["error": httpError,
-                                                   "statusCode": statusCode]
-                        failure(error)
+                            let httpError: NSError = error as NSError
+                            let statusCode = httpError.code
+                            let error: NSDictionary = ["error": httpError,
+                                                       "statusCode": statusCode]
+                            failure(error)
+                        }
                     }
 
                 }
+
+
     }
 
     /**
@@ -314,7 +321,7 @@ public class AlamofireEngine: IRestEngine {
 
     /// This method can be used in the future
     func executeRequest(url: String,
-                        body: [String: AnyObject],
+                        body: [String: Any],
                         success successBlock: @escaping apiSuccess,
                         failure failureBlock: @escaping apiFailure) {
 

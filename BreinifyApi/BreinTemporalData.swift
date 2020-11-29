@@ -108,16 +108,16 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
                 failure: failure)
     }
 
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
+    override public func prepareJsonRequest() -> [String: Any]! {
         // call base class
         super.prepareJsonRequest()
 
-        var requestData = [String: AnyObject]()
+        var requestData = [String: Any]()
 
         if let breinUser = getUser() {
-            var userData = [String: AnyObject]()
+            var userData = [String: Any]()
             breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
-            requestData["user"] = userData as AnyObject?
+            requestData["user"] = userData as Any?
         }
 
         // base level data...

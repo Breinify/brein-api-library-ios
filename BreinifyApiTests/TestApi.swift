@@ -67,7 +67,34 @@ class TestApi: XCTestCase {
         } catch {
             XCTFail("Error is: \(error.localizedDescription)")
         }
+    }
 
+    // test case how to use the activity api with secret
+    func testLoginWithSecretWithoutCallbacks() {
+
+        let successBlock: apiSuccess = {
+            (result: BreinResult) -> Void in
+            print("Api Success : result is: \(result)")
+        }
+
+        let failureBlock: apiFailure = {
+            (error: NSDictionary) -> Void in
+            XCTFail("Api Failure : error is: \(error)")
+        }
+
+        // set additional user information
+        breinUser.setFirstName("Fred")
+                .setLastName("Firestone")
+
+        // invoke activity call
+        do {
+            try Breinify.activity(breinUser,
+                    activityType: "login",
+                    "home",
+                    "Login-Description")
+        } catch {
+            XCTFail("Error is: \(error.localizedDescription)")
+        }
     }
 
     // test case how to use the activity api
@@ -118,22 +145,22 @@ class TestApi: XCTestCase {
                 .setLastName("Recchioni")
 
         // add base dic
-        var baseDic = [String: AnyObject]()
+        var baseDic = [String: Any]()
         baseDic["baseOne"] = "valueOfBaseOne" as AnyObject
         baseDic["baseTwo"] = "valueOfBaseTwo" as AnyObject
 
         // add activity dic
-        var activityDic = [String: AnyObject]()
+        var activityDic = [String: Any]()
         activityDic["activityOne"] = "valueOfActivityOne" as AnyObject
         activityDic["activityTwo"] = "valueOfActivityTwo" as AnyObject
 
         // add user dic
-        var userDic = [String: AnyObject]()
+        var userDic = [String: Any]()
         userDic["userOne"] = "valueOfUserOne" as AnyObject
         userDic["userTwo"] = "valueOfUserTwo" as AnyObject
 
         // add user additional dic
-        var userAdditionalDic = [String: AnyObject]()
+        var userAdditionalDic = [String: Any]()
         userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne" as AnyObject
         userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo" as AnyObject
 
@@ -181,9 +208,9 @@ class TestApi: XCTestCase {
                 .setIpAddress("10.11.12.130")
                 .setUrl("http://sample.com")
 
-        let tagsDic: [String: AnyObject] = ["A": "STRING" as AnyObject,
+        let tagsDic: [String: Any] = ["A": "STRING" as AnyObject,
                                             "B": 100 as AnyObject,
-                                            "C": 2.22 as AnyObject]
+                                            "C": 2.22 as Any]
 
         if let breinActivity = Breinify.getBreinActivity() {
             breinActivity.setTagsDic(tagsDic)
@@ -352,8 +379,8 @@ class TestApi: XCTestCase {
 
         do {
             // create dictionary here...
-            var locationAdditionalMap = [String: AnyObject]()
-            var locationValueMap = [String: AnyObject]()
+            var locationAdditionalMap = [String: Any]()
+            var locationValueMap = [String: Any]()
             let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
             let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
 
@@ -400,7 +427,7 @@ class TestApi: XCTestCase {
 
         do {
             // create dictionary here...
-            let locationValueMap = [String: AnyObject]()
+            let locationValueMap = [String: Any]()
             // let valueLatitude = drand48() * 10.0 + 39.0 - 5.0
             // let valueLongitude = drand48() * 50.0 - 98.0 - 25.0
 
@@ -508,4 +535,69 @@ class TestApi: XCTestCase {
             XCTFail("Error is: \(error.localizedDescription)")
         }
     }
+
+    func testJSON() {
+
+        var dictionary = ["nacho": ["1","2","3"]]
+        var jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: [])
+        var jsonString = String(data: jsonData!, encoding: .utf8)
+        print(jsonString)
+
+
+        let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+        let data = Data(str.utf8)
+
+        do {
+            // make sure this JSON is in the format we expect
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                // try to read out a string array
+                if let names = json["names"] as? [String] {
+                    print(names)
+                }
+            }
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+        }
+
+
+        var dict:  [String: Any] = [
+            "countries": [
+                "japan": [
+                    "capital": [
+                        "name": "tokyo",
+                        "lat": "35.6895",
+                        "lon": "139.6917"
+                    ],
+                    "language": "japanese"
+                ]
+            ],
+            "airports": [
+                "germany": ["FRA", "MUC", "HAM", "TXL"]
+            ]
+        ]
+
+
+
+        let dic = ["2": "B", "1": "A", "3": "C"]
+        let encoder = JSONEncoder()
+        if let jsonData = try? encoder.encode(dic) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+            }
+        }
+
+
+        do {
+            if var jsonX = dict as? NSDictionary {
+                var jsonData = try JSONSerialization.data(withJSONObject: jsonX, options: [])
+
+                var jsonString = String(data: jsonData, encoding: .utf8)
+            }
+
+        } catch {
+            print (error)
+        }
+
+    }
 }
+

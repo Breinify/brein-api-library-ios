@@ -49,41 +49,41 @@ open class BreinLookup: BreinBase, ISecretStrategy {
 
       - returns: Dictionary that will be used for rest call (body)
     */
-    override public func prepareJsonRequest() -> [String: AnyObject]! {
+    override public func prepareJsonRequest() -> [String: Any]! {
         // call base class
         super.prepareJsonRequest()
 
-        var requestData = [String: AnyObject]()
+        var requestData = [String: Any]()
 
         if let breinUser = getUser() {
-            var userData = [String: AnyObject]()
-            userData["email"] = breinUser.getEmail() as AnyObject?
-            requestData["user"] = userData as AnyObject?
+            var userData = [String: Any]()
+            userData["email"] = breinUser.getEmail() as Any?
+            requestData["user"] = userData as Any?
         }
 
         //  Dimensions
         if let breinDimension = getBreinDimension() {
-            var lookupData = [String: AnyObject]()
+            var lookupData = [String: Any]()
             var dimensions = [String]()
             for field in breinDimension.getDimensionFields() {
                 dimensions.append(field)
             }
-            lookupData["dimensions"] = dimensions as AnyObject?
-            requestData["lookup"] = lookupData as AnyObject?
+            lookupData["dimensions"] = dimensions as Any?
+            requestData["lookup"] = lookupData as Any?
         }
 
         //  API key
         if let apiKey = getConfig()?.getApiKey(), !apiKey.isEmpty {
-            requestData["apiKey"] = apiKey as AnyObject?
+            requestData["apiKey"] = apiKey as Any?
         }
 
         // Unix time stamp
-        requestData["unixTimestamp"] = getUnixTimestamp() as AnyObject?
+        requestData["unixTimestamp"] = getUnixTimestamp() as Any?
 
         // set secret
         if isSign() {
             do {
-                requestData["signatureType"] = try createSignature() as AnyObject?
+                requestData["signatureType"] = try createSignature() as Any?
             } catch {
                 BreinLogger.shared.log("not possible to generate signature")
             }

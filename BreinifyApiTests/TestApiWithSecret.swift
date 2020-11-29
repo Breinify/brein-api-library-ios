@@ -87,9 +87,9 @@ class TestApiWithSecret: XCTestCase {
                 .setIpAddress("10.11.12.130")
                 .setUrl("http://sample.com")
 
-        let tagsDic: [String: AnyObject] = ["A": "STRING" as AnyObject,
+        let tagsDic: [String: Any] = ["A": "STRING" as AnyObject,
                                             "B": 100 as AnyObject,
-                                            "C": 2.22 as AnyObject]
+                                            "C": 2.22 as Any]
 
         let breinActivity = Breinify.getBreinActivity()
         breinActivity?.setTagsDic(tagsDic)

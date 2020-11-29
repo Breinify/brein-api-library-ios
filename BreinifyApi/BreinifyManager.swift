@@ -112,7 +112,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinifyManager.shared.sendLocationInfo()
     }
 
-    public func sendActivity(_ activityType: String, additionalContent: [String: AnyObject]) {
+    public func sendActivity(_ activityType: String, additionalContent: [String: Any]) {
 
         // create a user you are interested in
         if self.userEmail != nil {
@@ -253,7 +253,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // completionHandler([.alert, .badge, .sound])
         completionHandler([])
 
-        let aps = notification.request.content.userInfo["aps"] as! [String: AnyObject]
+        let aps = notification.request.content.userInfo["aps"] as! [String: Any]
 
         self.sendActivity("openedPushNotification", additionalContent: aps)
 
@@ -269,7 +269,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // print("didReceive called with content: \(response)")
         completionHandler()
 
-        let aps = response.notification.request.content.userInfo["aps"] as! [String: AnyObject]
+        let aps = response.notification.request.content.userInfo["aps"] as! [String: Any]
         self.sendActivity("openedPushNotification", additionalContent: aps)
 
         // call BreinNotification-Handler
@@ -397,7 +397,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         // print("BreinifyManager - received notification is: \(notification)")
 
-        let notDic = notification["aps"] as! [String: AnyObject]
+        let notDic = notification["aps"] as! [String: Any]
         self.sendActivity("receivedPushNotification", additionalContent: notDic)
 
     }

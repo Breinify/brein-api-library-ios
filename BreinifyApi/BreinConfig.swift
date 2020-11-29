@@ -64,6 +64,9 @@ open class BreinConfig {
     // default category
     var category: String!
 
+    // with location Manager
+    var locationManagerUsage: Bool = false
+
     // standard ctor
     public init() {
         self.initValues()
@@ -86,7 +89,6 @@ open class BreinConfig {
        - parameter secret: contains the secret
     */
     convenience public init(_ apiKey: String!, secret: String!) {
-
         self.init(apiKey)
         setSecret(secret)
         self.initEngine()
@@ -137,7 +139,7 @@ open class BreinConfig {
     }
 
     public func getBaseUrl() -> String! {
-        baseUrl
+        self.baseUrl
     }
 
     @discardableResult
@@ -177,19 +179,19 @@ open class BreinConfig {
     }
 
     public func getApiKey() -> String! {
-        apiKey
+        self.apiKey
     }
 
     public func getUrl() -> String! {
-        baseUrl
+        self.baseUrl
     }
 
     public func getConnectionTimeout() -> Int {
-        connectionTimeout
+        self.connectionTimeout
     }
 
     public func getSocketTimeout() -> Int {
-        socketTimeout
+        self.socketTimeout
     }
 
     @discardableResult
@@ -225,7 +227,7 @@ open class BreinConfig {
     }
 
     public func getLookupEndpoint() -> String! {
-        lookupEndpoint
+        self.lookupEndpoint
     }
 
     @discardableResult
@@ -235,7 +237,7 @@ open class BreinConfig {
     }
 
     public func getTemporalDataEndpoint() -> String! {
-        temporalDataEndpoint
+        self.temporalDataEndpoint
     }
 
     @discardableResult
@@ -245,7 +247,7 @@ open class BreinConfig {
     }
 
     public func getSecret() -> String! {
-        secret
+        self.secret
     }
 
     @discardableResult
@@ -255,7 +257,7 @@ open class BreinConfig {
     }
 
     public func getCategory() -> String! {
-        category
+        self.category
     }
 
     @discardableResult
@@ -273,6 +275,16 @@ open class BreinConfig {
 
     public func isUrlValid(_ url: String!) -> Bool {
         BreinUtil.isUrlValid(url)
+    }
+
+    @discardableResult
+    public func setWithLocationManagerUsage(_ usage: Bool!) -> BreinConfig {
+        self.locationManagerUsage = usage
+        return self
+    }
+
+    public func getWithLocationManagerUsage() -> Bool! {
+        self.locationManagerUsage
     }
 
 }

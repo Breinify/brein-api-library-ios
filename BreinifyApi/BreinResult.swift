@@ -17,8 +17,8 @@ open class BreinResult {
         self.dic = dictionary
     }
 
-    public func get(_ key: String) -> AnyObject? {
-        self.dic.object(forKey: key) as AnyObject?
+    public func get(_ key: String) -> Any? {
+        self.dic.object(forKey: key) as Any?
     }
 
     public func getDictionary() -> NSDictionary {
