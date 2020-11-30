@@ -49,6 +49,26 @@ open class Breinify {
         readUserDefaults()
     }
 
+    public static func setUserInfo(firstName firstName: String, lastName lastName: String, phone phone: String, email email: String) {
+        let appUser = Breinify.getBreinUser()
+
+        if firstName != nil {
+            appUser.setFirstName(firstName)
+        }
+
+        if lastName != nil {
+            appUser.setLastName(lastName)
+        }
+
+        if phone != nil {
+            appUser.setPhone(phone)
+        }
+
+        if email != nil {
+            appUser.setEmail(email)
+        }
+    }
+
     public static func initWithDeviceTokens(deviceToken deviceToken: String, apnsToken apnsToken: String?, fcmToken: String?) {
 
         let appUser = Breinify.getBreinUser()
@@ -79,7 +99,7 @@ open class Breinify {
     }
 
     public static func sendActivity(_ breinActivity: BreinActivity) {
-    // callback in case of success
+        // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if let val = result {
