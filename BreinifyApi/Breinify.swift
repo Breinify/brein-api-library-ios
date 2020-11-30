@@ -78,7 +78,7 @@ open class Breinify {
         sendUserNotification(activityType: "sendLoc")
     }
 
-    public static func sendActivity(breinActivity breinActivty: BreinActivity) {
+    public static func sendActivity(_ breinActivity: BreinActivity) {
     // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in

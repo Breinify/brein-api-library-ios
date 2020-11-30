@@ -17,7 +17,7 @@ class TestApi: XCTestCase {
     let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
     let validSecret = "lmcoj4k27hbbszzyiqamhg=="
 
-    let breinUser = BreinUser(email: "toni.maroni@email.me")
+    var breinUser = BreinUser(email: "toni.maroni@email.me")
     let breinCategory = "home"
     var breinConfig: BreinConfig!
 
@@ -187,6 +187,36 @@ class TestApi: XCTestCase {
         }
 
         print("Test finished")
+    }
+
+    func testSendActivityWithActivity() {
+
+        let breinUser = Breinify.getBreinUser()
+
+        // add user dic
+        var userDic = [String: Any]()
+        userDic["userOne"] = "valueOfUserOne" as Any
+        userDic["userTwo"] = "valueOfUserTwo" as Any
+        breinUser.setUserDic(userDic)
+
+        let breinActivity = Breinify.getBreinActivity()
+        // add activity dic
+        var activityDic = [String: Any]()
+        activityDic["activityOne"] = "valueOfActivityOne" as Any
+        activityDic["activityTwo"] = "valueOfActivityTwo" as Any
+
+        breinActivity?.setActivityDic(activityDic)
+
+        // add user additional dic
+        var userAdditionalDic = [String: Any]()
+        userAdditionalDic["userAdditionalOne"] = "valueOfUserAdditionalOne" as Any
+        userAdditionalDic["userAdditionalTwo"] = "valueOfUserAdditionalTwo" as Any
+        breinUser.setAdditionalDic(userAdditionalDic)
+
+        if breinActivity != nil {
+            Breinify.sendActivity(breinActivity!)
+        }
+
     }
 
     // testcase how to use the activity api
