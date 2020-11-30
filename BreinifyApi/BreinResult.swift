@@ -25,4 +25,7 @@ open class BreinResult {
         self.dic
     }
 
+    public func getResult() -> String {
+        return "result"
+    }
 }

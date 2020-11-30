@@ -63,6 +63,12 @@ open class BreinUser {
     /// contains the deviceToken
     var deviceToken: String?
 
+    /// contains the deviceToken (apns)
+    var apnsToken: String?
+
+    /// contains the fcm token
+    var fcmToken: String?
+
     /// contains additional dictionary
     var additional = [String: Any]()
 
@@ -290,6 +296,30 @@ open class BreinUser {
     /// returns deviceToken
     public func getDeviceToken() -> String! {
         self.deviceToken
+    }
+
+    /// set apns token
+    @discardableResult
+    public func setApnsToken(_ token: String!) -> BreinUser! {
+        self.apnsToken = token
+        return self
+    }
+
+    /// returns apns token
+    public func getApnsToken() -> String! {
+        self.apnsToken
+    }
+
+    /// set fcmToken
+    @discardableResult
+    public func setFcmToken(_ token: String!) -> BreinUser! {
+        self.fcmToken = token
+        return self
+    }
+
+    /// returns fcm token
+    public func getFcmToken() -> String! {
+        self.fcmToken
     }
 
     /// sets url
@@ -574,6 +604,7 @@ open class BreinUser {
                     .setTimezone(orgUser.getTimezone())
                     .setUserId(orgUser.getUserId())
                     .setDeviceToken(orgUser.getDeviceToken())
+                    .setFcmToken(orgUser.getFcmToken())
 
             newUser?.setDateOfBirthString(orgUser.getDateOfBirth())
 
@@ -690,19 +721,11 @@ open class BreinUser {
             }
         }
 
-
-
-        /// TODO: collect provider
-        /// nw_carrier = xxxx
-
-
         // MAC Address is not supported by Apple. Instead this should be
         // used:
         if let value = UIDevice.current.identifierForVendor?.uuidString {
             nw_macadr = value
         }
-
     }
-
 
 }
