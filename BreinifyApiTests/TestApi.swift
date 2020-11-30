@@ -219,6 +219,42 @@ class TestApi: XCTestCase {
 
     }
 
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+
+
+    func testCheckOut() {
+
+       let jsonDict = [
+           "productPrices": [500],
+           "productIds": ["packageOption"],
+           "productQuantities": [1],
+           "transactionPriceTotal": 500,
+           "transactionTotal": 500
+       ] as [String: Any]
+
+        print(jsonDict)
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity?.setTagsDic(jsonDict)
+
+        breinActivity?.setActivityType(BreinActivityType.CHECKOUT.rawValue)
+
+        if breinActivity != nil {
+            Breinify.sendActivity(breinActivity!)
+        }
+
+    }
+
+
     // testcase how to use the activity api
     func testPageVisitWithTags() {
 
@@ -238,8 +274,8 @@ class TestApi: XCTestCase {
                 .setIpAddress("10.11.12.130")
                 .setUrl("http://sample.com")
 
-        let tagsDic: [String: Any] = ["A": "STRING" as AnyObject,
-                                            "B": 100 as AnyObject,
+        let tagsDic: [String: Any] = ["A": "STRING" as Any,
+                                            "B": 100 as Any,
                                             "C": 2.22 as Any]
 
         if let breinActivity = Breinify.getBreinActivity() {
