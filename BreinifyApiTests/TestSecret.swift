@@ -10,10 +10,8 @@ import XCTest
 class TestSecret: XCTestCase {
 
     func testSecretGeneration() {
-
-        let expected = "h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU="
-
         do {
+            let expected = "h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU="
             let generated = try BreinUtil.generateSignature("apiKey", secret: "secretkey")
             XCTAssertEqual(expected, generated)
             print(generated)
@@ -47,4 +45,20 @@ class TestSecret: XCTestCase {
             XCTFail("Error is: \(error.localizedDescription)")
         }
     }
+
+    func testSignature() {
+        do {
+            var expected = "h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU="
+            var generated = try BreinUtil.generateSignature("apiKey", secret: "secretkey")
+            XCTAssertEqual(expected, generated)
+
+            expected = "qnR8UCqJggD55PohusaBNviGoOJ67HC6Btry4qXLVZc="
+            generated = try BreinUtil.generateSignature("Message", secret: "secret")
+            XCTAssertEqual(expected, generated)
+        } catch {
+            XCTFail("Error is: \(error.localizedDescription)")
+        }
+
+    }
+
 }
