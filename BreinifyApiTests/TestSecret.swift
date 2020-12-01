@@ -21,8 +21,7 @@ class TestSecret: XCTestCase {
     }
 
     func testActivitySecret() {
-
-        // let expected:String = "WbHv67OJ5LPSCJu7kfh9QOX8b7wkuLiTmE6OTyPqT0g\u003d"
+        let expected:String = "WbHv67OJ5LPSCJu7kfh9QOX8b7wkuLiTmE6OTyPqT0g="
         let timestamp: TimeInterval = 1487235949
         let activityType = "paginaUno"
 
@@ -39,8 +38,8 @@ class TestSecret: XCTestCase {
             breinActivity.setConfig(breinConfig)
 
             let generated: String = try breinActivity.createSignature()
-            // XCTAssertEqual(expected, generated)
             print(generated)
+            XCTAssertEqual(expected, generated)
         } catch {
             XCTFail("Error is: \(error.localizedDescription)")
         }
@@ -58,7 +57,5 @@ class TestSecret: XCTestCase {
         } catch {
             XCTFail("Error is: \(error.localizedDescription)")
         }
-
     }
-
 }
