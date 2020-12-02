@@ -104,9 +104,9 @@ public class AlamofireEngine: IRestEngine {
         let body = try getRequestBody(breinActivity)
 
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
+            let jsonData = try JSONSerialization.data(withJSONObject: body as Any, options: [.prettyPrinted])
             let jsonString = String(data: jsonData, encoding: .utf8)
-            BreinLogger.shared.log("jsonString is: \(jsonString)")
+            BreinLogger.shared.log("jsonString is: \(String(describing: jsonString))")
         }
 
         // Alamofire.request(url, method: .post,
@@ -132,14 +132,14 @@ public class AlamofireEngine: IRestEngine {
                     switch response.result {
                     case let .success(value):
                         if success != nil {
-                            print(value)
+//                            print(value)
                             let jsonDic: NSDictionary = ["success": 200]
                             let breinResult = BreinResult(dictResult: jsonDic)
                             success(breinResult)
                         }
                     case let .failure(error):
                         if failure != nil {
-                            print(error)
+//                            print(error)
                             // add for resending later...
                             let jsonRequest = String(data: (response.request?.httpBody)!,
                                     encoding: .utf8)
@@ -204,9 +204,8 @@ public class AlamofireEngine: IRestEngine {
                     case let .success(value):
                         let jsonDic = value as! NSDictionary
                         // dump(jsonDic)
-
                         _ = BreinResult(dictResult: jsonDic)
-                        print(value)
+//                        print(value)
                     case let .failure(error):
                         let failError: NSDictionary = ["error": "httpError",
                                                        "statusCode": status!]
@@ -247,12 +246,12 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-                        print(value)
+//                        print(value)
                         let jsonDic = value as! NSDictionary
                         let breinResult = BreinResult(dictResult: jsonDic)
                         success(breinResult)
                     case let .failure(error):
-                        print(error)
+//                        print(error)
                         let httpError: NSError = error as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
@@ -304,12 +303,12 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-                        print(value)
+//                        print(value)
                         let jsonDic = value as! NSDictionary
                         let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
                     case let .failure(error):
-                        print(error)
+//                        print(error)
                         let httpError: NSError = error as NSError
                         let statusCode = httpError.code
                         let error: NSDictionary = ["error": httpError,
@@ -341,14 +340,14 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-                        print(value)
+//                        print(value)
                         let jsonDic = value as! NSDictionary
                         // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
                     case let .failure(error):
-                        print(error)
+//                        print(error)
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
                         failureBlock(error)

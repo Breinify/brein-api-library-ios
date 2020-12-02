@@ -11,7 +11,7 @@ open class BreinLogger {
 
     private var isDebug: Bool = false
     
-    private init() {
+    public init() {
     }
 
     func setDebug(_ isDebug: Bool) {

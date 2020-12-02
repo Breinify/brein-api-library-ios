@@ -29,6 +29,8 @@ class TestApi: XCTestCase {
 
         // set configuration
         Breinify.setConfig(breinConfig)
+
+        BreinLogger.shared.setDebug(true)
     }
 
     override func tearDown() {
@@ -214,7 +216,7 @@ class TestApi: XCTestCase {
         breinUser.setAdditionalDic(userAdditionalDic)
 
         if breinActivity != nil {
-            Breinify.sendActivity(breinActivity!)
+            try! Breinify.sendActivity(breinActivity!)
         }
 
     }
@@ -249,12 +251,10 @@ class TestApi: XCTestCase {
         breinActivity?.setActivityType(BreinActivityType.CHECKOUT.rawValue)
 
         if breinActivity != nil {
-            Breinify.sendActivity(breinActivity!)
+            try! Breinify.sendActivity(breinActivity!)
         }
-
     }
-
-
+    
     // testcase how to use the activity api
     func testPageVisitWithTags() {
 
@@ -608,7 +608,6 @@ class TestApi: XCTestCase {
         var jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: [])
         var jsonString = String(data: jsonData!, encoding: .utf8)
         print(jsonString)
-
 
         let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
         let data = Data(str.utf8)

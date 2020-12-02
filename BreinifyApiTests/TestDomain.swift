@@ -28,7 +28,7 @@ class TestDomain: XCTestCase {
         breinActivity.setUser(breinUser)
         breinActivity.setActivityType("login")
                 .setDescription("Super-Desription")
-                .setCategoryType("home")
+                .setCategory("home")
 
         if let jsonOutput = breinActivity.prepareJsonRequest() {
             dump("output is: \(jsonOutput)")
@@ -53,7 +53,7 @@ class TestDomain: XCTestCase {
         breinActivity.setUser(breinUser)
         breinActivity.setActivityType("login")
                 .setDescription("Super-Desription")
-                .setCategoryType("food")
+                .setCategory("food")
 
         if let jsonOutput = breinActivity.prepareJsonRequest() {
             dump("output is: \(jsonOutput)")

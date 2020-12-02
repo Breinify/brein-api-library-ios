@@ -84,7 +84,7 @@ open class BreinifyExecutor {
 
         breinActivity.setUser(user)
         breinActivity.setActivityType(activityType)
-        breinActivity.setCategoryType(category)
+        breinActivity.setCategory(category)
         breinActivity.setDescription(description)
 
         try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)

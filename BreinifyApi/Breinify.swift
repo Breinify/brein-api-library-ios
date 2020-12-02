@@ -49,33 +49,20 @@ open class Breinify {
         readUserDefaults()
     }
 
-    public static func setUserInfo(firstName firstName: String, lastName lastName: String, phone phone: String, email email: String) {
+    public static func setUserInfo(firstName: String, lastName: String, phone: String, email: String) {
         let appUser = Breinify.getBreinUser()
 
-        if firstName != nil {
-            appUser.setFirstName(firstName)
-        }
-
-        if lastName != nil {
-            appUser.setLastName(lastName)
-        }
-
-        if phone != nil {
-            appUser.setPhone(phone)
-        }
-
-        if email != nil {
-            appUser.setEmail(email)
-        }
+        appUser.setFirstName(firstName)
+        appUser.setLastName(lastName)
+        appUser.setPhone(phone)
+        appUser.setEmail(email)
     }
 
-    public static func initWithDeviceTokens(deviceToken deviceToken: String, apnsToken apnsToken: String?, fcmToken: String?) {
+    public static func initWithDeviceTokens(deviceToken: String, apnsToken: String?, fcmToken: String?) {
 
         let appUser = Breinify.getBreinUser()
 
-        if apnsToken != nil {
-            appUser.setApnsToken(apnsToken!)
-        }
+        appUser.setApnsToken(apnsToken!)
 
         if fcmToken != nil {
             appUser.setFcmToken(fcmToken)
@@ -98,7 +85,7 @@ open class Breinify {
         sendUserNotification(activityType: "sendLoc")
     }
 
-    public static func sendActivity(_ breinActivity: BreinActivity) {
+    public static func sendActivity(_ breinActivity: BreinActivity) throws {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
@@ -115,13 +102,20 @@ open class Breinify {
             }
         }
 
-        // invoke activity call
-        do {
-            try Breinify.activity(breinActivity,
-                    successBlock,
-                    failureBlock)
-        } catch {
-            print("Error is: \(error)")
+        // check if activity has an activity type
+        let actType = breinActivity.getActivityType()
+        if actType != nil {
+            // invoke activity call
+            do {
+                try Breinify.activity(breinActivity,
+                        successBlock,
+                        failureBlock)
+            } catch {
+                print("Error is: \(error)")
+            }
+        } else {
+            BreinLogger.shared.log("Activity does not contain an activity type")
+            throw BreinError.BreinRuntimeError("Activity not set")
         }
     }
 
@@ -133,7 +127,6 @@ open class Breinify {
         let fullUsername = NSFullUserName()
 
         // todo collect this data
-
         print("ID is: \(String(describing: id))")
         print("Name is: \(name)")
         print("Username is: \(username) - Full-Username is: \(fullUsername)")
@@ -181,9 +174,12 @@ open class Breinify {
         defaults.setValue(Breinify.getEmail(), forKey: "userEmail")
 
         if let curUserId = Breinify.getUserId() {
+            Breinify.setUserId(curUserId)
+        } else {
             let uuid = UUID().uuidString
             Breinify.setUserId(uuid)
         }
+
         defaults.setValue(Breinify.getUserId(), forKey: "userId")
 
         defaults.synchronize()
@@ -268,15 +264,6 @@ open class Breinify {
        - parameter success:       A callback function that is invoked in case of success.
        - parameter failure:       A callback function that is invoked in case of an error.
    */
-
-    ///
-    ///
-    /// - Parameters:
-    ///   - user:
-    ///   - activityType:
-    ///   - success:
-    ///   - failure:
-    /// - Throws:
     public class func activity(_ user: BreinUser!,
                                activityType: String!,
                                _ success: @escaping BreinEngine.apiSuccess = { _ in
@@ -409,10 +396,10 @@ open class Breinify {
             throw BreinError.BreinRuntimeError("No Rest Engine configured.")
         }
 
-        if activity?.getCategoryType() == nil {
+        if activity?.getCategory() == nil {
             // check if there is an default category set
             if let defaultCategory = getConfig()?.getCategory() {
-                activity?.setCategoryType(defaultCategory)
+                activity?.setCategory(defaultCategory)
             }
         }
 
@@ -502,7 +489,7 @@ open class Breinify {
 
         breinActivity.setUser(user)
         breinActivity.setActivityType(activityType)
-        breinActivity.setCategoryType(category)
+        breinActivity.setCategory(category)
         breinActivity.setDescription(description)
         breinActivity.setSuccessBlock(success)
         breinActivity.setFailureBlock(failure)

@@ -7,7 +7,7 @@ import Foundation
 
 /**
  Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request.
- It is important, that a valid API-key is configured prior to using this function.
+ It is important, that a valid API-key is configured prior to use this.
 */
 
 open class BreinActivity: BreinBase, ISecretStrategy {
@@ -16,7 +16,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     var activityType: String?
 
     ///  Category of the activity
-    var categoryType: String?
+    var category: String?
 
     ///  Description of the activity
     var description: String?
@@ -44,21 +44,21 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         return self
     }
 
-    /// Provides the categoryType
+    /// Provides the category
     ///
-    /// - Returns: the categoryType as String
+    /// - Returns: the category as String
     @discardableResult
-    public func getCategoryType() -> String! {
-        categoryType
+    public func getCategory() -> String! {
+        category
     }
 
-    /// Sets the categoryType.
+    /// Sets the category.
     ///
-    /// - Parameter categoryType:
+    /// - Parameter category:
     /// - Returns: the BreinActivity itself
     @discardableResult
-    public func setCategoryType(_ categoryType: String?) -> BreinActivity {
-        self.categoryType = categoryType
+    public func setCategory(_ category: String?) -> BreinActivity {
+        self.category = category
         return self
     }
 
@@ -132,7 +132,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         //  set the values for further usage
         setUser(breinUser)
         setActivityType(breinActivityType)
-        setCategoryType(breinCategoryType)
+        setCategory(breinCategoryType)
         setDescription(description)
 
         //  invoke the request, "self" has all necessary information
@@ -166,8 +166,8 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         if let description = getDescription() {
             activityData["description"] = description as Any?
         }
-        if let categoryType = getCategoryType() {
-            activityData["category"] = categoryType as Any?
+        if let category = getCategory() {
+            activityData["category"] = category as Any?
         }
 
         // add tags
@@ -200,7 +200,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         // create a new activity object
         let clonedBreinActivity = BreinActivity()
                 .setActivityType(self.getActivityType())
-                .setCategoryType(self.getCategoryType())
+                .setCategory(self.getCategory())
                 .setDescription(self.getDescription())
 
         // clone dictionaries => simple copy is enough

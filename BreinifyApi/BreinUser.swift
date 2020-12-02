@@ -243,7 +243,7 @@ open class BreinUser {
         return self
     }
 
-    /// returns refferer
+    /// returns referrer
     public func getReferrer() -> String? {
         referrer
     }
@@ -496,7 +496,7 @@ open class BreinUser {
         // check location values
         if self.locationData != nil {
             // only a valid location will be taken into consideration
-            // this is the case when the corrdinates are different from 0
+            // this is the case when the coordinates are different from 0
             if locationData?.coordinate.latitude != 0 {
                 locData["accuracy"] = locationData?.horizontalAccuracy as Any?
                 locData["latitude"] = locationData?.coordinate.latitude as Any?
@@ -507,7 +507,6 @@ open class BreinUser {
 
         // loop thru locationDic 
         for (key, value) in self.additionalLocation {
-            // print("\(key) = \(value)")
             locData[key] = value
         }
 

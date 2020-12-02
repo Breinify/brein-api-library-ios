@@ -45,6 +45,31 @@ class TestSecret: XCTestCase {
         }
     }
 
+    func testActivitySecretAgain() {
+        let expected:String = "mPVaFF5yr2RmZF+pAcHsjCA4kK8tjxnlfYNnCZYlKSk="
+        let timestamp: TimeInterval = 1606827661
+        let activityType = "login"
+
+        let breinActivity = BreinActivity()
+
+        breinActivity.setUnixTimestamp(timestamp)
+        breinActivity.setActivityType(activityType)
+
+        do {
+            let validApiKeyWithSecret = "1662-7D6D-1082-4774-9EC2-A856-BC3B-32CF"
+            let validSecret = "0qpejxdbwrflx79ixx+55a=="
+            let breinConfig = BreinConfig(validApiKeyWithSecret, secret: validSecret)
+
+            breinActivity.setConfig(breinConfig)
+
+            let generated: String = try breinActivity.createSignature()
+            print(generated)
+            XCTAssertEqual(expected, generated)
+        } catch {
+            XCTFail("Error is: \(error.localizedDescription)")
+        }
+    }
+
     func testSignature() {
         do {
             var expected = "h5HRhGRwWlRs9pscyHhQWNc7pxnDOwDZBIAnnhEQbrU="

@@ -26,7 +26,18 @@ extension String {
     public static let removeFromCart = "removeFromCart"
     public static let selectProduct = "selectProduct"
     public static let checkout = "checkOut"
-
+    public static let pageVisit = "pageVisit"
+    public static let viewedProduct = "viewedProduct"
+    public static let cancelOrder = "cancelOrder"
+    public static let identify = "identify"
+    public static let sendLoc = "sendLoc"
+    public static let openPushNotification = "openedPushNotification"
+    public static let failPushNotification = "failPushNotification"
+    public static let receivedPushNotification = "receivedPushNotification"
+    public static let startPushNotification = "startPushNotification"
+    public static let stopPushNotification = "stopPushNotification"
+    public static let checkOutEmailEntered = "checkOutEmailEntered"
+    
     // used for the signature
     func digestHMac256(_ key: String) -> String! {
         let message = self

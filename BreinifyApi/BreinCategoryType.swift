@@ -6,7 +6,6 @@
 import Foundation
 
 public enum BreinCategoryType: String {
-
     case APPAREL = "apparel"
     case HOME = "home"
     case EDUCATION = "education"

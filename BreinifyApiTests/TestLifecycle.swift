@@ -41,10 +41,8 @@ class TestLifecycle: XCTestCase {
                 .setTag("key-b", String("keyString") as AnyObject)
                 .setActivityType("pageVisit")
                 .setDescription("this is a description")
-                .setCategoryType("sampleCategory")
-
-        breinActivity.getCategoryType();
-
+                .setCategory("sampleCategory")
+        
         // invoke activity call
         do {
             try Breinify.activity(breinActivity)
@@ -53,5 +51,37 @@ class TestLifecycle: XCTestCase {
         }
 
     }
+
+    func testCycleWithSignature() {
+
+        // configure API
+        Breinify.configure(apiKey: validApiKeyWithSecret, secret: validSecret)
+
+        // configure the app user
+        let appUser = Breinify.getBreinUser()
+        appUser.setEmail("user.name@gmail.com")
+                .setFirstName("Elvis")
+                .setLastName("Presley")
+
+
+        // provide device token
+        Breinify.initWithDeviceTokens(deviceToken: "superToken", apnsToken: "superToken", fcmToken: nil)
+
+        // send some activities
+        let breinActivity = Breinify.getBreinActivity()!
+
+        breinActivity.getCategory()
+
+        breinActivity.setCategory("ttt")
+
+        breinActivity.setActivityType(BreinActivityType.LOGIN.rawValue)
+                .setCategory("this is the home category")
+                .setDescription("This is a good description")
+
+        try! Breinify.sendActivity(breinActivity)
+
+        Breinify.shutdown()
+    }
+
 
 }
