@@ -100,11 +100,8 @@ The example shows, how to send a login activity, reading the data from an reques
 let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
         
 // invoke activity call
-do {
-    try Breinify.activity(breinUser, activityType: "login")
-  } catch {
-    print("Error is: \(error)")
-}
+Breinify.activity(breinUser, activityType: "login")
+
 ```
 
 ### Sending readArticle
@@ -121,11 +118,8 @@ let breinActivity = BreinActivity(user: breinUser)
             .setDescription("A Homebody President Sits Out His Honeymoon Period")
         
 // invoke activity call
-do {
-     try Breinify.activity(breinActivity)
-   } catch {
-     print("Error is: \(error)")
-} 
+Breinify.activity(breinActivity)
+
 ```
 
 
