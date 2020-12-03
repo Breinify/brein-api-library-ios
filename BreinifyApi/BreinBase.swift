@@ -109,8 +109,13 @@ open class BreinBase {
 
     @discardableResult
     public func prepareJsonRequest() -> [String: Any]! {
-        let timeInterval = NSDate().timeIntervalSince1970
-        setUnixTimestamp(timeInterval)
+        // in case the unixtimestamp has already been set
+        let timeStamp = getUnixTimestamp()
+        if nil == timeStamp || timeStamp == 0 {
+            let timeInterval = NSDate().timeIntervalSince1970
+            setUnixTimestamp(timeInterval)
+        }
+
         return [String: Any]()
     }
 
