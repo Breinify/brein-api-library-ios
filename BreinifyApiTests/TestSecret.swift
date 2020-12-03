@@ -83,4 +83,19 @@ class TestSecret: XCTestCase {
             XCTFail("Error is: \(error.localizedDescription)")
         }
     }
+
+    func testSignatureWithSecret() {
+
+        do {
+            let expected = "PBr2QxM9kRRcL0d4GvUPvkN16YdrpRwYWqnMpHYkJ8c="
+            let message = "identify16069883961"
+            let secret = "lmcoj4k27hbbszzyiqamhg=="
+            let generated = try BreinUtil.generateSignature(message, secret: secret)
+            XCTAssertEqual(expected, generated)
+        } catch {
+            XCTFail("Error is: \(error.localizedDescription)")
+        }
+
+    }
+
 }

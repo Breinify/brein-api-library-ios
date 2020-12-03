@@ -42,7 +42,7 @@ class TestLifecycle: XCTestCase {
                 .setActivityType("pageVisit")
                 .setDescription("this is a description")
                 .setCategory("sampleCategory")
-        
+
         // invoke activity call
         do {
             try Breinify.activity(breinActivity)
@@ -63,20 +63,42 @@ class TestLifecycle: XCTestCase {
                 .setFirstName("Elvis")
                 .setLastName("Presley")
 
-
         // provide device token
         Breinify.initWithDeviceTokens(deviceToken: "superToken", apnsToken: "superToken", fcmToken: nil)
 
         // send some activities
         let breinActivity = Breinify.getBreinActivity()!
 
-        breinActivity.getCategory()
+        breinActivity.setActivityType(BreinActivityType.LOGIN.rawValue)
+                .setCategory(BreinCategoryType.HOME.rawValue)
+                .setDescription("This is a good description")
 
-        breinActivity.setCategory("ttt")
+        try! Breinify.sendActivity(breinActivity)
+
+        Breinify.shutdown()
+    }
+
+    func testCycleWithSignatureTwo() {
+
+        // configure API
+        Breinify.configure(apiKey: validApiKeyWithSecret, secret: validSecret)
+
+        // configure the app user
+        let appUser = Breinify.getBreinUser()
+        appUser.setEmail("user.name@gmail.com")
+                .setFirstName("Elvis")
+                .setLastName("Presley")
+
+        // provide device token
+         Breinify.initWithDeviceTokens(deviceToken: "superToken", apnsToken: "superToken", fcmToken: nil)
+
+        // send some activities
+        let breinActivity = Breinify.getBreinActivity()!
 
         breinActivity.setActivityType(BreinActivityType.LOGIN.rawValue)
-                .setCategory("this is the home category")
+                .setCategory(BreinCategoryType.HOME.rawValue)
                 .setDescription("This is a good description")
+                .setUnixTimestamp(1606988396)
 
         try! Breinify.sendActivity(breinActivity)
 
