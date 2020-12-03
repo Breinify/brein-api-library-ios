@@ -15,7 +15,7 @@ public class BreinUtil {
        - parameter: message contains the message that needs to be encrypted
        - parameter: secret contains the secret
 
-       - returns: encrypted message based on HMac256 algorithmn
+       - returns: encrypted message based on HMac256 algorithm
     */
     static public func generateSignature(_ message: String!, secret: String!) throws -> String {
 
@@ -97,7 +97,6 @@ public class BreinUtil {
         let minutes = calendar.component(.minute, from: date)
         return "\(hour):\(minutes)"
     }
-
 }
 
 extension Formatter {
