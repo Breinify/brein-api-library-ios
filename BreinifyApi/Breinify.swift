@@ -105,8 +105,10 @@ open class Breinify {
         // check if activity has an activity type
         let actType = breinActivity.getActivityType()
         if actType != nil {
-            // invoke activity call
             do {
+                // set user from instance explicitly
+                breinActivity.setUser(getBreinUser())
+
                 try Breinify.activity(breinActivity,
                         successBlock,
                         failureBlock)
