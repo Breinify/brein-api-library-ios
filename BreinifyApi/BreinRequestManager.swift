@@ -63,7 +63,7 @@ open class BreinRequestManager {
         BreinLogger.shared.log("sendActivityRequests invoked - number of missed requests are: \(self.missedRequests.count)")
 
         if missedRequests.count > 0 {
-            BreinLogger.shared.log("invoking new request...")
+            BreinLogger.shared.log("invoking saved activity requests")
             Breinify.getConfig().getBreinEngine().getRestEngine().executeSavedRequests()
         }
     }
@@ -82,7 +82,7 @@ open class BreinRequestManager {
     }
 
     public func getMissedRequests() -> [String: JsonRequest] {
-        return self.missedRequests
+        self.missedRequests
     }
 
     public func clearMissedRequests() {
@@ -155,7 +155,7 @@ open class BreinRequestManager {
 
                 var output = ""
 
-                for (_ , jsonElement) in self.missedRequests {
+                for (_, jsonElement) in self.missedRequests {
                     output = output
                             + "\(jsonElement.creationTime!)"
                             + kDelimiter

@@ -111,7 +111,7 @@ open class BreinBase {
     public func prepareJsonRequest() -> [String: Any]! {
         // in case the unixtimestamp has already been set
         let timeStamp = getUnixTimestamp()
-        if nil == timeStamp || timeStamp == 0 {
+        if timeStamp == 0 {
             let timeInterval = NSDate().timeIntervalSince1970
             setUnixTimestamp(timeInterval)
         }

@@ -50,7 +50,6 @@ open class BreinNotificationHandler {
 
     public func showDialog() {
 
-        // print("BreinifyManager - received notification is: \(notification)")
         /*
         print(userInfo)
         var message = "The message"

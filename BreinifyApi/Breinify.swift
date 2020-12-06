@@ -31,6 +31,10 @@ open class Breinify {
     /// contains the brein user
     static var breinUser: BreinUser = BreinUser()
 
+    public static func setLogging(_ isDebug: Bool) {
+        BreinLogger.shared.setDebug(isDebug)
+    }
+
     /// contains the brein notification call back handling
     static var notification: BreinNotificationHandler = BreinNotificationHandler()
 
@@ -47,6 +51,13 @@ open class Breinify {
 
         /// read userdata
         readUserDefaults()
+
+        registerPushNotification()
+    }
+
+    public static func registerPushNotification() {
+        /// user notification registration
+        BreinifyManager.shared.registerPushNotifications()
     }
 
     public static func setUserInfo(firstName: String, lastName: String, phone: String, email: String) {
@@ -56,6 +67,10 @@ open class Breinify {
         appUser.setLastName(lastName)
         appUser.setPhone(phone)
         appUser.setEmail(email)
+
+        BreinifyManager.shared.setEmail(email)
+        
+        saveUserDefaults()
     }
 
     public static func initWithDeviceTokens(deviceToken: String, apnsToken: String?, fcmToken: String?) {
@@ -73,6 +88,8 @@ open class Breinify {
 
         // send identify
         Breinify.sendIndentityInfo()
+
+        BreinifyManager.shared.setToken(deviceToken)
     }
 
     public static func sendIndentityInfo() {
@@ -128,9 +145,9 @@ open class Breinify {
         let username = NSUserName()
         let fullUsername = NSFullUserName()
 
-        // todo collect this data
         print("ID is: \(String(describing: id))")
         print("Name is: \(name)")
+        print("Model is: \(model)")
         print("Username is: \(username) - Full-Username is: \(fullUsername)")
 
         // callback in case of success

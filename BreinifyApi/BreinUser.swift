@@ -709,6 +709,8 @@ open class BreinUser {
         nw_macadr = ""
         nw_carrier = ""
 
+        // needs permission
+        /*
         if let interfaces = CNCopySupportedInterfaces() as NSArray? {
             for interface in interfaces {
                 if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
@@ -719,6 +721,7 @@ open class BreinUser {
                 }
             }
         }
+        */
 
         // MAC Address is not supported by Apple. Instead this should be
         // used:

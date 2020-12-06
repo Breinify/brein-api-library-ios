@@ -67,6 +67,9 @@ open class BreinConfig {
     // with location Manager
     var locationManagerUsage: Bool = false
 
+    // resend failed activities
+    var resendFailedActivities: Bool = true
+
     // standard ctor
     public init() {
         self.initValues()
@@ -287,4 +290,13 @@ open class BreinConfig {
         self.locationManagerUsage
     }
 
+    @discardableResult
+    public func setResendFailedActivities(_ resendFailedActivities: Bool!) -> BreinConfig {
+        self.resendFailedActivities = resendFailedActivities
+        return self
+    }
+
+    public func getResendFailedActivities() -> Bool! {
+        self.resendFailedActivities
+    }
 }

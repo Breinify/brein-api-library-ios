@@ -17,7 +17,7 @@ public class AlamofireEngine: IRestEngine {
 
     let session: Session = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForRequest = 20
 
         return Session(configuration: configuration)
     }()
@@ -74,6 +74,7 @@ public class AlamofireEngine: IRestEngine {
                     let uuidEntry = response.request?.allHTTPHeaderFields!["uuid"]
                     let status = response.response?.statusCode
                     if status == 200 {
+                        BreinLogger.shared.log("Successfully (resend): \(jsonData)")
                         BreinRequestManager.shared.removeEntry(uuidEntry!)
                     } else {
                         BreinLogger.shared.log("could not send request with uuid: \(uuidEntry ?? "Nothing")")
@@ -106,10 +107,9 @@ public class AlamofireEngine: IRestEngine {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: body as Any, options: [.prettyPrinted])
             let jsonString = String(data: jsonData, encoding: .utf8)
-            BreinLogger.shared.log("jsonString is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("doRequest - jsonString is: \(String(describing: jsonString))")
         }
 
-        // Alamofire.request(url, method: .post,
         session.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
@@ -131,16 +131,18 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-                        if success != nil {
-//                            print(value)
-                            let jsonDic: NSDictionary = ["success": 200]
-                            let breinResult = BreinResult(dictResult: jsonDic)
-                            success(breinResult)
-                        }
+                        print(value)
+                        let jsonDic: NSDictionary = ["success": 200]
+                        let breinResult = BreinResult(dictResult: jsonDic)
+                        success(breinResult)
+
                     case let .failure(error):
-                        if failure != nil {
-//                            print(error)
-                            // add for resending later...
+                        BreinLogger.shared.log("doRequest with error: \(error)")
+
+                        let canResend = breinActivity.getConfig()?.getResendFailedActivities()
+
+                        // add for resending later..
+                        if canResend == true {
                             let jsonRequest = String(data: (response.request?.httpBody)!,
                                     encoding: .utf8)
                             let urlRequest = response.request?.url?.absoluteString
@@ -149,18 +151,15 @@ public class AlamofireEngine: IRestEngine {
                             // add to BreinRequestManager in case of an error
                             BreinRequestManager.shared.addRequest(timeStamp: creationTime,
                                     fullUrl: urlRequest, json: jsonRequest)
-
-                            let httpError: NSError = error as NSError
-                            let statusCode = httpError.code
-                            let error: NSDictionary = ["error": httpError,
-                                                       "statusCode": statusCode]
-                            failure(error)
                         }
+                        let httpError: NSError = error as NSError
+                        let statusCode = httpError.code
+                        let error: NSDictionary = ["error": httpError,
+                                                   "statusCode": statusCode]
+
+                        failure(error)
                     }
-
                 }
-
-
     }
 
     /**
