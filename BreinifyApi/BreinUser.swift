@@ -11,6 +11,13 @@ import NetworkExtension
 
 open class BreinUser {
 
+    enum UserInfo {
+        static let firstName = "firstName"
+        static let lastName = "lastName"
+        static let phoneNumber = "phone"
+        static let email = "email"
+    }
+
     /// user email
     var email: String!
 
