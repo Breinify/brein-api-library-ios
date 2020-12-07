@@ -253,9 +253,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         BreinLogger.shared.log("UserNotification willPresent invoked with notification: \(notification)")
 
-        // completionHandler([.alert, .badge, .sound])
-        // completionHandler([])
-
         let aps = notification.request.content.userInfo["aps"] as! [String: Any]
 
         self.sendActivity("openedPushNotification", additionalContent: aps)
@@ -263,7 +260,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // call BreinNotification-Handler
         Breinify.getNotificationHandler()?.willPresent(notification)
 
-        completionHandler([])
+        completionHandler([.alert, .badge, .sound])
     }
 
     // Called to let your app know which action was selected by the user for a given notification.
@@ -274,13 +271,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // print("didReceive called with content: \(response)")
         BreinLogger.shared.log("UserNotification didReceive invoked with response: \(response).")
 
-        completionHandler()
-
         let aps = response.notification.request.content.userInfo["aps"] as! [String: Any]
         self.sendActivity("openedPushNotification", additionalContent: aps)
 
         // call BreinNotification-Handler
         Breinify.getNotificationHandler()?.didReceive(response)
+
+        completionHandler()
     }
 
     func registerPushNotifications() {
@@ -343,11 +340,11 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // register PushNotifications
         self.registerPushNotifications()
 
-        // init background Timer take parameter if set, otherwise default
-        let interval = backgroundInterval ?? BreinifyManager.shared.kBackGroundTimeInterval
-
         let locUsage = Breinify.getConfig().getWithLocationManagerUsage()
         if locUsage == true {
+            // init background Timer take parameter if set, otherwise default
+            let interval = backgroundInterval ?? BreinifyManager.shared.kBackGroundTimeInterval
+
             updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                     selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
         }
@@ -431,13 +428,11 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     // Retrieves the device token
-    private func retrieveDeviceToken(_ deviceToken: Data) -> String {
-        let chars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
-        var token = ""
+    public func retrieveDeviceToken(_ deviceToken: Data) -> String {
+        let apnsToken = (deviceToken.reduce("") {
+            $0 + String(format: "%02X", $1)
+        })
 
-        for i in 0..<deviceToken.count {
-            token += String(format: "%02.2hhx", arguments: [chars[i]])
-        }
-        return token
+        return apnsToken
     }
 }
