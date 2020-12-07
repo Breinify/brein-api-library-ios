@@ -92,7 +92,7 @@ class TestApiWithSecret: XCTestCase {
                                             "C": 2.22 as Any]
 
         let breinActivity = Breinify.getBreinActivity()
-        breinActivity?.setTagsDic(tagsDic)
+        breinActivity.setTagsDic(tagsDic)
 
         // invoke activity call
         do {
