@@ -26,6 +26,6 @@ open class BreinResult {
     }
 
     public func getResult() -> String {
-        return "result"
+        "result"
     }
 }
