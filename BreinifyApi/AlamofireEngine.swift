@@ -74,7 +74,7 @@ public class AlamofireEngine: IRestEngine {
                     let uuidEntry = response.request?.allHTTPHeaderFields!["uuid"]
                     let status = response.response?.statusCode
                     if status == 200 {
-                        BreinLogger.shared.log("Successfully (resend): \(jsonData)")
+                        BreinLogger.shared.log("Successfully (resend): \(String(describing: jsonData))")
                         BreinRequestManager.shared.removeEntry(uuidEntry!)
                     } else {
                         BreinLogger.shared.log("could not send request with uuid: \(uuidEntry ?? "Nothing")")
@@ -339,14 +339,11 @@ public class AlamofireEngine: IRestEngine {
 
                     switch response.result {
                     case let .success(value):
-//                        print(value)
                         let jsonDic = value as! NSDictionary
-                        // dump(jsonDic)
 
                         let breinResult = BreinResult(dictResult: jsonDic)
                         successBlock(breinResult)
-                    case let .failure(error):
-//                        print(error)
+                    case .failure(_):
                         let error: NSDictionary = ["error": "httpError",
                                                    "statusCode": status!]
                         failureBlock(error)
