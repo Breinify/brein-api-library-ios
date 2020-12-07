@@ -114,7 +114,7 @@ open class BreinUser {
 
     /// returns the email
     public func getEmail() -> String? {
-        return email
+        email
     }
 
     /// sets the email

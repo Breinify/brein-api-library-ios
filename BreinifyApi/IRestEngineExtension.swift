@@ -33,7 +33,7 @@ extension IRestEngine {
 
     /// returns request body
     func getRequestBody(_ breinBase: BreinBase!) throws -> [String: Any]! {
-        return breinBase.prepareJsonRequest()
+        breinBase.prepareJsonRequest()
     }
 
     /// validates base and config
