@@ -94,7 +94,7 @@ open class Breinify {
         }
 
         setDeviceToken(deviceToken)
-        
+
         let firstName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
         let lastName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
         let phone: String = userInfo?[BreinUser.UserInfo.phoneNumber] ?? ""
@@ -300,6 +300,10 @@ open class Breinify {
     /// returns the brein user
     public static func getBreinUser() -> BreinUser {
         self.breinUser
+    }
+
+    public static func retrieveDeviceToken(_ deviceToken: Data) -> String {
+        BreinifyManager.shared.retrieveDeviceToken(deviceToken)
     }
 
     /**
