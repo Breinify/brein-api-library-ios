@@ -96,13 +96,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         _ = BreinIpInfo.shared
     }
 
-    public func configure(apiKey: String, secret: String) {
-        /// create the configuration object
-        let breinConfig = BreinConfig(apiKey, secret: secret)
-
-        /// set configuration
-        Breinify.setConfig(breinConfig)
-    }
+//    public func configure(apiKey: String, secret: String) {
+//        /// create the configuration object
+//        let breinConfig = BreinConfig(apiKey, secret: secret)
+//
+//        /// set configuration
+//        Breinify.setConfig(breinConfig)
+//    }
 
     public func configureSession() {
         self.appSessionId = UUID().uuidString
@@ -334,8 +334,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // is displayed to the user
     public func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double?) {
 
-        // configure the API key
-        self.configure(apiKey: apiKey, secret: secret)
+        let breinConfig = BreinConfig(apiKey, secret: secret)
+
+        /// set configuration
+        Breinify.setConfig(breinConfig)
+
+        /// read userdata
+        Breinify.readUserDefaults()
 
         // register PushNotifications
         self.registerPushNotifications()
@@ -348,7 +353,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                     selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
         }
-
     }
 
     // This method should be invoked from the Application Delegate method

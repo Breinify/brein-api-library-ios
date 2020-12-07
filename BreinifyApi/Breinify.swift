@@ -43,16 +43,7 @@ open class Breinify {
     }
 
     public static func configure(apiKey: String, secret: String) {
-        /// create the configuration object
-        let breinConfig = BreinConfig(apiKey, secret: secret)
-
-        /// set configuration
-        Breinify.setConfig(breinConfig)
-
-        /// read userdata
-        readUserDefaults()
-
-        registerPushNotification()
+        Breinify.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
     }
 
     public static func registerPushNotification() {
@@ -212,7 +203,7 @@ open class Breinify {
         }
     }
 
-    private static func readUserDefaults() {
+    public static func readUserDefaults() {
         let defaults = UserDefaults.standard
         if let email = defaults.string(forKey: "userEmail") {
             Breinify.setEmail(email)
