@@ -145,7 +145,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
     /// contains the temporal data endpoint
     override public func getEndPoint() -> String! {
-        return getConfig()?.getTemporalDataEndpoint()
+        getConfig()?.getTemporalDataEndpoint()
     }
 
     /**
