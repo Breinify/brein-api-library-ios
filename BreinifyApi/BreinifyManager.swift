@@ -59,7 +59,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     private init() {
     }
 
-    public func setToken(_ deviceToken: String?) {
+    public func setDeviceToken(_ deviceToken: String?) {
         self.deviceToken = deviceToken!
     }
 
@@ -337,25 +337,21 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // is displayed to the user
     public func didFinishLaunchingWithOptions(apiKey: String, secret: String, backgroundInterval: Double?) {
 
-        let time = BreinUtil.executionTimeInterval {
+        // configure the API key
+        self.configure(apiKey: apiKey, secret: secret)
 
-            // configure the API key
-            self.configure(apiKey: apiKey, secret: secret)
+        // register PushNotifications
+        self.registerPushNotifications()
 
-            // register PushNotifications
-            self.registerPushNotifications()
+        // init background Timer take parameter if set, otherwise default
+        let interval = backgroundInterval ?? BreinifyManager.shared.kBackGroundTimeInterval
 
-            // init background Timer take parameter if set, otherwise default
-            let interval = backgroundInterval ?? BreinifyManager.shared.kBackGroundTimeInterval
-
+        let locUsage = Breinify.getConfig().getWithLocationManagerUsage()
+        if locUsage == true {
             updateTimer = Timer.scheduledTimer(timeInterval: interval, target: self,
                     selector: #selector(sendLocationInformation), userInfo: nil, repeats: true)
-
-            // check if unsent message are there
-            BreinRequestManager.shared.loadMissedRequests()
         }
 
-        BreinLogger.shared.log("Time in didFinishLaunchingWithOptions was " + String(time))
     }
 
     // This method should be invoked from the Application Delegate method
@@ -376,13 +372,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     // This method should be invoked from the Application Delegate method
     //      applicationDidBecomeActive
-    // 
+    //
     public func applicationDidBecomeActive() {
 
         BreinLogger.shared.log("applicationDidBecomeActive called")
 
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask),
-                                               name: UIApplication.didBecomeActiveNotification, object: nil)
+                name: UIApplication.didBecomeActiveNotification, object: nil)
 
         // set session id
         Breinify.getBreinUser().setSessionId(self.appSessionId)
@@ -422,7 +418,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     // This method should be invoked from the Application Delegate method
     //      didReceiveRemoteNotification
-    // 
+    //
     public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any]) {
         BreinLogger.shared.log("didReceiveRemoteNotification called with notification: \(notification)")
 

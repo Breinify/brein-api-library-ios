@@ -60,7 +60,11 @@ open class Breinify {
         BreinifyManager.shared.registerPushNotifications()
     }
 
-    public static func setUserInfo(firstName: String, lastName: String, phone: String, email: String) {
+    public static func setUserInfo(firstName: String,
+                                   lastName: String,
+                                   phone: String,
+                                   email: String) {
+
         let appUser = Breinify.getBreinUser()
 
         appUser.setFirstName(firstName)
@@ -69,31 +73,52 @@ open class Breinify {
         appUser.setEmail(email)
 
         BreinifyManager.shared.setEmail(email)
-        
+
         saveUserDefaults()
     }
 
-    public static func initWithDeviceTokens(deviceToken: String, apnsToken: String?, fcmToken: String?) {
+    public static func initWithDeviceTokens(apnsToken: String,
+                                            fcmToken: String?,
+                                            userInfo: [String: String]?) {
 
         let appUser = Breinify.getBreinUser()
 
-        appUser.setApnsToken(apnsToken!)
+        appUser.setApnsToken(apnsToken)
 
+        var deviceToken = apnsToken
         if fcmToken != nil {
             appUser.setFcmToken(fcmToken)
+
+            // this is the main token to use
+            deviceToken = fcmToken!
         }
 
-        // this is the main token to use
-        appUser.setDeviceToken(deviceToken)
+        setDeviceToken(deviceToken)
+        
+        let firstName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
+        let lastName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
+        let phone: String = userInfo?[BreinUser.UserInfo.phoneNumber] ?? ""
+        let email: String = userInfo?[BreinUser.UserInfo.email] ?? ""
+
+        Breinify.setUserInfo(firstName: firstName,
+                lastName: lastName,
+                phone: phone,
+                email: email)
 
         // send identify
-        Breinify.sendIndentityInfo()
-
-        BreinifyManager.shared.setToken(deviceToken)
+        Breinify.sendIdentityInfo()
     }
 
-    public static func sendIndentityInfo() {
-        BreinLogger.shared.log("sendIndentityInfo called")
+    public class func setDeviceToken(_ token: String) {
+
+        let breinUser = self.getBreinUser()
+        breinUser.setDeviceToken(token)
+
+        BreinifyManager.shared.setDeviceToken(token)
+    }
+
+    public static func sendIdentityInfo() {
+        BreinLogger.shared.log("sendIdentityInfo called")
         sendUserNotification(activityType: "identity")
     }
 
@@ -154,7 +179,7 @@ open class Breinify {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if let val = result {
-                BreinLogger.shared.log("Api Success : result is: \(val.getResult()))")
+                BreinLogger.shared.log("sendUserNotification - Api Success : result is: \(val.getResult()))")
             }
         }
 
@@ -162,18 +187,28 @@ open class Breinify {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("Api Failure: error is: \(String(describing: val))")
+                BreinLogger.shared.log("sendUserNotification - Api Failure: error is: \(String(describing: val))")
             }
         }
 
+        var activityTagDic = [String: Any]()
+
+        activityTagDic["xxx"] = ""
+
+        let activity = Breinify.getBreinActivity()
+        activity.setActivityType(activityType)
+        activity.setTagsDic(activityTagDic)
+
+        let breinUser = Breinify.getBreinUser()
+        activity.setUser(breinUser)
+
         // invoke activity call
         do {
-            try Breinify.activity(Breinify.getBreinUser(),
-                    activityType: activityType,
+            try Breinify.activity(activity,
                     successBlock,
                     failureBlock)
         } catch {
-            print("Error is: \(error)")
+            BreinLogger.shared.log("sendUserNotification Error is: \(error)")
         }
     }
 
@@ -209,22 +244,22 @@ open class Breinify {
     }
 
     /// returns the brein recommendation instance
-    public static func getBreinRecommendation() -> BreinRecommendation! {
+    public static func getBreinRecommendation() -> BreinRecommendation {
         breinRecommendation
     }
 
     /// returns the brein temporal data instance
-    public static func getBreinTemporalData() -> BreinTemporalData! {
+    public static func getBreinTemporalData() -> BreinTemporalData {
         breinTemporalData
     }
 
     /// returns breinActivity
-    public static func getBreinActivity() -> BreinActivity! {
+    public static func getBreinActivity() -> BreinActivity {
         breinActivity
     }
 
     ///  returns breinLookup
-    public static func getBreinLookup() -> BreinLookup! {
+    public static func getBreinLookup() -> BreinLookup {
         breinLookup
     }
 
@@ -294,17 +329,17 @@ open class Breinify {
         self.setBreinUser(user)
 
         // ...and in class BreinActivity (will be used later when cloning)
-        if let breinAct = getBreinActivity() {
-            breinAct.setUser(user)
+        let breinAct = getBreinActivity()
+        breinAct.setUser(user)
 
-            try activity(breinAct,
-                    user: user,
-                    activityType: activityType,
-                    nil,
-                    nil,
-                    success,
-                    failure)
-        }
+        try activity(breinAct,
+                user: user,
+                activityType: activityType,
+                nil,
+                nil,
+                success,
+                failure)
+
     }
 
     /**
@@ -336,17 +371,17 @@ open class Breinify {
         self.setBreinUser(user)
 
         // ...and in class BreinActivity (will be used later when cloning)
-        if let breinAct = getBreinActivity() {
-            breinAct.setUser(user)
+        let breinAct = getBreinActivity()
+        breinAct.setUser(user)
 
-            try activity(breinAct,
-                    user: user,
-                    activityType: activityType,
-                    category,
-                    description,
-                    success,
-                    failure)
-        }
+        try activity(breinAct,
+                user: user,
+                activityType: activityType,
+                category,
+                description,
+                success,
+                failure)
+
     }
 
     /**
@@ -403,32 +438,32 @@ open class Breinify {
         // use the own instance
         let activity = getBreinActivity()
 
-        guard activity?.getUser() != nil else {
+        guard activity.getUser() != nil else {
             throw BreinError.BreinRuntimeError("User not set.")
         }
 
-        guard activity?.getActivityType() != nil else {
+        guard activity.getActivityType() != nil else {
             throw BreinError.BreinRuntimeError("ActivityType not set.")
         }
 
-        guard activity?.getBreinEngine() != nil else {
+        guard activity.getBreinEngine() != nil else {
             throw BreinError.BreinRuntimeError("No Rest Engine configured.")
         }
 
-        if activity?.getCategory() == nil {
+        if activity.getCategory() == nil {
             // check if there is an default category set
             if let defaultCategory = getConfig()?.getCategory() {
-                activity?.setCategory(defaultCategory)
+                activity.setCategory(defaultCategory)
             }
         }
 
-        activity?.setSuccessBlock(success)
-        activity?.setFailureBlock(failure)
+        activity.setSuccessBlock(success)
+        activity.setFailureBlock(failure)
 
-        let clonedActivity = activity?.clone()
+        let clonedActivity = activity.clone()
 
         // invoke the activity call
-        try clonedActivity?.getBreinEngine()?.sendActivity(clonedActivity,
+        try clonedActivity.getBreinEngine()?.sendActivity(clonedActivity,
                 success: success,
                 failure: failure)
     }
