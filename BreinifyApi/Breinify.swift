@@ -182,13 +182,8 @@ open class Breinify {
             }
         }
 
-        var activityTagDic = [String: Any]()
-
-        activityTagDic["xxx"] = ""
-
         let activity = Breinify.getBreinActivity()
         activity.setActivityType(activityType)
-        activity.setTagsDic(activityTagDic)
 
         let breinUser = Breinify.getBreinUser()
         activity.setUser(breinUser)
