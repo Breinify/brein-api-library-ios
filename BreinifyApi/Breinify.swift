@@ -46,6 +46,10 @@ open class Breinify {
         Breinify.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
     }
 
+    public static func initialize(apiKey: String, secret: String) {
+        Breinify.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
+    }
+
     public static func registerPushNotification() {
         /// user notification registration
         BreinifyManager.shared.registerPushNotifications()
