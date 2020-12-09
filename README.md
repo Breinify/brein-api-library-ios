@@ -5,9 +5,7 @@
 
 # Breinify's API Library
 
-
 [![Version](https://img.shields.io/cocoapods/v/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 [![Platform](https://img.shields.io/cocoapods/p/BreinifyApi.svg?style=flat)](http://cocoapods.org/pods/BreinifyApi)
 
@@ -30,7 +28,6 @@ The goal of utilizing Breinify’s Time-Driven push notifications is to send hig
 
 First of all, you need a valid API-key, which you can get for free at [https://www.breinify.com](https://www.breinify.com). In the examples, we assume you have the following api-key:
 
-
 **938D-3120-64DD-413F-BB55-6573-90CE-473A**
 
 
@@ -48,33 +45,115 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 
 ### Installation 
 
-
-#### Option 1 - Using CocoaPods
-
 Please follow this [link](Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment.
 
+#### Including the Library
 
-#### Option 2 - Using Carthage
+Add in your pod file:
 
-As an alternative Carthage could also be used. Please follow this [link](Documentation/carthage_instructions.md) for further information.
+```
+...
+pod 'BreinifyApi', '~> 2.0'
+...
+
+```
+
+#### Consideration of  Firebase Libraries
+
+In case of Firebase Message support the following Firebase Libraries needs to be included as well:
+
+```
+...
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+...
+```
+
+#### Permissions
+
+The Breinify SDK needs some permission in order to retrieve the appropriate information. In your `info.plist` file you have to add the following permissions:
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>api.breinify.com</key>
+        <dict>
+            <!--Include to allow subdomains-->
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <!--Include to allow HTTP requests-->
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <!--Include to specify minimum TLS version-->
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+        </dict>
+        <key>ip-api.com</key>
+        <dict>
+            <!--Include to allow subdomains-->
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <!--Include to allow HTTP requests-->
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <!--Include to specify minimum TLS version-->
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+        </dict>
+    </dict>
+</dict>
+```
 
 
-### Configuring the Library
 
-Add the following statement in your Swift file:
+
+### Configuring the Library with Firebase Cloud Message Service
+
+Add the following statements in your `AppDelegate.swift` file:
 
 ```Swift
+import Firebase
 import BreinifyApi
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Firebase configuration
+        FirebaseApp.configure()
+
+        /// constants iOS KEY with secret
+        let validApiKey = "938D-3120-64DD-413F-BB55-6573-90CE-473A"
+        let validSecret = "utakxp7sm6weo5gvk7cytw=="
+
+        Breinify.initialize(apiKey: validApiKey, secret: validSecret)
+        return true
+    }
+
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Firebase Message to retrieve the token
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+
+                var userInfoDic = [String: String]()
+                userInfoDic["firstName"] = "Elvis"
+                userInfoDic["lastName"] = "Presley"
+                userInfoDic["phone"] = "0123456789"
+                userInfoDic["email"] = "elvis.presly@mail.com"
+
+                let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
+
+                Breinify.initWithDeviceTokens(apnsToken: apnsToken,
+                        fcmToken: token,
+                        userInfo: userInfoDic)
+         }
+      }
+   }
 ```
 
-Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret 
-(if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
-
-```swift
-// whenever the application utilizing the library is initialized
-Breinify.setConfig("938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-           secret: "utakxp7sm6weo5gvk7cytw==")
-```
+Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret (if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
 
 ### Clean-Up after Usage
 
@@ -82,9 +161,11 @@ Whenever the library is not used anymore, it is recommended to clean-up and rele
 method is used. A typical framework may look like that:
 
 ```swift
-// whenever the application utilizing the library is destroyed/released
-Breinify.shutdown()
+func applicationWillTerminate(_ application: UIApplication) {
+        Breinify.applicationWillTerminate()
+}
 ```
+
 
 
 ## Activity: Selected Usage Examples
