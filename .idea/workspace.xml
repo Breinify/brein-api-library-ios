@@ -3,387 +3,120 @@
   <component name="AnalysisUIOptions">
     <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
+      <change afterPath="$PROJECT_DIR$/BreinifyApi/BreinPushIdentifiers.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/xcode.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xcode.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_9A445303-F0F7-4E94-BC77-7CE9B1E39E42" />
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BreinifyApi.podspec" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="74" lean-forward="true" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-config.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-example.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-geocoding.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-integrate.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-login-activity.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-pagevisit-activity.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlamofireEngine.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language-purchase-activity.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>user</find>
-      <find>setus</find>
-      <find>setLocalDateTime</find>
-    </findStrings>
-  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_FBD6568C-9EEA-49E8-BB70-0131952F074B" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinUser.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinUtil.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/JsonRequest.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinRequestManager.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinRecommendation.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinReachability.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinNotificationHandler.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinMapUtil.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinLookup.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinLocationResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyExecutor.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinActivity.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinActivityType.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinBase.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinCategoryType.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinConfig.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinDimension.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinEngineType.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinError.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinEventResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/Breinify.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinTemporalDataResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinTimeResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/IRestEngineExtension.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestConfig.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestEngine.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi.podspec" />
-        <option value="$PROJECT_DIR$/Podfile" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestExecutor.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestLocation.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestSecret.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestNetwork.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/BreinifyApiTests.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinEngine.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinHolidayResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyLifecycle.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinLocationManager.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinLogger.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinTemporalData.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/BreinWeatherResult.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/IRestEngine.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApi/StringExtension.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestDomain.swift" />
-        <option value="$PROJECT_DIR$/BreinifyApiTests/TestApiWithSecret.swift" />
-        <option value="$PROJECT_DIR$/README.md" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
-    <option name="y" value="23" />
-    <option name="width" value="2509" />
-    <option name="height" value="1314" />
-  </component>
+  <component name="ProjectId" id="1kF0RhaPgKp6q4C4eT0p4nBhtTZ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource ProjectPane="true" />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
-              <item name="Pods" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="BreinifyApi" type="1d218c8b:XcodeProjectNode" />
-              <item name="Source" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
-              <item name="Pods" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
-              <item name="Pods" type="fcab9f18:XcodeViewNode" />
-              <item name="NetUtils" type="fcab9f18:XcodeViewNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Cidr.FilesView" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="BreinifyApiTests" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BreinifyApi" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.lonelybytes.swiftlint.Configuration" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/BreinifyApi" />
+    </key>
   </component>
-  <component name="RunManager" selected="XCTest/Kiwi.All in TestSecret.swift">
-    <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" MAKE_ACTIVE="TRUE">
-      <envs />
+  <component name="RunManager" selected="XCTest.TestLifecycle.testFulliOSLifeCycle">
+    <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
       </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="All in TestEngine.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestEngine.swift" TEST_PATTERN="TestEngine" TEST_MODE="PATTERN">
-      <envs />
+    <configuration name="All in TestApiWithSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApiWithSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApiWithSecret" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
-      <envs />
+    <configuration name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApi" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="All in TestLocation.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLocation.swift" TEST_PATTERN="TestLocation" TEST_MODE="PATTERN">
-      <envs />
+    <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="All in TestNetwork.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestNetwork.swift" TEST_PATTERN="TestNetwork" TEST_MODE="PATTERN">
-      <envs />
+    <configuration name="All in TestSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestSecret" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="All in TestSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestSecret.swift" TEST_PATTERN="TestSecret" TEST_MODE="PATTERN">
-      <envs />
+    <configuration name="TestDomain.testLocalDateTime" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="TestDomain.testLocalDateTime" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_CLASS="TestDomain" TEST_METHOD="testLocalDateTime" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" MAKE_ACTIVE="TRUE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
+    <configuration name="TestLifecycle.testFulliOSLifeCycle" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="TestLifecycle.testFulliOSLifeCycle" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_CLASS="TestLifecycle" TEST_METHOD="testFulliOSLifeCycle" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
+      <method v="2" />
     </configuration>
-    <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Application.BreinifyApi" />
-      <item index="1" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
-      <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
-      <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestLocation.swift" />
-      <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestNetwork.swift" />
-      <item index="5" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestSecret.swift" />
+    <list>
+      <item itemvalue="Application.BreinifyApi" />
+      <item itemvalue="XCTest.All in TestExecutor.swift" />
+      <item itemvalue="XCTest.All in TestSecret.swift" />
+      <item itemvalue="XCTest.TestDomain.testLocalDateTime" />
+      <item itemvalue="XCTest.All in TestApi.swift" />
+      <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
+      <item itemvalue="XCTest.TestLifecycle.testFulliOSLifeCycle" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestSecret.swift" />
-        <item index="1" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestNetwork.swift" />
-        <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestLocation.swift" />
-        <item index="3" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestExecutor.swift" />
-        <item index="4" class="java.lang.String" itemvalue="XCTest/Kiwi.All in TestEngine.swift" />
+      <list>
+        <item itemvalue="XCTest.TestLifecycle.testFulliOSLifeCycle" />
+        <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
+        <item itemvalue="XCTest.All in TestApi.swift" />
+        <item itemvalue="XCTest.TestDomain.testLocalDateTime" />
+        <item itemvalue="XCTest.All in TestSecret.swift" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -431,6 +164,19 @@
       <workItem from="1517429410711" duration="28000" />
       <workItem from="1517429551111" duration="333000" />
       <workItem from="1517616061276" duration="9000" />
+      <workItem from="1605281028245" duration="5088000" />
+      <workItem from="1605531609305" duration="207000" />
+      <workItem from="1605533956161" duration="27161000" />
+      <workItem from="1605887823117" duration="494000" />
+      <workItem from="1605960151958" duration="3694000" />
+      <workItem from="1606042910334" duration="9039000" />
+      <workItem from="1606565787608" duration="991000" />
+      <workItem from="1606566827116" duration="318000" />
+      <workItem from="1606567230388" duration="16734000" />
+      <workItem from="1606727998812" duration="30389000" />
+      <workItem from="1606996571679" duration="1457000" />
+      <workItem from="1607077431137" duration="3167000" />
+      <workItem from="1607088109473" duration="19882000" />
     </task>
     <task id="LOCAL-00001" summary="Code beautifying">
       <created>1509405330844</created>
@@ -446,330 +192,580 @@
       <option name="project" value="LOCAL" />
       <updated>1509717348458</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated documentation">
+      <created>1605726622344</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605726622345</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated documentation">
+      <created>1605726739274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605726739274</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update for Alamofire 5">
+      <created>1605796714296</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605796714297</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adaptations to Swift 5">
+      <created>1605798103820</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605798103820</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adaptations to Swift 5">
+      <created>1605798124795</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605798124795</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adaptations to Swift 5">
+      <created>1605798284076</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605798284076</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adaptations to Swift 5">
+      <created>1605798346443</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605798346443</updated>
+    </task>
+    <task id="LOCAL-00010" summary="license update">
+      <created>1605798732748</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605798732748</updated>
+    </task>
+    <task id="LOCAL-00011" summary="doc update">
+      <created>1606389702447</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606389702447</updated>
+    </task>
+    <task id="LOCAL-00012" summary="code cleanUp">
+      <created>1606651613499</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606651613499</updated>
+    </task>
+    <task id="LOCAL-00013" summary="additional supporting functions added">
+      <created>1606746259100</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606746259100</updated>
+    </task>
+    <task id="LOCAL-00014" summary="additional sendActivity method added">
+      <created>1606749071409</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606749071409</updated>
+    </task>
+    <task id="LOCAL-00015" summary="additional activity types added">
+      <created>1606772201312</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606772201312</updated>
+    </task>
+    <task id="LOCAL-00016" summary="setUserInfo added">
+      <created>1606772231388</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1606772231388</updated>
+    </task>
+    <task id="LOCAL-00017" summary="additional test cases added">
+      <created>1606772249762</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606772249762</updated>
+    </task>
+    <task id="LOCAL-00018" summary="additional test secret added">
+      <created>1606816784353</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1606816784354</updated>
+    </task>
+    <task id="LOCAL-00019" summary="test secret update">
+      <created>1606825585139</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1606825585139</updated>
+    </task>
+    <task id="LOCAL-00020" summary="code cleanUp">
+      <created>1606924193163</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1606924193163</updated>
+    </task>
+    <task id="LOCAL-00021" summary="doc update">
+      <created>1606927456941</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1606927456941</updated>
+    </task>
+    <task id="LOCAL-00022" summary="support of setting unixTimestamp">
+      <created>1606994034720</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994034720</updated>
+    </task>
+    <task id="LOCAL-00023" summary="user set in sendActivity">
+      <created>1606994086997</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994086997</updated>
+    </task>
+    <task id="LOCAL-00024" summary="code cleanUp">
+      <created>1606994110479</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994110479</updated>
+    </task>
+    <task id="LOCAL-00025" summary="additional test cases added">
+      <created>1606994130847</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994130848</updated>
+    </task>
+    <task id="LOCAL-00026" summary="code cleanUp">
+      <created>1607257437369</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607257437369</updated>
+    </task>
+    <task id="LOCAL-00027" summary="useInfo enum added">
+      <created>1607269932370</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607269932370</updated>
+    </task>
+    <task id="LOCAL-00028" summary="code cleanUp">
+      <created>1607323913141</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1607323913141</updated>
+    </task>
+    <task id="LOCAL-00029" summary="code cleanUp">
+      <created>1607324841662</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1607324841662</updated>
+    </task>
+    <task id="LOCAL-00030" summary="code cleanUp">
+      <created>1607324861476</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1607324861476</updated>
+    </task>
+    <task id="LOCAL-00031" summary="code cleanUp">
+      <created>1607324942678</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1607324942678</updated>
+    </task>
+    <task id="LOCAL-00032" summary="code cleanUp">
+      <created>1607325041956</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1607325041956</updated>
+    </task>
+    <task id="LOCAL-00033" summary="adoption to changed optionals">
+      <created>1607325090340</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1607325090340</updated>
+    </task>
+    <task id="LOCAL-00034" summary="supporting deviceToken func added">
+      <created>1607345916068</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1607345916068</updated>
+    </task>
+    <task id="LOCAL-00035" summary="additional helper functions added">
+      <created>1607345946588</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1607345946588</updated>
+    </task>
+    <task id="LOCAL-00036" summary="init improved">
+      <created>1607352977216</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1607352977216</updated>
+    </task>
+    <task id="LOCAL-00037" summary="code cleanUp">
+      <created>1607448686475</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1607448686475</updated>
+    </task>
+    <task id="LOCAL-00038" summary="initialize method added">
+      <created>1607541246498</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1607541246498</updated>
+    </task>
+    <task id="LOCAL-00039" summary="doc update">
+      <created>1607544598651</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1607544598651</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="All_in_TestApiWithSecret_swift - 2017.11.03 at 13h 20m 17s.xml">
-      <configuration name="All in TestApiWithSecret.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestApi_swift - 2017.11.03 at 13h 19m 25s.xml">
-      <configuration name="All in TestApi.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestConfig_swift - 2017.11.03 at 13h 22m 15s.xml">
-      <configuration name="All in TestConfig.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestDomain_swift - 2017.11.03 at 13h 18m 43s.xml">
-      <configuration name="All in TestDomain.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestEngine_swift - 2017.11.03 at 13h 22m 27s.xml">
-      <configuration name="All in TestEngine.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestExecutor_swift - 2017.11.03 at 13h 22m 31s.xml">
-      <configuration name="All in TestExecutor.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestLocation_swift - 2017.11.03 at 13h 22m 39s.xml">
-      <configuration name="All in TestLocation.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestNetwork_swift - 2017.11.03 at 13h 22m 47s.xml">
-      <configuration name="All in TestNetwork.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-    <history-entry file="All_in_TestSecret_swift - 2017.11.03 at 13h 23m 01s.xml">
-      <configuration name="All in TestSecret.swift" configurationId="OCUnitRunConfiguration" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35182000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="35" y="23" width="2509" height="1314" extended-state="0" />
-    <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24280502" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.051884882" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33110368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code beautifying" />
     <MESSAGE value="Code clean up and adaptations for Swift 3.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code clean up and adaptations for Swift 3.2" />
+    <MESSAGE value="updated documentation" />
+    <MESSAGE value="update for Alamofire 5" />
+    <MESSAGE value="adaptations to Swift 5" />
+    <MESSAGE value="license update" />
+    <MESSAGE value="additional supporting functions added" />
+    <MESSAGE value="additional sendActivity method added" />
+    <MESSAGE value="additional activity types added" />
+    <MESSAGE value="setUserInfo added" />
+    <MESSAGE value="additional test secret added" />
+    <MESSAGE value="test secret update" />
+    <MESSAGE value="support of setting unixTimestamp" />
+    <MESSAGE value="user set in sendActivity" />
+    <MESSAGE value="additional test cases added" />
+    <MESSAGE value="useInfo enum added" />
+    <MESSAGE value="adoption to changed optionals" />
+    <MESSAGE value="supporting deviceToken func added" />
+    <MESSAGE value="additional helper functions added" />
+    <MESSAGE value="init improved" />
+    <MESSAGE value="code cleanUp" />
+    <MESSAGE value="initialize method added" />
+    <MESSAGE value="doc update" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc update" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1607544598365">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1607544598365" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1607448678272">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607448678272" />
+    <state width="1726" height="124" key="GridCell.Tab.0.bottom" timestamp="1607352386953">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386953" />
+    <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
+    <state width="1726" height="124" key="GridCell.Tab.0.center" timestamp="1607352386951">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386951" />
+    <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
+    <state width="1726" height="124" key="GridCell.Tab.0.left" timestamp="1607352386950">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386950" />
+    <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
+    <state width="1726" height="124" key="GridCell.Tab.0.right" timestamp="1607352386952">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386952" />
+    <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
+    <state width="1726" height="124" key="GridCell.Tab.1.bottom" timestamp="1607352386959">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386959" />
+    <state width="1726" height="280" key="GridCell.Tab.1.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
+    <state width="1726" height="124" key="GridCell.Tab.1.center" timestamp="1607352386958">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386958" />
+    <state width="1726" height="280" key="GridCell.Tab.1.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
+    <state width="1726" height="124" key="GridCell.Tab.1.left" timestamp="1607352386958">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386958" />
+    <state width="1726" height="280" key="GridCell.Tab.1.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
+    <state width="1726" height="124" key="GridCell.Tab.1.right" timestamp="1607352386959">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1726" height="124" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386959" />
+    <state width="1726" height="280" key="GridCell.Tab.1.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
+    <state x="397" y="198" key="SettingsEditor" timestamp="1607157026164">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="397" y="198" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1607157026164" />
+    <state x="397" y="198" key="SettingsEditor/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606578519306" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1605791675194">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1607544601074">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1607544601074" />
+    <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1607544427384">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1607544427384" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
+    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1606995381655">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1606995381655" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestDomain.swift</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>46</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>62</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestExecutor.swift</url>
+          <line>43</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestExecutor.swift</url>
+          <line>53</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>35</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>25</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>38</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>578</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestEngine.swift</url>
+          <line>42</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestEngine.swift</url>
+          <line>56</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>101</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>44</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinEngine.swift</url>
+          <line>52</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinActivity.swift</url>
+          <line>200</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>108</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>195</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>243</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
+          <line>235</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinUser.swift</url>
+          <line>662</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinUser.swift</url>
+          <line>497</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestSecret.swift</url>
+          <line>92</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>94</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>101</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinBase.swift</url>
+          <line>175</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>85</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinUser.swift</url>
+          <line>596</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/Breinify.swift</url>
+          <line>146</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinBase.swift</url>
+          <line>113</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>145</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>35</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>73</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>77</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
+          <line>141</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinNotificationHandler.swift</url>
+          <line>47</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
+          <line>286</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestDomain.swift</url>
+          <line>131</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
+          <line>125</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md" />
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md" />
-    <entry file="file://$PROJECT_DIR$/BreinifyApi.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="74" lean-forward="true" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-config.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-example.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-geocoding.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-integrate.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-login-activity.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-pagevisit-activity.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/snippets/language-purchase-activity.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

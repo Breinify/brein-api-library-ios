@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08D34D172D6AC6C732CD50CB /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5398B33439DC8CC031D8AA0F /* Pods_BreinifyApiTests.framework */; };
 		62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
+		62DD211EC46A83AE6AF2DA42 /* TestLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */; };
 		62DD2146C62B9355533DD290 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
 		62DD2441F562F5128AE948E7 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
 		62DD2637829DB28147CEB1AB /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
 		62DD28365B55B7DD50A377DA /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
+		62DD2CACDD917BC0F26E6CFD /* BreinPushIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */; };
 		62DD2E6F6B06F5FC25CA07D9 /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
 		801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */; };
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
@@ -62,8 +63,10 @@
 		A93945BC1EBC8B20003440C0 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B31EBC8B20003440C0 /* TestLocation.swift */; };
 		A93945BD1EBC8B20003440C0 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B41EBC8B20003440C0 /* TestNetwork.swift */; };
 		A93945BE1EBC8B20003440C0 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B51EBC8B20003440C0 /* TestSecret.swift */; };
+		A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */; };
 		A9B555251FAC91E300803641 /* BreinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555231FAC91E200803641 /* BreinLogger.swift */; };
 		A9B555261FAC91E300803641 /* BreinIpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555241FAC91E300803641 /* BreinIpInfo.swift */; };
+		FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,9 +80,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5398B33439DC8CC031D8AA0F /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		131C114F8CE7B8A0F2941A5E /* Pods-BreinifyApi-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi-BreinifyApiTests/Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
+		62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLifecycle.swift; sourceTree = "<group>"; };
 		62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTimeResult.swift; sourceTree = "<group>"; };
 		62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalDataResult.swift; sourceTree = "<group>"; };
+		62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinPushIdentifiers.swift; sourceTree = "<group>"; };
 		62DD2FC943DD9E0125DBCA2B /* geomap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geomap.png; sourceTree = "<group>"; };
 		6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,11 +165,14 @@
 		A93945DA1EBCAE56003440C0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A93945DB1EBCAE56003440C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; };
+		A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		A9B555231FAC91E200803641 /* BreinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLogger.swift; sourceTree = "<group>"; };
 		A9B555241FAC91E300803641 /* BreinIpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinIpInfo.swift; sourceTree = "<group>"; };
+		BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.debug.xcconfig"; sourceTree = "<group>"; };
 		EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA40F61F85AA70C0366184B4 /* Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi-BreinifyApiTests/Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */,
 				801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */,
-				08D34D172D6AC6C732CD50CB /* Pods_BreinifyApiTests.framework in Frameworks */,
+				FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,8 +200,9 @@
 		799BF2244D5FDAE82607F618 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */,
 				6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */,
-				5398B33439DC8CC031D8AA0F /* Pods_BreinifyApiTests.framework */,
+				BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,6 +275,7 @@
 				A93944E31EBC7D6E003440C0 /* Info.plist */,
 				62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */,
 				62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */,
+				62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */,
 			);
 			name = Source;
 			path = BreinifyApi;
@@ -284,6 +295,7 @@
 				A93945B51EBC8B20003440C0 /* TestSecret.swift */,
 				A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */,
 				A93944EF1EBC7D6E003440C0 /* Info.plist */,
+				62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */,
 			);
 			name = Tests;
 			path = BreinifyApiTests;
@@ -344,6 +356,8 @@
 				898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */,
 				EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */,
 				CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */,
+				FA40F61F85AA70C0366184B4 /* Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig */,
+				131C114F8CE7B8A0F2941A5E /* Pods-BreinifyApi-BreinifyApiTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -372,7 +386,6 @@
 				A93944DB1EBC7D6E003440C0 /* Frameworks */,
 				A93944DC1EBC7D6E003440C0 /* Headers */,
 				A93944DD1EBC7D6E003440C0 /* Resources */,
-				01E4A8ACFC00459BCC20291F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,8 +404,7 @@
 				A93944E41EBC7D6E003440C0 /* Sources */,
 				A93944E51EBC7D6E003440C0 /* Frameworks */,
 				A93944E61EBC7D6E003440C0 /* Resources */,
-				9724CC01CCBCEC4C940FBD09 /* [CP] Embed Pods Frameworks */,
-				E2EBC1C22867EF91F2D5B8D4 /* [CP] Copy Pods Resources */,
+				17037CED6F625BB0AC1AFFFF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,7 +423,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Breinify;
 				TargetAttributes = {
 					A93944DE1EBC7D6E003440C0 = {
@@ -429,10 +441,11 @@
 			};
 			buildConfigurationList = A93944D91EBC7D6E003440C0 /* Build configuration list for PBXProject "BreinifyApi" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A93944D51EBC7D6E003440C0;
 			productRefGroup = A93944E01EBC7D6E003440C0 /* Products */;
@@ -465,28 +478,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01E4A8ACFC00459BCC20291F /* [CP] Copy Pods Resources */ = {
+		17037CED6F625BB0AC1AFFFF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9724CC01CCBCEC4C940FBD09 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.framework",
 				"${BUILT_PRODUCTS_DIR}/NetUtils/NetUtils.framework",
@@ -499,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AB4D9D34CC17386E56CD0581 /* [CP] Check Pods Manifest.lock */ = {
@@ -518,21 +516,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2EBC1C22867EF91F2D5B8D4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4F891699DCFBCC59AD34E2E /* [CP] Check Pods Manifest.lock */ = {
@@ -617,6 +600,8 @@
 				A93945BE1EBC8B20003440C0 /* TestSecret.swift in Sources */,
 				62DD2441F562F5128AE948E7 /* BreinTemporalDataResult.swift in Sources */,
 				62DD2E6F6B06F5FC25CA07D9 /* BreinTimeResult.swift in Sources */,
+				62DD211EC46A83AE6AF2DA42 /* TestLifecycle.swift in Sources */,
+				62DD2CACDD917BC0F26E6CFD /* BreinPushIdentifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,22 +619,33 @@
 		A93944F11EBC7D6E003440C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -673,12 +669,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -688,22 +685,33 @@
 		A93944F21EBC7D6E003440C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -721,10 +729,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -736,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -749,8 +759,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brein.BreinifyApi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -758,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -771,7 +784,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brein.BreinifyApi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -779,13 +794,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 8KWZ84N9SW;
 				INFOPLIST_FILE = BreinifyApiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brein.BreinifyApiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -793,13 +808,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 8KWZ84N9SW;
 				INFOPLIST_FILE = BreinifyApiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brein.BreinifyApiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

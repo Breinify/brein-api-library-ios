@@ -49,7 +49,6 @@ class TestLifecycle: XCTestCase {
         } catch {
             print("Error is: \(error.localizedDescription)")
         }
-
     }
 
     func testCycleWithSignature() {
@@ -64,10 +63,10 @@ class TestLifecycle: XCTestCase {
                 .setLastName("Presley")
 
         // provide device token
-        Breinify.initWithDeviceTokens(deviceToken: "superToken", apnsToken: "superToken", fcmToken: nil)
+        Breinify.initWithDeviceTokens(apnsToken: "superToken", fcmToken: nil, userInfo: nil)
 
         // send some activities
-        let breinActivity = Breinify.getBreinActivity()!
+        let breinActivity = Breinify.getBreinActivity()
 
         breinActivity.setActivityType(BreinActivityType.LOGIN.rawValue)
                 .setCategory(BreinCategoryType.HOME.rawValue)
@@ -90,10 +89,10 @@ class TestLifecycle: XCTestCase {
                 .setLastName("Presley")
 
         // provide device token
-         Breinify.initWithDeviceTokens(deviceToken: "superToken", apnsToken: "superToken", fcmToken: nil)
+        Breinify.initWithDeviceTokens(apnsToken: "superToken", fcmToken: nil, userInfo: nil)
 
         // send some activities
-        let breinActivity = Breinify.getBreinActivity()!
+        let breinActivity = Breinify.getBreinActivity()
 
         breinActivity.setActivityType(BreinActivityType.LOGIN.rawValue)
                 .setCategory(BreinCategoryType.HOME.rawValue)
@@ -105,5 +104,52 @@ class TestLifecycle: XCTestCase {
         Breinify.shutdown()
     }
 
+    func testFulliOSLifeCycle() {
+
+        // 1. configure API
+        Breinify.configure(apiKey: validApiKeyWithSecret, secret: validSecret)
+
+        // use this for pushNotification registration
+
+
+        // 2. get device Token and provide User Info
+
+        var userInfoDic = [String: String]()
+        userInfoDic["firstName"] = "Toni"
+        userInfoDic["lastName"] = "Maroni"
+        userInfoDic["phone"] = "0123456789"
+        userInfoDic["email"] = "elvis.presly@mail.com"
+
+
+        // let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
+
+        let apnsToken = "sdkjfkjdsfjdsfsdfjfdf"
+        let token = "ewrewrewrjwerkrjwerjrjrjer"
+
+        Breinify.initWithDeviceTokens(apnsToken: apnsToken,
+                fcmToken: token,
+                userInfo: userInfoDic)
+
+
+        // PushNotification
+
+
+        // activity sending with additional info
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+
+        // add activity tags
+        var tagsDic = [String: Any]()
+        tagsDic["pageId"] = "packages" as Any
+        breinActivity.setTagsDic(tagsDic)
+
+        do {
+            try Breinify.sendActivity(breinActivity)
+        } catch {
+            print("Could not invoke activity call")
+        }
+
+
+    }
 
 }
