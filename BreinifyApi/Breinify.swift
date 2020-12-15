@@ -122,7 +122,7 @@ open class Breinify {
         sendUserNotification(activityType: "sendLoc")
     }
 
-    public static func sendActivity(_ breinActivity: BreinActivity) throws {
+    public static func sendActivity(_ breinActivity: BreinActivity) {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
@@ -150,11 +150,10 @@ open class Breinify {
                         successBlock,
                         failureBlock)
             } catch {
-                print("Error is: \(error)")
+                BreinLogger.shared.log("sendActivity error is: \(error)")
             }
         } else {
             BreinLogger.shared.log("Activity does not contain an activity type")
-            throw BreinError.BreinRuntimeError("Activity not set")
         }
     }
 

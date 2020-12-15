@@ -72,7 +72,7 @@ class TestLifecycle: XCTestCase {
                 .setCategory(BreinCategoryType.HOME.rawValue)
                 .setDescription("This is a good description")
 
-        try! Breinify.sendActivity(breinActivity)
+        Breinify.sendActivity(breinActivity)
 
         Breinify.shutdown()
     }
@@ -99,7 +99,7 @@ class TestLifecycle: XCTestCase {
                 .setDescription("This is a good description")
                 .setUnixTimestamp(1606988396)
 
-        try! Breinify.sendActivity(breinActivity)
+        Breinify.sendActivity(breinActivity)
 
         Breinify.shutdown()
     }
@@ -110,7 +110,6 @@ class TestLifecycle: XCTestCase {
         Breinify.configure(apiKey: validApiKeyWithSecret, secret: validSecret)
 
         // use this for pushNotification registration
-
 
         // 2. get device Token and provide User Info
 
@@ -130,9 +129,7 @@ class TestLifecycle: XCTestCase {
                 fcmToken: token,
                 userInfo: userInfoDic)
 
-
         // PushNotification
-
 
         // activity sending with additional info
         let breinActivity = Breinify.getBreinActivity()
@@ -142,14 +139,63 @@ class TestLifecycle: XCTestCase {
         var tagsDic = [String: Any]()
         tagsDic["pageId"] = "packages" as Any
         breinActivity.setTagsDic(tagsDic)
-
-        do {
-            try Breinify.sendActivity(breinActivity)
-        } catch {
-            print("Could not invoke activity call")
-        }
-
-
+        Breinify.sendActivity(breinActivity)
     }
 
+    func testCheckout() {
+        let jsonDict = [
+            "saldo": 6.902,
+            "recharge": 0,
+            "package": 0,
+            "consumption": 3.498,
+            "disponsible": 2.904,
+            "other": 0,
+            "pageId": "consumptionDetails"
+        ] as [String: Any]
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(jsonDict)
+
+        breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+        Breinify.sendActivity(breinActivity)
+    }
+
+    func testPageView() {
+        let jsonDict = [
+            "saldo": 6.902,
+            "recharge": 0,
+            "package": 0,
+            "consumption": 3.498,
+            "disponsible": 2.904,
+            "other": 0,
+            "pageId": "consumptionDetails"
+        ] as [String: Any]
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(jsonDict)
+
+        breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+        Breinify.sendActivity(breinActivity)
+    }
+
+    func testBalance() {
+        let jsonDict = [
+            "balancePromotional": 0,
+            "balanceCampaign": 0,
+            "pageId": "otherBalance"
+        ] as [String: Any]
+
+
+        BreinLogger.shared.setDebug(true)
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(jsonDict)
+
+        breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+
+        Breinify.sendActivity(breinActivity)
+    }
 }
+
+
+
