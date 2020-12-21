@@ -15,11 +15,11 @@ public class AlamofireEngine: IRestEngine {
     // contains a copy of the missedRequests from BreinRequestManager
     var missedRequests: [String: JsonRequest]?
 
-    let session: Session = {
+    let sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 20
 
-        return Session(configuration: configuration)
+        return SessionManager(configuration: configuration)
     }()
 
     /**
@@ -60,7 +60,7 @@ public class AlamofireEngine: IRestEngine {
                 request.setValue(uuid, forHTTPHeaderField: "uuid")
                 request.httpBody = jsonData?.data(using: .utf8, allowLossyConversion: false)!
 
-                AF.request(request).responseJSON {
+                Alamofire.request(request).responseJSON {
                     (response) in
 
                     // dump(response)
@@ -110,7 +110,8 @@ public class AlamofireEngine: IRestEngine {
             BreinLogger.shared.log("doRequest - jsonString is: \(String(describing: jsonString))")
         }
 
-        session.request(url, method: .post,
+        // Alamofire.request(url, method: .post,
+        sessionManager.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -185,7 +186,7 @@ public class AlamofireEngine: IRestEngine {
             // print(jsonString)
         }
 
-        AF.request(url, method: .post,
+        Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -230,7 +231,7 @@ public class AlamofireEngine: IRestEngine {
         let url = try getFullyQualifiedUrl(breinLookup)
         let body = try getRequestBody(breinLookup)
 
-        AF.request(url, method: .post,
+        Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -286,7 +287,7 @@ public class AlamofireEngine: IRestEngine {
         }
 
         // Alamofire.request(url, method: .post,
-        session.request(url, method: .post,
+        sessionManager.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {
@@ -323,7 +324,7 @@ public class AlamofireEngine: IRestEngine {
                         success successBlock: @escaping apiSuccess,
                         failure failureBlock: @escaping apiFailure) {
 
-        AF.request(url, method: .post,
+        Alamofire.request(url, method: .post,
                         parameters: body,
                         encoding: JSONEncoding.default)
                 .responseJSON {

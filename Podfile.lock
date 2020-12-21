@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (5.4.0)
+  - Alamofire (4.8.2)
   - IDZSwiftCommonCrypto (0.13.0)
   - NetUtils (4.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.4)
+  - Alamofire (~> 4.8.2)
   - IDZSwiftCommonCrypto (~> 0.13)
   - NetUtils (~> 4.2)
 
@@ -15,10 +15,10 @@ SPEC REPOS:
     - NetUtils
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   IDZSwiftCommonCrypto: 00dd37cdfbd149312a7e5a582cf9909f8b129f44
   NetUtils: 8c6c568c32c2819690b7d79ad2fe4e31838fb2d3
 
-PODFILE CHECKSUM: b9f597d6632567ed2ca6b520f119a9d98048c679
+PODFILE CHECKSUM: 249c32a9b08e8410cbe3e212146c84f7893808bb
 
 COCOAPODS: 1.10.0

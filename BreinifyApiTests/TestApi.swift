@@ -14,8 +14,11 @@ class TestApi: XCTestCase {
 
     let baseUrl = "https://api.breinify.com"
 
-    let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
-    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
+//    let validApiKeyWithSecret = "CA8A-8D28-3408-45A8-8E20-8474-06C0-8548"
+//    let validSecret = "lmcoj4k27hbbszzyiqamhg=="
+
+    let validApiKeyWithSecret = "1662-7D6D-1082-4774-9EC2-A856-BC3B-32CF"
+    let validSecret = "0qpejxdbwrflx79ixx+55a=="
 
     var breinUser = BreinUser(email: "toni.maroni@email.me")
     let breinCategory = "home"

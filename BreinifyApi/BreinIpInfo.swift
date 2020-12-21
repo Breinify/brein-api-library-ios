@@ -35,7 +35,7 @@ open class BreinIpInfo {
     public func invokeRequest() -> Void {
         // service url provides external ipAddress
         let url = "http://www.ip-api.com/json"
-        AF.request(url)
+        Alamofire.request(url)
             .responseJSON {
                 response in
                 // print(response.request)  // original URL request

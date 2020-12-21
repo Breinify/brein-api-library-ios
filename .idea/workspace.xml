@@ -9,8 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/Breinify.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/Breinify.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
       <recent name="$PROJECT_DIR$/BreinifyApi" />
     </key>
   </component>
-  <component name="RunManager" selected="XCTest.All in TestLocation.swift">
+  <component name="RunManager" selected="XCTest.All in TestApi.swift">
     <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -54,32 +59,32 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in TestApiWithSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApiWithSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApiWithSecret" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApi" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestConfig.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestConfig.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestConfig" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestDomain.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestDomain.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestDomain" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in TestEngine.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestEngine.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestEngine" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TestExecutor.swift (1)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift (1)" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestLifecycle.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLifecycle.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestLifecycle" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestLocation.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLocation.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestLocation" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLifecycle.testCycleWithSignatureTwo" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="TestLifecycle.testCycleWithSignatureTwo" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_CLASS="TestLifecycle" TEST_METHOD="testCycleWithSignatureTwo" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -96,19 +101,19 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
+      <item itemvalue="XCTest.All in TestApi.swift" />
+      <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
+      <item itemvalue="XCTest.All in TestConfig.swift" />
+      <item itemvalue="XCTest.All in TestDomain.swift" />
       <item itemvalue="XCTest.All in TestEngine.swift" />
-      <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
-      <item itemvalue="XCTest.All in TestLifecycle.swift" />
-      <item itemvalue="XCTest.TestLifecycle.testCycleWithSignatureTwo" />
-      <item itemvalue="XCTest.All in TestLocation.swift" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="XCTest.All in TestLocation.swift" />
-        <item itemvalue="XCTest.All in TestLifecycle.swift" />
-        <item itemvalue="XCTest.TestLifecycle.testCycleWithSignatureTwo" />
-        <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
+        <item itemvalue="XCTest.All in TestApi.swift" />
         <item itemvalue="XCTest.All in TestEngine.swift" />
+        <item itemvalue="XCTest.All in TestDomain.swift" />
+        <item itemvalue="XCTest.All in TestConfig.swift" />
+        <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +179,8 @@
       <workItem from="1607077431137" duration="3167000" />
       <workItem from="1607088109473" duration="21938000" />
       <workItem from="1607667597544" duration="349000" />
-      <workItem from="1608038459832" duration="2613000" />
+      <workItem from="1608038459832" duration="9187000" />
+      <workItem from="1608572396667" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="Code beautifying">
       <created>1509405330844</created>
@@ -463,7 +469,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607616725886</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="updated signature for sendActivity">
+      <created>1608056518707</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1608056518707</updated>
+    </task>
+    <task id="LOCAL-00043" summary="code cleanUp">
+      <created>1608571062959</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1608571062959</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,44 +510,45 @@
     <MESSAGE value="supporting deviceToken func added" />
     <MESSAGE value="additional helper functions added" />
     <MESSAGE value="init improved" />
-    <MESSAGE value="code cleanUp" />
     <MESSAGE value="initialize method added" />
     <MESSAGE value="updated podspec" />
     <MESSAGE value="doc update" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc update" />
+    <MESSAGE value="updated signature for sendActivity" />
+    <MESSAGE value="code cleanUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanUp" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1607616725611">
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1608571062719">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1607616725611" />
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1607448678272">
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1608571062719" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1608571891611">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607448678272" />
-    <state width="1726" height="283" key="GridCell.Tab.0.bottom" timestamp="1608056437655">
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1608571891611" />
+    <state width="1726" height="323" key="GridCell.Tab.0.bottom" timestamp="1608572688856">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="283" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1608056437655" />
+    <state width="1726" height="323" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1726" height="283" key="GridCell.Tab.0.center" timestamp="1608056437654">
+    <state width="1726" height="323" key="GridCell.Tab.0.center" timestamp="1608572688856">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="283" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1608056437654" />
+    <state width="1726" height="323" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1726" height="283" key="GridCell.Tab.0.left" timestamp="1608056437653">
+    <state width="1726" height="323" key="GridCell.Tab.0.left" timestamp="1608572688855">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="283" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1608056437653" />
+    <state width="1726" height="323" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688855" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1726" height="283" key="GridCell.Tab.0.right" timestamp="1608056437655">
+    <state width="1726" height="323" key="GridCell.Tab.0.right" timestamp="1608572688856">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="283" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1608056437655" />
+    <state width="1726" height="323" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
     <state width="1726" height="124" key="GridCell.Tab.1.bottom" timestamp="1607352386959">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -558,18 +579,18 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1607616727664">
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1608571066432">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1607616727664" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1608571066432" />
     <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
-    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1608044214842">
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1608552263655">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1608044214842" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1608552263655" />
     <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
     <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1606995381655">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -586,17 +607,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>46</line>
+          <line>49</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>48</line>
+          <line>51</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>62</line>
+          <line>65</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -626,7 +647,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>578</line>
+          <line>581</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -646,7 +667,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>44</line>
+          <line>47</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -666,17 +687,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>195</line>
+          <line>198</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>243</line>
+          <line>246</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestApi.swift</url>
-          <line>235</line>
+          <line>238</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -731,7 +752,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
-          <line>145</line>
+          <line>146</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -751,7 +772,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift</url>
-          <line>141</line>
+          <line>142</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -761,7 +782,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
-          <line>286</line>
+          <line>277</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -778,6 +799,21 @@
           <url>file://$PROJECT_DIR$/BreinifyApiTests/TestLifecycle.swift</url>
           <line>190</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
+          <line>248</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
+          <line>265</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
+          <line>417</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
