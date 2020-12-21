@@ -96,14 +96,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         _ = BreinIpInfo.shared
     }
 
-//    public func configure(apiKey: String, secret: String) {
-//        /// create the configuration object
-//        let breinConfig = BreinConfig(apiKey, secret: secret)
-//
-//        /// set configuration
-//        Breinify.setConfig(breinConfig)
-//    }
-
     public func configureSession() {
         self.appSessionId = UUID().uuidString
     }
@@ -235,7 +227,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
         }
-        // assert(backgroundTask != UIBackgroundTaskInvalid)
     }
 
     func endBackgroundTask() {
@@ -255,7 +246,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         let aps = notification.request.content.userInfo["aps"] as! [String: Any]
 
-        self.sendActivity("openedPushNotification", additionalContent: aps)
+        self.sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalContent: aps)
 
         // call BreinNotification-Handler
         Breinify.getNotificationHandler()?.willPresent(notification)
@@ -272,7 +263,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("UserNotification didReceive invoked with response: \(response).")
 
         let aps = response.notification.request.content.userInfo["aps"] as! [String: Any]
-        self.sendActivity("openedPushNotification", additionalContent: aps)
+        self.sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalContent: aps)
 
         // call BreinNotification-Handler
         Breinify.getNotificationHandler()?.didReceive(response)
@@ -424,7 +415,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("didReceiveRemoteNotification called with notification: \(notification)")
 
         let notDic = notification["aps"] as! [String: Any]
-        self.sendActivity("receivedPushNotification", additionalContent: notDic)
+        self.sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalContent: notDic)
     }
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
