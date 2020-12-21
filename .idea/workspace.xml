@@ -8,14 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/AlamofireEngine.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/BreinIpInfo.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApiTests/TestApi.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +173,7 @@
       <workItem from="1607088109473" duration="21938000" />
       <workItem from="1607667597544" duration="349000" />
       <workItem from="1608038459832" duration="9187000" />
-      <workItem from="1608572396667" duration="1285000" />
+      <workItem from="1608572396667" duration="1639000" />
     </task>
     <task id="LOCAL-00001" summary="Code beautifying">
       <created>1509405330844</created>
@@ -526,29 +519,29 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1608571062719" />
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1608571891611">
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1608574486631">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1608571891611" />
-    <state width="1726" height="323" key="GridCell.Tab.0.bottom" timestamp="1608572688856">
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1608574486631" />
+    <state width="1726" height="323" key="GridCell.Tab.0.bottom" timestamp="1608574131571">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
+    <state width="1726" height="323" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1726" height="323" key="GridCell.Tab.0.center" timestamp="1608572688856">
+    <state width="1726" height="323" key="GridCell.Tab.0.center" timestamp="1608574131571">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
+    <state width="1726" height="323" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1726" height="323" key="GridCell.Tab.0.left" timestamp="1608572688855">
+    <state width="1726" height="323" key="GridCell.Tab.0.left" timestamp="1608574131570">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688855" />
+    <state width="1726" height="323" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131570" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1726" height="323" key="GridCell.Tab.0.right" timestamp="1608572688856">
+    <state width="1726" height="323" key="GridCell.Tab.0.right" timestamp="1608574131571">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1608572688856" />
+    <state width="1726" height="323" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
     <state width="1726" height="124" key="GridCell.Tab.1.bottom" timestamp="1607352386959">
       <screen x="0" y="23" width="1792" height="1097" />
