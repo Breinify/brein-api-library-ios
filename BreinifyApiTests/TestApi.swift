@@ -32,7 +32,6 @@ class TestApi: XCTestCase {
 
         // set configuration
         Breinify.setConfig(breinConfig)
-
         BreinLogger.shared.setDebug(true)
     }
 
@@ -72,20 +71,17 @@ class TestApi: XCTestCase {
         } catch {
             XCTFail("Error is: \(error.localizedDescription)")
         }
+
+        // 3. Wait for the expectation to be fulfilled
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
     }
 
     // test case how to use the activity api with secret
     func testLoginWithSecretWithoutCallbacks() {
-
-//        let _: apiSuccess = {
-//            (result: BreinResult) -> Void in
-//            print("Api Success : result is: \(result)")
-//        }
-//
-//        let _: apiFailure = {
-//            (error: NSDictionary) -> Void in
-//            XCTFail("Api Failure : error is: \(error)")
-//        }
 
         // set additional user information
         breinUser.setFirstName("Fred")
@@ -524,11 +520,11 @@ class TestApi: XCTestCase {
         let jsonString = "{ dfdjdskfkjdsfjkdjsj } "
         let jsonString2 = "werewr xcvnxnnvn 898889"
 
-        BreinRequestManager.shared.addRequest(timeStamp: 1489512440,
+        BreinRequestManager.shared.addMissedRequest(timeStamp: 1489512440,
                 fullUrl: "https://api.breinify.com/activity",
                 json: jsonString)
 
-        BreinRequestManager.shared.addRequest(timeStamp: 1489512441,
+        BreinRequestManager.shared.addMissedRequest(timeStamp: 1489512441,
                 fullUrl: "https://api.breinify.com/activity",
                 json: jsonString2)
 
