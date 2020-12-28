@@ -8,6 +8,7 @@ import Foundation
 public enum BreinEngineType {
 
     case Alamofire
+    case URLSession
     case NoEngine
 
 }

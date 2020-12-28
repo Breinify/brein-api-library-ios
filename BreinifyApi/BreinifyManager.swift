@@ -25,7 +25,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     /// configuration part
     var userEmail: String?
-    var user_Id: String?
+    var userId: String?
 
     // contains the sessionId of the app
     var appSessionId: String?
@@ -50,6 +50,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         // configure session
         instance.configureSession()
+
+        // detect ip
+        BreinIpInfo.shared
 
         return instance
     }()
@@ -76,11 +79,11 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func setUserId(_ userId: String) {
-        self.user_Id = userId
+        self.userId = userId
     }
 
     public func getUserId() -> String? {
-        return self.user_Id
+        self.userId
     }
 
     /// setup configuration
@@ -186,16 +189,16 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
 
         if let uuid = defaults.string(forKey: BreinifyManager.kUserDefaultUserId) {
-            self.user_Id = uuid
+            self.userId = uuid
         } else {
             // not set yet generate an UUID
-            self.user_Id = UUID().uuidString
+            self.userId = UUID().uuidString
         }
 
         // set unique user id
-        Breinify.getBreinUser().setUserId(self.user_Id)
+        Breinify.getBreinUser().setUserId(self.userId)
 
-        BreinLogger.shared.log("UserId: \(String(describing: self.user_Id)) - Email: \(String(describing: self.userEmail))")
+        BreinLogger.shared.log("UserId: \(String(describing: self.userId)) - Email: \(String(describing: self.userEmail))")
     }
 
     /**

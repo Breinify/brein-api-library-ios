@@ -125,7 +125,7 @@ open class BreinConfig {
         self.category = ""
 
         // default rest-engine
-        setRestEngineType(BreinEngineType.Alamofire)
+        setRestEngineType(BreinEngineType.URLSession)
     }
 
     // initializes the rest engine

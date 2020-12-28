@@ -46,26 +46,6 @@ public class BreinUtil {
 
     static public func detectIpAddress() -> String {
         BreinIpInfo.shared.getExternalIp()!
-
-        // only en0, running & up
-        /* this will only provide the local Ip
-         let interfaces = Interface.allInterfaces()
-         
-         for i in interfaces {
-            if i.isRunning && i.isUp {
-                print("Adr is: \(i.address)")
-                if i.name.lowercased() == "en0" {
-                    if i.family.toString().lowercased() == "ipv4" {
-                        if let ip = i.address {
-                            // print("Address: \(ip)")
-                            return ip
-                        }
-                    }
-                }
-            }
-        }
-        return ""
-        */
     }
 
     static public func getDoubleValue(_ value: Any?) -> Double? {

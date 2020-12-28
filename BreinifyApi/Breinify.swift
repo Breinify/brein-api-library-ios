@@ -114,7 +114,7 @@ open class Breinify {
 
     public static func sendIdentityInfo() {
         BreinLogger.shared.log("sendIdentityInfo called")
-        sendUserNotification(activityType: "identity")
+        sendUserNotification(activityType: "identify")
     }
 
     public static func sendLocationInfo() {

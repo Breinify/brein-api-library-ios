@@ -6,7 +6,7 @@
 import Foundation
 
 /**
- Creates the Rest Engine (currently only Alamofire) and provides the methods to
+ Creates the Rest Engine and provides the methods to
  invoke activity and lookup calls
 */
 
@@ -31,7 +31,7 @@ public class BreinEngine {
      Creates the BreinEngine instance with a given breinEngineType
     */
     public init(engineType: BreinEngineType) {
-        self.restEngine = AlamofireEngine()
+        self.restEngine = URLSessionEngine()
     }
 
     /**

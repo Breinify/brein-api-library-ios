@@ -68,10 +68,10 @@ open class BreinRequestManager {
         }
     }
 
-    public func addRequest(timeStamp: Int, fullUrl: String?, json: String?) {
+    public func addMissedRequest(timeStamp: Int, fullUrl: String?, json: String?) {
         let jsonRequest = JsonRequest()
-        // UUID
         let uuid = UUID().uuidString
+
         jsonRequest.creationTime = timeStamp
         jsonRequest.fullUrl = fullUrl
         jsonRequest.jsonBody = json
@@ -234,7 +234,7 @@ open class BreinRequestManager {
                             let fullUrl = elements[1]
                             let jsonBody = elements[2]
 
-                            addRequest(timeStamp: unixTimestamp!, fullUrl: fullUrl, json: jsonBody)
+                            addMissedRequest(timeStamp: unixTimestamp!, fullUrl: fullUrl, json: jsonBody)
                         }
                     }
                 } catch {
