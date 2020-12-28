@@ -3,13 +3,11 @@ use_frameworks!
 
 target 'BreinifyApi' do
 
-  pod 'Alamofire', '~> 4.8.2'
   pod 'IDZSwiftCommonCrypto', '~> 0.13'
   pod 'NetUtils', '~> 4.2'
 
   target 'BreinifyApiTests' do
     inherit! :search_paths
-    pod 'Alamofire', '~> 4.8.2'
     pod 'IDZSwiftCommonCrypto', '~> 0.13'
     pod 'NetUtils', '~> 4.2'
 
