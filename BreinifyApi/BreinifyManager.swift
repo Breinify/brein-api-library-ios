@@ -11,6 +11,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     typealias apiSuccess = (_ result: BreinResult?) -> Void
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
+    static let kViewAction = "VIEW_IDENTIFIER"
+    static let kNewsCategory = "NEWS_CATEGORY"
+
     /// some constants
     static let kActivityTypeIdentify = "identify"
     static let kActivityTypeSendLocation = "sendLoc"
@@ -52,7 +55,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         instance.configureSession()
 
         // detect ip
-        BreinIpInfo.shared
+        _ = BreinIpInfo.shared
 
         return instance
     }()
@@ -286,19 +289,18 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
             UIApplication.shared.applicationIconBadgeNumber = 0
 
-            /*
             let viewAction = UNNotificationAction(
-                    identifier: BreinPushIdentifiers.viewAction, title: "View",
+                    identifier: BreinifyManager.kViewAction, title: "View",
                     options: [.foreground])
 
             let newsCategory = UNNotificationCategory(
-                    identifier: BreinPushIdentifiers.newsCategory, actions: [viewAction],
+                    identifier: BreinifyManager.kNewsCategory, actions: [viewAction],
                     intentIdentifiers: [], options: [])
 
-            
+
             UNUserNotificationCenter.current()
                     .setNotificationCategories([newsCategory])
-               */
+
 
             center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
                 if error == nil {
