@@ -35,7 +35,6 @@ open class BreinIpInfo {
         // service url provides external ipAddress
         let url = "http://www.ip-api.com/json"
 
-        // todo
         var request = URLRequest(url: URL(string: url)!)
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
