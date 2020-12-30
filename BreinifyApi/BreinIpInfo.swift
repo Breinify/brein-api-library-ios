@@ -58,43 +58,26 @@ open class BreinIpInfo {
             }
         }
         task.resume()
-
-//        Alamofire.request(url)
-//            .responseJSON {
-//                response in
-//                // print(response.request)  // original URL request
-//                // print(response.response) // URL response
-//                // print(response.data)     // server data
-//                // print(response.result)   // result of response serialization
-//                // print(response.result.value)
-//                // http status
-//                let status = response.response?.statusCode
-//                if status == 200 {
-//                    switch response.result {
-//                    case let .success(value):
-//                        dump(value)
-//                        self.readDataMap = value as? NSDictionary
-//                    case let .failure(error):
-//                        dump(error)
-//                    }
-//                }
-//        }
     }
 
     /// provides external ipAddress
     public func getExternalIp() -> String? {
-        if let map = self.readDataMap {
-            if let ip = self.readDataMap?[BreinIpInfo.kIpField] as? String {
-                return ip
-            }
+        
+        guard self.readDataMap != nil else {
             return ""
         }
+        
+       if let ip = self.readDataMap?[BreinIpInfo.kIpField] as? String {
+          return ip
+       }
+       
         return ""
     }
 
     /// provides timezone
     public func getTimezone() -> String? {
-        if let map = self.readDataMap {
+        
+        if self.readDataMap != nil {
             if let timeZone = self.readDataMap?[BreinIpInfo.kTimezoneField] as? String {
                 return timeZone
             }
