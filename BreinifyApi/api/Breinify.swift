@@ -77,7 +77,6 @@ open class Breinify {
                                             userInfo: [String: String]?) {
 
         let appUser = Breinify.getBreinUser()
-
         appUser.setApnsToken(apnsToken)
 
         var deviceToken = apnsToken
@@ -113,12 +112,12 @@ open class Breinify {
     }
 
     public static func sendIdentityInfo() {
-        BreinLogger.shared.log("sendIdentityInfo called")
+        BreinLogger.shared.log("sendIdentify called")
         sendUserNotification(activityType: "identify")
     }
 
     public static func sendLocationInfo() {
-        BreinLogger.shared.log("sendLocationInfo called")
+        BreinLogger.shared.log("sendLocation called")
         sendUserNotification(activityType: "sendLoc")
     }
 
