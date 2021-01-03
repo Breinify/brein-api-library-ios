@@ -251,9 +251,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("UserNotification willPresent invoked with notification: \(notification)")
 
         let aps = notification.request.content.userInfo["aps"] as! [String: Any]
-
-        self.sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalContent: aps)
-
+        
         // call BreinNotification-Handler
         Breinify.getNotificationHandler()?.willPresent(notification)
 
