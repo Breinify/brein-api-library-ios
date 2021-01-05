@@ -100,7 +100,7 @@ open class Breinify {
                 email: email)
 
         // send identify
-        Breinify.sendIdentityInfo()
+        Breinify.sendIdentifyInfo()
     }
 
     public class func setDeviceToken(_ token: String) {
@@ -111,7 +111,7 @@ open class Breinify {
         BreinifyManager.shared.setDeviceToken(token)
     }
 
-    public static func sendIdentityInfo() {
+    public static func sendIdentifyInfo() {
         BreinLogger.shared.log("sendIdentify called")
         sendUserNotification(activityType: "identify")
     }
@@ -126,7 +126,7 @@ open class Breinify {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if let val = result {
-                BreinLogger.shared.log("Api Success : result is: \(val.getResult()))")
+                BreinLogger.shared.log("Api success")
             }
         }
 
@@ -134,7 +134,7 @@ open class Breinify {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("Api Failure: error is: \(String(describing: val))")
+                BreinLogger.shared.log("Api failure - error is: \(String(describing: val))")
             }
         }
 
@@ -172,7 +172,7 @@ open class Breinify {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if let val = result {
-                BreinLogger.shared.log("sendUserNotification - Api Success : result is: \(val.getResult()))")
+                BreinLogger.shared.log("sendUserNotification - api success")
             }
         }
 
@@ -180,7 +180,7 @@ open class Breinify {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("sendUserNotification - Api Failure: error is: \(String(describing: val))")
+                BreinLogger.shared.log("sendUserNotification - api failure - error is: \(String(describing: val))")
             }
         }
 
