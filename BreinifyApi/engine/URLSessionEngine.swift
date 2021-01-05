@@ -96,7 +96,7 @@ public class URLSessionEngine: IRestEngine {
             let activity:[String: Any] = body?["activity"] as! [String : Any]
             let actTyp:String = activity["type"] as! String
 
-            BreinLogger.shared.log("doRequest for activityType: \(actTyp) -- jsonString is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("doRequest for activityType: \(actTyp) -- json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -169,7 +169,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try JSONSerialization.data(withJSONObject: body as Any, options: [.prettyPrinted])
             jsonString = String(data: jsonData, encoding: .utf8) ?? ""
-            BreinLogger.shared.log("doRequest - jsonString is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -225,7 +225,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-            BreinLogger.shared.log("doRequest - jsonString is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -281,7 +281,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-            BreinLogger.shared.log("doRequest - jsonString is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
