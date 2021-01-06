@@ -125,7 +125,7 @@ open class Breinify {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            if let val = result {
+            if result != nil {
                 BreinLogger.shared.log("Api success")
             }
         }
@@ -171,7 +171,7 @@ open class Breinify {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            if let val = result {
+            if result != nil {
                 BreinLogger.shared.log("sendUserNotification - api success")
             }
         }
