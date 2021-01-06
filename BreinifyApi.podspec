@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Breinify/brein-api-library-ios.git', :tag => s.version.to_s }
   s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
-  s.source_files = 'BreinifyApi/*.swift'
+  s.source_files = 'BreinifyApi/**/*.swift'
   s.dependency 'IDZSwiftCommonCrypto', '~> 0.13'
   s.dependency 'NetUtils', '~> 4.2'
 end
