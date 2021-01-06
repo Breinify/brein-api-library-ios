@@ -108,47 +108,10 @@ The Breinify SDK needs some permission in order to retrieve the appropriate info
 
 
 
-### Configuring the Library with APNS Service
-
-In case the push notifications will come from APNS add the following statements in your `AppDelegate.swift` file:
-
-```Swift
-import BreinifyApi
-
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        /// constants iOS KEY with secret
-        let validApiKey = "938D-3120-64DD-413F-BB55-6573-90CE-473A"
-        let validSecret = "utakxp7sm6weo5gvk7cytw=="
-
-        Breinify.initialize(apiKey: validApiKey, secret: validSecret)
-        return true
-    }
-
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) { 
-        var userInfoDic = [String: String]()
-        userInfoDic["firstName"] = "Elvis"
-        userInfoDic["lastName"] = "Presley"
-        userInfoDic["phone"] = "0123456789"
-        userInfoDic["email"] = "elvis.presly@mail.com"
-
-        let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
-
-        Breinify.initWithDeviceTokens(apnsToken: apnsToken,
-                        fcmToken: nil,
-                        userInfo: userInfoDic)
-             
-   }
-```
-
-Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret (if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
-
-
-
 
 ### Configuring the Library with Firebase Cloud Message Service
 
-In case the Push Notifications will come from Firebase add the following statements in your `AppDelegate.swift` file:
+Add the following statements in your `AppDelegate.swift` file:
 
 ```Swift
 import Firebase
@@ -382,7 +345,7 @@ Let's integrate Breinify's PushNotifications within an iOS App. Follow this [lin
 ### Integration
 
 
-Using Breinify Push Notifications in iOS apps is straightforward. The Breinify API integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
+Using Breinify Push Notifications in iOS apps is straightforward. The Breinify SDK integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
 
 - didFinishLaunchingWithOptions
 - applicationDidEnterBackground
@@ -430,7 +393,7 @@ This method is invoked when the remote notification is send from APNS (Apple Pus
 
 ```Swift
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-   // inform the Breinify API      
+   // inform the Breinify SDK      
    Breinify.didReceiveRemoteNotification(userInfo)
    completionHandler(.newData)  
 }

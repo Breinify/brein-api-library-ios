@@ -8,64 +8,62 @@
 
 /* Begin PBXBuildFile section */
 		62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
-		62DD211EC46A83AE6AF2DA42 /* TestLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */; };
-		62DD2146C62B9355533DD290 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
-		62DD2441F562F5128AE948E7 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */; };
-		62DD2637829DB28147CEB1AB /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
+		62DD207BEDA83C0B6FF0AF98 /* BreinLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E6A4C0ED85DA9EB24F9 /* BreinLookup.swift */; };
+		62DD20C476CC1A2CE2904E9A /* BreinEngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27EA44C1FB6DA881563E /* BreinEngineType.swift */; };
+		62DD20CB3C0E6465CF4D255E /* BreinNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B440924AC502194B6A3 /* BreinNotificationHandler.swift */; };
+		62DD20E44EAE96245E28253D /* BreinLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2FB84B61F68712A6D909 /* BreinLocationManager.swift */; };
+		62DD2126ACFEFCE5F4C3C267 /* TestDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD28F5284616E598899CD6 /* TestDomain.swift */; };
+		62DD215AC347447B0C330A75 /* BreinUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2078B62FD0E8752A40A5 /* BreinUtil.swift */; };
+		62DD218E0C6DB3A84F0E3ADE /* BreinReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2AC3900F9520050A74BD /* BreinReachability.swift */; };
+		62DD223C2AF54970546729DA /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD23C95E49449E1ED53860 /* TestNetwork.swift */; };
+		62DD22D58BD0FD53BC4AE088 /* BreinRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2EAA702D5D82561314B4 /* BreinRecommendation.swift */; };
+		62DD2353C5EA30EA66E6E6D3 /* BreinDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD296552A144EEFAF71A6B /* BreinDimension.swift */; };
+		62DD238F0B08E8DD913B8686 /* BreinIpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B8149CEC982F6152585 /* BreinIpInfo.swift */; };
+		62DD239CA23D9CCEDA0B4464 /* BreinTemporalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E9C90973701D2A0B5E5 /* BreinTemporalData.swift */; };
+		62DD23D5B34A02D56F7F55EC /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F4B45A1CCE1623DB167 /* TestConfig.swift */; };
+		62DD249D04AB0512A760FDAF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD258E7D206D4CA66C2812 /* StringExtension.swift */; };
+		62DD24A604D35C8A3E4EEE0D /* BreinActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B8B798FA3ED504EDF4D /* BreinActivityType.swift */; };
+		62DD24C080E6C71CEAFFAA51 /* BreinActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2BC8C08150C037291E8E /* BreinActivity.swift */; };
+		62DD24E49C534710014755A5 /* BreinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD24891482DDA6B9C38415 /* BreinLogger.swift */; };
+		62DD24F4822FB5CCE3344CD4 /* BreinEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C608CD56F1E35223C34 /* BreinEngine.swift */; };
+		62DD24F9D1C74D6E6F1825FF /* BreinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F4BB98EBF4DECE26198 /* BreinConfig.swift */; };
+		62DD2533C6BB26C6FA282954 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2803F47C8E8332DB7C5D /* TestApi.swift */; };
+		62DD254024F030D648EF2792 /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */; };
+		62DD25A3A3C45251437F4A22 /* BreinRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD28EBCF7DD12596D5A0F0 /* BreinRequestManager.swift */; };
+		62DD25B74F3167A456B4646F /* ISecretStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20895E28908241314619 /* ISecretStrategy.swift */; };
+		62DD25C7F9F1DA703EDBF40E /* BreinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD272D6868BF413F20BD3D /* BreinError.swift */; };
+		62DD25CF0C4CA7C4F9C5F7C4 /* BreinHolidayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD225D4F2623AE731E4078 /* BreinHolidayResult.swift */; };
+		62DD262436ECF8C53BA8A471 /* BreinCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD28E6910C4D16C56EC57E /* BreinCategoryType.swift */; };
+		62DD262F7ADC2449CCDA5BE4 /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2246CC23728D8061085C /* JsonRequest.swift */; };
+		62DD264B03FA6D8E5D187477 /* BreinNotificationServiceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD26816B70EB721DA7ADB3 /* BreinNotificationServiceExtension.swift */; };
+		62DD26A2EDF813CA83F146E7 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D81B77D0304151B6F96 /* BreinTemporalDataResult.swift */; };
+		62DD2739EC940F789938A5E0 /* BreinifyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2EED6C8FBD33BCC5882D /* BreinifyLifecycle.swift */; };
 		62DD28365B55B7DD50A377DA /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
-		62DD2CACDD917BC0F26E6CFD /* BreinPushIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */; };
-		62DD2E6F6B06F5FC25CA07D9 /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */; };
+		62DD29A779092F9DB5C9F70C /* BreinifyApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD2677C5BFC482F51283A1 /* BreinifyApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62DD29AC911B2216FCABA33C /* BreinMapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD280ED8F6F1991F6EE793 /* BreinMapUtil.swift */; };
+		62DD29C20B9841411D1509AD /* TestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2777248B030AC21486AC /* TestExecutor.swift */; };
+		62DD2B5746D64B92BBC857AE /* BreinifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A630B19F11020C6B88D /* BreinifyManager.swift */; };
+		62DD2B675C4ACC4CF3FAEB12 /* TestLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F7485CE87CEAF56680F /* TestLifecycle.swift */; };
+		62DD2BAA506E0EED758AF331 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD29A7B2FB9DA1C20145EA /* TestSecret.swift */; };
+		62DD2BDAD2090DDBE6D9939F /* BreinEventResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E2CF531DB055125CD9C /* BreinEventResult.swift */; };
+		62DD2C26B2AFD79D145155C0 /* IRestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25DE3C31414907CA19AF /* IRestEngine.swift */; };
+		62DD2C75AF0C764D46F12B57 /* TestApiWithSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22C29A65403085ABFE81 /* TestApiWithSecret.swift */; };
+		62DD2CB7F445EDF112229C99 /* URLSessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD23B9B48A1EFF2E178519 /* URLSessionEngine.swift */; };
+		62DD2D5D61A1278D75F185FA /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20E18DC42BE59E6FC442 /* TestLocation.swift */; };
+		62DD2D917DDB09B89C84FAD1 /* BreinWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20B47A4FBEBFDA5709E4 /* BreinWeatherResult.swift */; };
+		62DD2DA5A0AD82388A53EE98 /* BreinUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2FAA889C5F79A17F1A70 /* BreinUser.swift */; };
+		62DD2DB5F9341B0DA4673730 /* BreinBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F01A7350D1A8027F535 /* BreinBase.swift */; };
+		62DD2DFED306F697EAC11152 /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD299F7AE105F0028D7883 /* BreinTimeResult.swift */; };
+		62DD2E0F2B43674DA284502A /* BreinifyExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD254E622DFE4CDF4CDFEF /* BreinifyExecutor.swift */; };
+		62DD2E96DBE6DC0A2230D478 /* BreinLocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD276D780815D92A1312A9 /* BreinLocationResult.swift */; };
+		62DD2EA410B04FAF90672F30 /* IRestEngineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C03EE21900AC3DB5D7D /* IRestEngineExtension.swift */; };
+		62DD2EAC6FE7381A16421D7A /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD24508ECC36854D61AEED /* TestEngine.swift */; };
+		62DD2F3C76A686A76D772B98 /* Breinify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B145CA6B6297B621E1C /* Breinify.swift */; };
+		62DD2FB41C9617B881818792 /* BreinResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D1465144FC48B1B6E9C /* BreinResult.swift */; };
 		801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */; };
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
 		A93944EE1EBC7D6E003440C0 /* BreinifyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */; };
-		A93944F01EBC7D6E003440C0 /* BreinifyApi.h in Headers */ = {isa = PBXBuildFile; fileRef = A93944E21EBC7D6E003440C0 /* BreinifyApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A93945861EBC8B14003440C0 /* AlamofireEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939455F1EBC8B14003440C0 /* AlamofireEngine.swift */; };
-		A93945871EBC8B14003440C0 /* BreinActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945601EBC8B14003440C0 /* BreinActivity.swift */; };
-		A93945881EBC8B14003440C0 /* BreinActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945611EBC8B14003440C0 /* BreinActivityType.swift */; };
-		A93945891EBC8B14003440C0 /* BreinBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945621EBC8B14003440C0 /* BreinBase.swift */; };
-		A939458A1EBC8B14003440C0 /* BreinCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945631EBC8B14003440C0 /* BreinCategoryType.swift */; };
-		A939458B1EBC8B14003440C0 /* BreinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945641EBC8B14003440C0 /* BreinConfig.swift */; };
-		A939458E1EBC8B14003440C0 /* BreinDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945671EBC8B14003440C0 /* BreinDimension.swift */; };
-		A939458F1EBC8B14003440C0 /* BreinEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945681EBC8B14003440C0 /* BreinEngine.swift */; };
-		A93945901EBC8B14003440C0 /* BreinEngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945691EBC8B14003440C0 /* BreinEngineType.swift */; };
-		A93945911EBC8B14003440C0 /* BreinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939456A1EBC8B14003440C0 /* BreinError.swift */; };
-		A93945921EBC8B14003440C0 /* BreinEventResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939456B1EBC8B14003440C0 /* BreinEventResult.swift */; };
-		A93945931EBC8B14003440C0 /* BreinHolidayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939456C1EBC8B14003440C0 /* BreinHolidayResult.swift */; };
-		A93945941EBC8B14003440C0 /* Breinify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939456D1EBC8B14003440C0 /* Breinify.swift */; };
-		A93945951EBC8B14003440C0 /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A939456E1EBC8B14003440C0 /* BreinifyApi-Bridging-Header.h */; };
-		A93945961EBC8B14003440C0 /* BreinifyExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939456F1EBC8B14003440C0 /* BreinifyExecutor.swift */; };
-		A93945971EBC8B14003440C0 /* BreinifyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945701EBC8B14003440C0 /* BreinifyLifecycle.swift */; };
-		A93945981EBC8B14003440C0 /* BreinifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945711EBC8B14003440C0 /* BreinifyManager.swift */; };
-		A93945991EBC8B14003440C0 /* BreinLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945721EBC8B14003440C0 /* BreinLocationManager.swift */; };
-		A939459A1EBC8B14003440C0 /* BreinLocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945731EBC8B14003440C0 /* BreinLocationResult.swift */; };
-		A939459B1EBC8B14003440C0 /* BreinLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945741EBC8B14003440C0 /* BreinLookup.swift */; };
-		A939459C1EBC8B14003440C0 /* BreinMapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945751EBC8B14003440C0 /* BreinMapUtil.swift */; };
-		A939459F1EBC8B14003440C0 /* BreinNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945781EBC8B14003440C0 /* BreinNotificationHandler.swift */; };
-		A93945A01EBC8B14003440C0 /* BreinReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945791EBC8B14003440C0 /* BreinReachability.swift */; };
-		A93945A11EBC8B14003440C0 /* BreinRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457A1EBC8B14003440C0 /* BreinRecommendation.swift */; };
-		A93945A21EBC8B14003440C0 /* BreinRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457B1EBC8B14003440C0 /* BreinRequestManager.swift */; };
-		A93945A31EBC8B14003440C0 /* BreinResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457C1EBC8B14003440C0 /* BreinResult.swift */; };
-		A93945A41EBC8B14003440C0 /* BreinTemporalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457D1EBC8B14003440C0 /* BreinTemporalData.swift */; };
-		A93945A51EBC8B14003440C0 /* BreinUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457E1EBC8B14003440C0 /* BreinUser.swift */; };
-		A93945A61EBC8B14003440C0 /* BreinUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939457F1EBC8B14003440C0 /* BreinUtil.swift */; };
-		A93945A71EBC8B14003440C0 /* BreinWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945801EBC8B14003440C0 /* BreinWeatherResult.swift */; };
-		A93945A81EBC8B14003440C0 /* IRestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945811EBC8B14003440C0 /* IRestEngine.swift */; };
-		A93945A91EBC8B14003440C0 /* IRestEngineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945821EBC8B14003440C0 /* IRestEngineExtension.swift */; };
-		A93945AA1EBC8B14003440C0 /* ISecretStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945831EBC8B14003440C0 /* ISecretStrategy.swift */; };
-		A93945AB1EBC8B14003440C0 /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945841EBC8B14003440C0 /* JsonRequest.swift */; };
-		A93945AC1EBC8B14003440C0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945851EBC8B14003440C0 /* StringExtension.swift */; };
-		A93945B61EBC8B20003440C0 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945AD1EBC8B20003440C0 /* TestApi.swift */; };
-		A93945B71EBC8B20003440C0 /* TestApiWithSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945AE1EBC8B20003440C0 /* TestApiWithSecret.swift */; };
-		A93945B81EBC8B20003440C0 /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945AF1EBC8B20003440C0 /* TestConfig.swift */; };
-		A93945B91EBC8B20003440C0 /* TestDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B01EBC8B20003440C0 /* TestDomain.swift */; };
-		A93945BA1EBC8B20003440C0 /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B11EBC8B20003440C0 /* TestEngine.swift */; };
-		A93945BB1EBC8B20003440C0 /* TestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B21EBC8B20003440C0 /* TestExecutor.swift */; };
-		A93945BC1EBC8B20003440C0 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B31EBC8B20003440C0 /* TestLocation.swift */; };
-		A93945BD1EBC8B20003440C0 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B41EBC8B20003440C0 /* TestNetwork.swift */; };
-		A93945BE1EBC8B20003440C0 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93945B51EBC8B20003440C0 /* TestSecret.swift */; };
 		A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */; };
-		A9B555251FAC91E300803641 /* BreinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555231FAC91E200803641 /* BreinLogger.swift */; };
-		A9B555261FAC91E300803641 /* BreinIpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B555241FAC91E300803641 /* BreinIpInfo.swift */; };
 		FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,63 +79,66 @@
 
 /* Begin PBXFileReference section */
 		131C114F8CE7B8A0F2941A5E /* Pods-BreinifyApi-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi-BreinifyApiTests/Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
-		62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLifecycle.swift; sourceTree = "<group>"; };
-		62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTimeResult.swift; sourceTree = "<group>"; };
-		62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalDataResult.swift; sourceTree = "<group>"; };
-		62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinPushIdentifiers.swift; sourceTree = "<group>"; };
+		62DD2078B62FD0E8752A40A5 /* BreinUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUtil.swift; sourceTree = "<group>"; };
+		62DD207B4EE5850C99EA5FF0 /* BreinPushIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinPushIdentifiers.swift; sourceTree = "<group>"; };
+		62DD20895E28908241314619 /* ISecretStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecretStrategy.swift; sourceTree = "<group>"; };
+		62DD20B47A4FBEBFDA5709E4 /* BreinWeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinWeatherResult.swift; sourceTree = "<group>"; };
+		62DD20E18DC42BE59E6FC442 /* TestLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
+		62DD2246CC23728D8061085C /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		62DD225D4F2623AE731E4078 /* BreinHolidayResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinHolidayResult.swift; sourceTree = "<group>"; };
+		62DD22C29A65403085ABFE81 /* TestApiWithSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApiWithSecret.swift; sourceTree = "<group>"; };
+		62DD23B9B48A1EFF2E178519 /* URLSessionEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionEngine.swift; sourceTree = "<group>"; };
+		62DD23C95E49449E1ED53860 /* TestNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
+		62DD24508ECC36854D61AEED /* TestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
+		62DD24891482DDA6B9C38415 /* BreinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLogger.swift; sourceTree = "<group>"; };
+		62DD254E622DFE4CDF4CDFEF /* BreinifyExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyExecutor.swift; sourceTree = "<group>"; };
+		62DD258E7D206D4CA66C2812 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		62DD25DE3C31414907CA19AF /* IRestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngine.swift; sourceTree = "<group>"; };
+		62DD2677C5BFC482F51283A1 /* BreinifyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreinifyApi.h; sourceTree = "<group>"; };
+		62DD26816B70EB721DA7ADB3 /* BreinNotificationServiceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinNotificationServiceExtension.swift; sourceTree = "<group>"; };
+		62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
+		62DD272D6868BF413F20BD3D /* BreinError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinError.swift; sourceTree = "<group>"; };
+		62DD276D780815D92A1312A9 /* BreinLocationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationResult.swift; sourceTree = "<group>"; };
+		62DD2777248B030AC21486AC /* TestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExecutor.swift; sourceTree = "<group>"; };
+		62DD27EA44C1FB6DA881563E /* BreinEngineType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEngineType.swift; sourceTree = "<group>"; };
+		62DD2803F47C8E8332DB7C5D /* TestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
+		62DD280ED8F6F1991F6EE793 /* BreinMapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinMapUtil.swift; sourceTree = "<group>"; };
+		62DD28E6910C4D16C56EC57E /* BreinCategoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinCategoryType.swift; sourceTree = "<group>"; };
+		62DD28EBCF7DD12596D5A0F0 /* BreinRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinRequestManager.swift; sourceTree = "<group>"; };
+		62DD28F5284616E598899CD6 /* TestDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDomain.swift; sourceTree = "<group>"; };
+		62DD296552A144EEFAF71A6B /* BreinDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinDimension.swift; sourceTree = "<group>"; };
+		62DD299F7AE105F0028D7883 /* BreinTimeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTimeResult.swift; sourceTree = "<group>"; };
+		62DD29A7B2FB9DA1C20145EA /* TestSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSecret.swift; sourceTree = "<group>"; };
+		62DD2A630B19F11020C6B88D /* BreinifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyManager.swift; sourceTree = "<group>"; };
+		62DD2AC3900F9520050A74BD /* BreinReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinReachability.swift; sourceTree = "<group>"; };
+		62DD2B145CA6B6297B621E1C /* Breinify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breinify.swift; sourceTree = "<group>"; };
+		62DD2B440924AC502194B6A3 /* BreinNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinNotificationHandler.swift; sourceTree = "<group>"; };
+		62DD2B8149CEC982F6152585 /* BreinIpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinIpInfo.swift; sourceTree = "<group>"; };
+		62DD2B8B798FA3ED504EDF4D /* BreinActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivityType.swift; sourceTree = "<group>"; };
+		62DD2BC8C08150C037291E8E /* BreinActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivity.swift; sourceTree = "<group>"; };
+		62DD2C03EE21900AC3DB5D7D /* IRestEngineExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngineExtension.swift; sourceTree = "<group>"; };
+		62DD2C608CD56F1E35223C34 /* BreinEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEngine.swift; sourceTree = "<group>"; };
+		62DD2D1465144FC48B1B6E9C /* BreinResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinResult.swift; sourceTree = "<group>"; };
+		62DD2D81B77D0304151B6F96 /* BreinTemporalDataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalDataResult.swift; sourceTree = "<group>"; };
+		62DD2E0A10AB8F3F64B6C4E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		62DD2E2CF531DB055125CD9C /* BreinEventResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEventResult.swift; sourceTree = "<group>"; };
+		62DD2E6A4C0ED85DA9EB24F9 /* BreinLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLookup.swift; sourceTree = "<group>"; };
+		62DD2E9C90973701D2A0B5E5 /* BreinTemporalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalData.swift; sourceTree = "<group>"; };
+		62DD2EAA702D5D82561314B4 /* BreinRecommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinRecommendation.swift; sourceTree = "<group>"; };
+		62DD2EED6C8FBD33BCC5882D /* BreinifyLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyLifecycle.swift; sourceTree = "<group>"; };
+		62DD2F01A7350D1A8027F535 /* BreinBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinBase.swift; sourceTree = "<group>"; };
+		62DD2F4B45A1CCE1623DB167 /* TestConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
+		62DD2F4BB98EBF4DECE26198 /* BreinConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinConfig.swift; sourceTree = "<group>"; };
+		62DD2F7485CE87CEAF56680F /* TestLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLifecycle.swift; sourceTree = "<group>"; };
+		62DD2FAA889C5F79A17F1A70 /* BreinUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUser.swift; sourceTree = "<group>"; };
+		62DD2FB84B61F68712A6D909 /* BreinLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationManager.swift; sourceTree = "<group>"; };
 		62DD2FC943DD9E0125DBCA2B /* geomap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geomap.png; sourceTree = "<group>"; };
 		6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.release.xcconfig"; sourceTree = "<group>"; };
 		A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A93944E21EBC7D6E003440C0 /* BreinifyApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreinifyApi.h; sourceTree = "<group>"; };
-		A93944E31EBC7D6E003440C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93944E81EBC7D6E003440C0 /* BreinifyApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreinifyApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreinifyApiTests.swift; sourceTree = "<group>"; };
 		A93944EF1EBC7D6E003440C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A939455F1EBC8B14003440C0 /* AlamofireEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireEngine.swift; sourceTree = "<group>"; };
-		A93945601EBC8B14003440C0 /* BreinActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivity.swift; sourceTree = "<group>"; };
-		A93945611EBC8B14003440C0 /* BreinActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivityType.swift; sourceTree = "<group>"; };
-		A93945621EBC8B14003440C0 /* BreinBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinBase.swift; sourceTree = "<group>"; };
-		A93945631EBC8B14003440C0 /* BreinCategoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinCategoryType.swift; sourceTree = "<group>"; };
-		A93945641EBC8B14003440C0 /* BreinConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinConfig.swift; sourceTree = "<group>"; };
-		A93945671EBC8B14003440C0 /* BreinDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinDimension.swift; sourceTree = "<group>"; };
-		A93945681EBC8B14003440C0 /* BreinEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEngine.swift; sourceTree = "<group>"; };
-		A93945691EBC8B14003440C0 /* BreinEngineType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEngineType.swift; sourceTree = "<group>"; };
-		A939456A1EBC8B14003440C0 /* BreinError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinError.swift; sourceTree = "<group>"; };
-		A939456B1EBC8B14003440C0 /* BreinEventResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinEventResult.swift; sourceTree = "<group>"; };
-		A939456C1EBC8B14003440C0 /* BreinHolidayResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinHolidayResult.swift; sourceTree = "<group>"; };
-		A939456D1EBC8B14003440C0 /* Breinify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breinify.swift; sourceTree = "<group>"; };
-		A939456E1EBC8B14003440C0 /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
-		A939456F1EBC8B14003440C0 /* BreinifyExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyExecutor.swift; sourceTree = "<group>"; };
-		A93945701EBC8B14003440C0 /* BreinifyLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyLifecycle.swift; sourceTree = "<group>"; };
-		A93945711EBC8B14003440C0 /* BreinifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyManager.swift; sourceTree = "<group>"; };
-		A93945721EBC8B14003440C0 /* BreinLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationManager.swift; sourceTree = "<group>"; };
-		A93945731EBC8B14003440C0 /* BreinLocationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationResult.swift; sourceTree = "<group>"; };
-		A93945741EBC8B14003440C0 /* BreinLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLookup.swift; sourceTree = "<group>"; };
-		A93945751EBC8B14003440C0 /* BreinMapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinMapUtil.swift; sourceTree = "<group>"; };
-		A93945781EBC8B14003440C0 /* BreinNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinNotificationHandler.swift; sourceTree = "<group>"; };
-		A93945791EBC8B14003440C0 /* BreinReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinReachability.swift; sourceTree = "<group>"; };
-		A939457A1EBC8B14003440C0 /* BreinRecommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinRecommendation.swift; sourceTree = "<group>"; };
-		A939457B1EBC8B14003440C0 /* BreinRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinRequestManager.swift; sourceTree = "<group>"; };
-		A939457C1EBC8B14003440C0 /* BreinResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinResult.swift; sourceTree = "<group>"; };
-		A939457D1EBC8B14003440C0 /* BreinTemporalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinTemporalData.swift; sourceTree = "<group>"; };
-		A939457E1EBC8B14003440C0 /* BreinUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUser.swift; sourceTree = "<group>"; };
-		A939457F1EBC8B14003440C0 /* BreinUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUtil.swift; sourceTree = "<group>"; };
-		A93945801EBC8B14003440C0 /* BreinWeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinWeatherResult.swift; sourceTree = "<group>"; };
-		A93945811EBC8B14003440C0 /* IRestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngine.swift; sourceTree = "<group>"; };
-		A93945821EBC8B14003440C0 /* IRestEngineExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngineExtension.swift; sourceTree = "<group>"; };
-		A93945831EBC8B14003440C0 /* ISecretStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecretStrategy.swift; sourceTree = "<group>"; };
-		A93945841EBC8B14003440C0 /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
-		A93945851EBC8B14003440C0 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		A93945AD1EBC8B20003440C0 /* TestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
-		A93945AE1EBC8B20003440C0 /* TestApiWithSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApiWithSecret.swift; sourceTree = "<group>"; };
-		A93945AF1EBC8B20003440C0 /* TestConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
-		A93945B01EBC8B20003440C0 /* TestDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDomain.swift; sourceTree = "<group>"; };
-		A93945B11EBC8B20003440C0 /* TestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
-		A93945B21EBC8B20003440C0 /* TestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExecutor.swift; sourceTree = "<group>"; };
-		A93945B31EBC8B20003440C0 /* TestLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
-		A93945B41EBC8B20003440C0 /* TestNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
-		A93945B51EBC8B20003440C0 /* TestSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSecret.swift; sourceTree = "<group>"; };
 		A93945C01EBCAE56003440C0 /* carthage_instructions.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = carthage_instructions.md; sourceTree = "<group>"; };
 		A93945C11EBCAE56003440C0 /* cocoapods_instructions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = cocoapods_instructions.md; sourceTree = "<group>"; };
 		A93945C21EBCAE56003440C0 /* configuration_for_pushnotifications.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = configuration_for_pushnotifications.md; sourceTree = "<group>"; };
@@ -166,8 +167,6 @@
 		A93945DB1EBCAE56003440C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; };
 		A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		A9B555231FAC91E200803641 /* BreinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLogger.swift; sourceTree = "<group>"; };
-		A9B555241FAC91E300803641 /* BreinIpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinIpInfo.swift; sourceTree = "<group>"; };
 		BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +196,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62DD236167767BDE7AEA530C /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2F4B45A1CCE1623DB167 /* TestConfig.swift */,
+				62DD28F5284616E598899CD6 /* TestDomain.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		62DD24591F5E2A63048A7EEB /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				62DD24508ECC36854D61AEED /* TestEngine.swift */,
+			);
+			path = engine;
+			sourceTree = "<group>";
+		};
+		62DD2D2DCA3C51AE45EEB7E2 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2803F47C8E8332DB7C5D /* TestApi.swift */,
+				62DD22C29A65403085ABFE81 /* TestApiWithSecret.swift */,
+				62DD2777248B030AC21486AC /* TestExecutor.swift */,
+				62DD2F7485CE87CEAF56680F /* TestLifecycle.swift */,
+				62DD20E18DC42BE59E6FC442 /* TestLocation.swift */,
+				62DD23C95E49449E1ED53860 /* TestNetwork.swift */,
+				62DD29A7B2FB9DA1C20145EA /* TestSecret.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		62DD2D2E4D8B915A468A69C4 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */,
+				62DD2677C5BFC482F51283A1 /* BreinifyApi.h */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
 		799BF2244D5FDAE82607F618 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,48 +273,12 @@
 		A93944E11EBC7D6E003440C0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A939455F1EBC8B14003440C0 /* AlamofireEngine.swift */,
-				A93945601EBC8B14003440C0 /* BreinActivity.swift */,
-				A93945611EBC8B14003440C0 /* BreinActivityType.swift */,
-				A93945621EBC8B14003440C0 /* BreinBase.swift */,
-				A93945631EBC8B14003440C0 /* BreinCategoryType.swift */,
-				A93945641EBC8B14003440C0 /* BreinConfig.swift */,
-				A93945671EBC8B14003440C0 /* BreinDimension.swift */,
-				A93945681EBC8B14003440C0 /* BreinEngine.swift */,
-				A93945691EBC8B14003440C0 /* BreinEngineType.swift */,
-				A939456A1EBC8B14003440C0 /* BreinError.swift */,
-				A939456B1EBC8B14003440C0 /* BreinEventResult.swift */,
-				A939456C1EBC8B14003440C0 /* BreinHolidayResult.swift */,
-				A939456D1EBC8B14003440C0 /* Breinify.swift */,
-				A939456E1EBC8B14003440C0 /* BreinifyApi-Bridging-Header.h */,
-				A939456F1EBC8B14003440C0 /* BreinifyExecutor.swift */,
-				A93945701EBC8B14003440C0 /* BreinifyLifecycle.swift */,
-				A93945711EBC8B14003440C0 /* BreinifyManager.swift */,
-				A93945721EBC8B14003440C0 /* BreinLocationManager.swift */,
-				A93945731EBC8B14003440C0 /* BreinLocationResult.swift */,
-				A93945741EBC8B14003440C0 /* BreinLookup.swift */,
-				A9B555241FAC91E300803641 /* BreinIpInfo.swift */,
-				A9B555231FAC91E200803641 /* BreinLogger.swift */,
-				A93945751EBC8B14003440C0 /* BreinMapUtil.swift */,
-				A93945781EBC8B14003440C0 /* BreinNotificationHandler.swift */,
-				A93945791EBC8B14003440C0 /* BreinReachability.swift */,
-				A939457A1EBC8B14003440C0 /* BreinRecommendation.swift */,
-				A939457B1EBC8B14003440C0 /* BreinRequestManager.swift */,
-				A939457C1EBC8B14003440C0 /* BreinResult.swift */,
-				A939457D1EBC8B14003440C0 /* BreinTemporalData.swift */,
-				A939457E1EBC8B14003440C0 /* BreinUser.swift */,
-				A939457F1EBC8B14003440C0 /* BreinUtil.swift */,
-				A93945801EBC8B14003440C0 /* BreinWeatherResult.swift */,
-				A93945811EBC8B14003440C0 /* IRestEngine.swift */,
-				A93945821EBC8B14003440C0 /* IRestEngineExtension.swift */,
-				A93945831EBC8B14003440C0 /* ISecretStrategy.swift */,
-				A93945841EBC8B14003440C0 /* JsonRequest.swift */,
-				A93945851EBC8B14003440C0 /* StringExtension.swift */,
-				A93944E21EBC7D6E003440C0 /* BreinifyApi.h */,
-				A93944E31EBC7D6E003440C0 /* Info.plist */,
-				62DD2A4528D548D8661FFA4E /* BreinTemporalDataResult.swift */,
-				62DD27A60C9E8AE86D9E1F19 /* BreinTimeResult.swift */,
-				62DD2C71D21787EE023B33B5 /* BreinPushIdentifiers.swift */,
+				A9B8667F259C83AA0051EB79 /* util */,
+				A9B8667D259C838D0051EB79 /* engine */,
+				A9B8667C259C83290051EB79 /* domain */,
+				A9B8667B259C831A0051EB79 /* api */,
+				62DD2D2E4D8B915A468A69C4 /* support */,
+				62DD2E0A10AB8F3F64B6C4E4 /* Info.plist */,
 			);
 			name = Source;
 			path = BreinifyApi;
@@ -284,18 +287,11 @@
 		A93944EC1EBC7D6E003440C0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A93945AD1EBC8B20003440C0 /* TestApi.swift */,
-				A93945AE1EBC8B20003440C0 /* TestApiWithSecret.swift */,
-				A93945AF1EBC8B20003440C0 /* TestConfig.swift */,
-				A93945B01EBC8B20003440C0 /* TestDomain.swift */,
-				A93945B11EBC8B20003440C0 /* TestEngine.swift */,
-				A93945B21EBC8B20003440C0 /* TestExecutor.swift */,
-				A93945B31EBC8B20003440C0 /* TestLocation.swift */,
-				A93945B41EBC8B20003440C0 /* TestNetwork.swift */,
-				A93945B51EBC8B20003440C0 /* TestSecret.swift */,
 				A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */,
 				A93944EF1EBC7D6E003440C0 /* Info.plist */,
-				62DD2310B00F0E97C03653A1 /* TestLifecycle.swift */,
+				62DD2D2DCA3C51AE45EEB7E2 /* api */,
+				62DD236167767BDE7AEA530C /* domain */,
+				62DD24591F5E2A63048A7EEB /* engine */,
 			);
 			name = Tests;
 			path = BreinifyApiTests;
@@ -349,6 +345,74 @@
 			path = snippets;
 			sourceTree = "<group>";
 		};
+		A9B8667B259C831A0051EB79 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2BC8C08150C037291E8E /* BreinActivity.swift */,
+				62DD272D6868BF413F20BD3D /* BreinError.swift */,
+				62DD2F01A7350D1A8027F535 /* BreinBase.swift */,
+				62DD2B8B798FA3ED504EDF4D /* BreinActivityType.swift */,
+				62DD28E6910C4D16C56EC57E /* BreinCategoryType.swift */,
+				62DD2E6A4C0ED85DA9EB24F9 /* BreinLookup.swift */,
+				62DD2EAA702D5D82561314B4 /* BreinRecommendation.swift */,
+				62DD2E9C90973701D2A0B5E5 /* BreinTemporalData.swift */,
+				62DD2A630B19F11020C6B88D /* BreinifyManager.swift */,
+				62DD2EED6C8FBD33BCC5882D /* BreinifyLifecycle.swift */,
+				62DD28EBCF7DD12596D5A0F0 /* BreinRequestManager.swift */,
+				62DD2B440924AC502194B6A3 /* BreinNotificationHandler.swift */,
+				62DD2B8149CEC982F6152585 /* BreinIpInfo.swift */,
+				62DD2FB84B61F68712A6D909 /* BreinLocationManager.swift */,
+				62DD26816B70EB721DA7ADB3 /* BreinNotificationServiceExtension.swift */,
+				62DD2B145CA6B6297B621E1C /* Breinify.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		A9B8667C259C83290051EB79 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2D81B77D0304151B6F96 /* BreinTemporalDataResult.swift */,
+				62DD2D1465144FC48B1B6E9C /* BreinResult.swift */,
+				62DD299F7AE105F0028D7883 /* BreinTimeResult.swift */,
+				62DD296552A144EEFAF71A6B /* BreinDimension.swift */,
+				62DD2E2CF531DB055125CD9C /* BreinEventResult.swift */,
+				62DD225D4F2623AE731E4078 /* BreinHolidayResult.swift */,
+				62DD276D780815D92A1312A9 /* BreinLocationResult.swift */,
+				62DD2FAA889C5F79A17F1A70 /* BreinUser.swift */,
+				62DD20B47A4FBEBFDA5709E4 /* BreinWeatherResult.swift */,
+				62DD207B4EE5850C99EA5FF0 /* BreinPushIdentifiers.swift */,
+				62DD2F4BB98EBF4DECE26198 /* BreinConfig.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		A9B8667D259C838D0051EB79 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				62DD2C608CD56F1E35223C34 /* BreinEngine.swift */,
+				62DD27EA44C1FB6DA881563E /* BreinEngineType.swift */,
+				62DD254E622DFE4CDF4CDFEF /* BreinifyExecutor.swift */,
+				62DD23B9B48A1EFF2E178519 /* URLSessionEngine.swift */,
+				62DD2C03EE21900AC3DB5D7D /* IRestEngineExtension.swift */,
+				62DD25DE3C31414907CA19AF /* IRestEngine.swift */,
+			);
+			path = engine;
+			sourceTree = "<group>";
+		};
+		A9B8667F259C83AA0051EB79 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				62DD24891482DDA6B9C38415 /* BreinLogger.swift */,
+				62DD280ED8F6F1991F6EE793 /* BreinMapUtil.swift */,
+				62DD2078B62FD0E8752A40A5 /* BreinUtil.swift */,
+				62DD20895E28908241314619 /* ISecretStrategy.swift */,
+				62DD2246CC23728D8061085C /* JsonRequest.swift */,
+				62DD258E7D206D4CA66C2812 /* StringExtension.swift */,
+				62DD2AC3900F9520050A74BD /* BreinReachability.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		F0D8038BDEF3B4B2022FE91F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,8 +433,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93944F01EBC7D6E003440C0 /* BreinifyApi.h in Headers */,
-				A93945951EBC8B14003440C0 /* BreinifyApi-Bridging-Header.h in Headers */,
+				62DD254024F030D648EF2792 /* BreinifyApi-Bridging-Header.h in Headers */,
+				62DD29A779092F9DB5C9F70C /* BreinifyApi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,13 +549,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.framework",
 				"${BUILT_PRODUCTS_DIR}/NetUtils/NetUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDZSwiftCommonCrypto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetUtils.framework",
 			);
@@ -543,44 +605,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B555251FAC91E300803641 /* BreinLogger.swift in Sources */,
-				A93945881EBC8B14003440C0 /* BreinActivityType.swift in Sources */,
-				A93945941EBC8B14003440C0 /* Breinify.swift in Sources */,
-				A93945A11EBC8B14003440C0 /* BreinRecommendation.swift in Sources */,
-				A93945A51EBC8B14003440C0 /* BreinUser.swift in Sources */,
-				A939459B1EBC8B14003440C0 /* BreinLookup.swift in Sources */,
-				A93945A41EBC8B14003440C0 /* BreinTemporalData.swift in Sources */,
-				A939458A1EBC8B14003440C0 /* BreinCategoryType.swift in Sources */,
-				A93945991EBC8B14003440C0 /* BreinLocationManager.swift in Sources */,
-				A93945981EBC8B14003440C0 /* BreinifyManager.swift in Sources */,
-				A93945A81EBC8B14003440C0 /* IRestEngine.swift in Sources */,
-				A93945A71EBC8B14003440C0 /* BreinWeatherResult.swift in Sources */,
-				A93945921EBC8B14003440C0 /* BreinEventResult.swift in Sources */,
-				A93945901EBC8B14003440C0 /* BreinEngineType.swift in Sources */,
-				A93945A31EBC8B14003440C0 /* BreinResult.swift in Sources */,
-				A93945AA1EBC8B14003440C0 /* ISecretStrategy.swift in Sources */,
-				A93945911EBC8B14003440C0 /* BreinError.swift in Sources */,
-				A9B555261FAC91E300803641 /* BreinIpInfo.swift in Sources */,
-				A93945A61EBC8B14003440C0 /* BreinUtil.swift in Sources */,
-				A939458B1EBC8B14003440C0 /* BreinConfig.swift in Sources */,
-				A93945A01EBC8B14003440C0 /* BreinReachability.swift in Sources */,
-				A939459F1EBC8B14003440C0 /* BreinNotificationHandler.swift in Sources */,
-				A939459A1EBC8B14003440C0 /* BreinLocationResult.swift in Sources */,
-				A93945891EBC8B14003440C0 /* BreinBase.swift in Sources */,
-				A93945931EBC8B14003440C0 /* BreinHolidayResult.swift in Sources */,
-				A93945A21EBC8B14003440C0 /* BreinRequestManager.swift in Sources */,
-				A939459C1EBC8B14003440C0 /* BreinMapUtil.swift in Sources */,
-				A93945AB1EBC8B14003440C0 /* JsonRequest.swift in Sources */,
-				A93945971EBC8B14003440C0 /* BreinifyLifecycle.swift in Sources */,
-				A93945A91EBC8B14003440C0 /* IRestEngineExtension.swift in Sources */,
-				A93945961EBC8B14003440C0 /* BreinifyExecutor.swift in Sources */,
-				A939458E1EBC8B14003440C0 /* BreinDimension.swift in Sources */,
-				A93945AC1EBC8B14003440C0 /* StringExtension.swift in Sources */,
-				A93945861EBC8B14003440C0 /* AlamofireEngine.swift in Sources */,
-				A93945871EBC8B14003440C0 /* BreinActivity.swift in Sources */,
-				A939458F1EBC8B14003440C0 /* BreinEngine.swift in Sources */,
-				62DD2146C62B9355533DD290 /* BreinTemporalDataResult.swift in Sources */,
-				62DD2637829DB28147CEB1AB /* BreinTimeResult.swift in Sources */,
+				62DD24C080E6C71CEAFFAA51 /* BreinActivity.swift in Sources */,
+				62DD25C7F9F1DA703EDBF40E /* BreinError.swift in Sources */,
+				62DD2DB5F9341B0DA4673730 /* BreinBase.swift in Sources */,
+				62DD24A604D35C8A3E4EEE0D /* BreinActivityType.swift in Sources */,
+				62DD262436ECF8C53BA8A471 /* BreinCategoryType.swift in Sources */,
+				62DD207BEDA83C0B6FF0AF98 /* BreinLookup.swift in Sources */,
+				62DD22D58BD0FD53BC4AE088 /* BreinRecommendation.swift in Sources */,
+				62DD239CA23D9CCEDA0B4464 /* BreinTemporalData.swift in Sources */,
+				62DD26A2EDF813CA83F146E7 /* BreinTemporalDataResult.swift in Sources */,
+				62DD2FB41C9617B881818792 /* BreinResult.swift in Sources */,
+				62DD2DFED306F697EAC11152 /* BreinTimeResult.swift in Sources */,
+				62DD2353C5EA30EA66E6E6D3 /* BreinDimension.swift in Sources */,
+				62DD2BDAD2090DDBE6D9939F /* BreinEventResult.swift in Sources */,
+				62DD24F4822FB5CCE3344CD4 /* BreinEngine.swift in Sources */,
+				62DD20C476CC1A2CE2904E9A /* BreinEngineType.swift in Sources */,
+				62DD25CF0C4CA7C4F9C5F7C4 /* BreinHolidayResult.swift in Sources */,
+				62DD2E0F2B43674DA284502A /* BreinifyExecutor.swift in Sources */,
+				62DD2E96DBE6DC0A2230D478 /* BreinLocationResult.swift in Sources */,
+				62DD24E49C534710014755A5 /* BreinLogger.swift in Sources */,
+				62DD29AC911B2216FCABA33C /* BreinMapUtil.swift in Sources */,
+				62DD2DA5A0AD82388A53EE98 /* BreinUser.swift in Sources */,
+				62DD215AC347447B0C330A75 /* BreinUtil.swift in Sources */,
+				62DD2D917DDB09B89C84FAD1 /* BreinWeatherResult.swift in Sources */,
+				62DD25B74F3167A456B4646F /* ISecretStrategy.swift in Sources */,
+				62DD262F7ADC2449CCDA5BE4 /* JsonRequest.swift in Sources */,
+				62DD249D04AB0512A760FDAF /* StringExtension.swift in Sources */,
+				62DD2CB7F445EDF112229C99 /* URLSessionEngine.swift in Sources */,
+				62DD2EA410B04FAF90672F30 /* IRestEngineExtension.swift in Sources */,
+				62DD2C26B2AFD79D145155C0 /* IRestEngine.swift in Sources */,
+				62DD218E0C6DB3A84F0E3ADE /* BreinReachability.swift in Sources */,
+				62DD24F9D1C74D6E6F1825FF /* BreinConfig.swift in Sources */,
+				62DD2B5746D64B92BBC857AE /* BreinifyManager.swift in Sources */,
+				62DD2739EC940F789938A5E0 /* BreinifyLifecycle.swift in Sources */,
+				62DD25A3A3C45251437F4A22 /* BreinRequestManager.swift in Sources */,
+				62DD20CB3C0E6465CF4D255E /* BreinNotificationHandler.swift in Sources */,
+				62DD238F0B08E8DD913B8686 /* BreinIpInfo.swift in Sources */,
+				62DD20E44EAE96245E28253D /* BreinLocationManager.swift in Sources */,
+				62DD264B03FA6D8E5D187477 /* BreinNotificationServiceExtension.swift in Sources */,
+				62DD2F3C76A686A76D772B98 /* Breinify.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,20 +651,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93945B61EBC8B20003440C0 /* TestApi.swift in Sources */,
-				A93945BB1EBC8B20003440C0 /* TestExecutor.swift in Sources */,
-				A93945B91EBC8B20003440C0 /* TestDomain.swift in Sources */,
-				A93945B81EBC8B20003440C0 /* TestConfig.swift in Sources */,
-				A93945BD1EBC8B20003440C0 /* TestNetwork.swift in Sources */,
 				A93944EE1EBC7D6E003440C0 /* BreinifyApiTests.swift in Sources */,
-				A93945B71EBC8B20003440C0 /* TestApiWithSecret.swift in Sources */,
-				A93945BC1EBC8B20003440C0 /* TestLocation.swift in Sources */,
-				A93945BA1EBC8B20003440C0 /* TestEngine.swift in Sources */,
-				A93945BE1EBC8B20003440C0 /* TestSecret.swift in Sources */,
-				62DD2441F562F5128AE948E7 /* BreinTemporalDataResult.swift in Sources */,
-				62DD2E6F6B06F5FC25CA07D9 /* BreinTimeResult.swift in Sources */,
-				62DD211EC46A83AE6AF2DA42 /* TestLifecycle.swift in Sources */,
-				62DD2CACDD917BC0F26E6CFD /* BreinPushIdentifiers.swift in Sources */,
+				62DD23D5B34A02D56F7F55EC /* TestConfig.swift in Sources */,
+				62DD2126ACFEFCE5F4C3C267 /* TestDomain.swift in Sources */,
+				62DD2533C6BB26C6FA282954 /* TestApi.swift in Sources */,
+				62DD2C75AF0C764D46F12B57 /* TestApiWithSecret.swift in Sources */,
+				62DD2EAC6FE7381A16421D7A /* TestEngine.swift in Sources */,
+				62DD29C20B9841411D1509AD /* TestExecutor.swift in Sources */,
+				62DD2B675C4ACC4CF3FAEB12 /* TestLifecycle.swift in Sources */,
+				62DD2D5D61A1278D75F185FA /* TestLocation.swift in Sources */,
+				62DD223C2AF54970546729DA /* TestNetwork.swift in Sources */,
+				62DD2BAA506E0EED758AF331 /* TestSecret.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +806,7 @@
 			baseConfigurationReference = E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -771,6 +832,7 @@
 			baseConfigurationReference = 898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -795,6 +857,7 @@
 			baseConfigurationReference = EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEVELOPMENT_TEAM = 8KWZ84N9SW;
 				INFOPLIST_FILE = BreinifyApiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -809,6 +872,7 @@
 			baseConfigurationReference = CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEVELOPMENT_TEAM = 8KWZ84N9SW;
 				INFOPLIST_FILE = BreinifyApiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

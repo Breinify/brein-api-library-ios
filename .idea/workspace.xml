@@ -8,7 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brein-api-library-ios.iml" beforeDir="false" afterPath="$PROJECT_DIR$/brein-api-library-ios.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +99,8 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
-      <item itemvalue="XCTest.All in TestApi.swift" />
       <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
+      <item itemvalue="XCTest.All in TestApi.swift" />
       <item itemvalue="XCTest.All in TestConfig.swift" />
       <item itemvalue="XCTest.All in TestDomain.swift" />
       <item itemvalue="XCTest.All in TestEngine.swift" />
@@ -174,13 +179,10 @@
       <workItem from="1607667597544" duration="349000" />
       <workItem from="1608038459832" duration="9187000" />
       <workItem from="1608572396667" duration="1639000" />
-    </task>
-    <task id="LOCAL-00001" summary="Code beautifying">
-      <created>1509405330844</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1509405330844</updated>
+      <workItem from="1609845243707" duration="941000" />
+      <workItem from="1609846633314" duration="4839000" />
+      <workItem from="1609855116783" duration="408000" />
+      <workItem from="1609861668097" duration="5132000" />
     </task>
     <task id="LOCAL-00002" summary="Code clean up and adaptations for Swift 3.2">
       <created>1509717348458</created>
@@ -476,17 +478,64 @@
       <option name="project" value="LOCAL" />
       <updated>1608571062959</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="code cleanUp">
+      <created>1609680948860</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1609680948860</updated>
+    </task>
+    <task id="LOCAL-00045" summary="openPush notification activity was called twice">
+      <created>1609681033257</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1609681033257</updated>
+    </task>
+    <task id="LOCAL-00046" summary="code cleanUp">
+      <created>1609864804506</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1609864804506</updated>
+    </task>
+    <task id="LOCAL-00047" summary="improved log output">
+      <created>1609864845006</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1609864845006</updated>
+    </task>
+    <task id="LOCAL-00048" summary="code cleanUp">
+      <created>1609938207575</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1609938207575</updated>
+    </task>
+    <task id="LOCAL-00049" summary="improved registration">
+      <created>1609940995960</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1609940995960</updated>
+    </task>
+    <task id="LOCAL-00050" summary="notification service extension added">
+      <created>1609941025975</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1609941025975</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Code beautifying" />
-    <MESSAGE value="Code clean up and adaptations for Swift 3.2" />
-    <MESSAGE value="updated documentation" />
-    <MESSAGE value="update for Alamofire 5" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="adaptations to Swift 5" />
     <MESSAGE value="license update" />
     <MESSAGE value="additional supporting functions added" />
@@ -507,22 +556,26 @@
     <MESSAGE value="updated podspec" />
     <MESSAGE value="doc update" />
     <MESSAGE value="updated signature for sendActivity" />
+    <MESSAGE value="openPush notification activity was called twice" />
+    <MESSAGE value="improved log output" />
     <MESSAGE value="code cleanUp" />
-    <option name="LAST_COMMIT_MESSAGE" value="code cleanUp" />
+    <MESSAGE value="improved registration" />
+    <MESSAGE value="notification service extension added" />
+    <option name="LAST_COMMIT_MESSAGE" value="notification service extension added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1608571062719">
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1609941025832">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1608571062719" />
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1608574486631">
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1609941025832" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1609941285115">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1608574486631" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1609941285115" />
     <state width="1726" height="323" key="GridCell.Tab.0.bottom" timestamp="1608574131571">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -572,18 +625,18 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1608571066432">
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1609941028065">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1608571066432" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1609941028065" />
     <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
-    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1608552263655">
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1609871695328">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1608552263655" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1609871695328" />
     <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
     <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1606995381655">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -807,6 +860,11 @@
           <url>file://$PROJECT_DIR$/BreinifyApi/BreinifyManager.swift</url>
           <line>417</line>
           <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
+          <line>251</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
