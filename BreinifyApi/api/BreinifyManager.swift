@@ -13,6 +13,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     static let kViewAction = "VIEW_IDENTIFIER"
     static let kNewsCategory = "NEWS_CATEGORY"
+    static let kBreinifyPushNotificationCategory = "BreinifyPushNotificationCategory"
 
     /// some constants
     static let kActivityTypeIdentify = "identify"
@@ -287,33 +288,26 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
             UIApplication.shared.applicationIconBadgeNumber = 0
 
-            let viewAction = UNNotificationAction(
-                    identifier: BreinifyManager.kViewAction, title: "View",
-                    options: [.foreground])
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                    options: authOptions,
+                    completionHandler: {_, _ in })
 
-            let newsCategory = UNNotificationCategory(
-                    identifier: BreinifyManager.kNewsCategory, actions: [viewAction],
-                    intentIdentifiers: [], options: [])
-
-
-            UNUserNotificationCenter.current()
-                    .setNotificationCategories([newsCategory])
-
-
-            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-                if error == nil {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.registerForRemoteNotifications()
-                    }
-                }
-            }
         } else {
-            DispatchQueue.main.async {
-                UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge],
-                        categories: nil))
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+            let settings: UIUserNotificationSettings =
+                    UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
         }
+
+        let openAction = UNNotificationAction(identifier: "OpenNotification",
+                title: NSLocalizedString("OPEN", comment: "open"),
+                options: UNNotificationActionOptions.foreground)
+
+        let defaultCategory = UNNotificationCategory(identifier: "myNotificationCategory",
+                actions: [openAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories(Set([defaultCategory]))
+
+        UIApplication.shared.registerForRemoteNotifications()
     }
 
     func getNotificationSettings() {
