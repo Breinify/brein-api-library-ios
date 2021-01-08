@@ -9,11 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brein-api-library-ios.iml" beforeDir="false" afterPath="$PROJECT_DIR$/brein-api-library-ios.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +43,7 @@
       <recent name="$PROJECT_DIR$/BreinifyApi" />
     </key>
   </component>
-  <component name="RunManager" selected="XCTest.All in TestApi.swift">
+  <component name="RunManager" selected="XCTest.All in TestSecret.swift">
     <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -57,32 +53,32 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TestApiWithSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApiWithSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApiWithSecret" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApi" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestConfig.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestConfig.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestConfig" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestDomain.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestDomain.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestDomain" TEST_MODE="PATTERN">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestEngine.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestEngine.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestEngine" TEST_MODE="PATTERN">
+    <configuration name="All in TestExecutor.swift (1)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift (1)" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestLifecycle.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLifecycle.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestLifecycle" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestLocation.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLocation.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestLocation" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestNetwork.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestNetwork.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestNetwork" TEST_MODE="PATTERN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TestSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestSecret" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -99,19 +95,19 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
-      <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
-      <item itemvalue="XCTest.All in TestApi.swift" />
-      <item itemvalue="XCTest.All in TestConfig.swift" />
-      <item itemvalue="XCTest.All in TestDomain.swift" />
-      <item itemvalue="XCTest.All in TestEngine.swift" />
+      <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
+      <item itemvalue="XCTest.All in TestLifecycle.swift" />
+      <item itemvalue="XCTest.All in TestLocation.swift" />
+      <item itemvalue="XCTest.All in TestNetwork.swift" />
+      <item itemvalue="XCTest.All in TestSecret.swift" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="XCTest.All in TestApi.swift" />
-        <item itemvalue="XCTest.All in TestEngine.swift" />
-        <item itemvalue="XCTest.All in TestDomain.swift" />
-        <item itemvalue="XCTest.All in TestConfig.swift" />
-        <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
+        <item itemvalue="XCTest.All in TestSecret.swift" />
+        <item itemvalue="XCTest.All in TestNetwork.swift" />
+        <item itemvalue="XCTest.All in TestLocation.swift" />
+        <item itemvalue="XCTest.All in TestLifecycle.swift" />
+        <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -182,35 +178,10 @@
       <workItem from="1609845243707" duration="941000" />
       <workItem from="1609846633314" duration="4839000" />
       <workItem from="1609855116783" duration="408000" />
-      <workItem from="1609861668097" duration="5132000" />
-    </task>
-    <task id="LOCAL-00002" summary="Code clean up and adaptations for Swift 3.2">
-      <created>1509717348458</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1509717348458</updated>
-    </task>
-    <task id="LOCAL-00003" summary="updated documentation">
-      <created>1605726622344</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1605726622345</updated>
-    </task>
-    <task id="LOCAL-00004" summary="updated documentation">
-      <created>1605726739274</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1605726739274</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update for Alamofire 5">
-      <created>1605796714296</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1605796714297</updated>
+      <workItem from="1609861668097" duration="6294000" />
+      <workItem from="1609943698449" duration="3498000" />
+      <workItem from="1610114626478" duration="4537000" />
+      <workItem from="1610132765641" duration="2212000" />
     </task>
     <task id="LOCAL-00006" summary="adaptations to Swift 5">
       <created>1605798103820</created>
@@ -527,7 +498,35 @@
       <option name="project" value="LOCAL" />
       <updated>1609941025975</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="updated podspec">
+      <created>1609941489463</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1609941489463</updated>
+    </task>
+    <task id="LOCAL-00052" summary="cleanUp and adaptations for Objective-C support">
+      <created>1610136688448</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1610136688448</updated>
+    </task>
+    <task id="LOCAL-00053" summary="cleanUp and adaptations for Objective-C support">
+      <created>1610136723437</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1610136723437</updated>
+    </task>
+    <task id="LOCAL-00054" summary="version 2.0.5">
+      <created>1610136757724</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1610136757724</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,8 +535,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="adaptations to Swift 5" />
-    <MESSAGE value="license update" />
     <MESSAGE value="additional supporting functions added" />
     <MESSAGE value="additional sendActivity method added" />
     <MESSAGE value="additional activity types added" />
@@ -553,7 +550,6 @@
     <MESSAGE value="additional helper functions added" />
     <MESSAGE value="init improved" />
     <MESSAGE value="initialize method added" />
-    <MESSAGE value="updated podspec" />
     <MESSAGE value="doc update" />
     <MESSAGE value="updated signature for sendActivity" />
     <MESSAGE value="openPush notification activity was called twice" />
@@ -561,40 +557,43 @@
     <MESSAGE value="code cleanUp" />
     <MESSAGE value="improved registration" />
     <MESSAGE value="notification service extension added" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification service extension added" />
+    <MESSAGE value="updated podspec" />
+    <MESSAGE value="cleanUp and adaptations for Objective-C support" />
+    <MESSAGE value="version 2.0.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 2.0.5" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1609941025832">
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610136757608">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1609941025832" />
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610136757608" />
     <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1609941285115">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1609941285115" />
-    <state width="1726" height="323" key="GridCell.Tab.0.bottom" timestamp="1608574131571">
+    <state width="1750" height="334" key="GridCell.Tab.0.bottom" timestamp="1610138998535">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
+    <state width="1750" height="334" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998535" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1726" height="323" key="GridCell.Tab.0.center" timestamp="1608574131571">
+    <state width="1750" height="334" key="GridCell.Tab.0.center" timestamp="1610138998534">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
+    <state width="1750" height="334" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998534" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1726" height="323" key="GridCell.Tab.0.left" timestamp="1608574131570">
+    <state width="1750" height="334" key="GridCell.Tab.0.left" timestamp="1610138998533">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131570" />
+    <state width="1750" height="334" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998533" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1726" height="323" key="GridCell.Tab.0.right" timestamp="1608574131571">
+    <state width="1750" height="334" key="GridCell.Tab.0.right" timestamp="1610138998534">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="323" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1608574131571" />
+    <state width="1750" height="334" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998534" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
     <state width="1726" height="124" key="GridCell.Tab.1.bottom" timestamp="1607352386959">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -625,23 +624,23 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1609941028065">
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1610136758703">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1609941028065" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1610136758703" />
     <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
-    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1609871695328">
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1610136398099">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1609871695328" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610136398099" />
     <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
-    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1606995381655">
+    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1610123407700">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1606995381655" />
+    <state x="561" y="264" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610123407700" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

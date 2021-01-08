@@ -28,7 +28,6 @@
 		62DD24F4822FB5CCE3344CD4 /* BreinEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C608CD56F1E35223C34 /* BreinEngine.swift */; };
 		62DD24F9D1C74D6E6F1825FF /* BreinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F4BB98EBF4DECE26198 /* BreinConfig.swift */; };
 		62DD2533C6BB26C6FA282954 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2803F47C8E8332DB7C5D /* TestApi.swift */; };
-		62DD254024F030D648EF2792 /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */; };
 		62DD25A3A3C45251437F4A22 /* BreinRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD28EBCF7DD12596D5A0F0 /* BreinRequestManager.swift */; };
 		62DD25B74F3167A456B4646F /* ISecretStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD20895E28908241314619 /* ISecretStrategy.swift */; };
 		62DD25C7F9F1DA703EDBF40E /* BreinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD272D6868BF413F20BD3D /* BreinError.swift */; };
@@ -39,13 +38,13 @@
 		62DD26A2EDF813CA83F146E7 /* BreinTemporalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D81B77D0304151B6F96 /* BreinTemporalDataResult.swift */; };
 		62DD2739EC940F789938A5E0 /* BreinifyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2EED6C8FBD33BCC5882D /* BreinifyLifecycle.swift */; };
 		62DD28365B55B7DD50A377DA /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
-		62DD29A779092F9DB5C9F70C /* BreinifyApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD2677C5BFC482F51283A1 /* BreinifyApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62DD29AC911B2216FCABA33C /* BreinMapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD280ED8F6F1991F6EE793 /* BreinMapUtil.swift */; };
 		62DD29C20B9841411D1509AD /* TestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2777248B030AC21486AC /* TestExecutor.swift */; };
 		62DD2B5746D64B92BBC857AE /* BreinifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2A630B19F11020C6B88D /* BreinifyManager.swift */; };
 		62DD2B675C4ACC4CF3FAEB12 /* TestLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F7485CE87CEAF56680F /* TestLifecycle.swift */; };
 		62DD2BAA506E0EED758AF331 /* TestSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD29A7B2FB9DA1C20145EA /* TestSecret.swift */; };
 		62DD2BDAD2090DDBE6D9939F /* BreinEventResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E2CF531DB055125CD9C /* BreinEventResult.swift */; };
+		62DD2BF6BC3441A909B0C4CA /* BreinifyApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD2469ED92299331991B92 /* BreinifyApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62DD2C26B2AFD79D145155C0 /* IRestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD25DE3C31414907CA19AF /* IRestEngine.swift */; };
 		62DD2C75AF0C764D46F12B57 /* TestApiWithSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD22C29A65403085ABFE81 /* TestApiWithSecret.swift */; };
 		62DD2CB7F445EDF112229C99 /* URLSessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD23B9B48A1EFF2E178519 /* URLSessionEngine.swift */; };
@@ -55,6 +54,7 @@
 		62DD2DB5F9341B0DA4673730 /* BreinBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F01A7350D1A8027F535 /* BreinBase.swift */; };
 		62DD2DFED306F697EAC11152 /* BreinTimeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD299F7AE105F0028D7883 /* BreinTimeResult.swift */; };
 		62DD2E0F2B43674DA284502A /* BreinifyExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD254E622DFE4CDF4CDFEF /* BreinifyExecutor.swift */; };
+		62DD2E274127D9FB87FA90AC /* BreinifyApi-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 62DD24C62B96A477A08AAACB /* BreinifyApi-Bridging-Header.h */; };
 		62DD2E96DBE6DC0A2230D478 /* BreinLocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD276D780815D92A1312A9 /* BreinLocationResult.swift */; };
 		62DD2EA410B04FAF90672F30 /* IRestEngineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2C03EE21900AC3DB5D7D /* IRestEngineExtension.swift */; };
 		62DD2EAC6FE7381A16421D7A /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD24508ECC36854D61AEED /* TestEngine.swift */; };
@@ -90,13 +90,13 @@
 		62DD23B9B48A1EFF2E178519 /* URLSessionEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionEngine.swift; sourceTree = "<group>"; };
 		62DD23C95E49449E1ED53860 /* TestNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
 		62DD24508ECC36854D61AEED /* TestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
+		62DD2469ED92299331991B92 /* BreinifyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreinifyApi.h; sourceTree = "<group>"; };
 		62DD24891482DDA6B9C38415 /* BreinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLogger.swift; sourceTree = "<group>"; };
+		62DD24C62B96A477A08AAACB /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
 		62DD254E622DFE4CDF4CDFEF /* BreinifyExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinifyExecutor.swift; sourceTree = "<group>"; };
 		62DD258E7D206D4CA66C2812 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		62DD25DE3C31414907CA19AF /* IRestEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngine.swift; sourceTree = "<group>"; };
-		62DD2677C5BFC482F51283A1 /* BreinifyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreinifyApi.h; sourceTree = "<group>"; };
 		62DD26816B70EB721DA7ADB3 /* BreinNotificationServiceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinNotificationServiceExtension.swift; sourceTree = "<group>"; };
-		62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BreinifyApi-Bridging-Header.h"; sourceTree = "<group>"; };
 		62DD272D6868BF413F20BD3D /* BreinError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinError.swift; sourceTree = "<group>"; };
 		62DD276D780815D92A1312A9 /* BreinLocationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationResult.swift; sourceTree = "<group>"; };
 		62DD2777248B030AC21486AC /* TestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExecutor.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		A93945D91EBCAE56003440C0 /* language-reverse-geocoding.md */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = net.daringfireball.markdown; path = "language-reverse-geocoding.md"; sourceTree = "<group>"; };
 		A93945DA1EBCAE56003440C0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A93945DB1EBCAE56003440C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; };
+		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,8 +230,6 @@
 		62DD2D2E4D8B915A468A69C4 /* support */ = {
 			isa = PBXGroup;
 			children = (
-				62DD26A99943D3127DF26D73 /* BreinifyApi-Bridging-Header.h */,
-				62DD2677C5BFC482F51283A1 /* BreinifyApi.h */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -279,6 +277,8 @@
 				A9B8667B259C831A0051EB79 /* api */,
 				62DD2D2E4D8B915A468A69C4 /* support */,
 				62DD2E0A10AB8F3F64B6C4E4 /* Info.plist */,
+				62DD24C62B96A477A08AAACB /* BreinifyApi-Bridging-Header.h */,
+				62DD2469ED92299331991B92 /* BreinifyApi.h */,
 			);
 			name = Source;
 			path = BreinifyApi;
@@ -433,8 +433,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62DD254024F030D648EF2792 /* BreinifyApi-Bridging-Header.h in Headers */,
-				62DD29A779092F9DB5C9F70C /* BreinifyApi.h in Headers */,
+				62DD2E274127D9FB87FA90AC /* BreinifyApi-Bridging-Header.h in Headers */,
+				62DD2BF6BC3441A909B0C4CA /* BreinifyApi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
