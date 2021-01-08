@@ -24,7 +24,7 @@ class TestLocation: XCTestCase {
         super.setUp()
 
         breinConfig = BreinConfig(validApiKeyWithSecret, secret: validSecret,
-                breinEngineType: .Alamofire)
+                breinEngineType: .URLSession)
 
         // set configuration
         Breinify.setConfig(breinConfig)

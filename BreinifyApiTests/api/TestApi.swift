@@ -71,13 +71,7 @@ class TestApi: XCTestCase {
         } catch {
             XCTFail("Error is: \(error.localizedDescription)")
         }
-
-        // 3. Wait for the expectation to be fulfilled
-        waitForExpectations(timeout: 5) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
+        
     }
 
     // test case how to use the activity api with secret

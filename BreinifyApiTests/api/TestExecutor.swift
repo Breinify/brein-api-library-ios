@@ -58,7 +58,7 @@ class TestExecutor: XCTestCase {
         do {
             let breinifyExecutor = try BreinConfig()
                     .setApiKey(validApiKey)
-                    .setRestEngineType(.Alamofire)
+                    .setRestEngineType(.URLSession)
                     .build()
 
             try breinifyExecutor.activity(breinUser,
