@@ -5,13 +5,13 @@
 
 import Foundation
 
-open class Breinify {
+open class Breinify : NSObject {
 
     typealias apiSuccess = (_ result: BreinResult) -> Void
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "2.0.0"
+    static let version: String! = "2.0.5"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -31,30 +31,36 @@ open class Breinify {
     /// contains the brein user
     static var breinUser: BreinUser = BreinUser()
 
+    /// contains the brein notification call back handling
+    static var notification: BreinNotificationHandler = BreinNotificationHandler()
+
+    @objc
     public static func setLogging(_ isDebug: Bool) {
         BreinLogger.shared.setDebug(isDebug)
     }
 
-    /// contains the brein notification call back handling
-    static var notification: BreinNotificationHandler = BreinNotificationHandler()
-
+    @objc
     public static func setNotificationHandler(_ notification: BreinNotificationHandler) {
         self.notification = notification
     }
 
+    @objc
     public static func configure(apiKey: String, secret: String) {
         Breinify.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
     }
 
+    @objc
     public static func initialize(apiKey: String, secret: String) {
         Breinify.didFinishLaunchingWithOptions(apiKey: apiKey, secret: secret)
     }
 
+    @objc
     public static func registerPushNotification() {
         /// user notification registration
         BreinifyManager.shared.registerPushNotifications()
     }
 
+    @objc
     public static func setUserInfo(firstName: String,
                                    lastName: String,
                                    phone: String,
@@ -72,6 +78,7 @@ open class Breinify {
         saveUserDefaults()
     }
 
+    @objc
     public static func initWithDeviceTokens(apnsToken: String,
                                             fcmToken: String?,
                                             userInfo: [String: String]?) {
@@ -103,6 +110,7 @@ open class Breinify {
         Breinify.sendIdentifyInfo()
     }
 
+    @objc
     public class func setDeviceToken(_ token: String) {
 
         let breinUser = self.getBreinUser()
@@ -111,22 +119,25 @@ open class Breinify {
         BreinifyManager.shared.setDeviceToken(token)
     }
 
+    @objc
     public static func sendIdentifyInfo() {
         BreinLogger.shared.log("sendIdentify called")
         sendUserNotification(activityType: "identify")
     }
 
+    @objc
     public static func sendLocationInfo() {
         BreinLogger.shared.log("sendLocation called")
         sendUserNotification(activityType: "sendLoc")
     }
 
+    @objc
     public static func sendActivity(_ breinActivity: BreinActivity) {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if result != nil {
-                BreinLogger.shared.log("Api success")
+                BreinLogger.shared.log("Breinify Api success")
             }
         }
 
@@ -134,7 +145,7 @@ open class Breinify {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("Api failure - error is: \(String(describing: val))")
+                BreinLogger.shared.log("Breinify Api failure - error is: \(String(describing: val))")
             }
         }
 
@@ -156,6 +167,7 @@ open class Breinify {
         }
     }
 
+    @objc
     public static func sendUserNotification(activityType: String) {
         let id = UIDevice.current.identifierForVendor
         let model = UIDevice.current.model
@@ -200,6 +212,7 @@ open class Breinify {
         }
     }
 
+    @objc
     public static func readUserDefaults() {
         let defaults = UserDefaults.standard
         if let email = defaults.string(forKey: "userEmail") {
@@ -211,6 +224,7 @@ open class Breinify {
         }
     }
 
+    @objc
     public static func saveUserDefaults() {
         let defaults = UserDefaults.standard
         defaults.setValue(Breinify.getEmail(), forKey: "userEmail")
@@ -223,7 +237,6 @@ open class Breinify {
         }
 
         defaults.setValue(Breinify.getUserId(), forKey: "userId")
-
         defaults.synchronize()
     }
 
@@ -242,6 +255,7 @@ open class Breinify {
     }
 
     /// returns breinActivity
+    @objc
     public static func getBreinActivity() -> BreinActivity {
         breinActivity
     }
@@ -279,6 +293,7 @@ open class Breinify {
     }
 
     /// sets the brein user for later usage
+    @objc
     public static func setBreinUser(_ user: BreinUser?) {
         if user != nil {
             self.breinUser = user!
@@ -331,7 +346,6 @@ open class Breinify {
                 nil,
                 success,
                 failure)
-
     }
 
     /**
@@ -373,7 +387,6 @@ open class Breinify {
                 description,
                 success,
                 failure)
-
     }
 
     /**
@@ -770,6 +783,7 @@ open class Breinify {
     }
 
     /// Initiates the shutdown of the engine
+    @objc
     public class func shutdown() {
         if getConfig() != nil {
 

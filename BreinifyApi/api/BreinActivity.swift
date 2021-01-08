@@ -19,7 +19,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     var category: String?
 
     ///  Description of the activity
-    var description: String?
+    var desc: String?
 
     /// tags dictionary
     var tagsDic: [String: Any]?
@@ -39,6 +39,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     /// - Parameter activityType: an activityType as String
     /// - Returns: the BreinActivity itself
     @discardableResult
+    @objc
     public func setActivityType(_ activityType: String?) -> BreinActivity {
         self.activityType = activityType
         return self
@@ -57,6 +58,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     /// - Parameter category:
     /// - Returns: the BreinActivity itself
     @discardableResult
+    @objc
     public func setCategory(_ category: String?) -> BreinActivity {
         self.category = category
         return self
@@ -66,12 +68,13 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     ///
     /// - Returns: the description as String
     public func getDescription() -> String! {
-        description
+        desc
     }
 
     @discardableResult
+    @objc
     public func setDescription(_ description: String!) -> BreinActivity {
-        self.description = description
+        self.desc = description
         return self
     }
 
@@ -83,6 +86,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     @discardableResult
+    @objc
     public func setTagsDic(_ tagsDic: [String: Any]) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
@@ -93,6 +97,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     @discardableResult
+    @objc
     public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
         if self.tagsDic == nil {
             self.tagsDic = [String : Any] ()

@@ -113,15 +113,15 @@ public class BreinEngine {
                     // save the retrieved location data
                     breinTemporalData.getUser()?.setLocationData(location)
 
-                    BreinLogger.shared.log("latitude is: \(location?.coordinate.latitude ?? -1)")
-                    BreinLogger.shared.log("longitude is: \(location?.coordinate.longitude ?? -1)")
+                    BreinLogger.shared.log("Breinify latitude is: \(location?.coordinate.latitude ?? -1)")
+                    BreinLogger.shared.log("Breinify longitude is: \(location?.coordinate.longitude ?? -1)")
 
                     do {
                         return try self.restEngine.doTemporalDataRequest(breinTemporalData,
                                 success: successBlock,
                                 failure: failureBlock)
                     } catch {
-                        BreinLogger.shared.log("performTemporalDataRequest error is: \(error)")
+                        BreinLogger.shared.log("Breinify performTemporalDataRequest error is: \(error)")
                     }
                 }
             }
@@ -154,8 +154,8 @@ public class BreinEngine {
                     // save the retrieved location data
                     breinLookup.getUser()?.setLocationData(location)
 
-                    BreinLogger.shared.log("latitude is: \(String(describing: location?.coordinate.latitude))")
-                    BreinLogger.shared.log("longitude is: \(String(describing: location?.coordinate.longitude))")
+                    BreinLogger.shared.log("Breinify latitude is: \(String(describing: location?.coordinate.latitude))")
+                    BreinLogger.shared.log("Breinify longitude is: \(String(describing: location?.coordinate.longitude))")
 
                     do {
                         if breinLookup != nil {
@@ -164,7 +164,7 @@ public class BreinEngine {
                                     failure: failureBlock)
                         }
                     } catch {
-                        BreinLogger.shared.log("performLookUp error is: \(error)")
+                        BreinLogger.shared.log("Breinify performLookUp error is: \(error)")
                     }
                 }
             }
@@ -196,8 +196,8 @@ public class BreinEngine {
                     breinRecommendation.getUser()?.setLocationData(location)
 
                     if let loc = location {
-                        BreinLogger.shared.log("latitude is: \(loc.coordinate.latitude)")
-                        BreinLogger.shared.log("longitude is: \(loc.coordinate.longitude)")
+                        BreinLogger.shared.log("Breinify latitude is: \(loc.coordinate.latitude)")
+                        BreinLogger.shared.log("Breinify longitude is: \(loc.coordinate.longitude)")
                     }
 
                     do {
@@ -207,7 +207,7 @@ public class BreinEngine {
                                     failure: failureBlock)
                         }
                     } catch {
-                        BreinLogger.shared.log("invokeRecommendation error is: \(error)")
+                        BreinLogger.shared.log("Breinify invokeRecommendation error is: \(error)")
                     }
                 }
             }

@@ -35,7 +35,7 @@ open class BreinConfig {
     var apiKey: String!
 
     //  Default REST client
-    var restEngineType: BreinEngineType! = BreinEngineType.Alamofire
+    var restEngineType: BreinEngineType! = BreinEngineType.URLSession
 
     //  contains the activity endpoint (default = ACTIVITY_ENDPOINT)
     var activityEndpoint: String! = kDefaultActivityEndpoint

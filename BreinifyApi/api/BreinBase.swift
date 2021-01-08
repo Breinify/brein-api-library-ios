@@ -5,7 +5,7 @@
 
 import Foundation
 
-open class BreinBase {
+open class BreinBase: NSObject {
 
     public typealias apiSuccess = (_ result: BreinResult) -> Void
     public typealias apiFailure = (_ error: NSDictionary) -> Void
@@ -34,6 +34,7 @@ open class BreinBase {
     /// contains block invoked in case of failure
     var failureBlock: BreinBase.apiFailure?
 
+    override
     public init() {
         self.unixTimestamp = 0
     }

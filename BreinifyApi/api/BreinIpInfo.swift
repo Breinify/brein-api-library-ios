@@ -34,7 +34,6 @@ open class BreinIpInfo {
     public func invokeRequest() -> Void {
         // service url provides external ipAddress
         let url = "http://www.ip-api.com/json"
-
         var request = URLRequest(url: URL(string: url)!)
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -42,7 +41,6 @@ open class BreinIpInfo {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {
                 // success
-
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                     BreinLogger.shared.log("IP detection response:\n \(dataString)")
                     do {

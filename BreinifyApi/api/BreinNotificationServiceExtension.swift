@@ -18,7 +18,7 @@ open class BreinNotificationServiceExtension: UNNotificationServiceExtension {
 
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified chaka]"
+            bestAttemptContent.title = "\(bestAttemptContent.title) [modified chakamalakka]"
             print("chakakaka")
 
             contentHandler(bestAttemptContent)

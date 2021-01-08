@@ -9,7 +9,7 @@ import SystemConfiguration.CaptiveNetwork
 import CoreTelephony
 import NetworkExtension
 
-open class BreinUser {
+open class BreinUser: NSObject {
 
     enum UserInfo {
         static let firstName = "firstName"
@@ -98,6 +98,7 @@ open class BreinUser {
     var nw_carrier = ""
 
     /// Initializer with "nothing"
+    override
     public init() {
     }
 

@@ -22,13 +22,13 @@ public class URLSessionEngine: IRestEngine {
 
     public func executeSavedRequests() {
 
-        BreinLogger.shared.log("executeSavedRequests invoked")
+        BreinLogger.shared.log("Breinify executeSavedRequests invoked")
 
         // 1. loop over entries
         // contains a copy of the missedRequests from BreinRequestManager
         let missedRequests = BreinRequestManager.shared.getMissedRequests()
 
-        BreinLogger.shared.log("Number of elements in queue is: \(missedRequests.count)")
+        BreinLogger.shared.log("Breinify number of elements in queue is: \(missedRequests.count)")
 
         for (uuid, entry) in (missedRequests) {
             BreinLogger.shared.log("Working on UUID: \(uuid)")
@@ -57,7 +57,7 @@ public class URLSessionEngine: IRestEngine {
                         if let resp = response as? HTTPURLResponse {
                             let uuidEntryAny = resp.allHeaderFields["uuid"]
                             if let uuidEntry = uuidEntryAny as? String {
-                                BreinLogger.shared.log("Successfully (resend): \(String(describing: jsonData))")
+                                BreinLogger.shared.log("Breinify successfully (resend): \(String(describing: jsonData))")
                                 BreinRequestManager.shared.removeEntry(uuidEntry)
                             }
                         }
@@ -66,7 +66,7 @@ public class URLSessionEngine: IRestEngine {
                 task.resume()
                 // replace end
             } else {
-                BreinLogger.shared.log("Removing from Queue: \(uuid)")
+                BreinLogger.shared.log("Breinify removing from queue: \(uuid)")
                 BreinRequestManager.shared.removeEntry(uuid)
             }
         }
@@ -96,7 +96,7 @@ public class URLSessionEngine: IRestEngine {
             let activity:[String: Any] = body?["activity"] as! [String : Any]
             let actTyp:String = activity["type"] as! String
 
-            BreinLogger.shared.log("doRequest for activityType: \(actTyp) -- json is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("Breinify doRequest for activityType: \(actTyp) -- json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -109,7 +109,7 @@ public class URLSessionEngine: IRestEngine {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
-                BreinLogger.shared.log("doRequest with error: \(error)")
+                BreinLogger.shared.log("Breinify doRequest with error: \(error)")
 
                 let canResend = breinActivity.getConfig()?.getResendFailedActivities()
 
@@ -117,7 +117,7 @@ public class URLSessionEngine: IRestEngine {
                 if canResend == true {
 
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("Response data string:\n \(dataString)")
+                        BreinLogger.shared.log("Breinify response data string: \(dataString)")
 
                         let urlRequest = url
                         let creationTime = Int(NSDate().timeIntervalSince1970)
@@ -169,7 +169,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try JSONSerialization.data(withJSONObject: body as Any, options: [.prettyPrinted])
             jsonString = String(data: jsonData, encoding: .utf8) ?? ""
-            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("Breinify doLookup - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -182,7 +182,7 @@ public class URLSessionEngine: IRestEngine {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
-                BreinLogger.shared.log("doRecommendation with error: \(error)")
+                BreinLogger.shared.log("Breinify doLookup with error: \(error)")
 
                 let httpError: NSError = error as NSError
                 let statusCode = httpError.code
@@ -225,7 +225,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("Breinify doRecommendation - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -238,7 +238,7 @@ public class URLSessionEngine: IRestEngine {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
-                BreinLogger.shared.log("doRecommendation with error: \(error)")
+                BreinLogger.shared.log("Breinify doRecommendation with error: \(error)")
 
                 let httpError: NSError = error as NSError
                 let statusCode = httpError.code
@@ -281,7 +281,7 @@ public class URLSessionEngine: IRestEngine {
         do {
             jsonData = try! JSONSerialization.data(withJSONObject: body as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-            BreinLogger.shared.log("doRequest - json is: \(String(describing: jsonString))")
+            BreinLogger.shared.log("Breinify doTemporalDataRequest - json is: \(String(describing: jsonString))")
         }
 
         var request = URLRequest(url: URL(string: url)!)
@@ -294,7 +294,7 @@ public class URLSessionEngine: IRestEngine {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
-                BreinLogger.shared.log("doRecommendation with error: \(error)")
+                BreinLogger.shared.log("Breinify doTemporalDataRequest with error: \(error)")
 
                 let httpError: NSError = error as NSError
                 let statusCode = httpError.code

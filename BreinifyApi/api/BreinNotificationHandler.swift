@@ -6,9 +6,10 @@
 import Foundation
 import UserNotifications
 
-open class BreinNotificationHandler {
+open class BreinNotificationHandler : NSObject {
 
     /// Initializer with "nothing"
+    override
     public init() {
     }
 
