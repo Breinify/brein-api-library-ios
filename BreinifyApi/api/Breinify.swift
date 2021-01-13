@@ -61,19 +61,34 @@ open class Breinify: NSObject {
     }
 
     @objc
-    public static func isBreinifyNotificationExtensionRequest(_ request: UNNotificationRequest) -> Bool {
-        BreinifyManager.shared.isBreinifyNotificationExtensionRequest(request)
+    public static func isBreinifyNotificationExtensionRequest(_ request: Any) -> Bool {
+        if #available(iOS 10.0, *) {
+            let notificationRequest = request as! UNNotificationRequest
+            return BreinifyManager.shared.isBreinifyNotificationExtensionRequest(notificationRequest)
+        }
+        return false
     }
 
     @objc
-    public static func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest,
-                                                              bestAttemptContent: UNMutableNotificationContent) {
-        BreinifyManager.shared.didReceiveNotificationExtensionRequest(request, bestAttemptContent: bestAttemptContent)
+    public static func didReceiveNotificationExtensionRequest(_ request: Any,
+                                                              bestAttemptContent: Any) {
+
+        if #available(iOS 10.0, *) {
+            let notificationRequest = request as! UNNotificationRequest
+            let notificationContent = bestAttemptContent as! UNMutableNotificationContent
+            BreinifyManager.shared.didReceiveNotificationExtensionRequest(notificationRequest, bestAttemptContent: notificationContent)
+        }
+
     }
 
     @objc
-    public static func serviceExtensionTimeWillExpire(_ bestAttemptContent: UNMutableNotificationContent) {
-        BreinifyManager.shared.serviceExtensionTimeWillExpire(bestAttemptContent)
+    public static func serviceExtensionTimeWillExpire(_ bestAttemptContent: Any) {
+
+        if #available(iOS 10.0, *) {
+            let notificationContent = bestAttemptContent as! UNMutableNotificationContent
+            BreinifyManager.shared.serviceExtensionTimeWillExpire(notificationContent)
+        }
+
     }
 
     @objc

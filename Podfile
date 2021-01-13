@@ -3,12 +3,12 @@ use_frameworks!
 
 target 'BreinifyApi' do
 
-  pod 'IDZSwiftCommonCrypto', '~> 0.13'
+  pod 'IDZSwiftCommonCrypto', '~> 0.13.0'
   pod 'NetUtils', '~> 4.2'
 
   target 'BreinifyApiTests' do
     inherit! :search_paths
-    pod 'IDZSwiftCommonCrypto', '~> 0.13'
+    pod 'IDZSwiftCommonCrypto', '~> 0.13.0'
     pod 'NetUtils', '~> 4.2'
 
   end

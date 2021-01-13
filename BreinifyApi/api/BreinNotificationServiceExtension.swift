@@ -6,7 +6,7 @@
 import Foundation
 import UserNotifications
 
-@available(iOS 11.0, *)
+@available(iOS 10.0, *)
 open class BreinNotificationServiceExtension: UNNotificationServiceExtension {
 
     var contentHandler: ((UNNotificationContent) -> Void)?
@@ -20,7 +20,7 @@ open class BreinNotificationServiceExtension: UNNotificationServiceExtension {
 
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            Breinify.didReceiveNotificationExtensionRequest(self.receivedRequest, bestAttemptContent: bestAttemptContent)
+            Breinify.didReceiveNotificationExtensionRequest(self.receivedRequest as Any, bestAttemptContent: bestAttemptContent)
             contentHandler(bestAttemptContent)
         }
     }

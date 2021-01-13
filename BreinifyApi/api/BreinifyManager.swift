@@ -293,75 +293,84 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                     options: authOptions,
                     completionHandler: { _, _ in })
 
+            let openAction = UNNotificationAction(identifier: "OpenNotification",
+                    title: NSLocalizedString("OPEN", comment: "open"),
+                    options: UNNotificationActionOptions.foreground)
+
+            let defaultCategory = UNNotificationCategory(identifier: "breinifyOpenIgnoreNotificationCategory",
+                    actions: [openAction], intentIdentifiers: [], options: [])
+            UNUserNotificationCenter.current().setNotificationCategories(Set([defaultCategory]))
         } else {
             let settings: UIUserNotificationSettings =
                     UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(settings)
         }
 
-        let openAction = UNNotificationAction(identifier: "OpenNotification",
-                title: NSLocalizedString("OPEN", comment: "open"),
-                options: UNNotificationActionOptions.foreground)
-
-        let defaultCategory = UNNotificationCategory(identifier: "breinifyOpenIgnoreNotificationCategory",
-                actions: [openAction], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories(Set([defaultCategory]))
-
         UIApplication.shared.registerForRemoteNotifications()
     }
 
     func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            BreinLogger.shared.log("Breinify notification settings: \(settings)")
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                BreinLogger.shared.log("Breinify notification settings: \(settings)")
+            }
         }
     }
 
-    func isBreinifyNotificationExtensionRequest(_ request: UNNotificationRequest) -> Bool {
-        BreinLogger.shared.log("Breinify isBreinifyNotificationExtensionRequest called with request: \(request)")
+    func isBreinifyNotificationExtensionRequest(_ request: Any) -> Bool {
+
+        if #available(iOS 10.0, *) {
+            let notificationRequest = request as! UNNotificationRequest
+            BreinLogger.shared.log("Breinify isBreinifyNotificationExtensionRequest called with request: \(notificationRequest)")
+        }
 
         // todo
         //   - check if notification is a Breinify notification
-        return true
+        return false
     }
 
-    func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest,
-                                                bestAttemptContent: UNMutableNotificationContent) {
-        BreinLogger.shared.log("Breinify didReceiveNotificationExtensionRequest called with request: \(request)")
-        // todo
-        //   - handle notification request
+    func didReceiveNotificationExtensionRequest(_ request: Any,
+                                                bestAttemptContent: Any) {
 
-        bestAttemptContent.title = "\(bestAttemptContent.title) [modified in extensionrequest]"
+        if #available(iOS 10.0, *) {
+            let notificationRequest = request as! UNNotificationRequest
+            let notificationContent = bestAttemptContent as! UNMutableNotificationContent
 
+            BreinLogger.shared.log("Breinify didReceiveNotificationExtensionRequest called with request: \(notificationRequest)")
 
-        guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
-            return
+            notificationContent.title = "\(notificationContent.title) [modified in extensionrequest]"
+
+            guard let content = (notificationRequest.content.mutableCopy() as? UNMutableNotificationContent) else {
+                return
+            }
+
+            guard let apnsData = notificationContent.userInfo["data"] as? [String: Any] else {
+                return
+            }
+
+            guard let attachmentURL = apnsData["attachment-url"] as? String else {
+                return
+            }
+
+            guard let imageData = NSData(contentsOf: NSURL(string: attachmentURL)! as URL) else {
+                return
+            }
+            guard let attachment = UNNotificationAttachment.create(imageFileIdentifier: "breinify-image.gif", data: imageData, options: nil) else {
+                return
+            }
+
+            notificationContent.attachments = [attachment]
+            notificationContent.title = "\(notificationContent.title) [modified in extensionrequest]"
         }
-
-        guard let apnsData = content.userInfo["data"] as? [String: Any] else {
-            return
-        }
-
-        guard let attachmentURL = apnsData["attachment-url"] as? String else {
-            return
-        }
-
-        guard let imageData = NSData(contentsOf: NSURL(string: attachmentURL)! as URL) else {
-            return
-        }
-        guard let attachment = UNNotificationAttachment.create(imageFileIdentifier: "breinify-image.gif", data: imageData, options: nil) else {
-            return
-        }
-
-        bestAttemptContent.attachments = [attachment]
-        bestAttemptContent.title = "\(bestAttemptContent.title) [modified in extensionrequest]"
-        print("chakakaka")
     }
 
-    func serviceExtensionTimeWillExpire(_ bestAttemptContent: UNMutableNotificationContent) {
-        BreinLogger.shared.log("Breinify serviceExtensionTimeWillExpire called with content: \(bestAttemptContent)")
+    func serviceExtensionTimeWillExpire(_ bestAttemptContent: Any) {
 
-        // todo
-        //   - handle notification request
+        if #available(iOS 10.0, *) {
+            let notificationContent = bestAttemptContent as! UNMutableNotificationContent
+            BreinifyManager.shared.serviceExtensionTimeWillExpire(notificationContent)
+        }
+
     }
 
     // iOS Lifecycle
@@ -480,6 +489,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 }
 
+@available(iOS 10.0, *)
 extension UNNotificationAttachment {
     static func create(imageFileIdentifier: String, data: NSData, options: [NSObject: AnyObject]?) -> UNNotificationAttachment? {
 
