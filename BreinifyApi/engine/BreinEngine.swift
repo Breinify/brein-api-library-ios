@@ -71,7 +71,7 @@ public class BreinEngine {
                                     success: successBlock,
                                     failure: failureBlock)
                         } catch {
-                            BreinLogger.shared.log("\(error)")
+                            BreinLogger.shared.log("Breinify activity with locationmanger usage error is: \(error)")
                         }
                     }
                 }
@@ -81,7 +81,7 @@ public class BreinEngine {
                             success: successBlock,
                             failure: failureBlock)
                 } catch {
-                    BreinLogger.shared.log("\(error)")
+                    BreinLogger.shared.log("Breinify doRequest error is: \(error)")
                 }
             }
         }
