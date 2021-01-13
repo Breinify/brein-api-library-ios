@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		475E831AB6E9FB7E69DED0C5 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFB826A2B2402742EF969F /* Pods_BreinifyApi.framework */; };
 		62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */ = {isa = PBXBuildFile; fileRef = 62DD2FC943DD9E0125DBCA2B /* geomap.png */; };
 		62DD207BEDA83C0B6FF0AF98 /* BreinLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E6A4C0ED85DA9EB24F9 /* BreinLookup.swift */; };
 		62DD20C476CC1A2CE2904E9A /* BreinEngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD27EA44C1FB6DA881563E /* BreinEngineType.swift */; };
@@ -61,12 +62,11 @@
 		62DD2EAC6FE7381A16421D7A /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD24508ECC36854D61AEED /* TestEngine.swift */; };
 		62DD2F3C76A686A76D772B98 /* Breinify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B145CA6B6297B621E1C /* Breinify.swift */; };
 		62DD2FB41C9617B881818792 /* BreinResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2D1465144FC48B1B6E9C /* BreinResult.swift */; };
-		801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */; };
+		A6F9B2B24CFB0D91EBCEFF43 /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8322B4385394705E983C36E0 /* Pods_BreinifyApiTests.framework */; };
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
 		A93944EE1EBC7D6E003440C0 /* BreinifyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */; };
 		A93DEE2225AC9A8200511355 /* pushnotification-capabilities.png in Resources */ = {isa = PBXBuildFile; fileRef = A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */; };
 		A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */; };
-		FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		131C114F8CE7B8A0F2941A5E /* Pods-BreinifyApi-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi-BreinifyApiTests/Pods-BreinifyApi-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
+		2CBFB826A2B2402742EF969F /* Pods_BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DD2078B62FD0E8752A40A5 /* BreinUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUtil.swift; sourceTree = "<group>"; };
 		62DD207B4EE5850C99EA5FF0 /* BreinPushIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinPushIdentifiers.swift; sourceTree = "<group>"; };
 		62DD20895E28908241314619 /* ISecretStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecretStrategy.swift; sourceTree = "<group>"; };
@@ -136,8 +136,10 @@
 		62DD2FAA889C5F79A17F1A70 /* BreinUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinUser.swift; sourceTree = "<group>"; };
 		62DD2FB84B61F68712A6D909 /* BreinLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinLocationManager.swift; sourceTree = "<group>"; };
 		62DD2FC943DD9E0125DBCA2B /* geomap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geomap.png; sourceTree = "<group>"; };
-		6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.release.xcconfig"; sourceTree = "<group>"; };
+		74E0028CF41285B990AB0A86 /* Pods-BreinifyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.release.xcconfig"; path = "Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.release.xcconfig"; sourceTree = "<group>"; };
+		8322B4385394705E983C36E0 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A12AD73570ED8257742153E /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
+		A162F6BB8836E8BDEBF4D95F /* Pods-BreinifyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.debug.xcconfig"; path = "Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.debug.xcconfig"; sourceTree = "<group>"; };
 		A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreinifyApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93944E81EBC7D6E003440C0 /* BreinifyApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreinifyApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreinifyApiTests.swift; sourceTree = "<group>"; };
@@ -171,11 +173,7 @@
 		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pushnotification-capabilities.png"; sourceTree = "<group>"; };
 		A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
-		E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi/Pods-BreinifyApi.debug.xcconfig"; sourceTree = "<group>"; };
-		EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FA40F61F85AA70C0366184B4 /* Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApi-BreinifyApiTests/Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED82866787CE1323EF71EDBA /* Pods-BreinifyApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.debug.xcconfig"; path = "Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */,
-				801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */,
+				475E831AB6E9FB7E69DED0C5 /* Pods_BreinifyApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */,
-				FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */,
+				A6F9B2B24CFB0D91EBCEFF43 /* Pods_BreinifyApiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +233,22 @@
 			isa = PBXGroup;
 			children = (
 				A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */,
-				6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */,
-				BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */,
+				2CBFB826A2B2402742EF969F /* Pods_BreinifyApi.framework */,
+				8322B4385394705E983C36E0 /* Pods_BreinifyApiTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9643F44CB57A503461C4BE16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A162F6BB8836E8BDEBF4D95F /* Pods-BreinifyApi.debug.xcconfig */,
+				74E0028CF41285B990AB0A86 /* Pods-BreinifyApi.release.xcconfig */,
+				ED82866787CE1323EF71EDBA /* Pods-BreinifyApiTests.debug.xcconfig */,
+				9A12AD73570ED8257742153E /* Pods-BreinifyApiTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		A93944D51EBC7D6E003440C0 = {
@@ -251,8 +261,8 @@
 				A93944E11EBC7D6E003440C0 /* Source */,
 				A93944EC1EBC7D6E003440C0 /* Tests */,
 				A93944E01EBC7D6E003440C0 /* Products */,
-				F0D8038BDEF3B4B2022FE91F /* Pods */,
 				799BF2244D5FDAE82607F618 /* Frameworks */,
+				9643F44CB57A503461C4BE16 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,19 +421,6 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		F0D8038BDEF3B4B2022FE91F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */,
-				898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */,
-				EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */,
-				CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */,
-				FA40F61F85AA70C0366184B4 /* Pods-BreinifyApi-BreinifyApiTests.debug.xcconfig */,
-				131C114F8CE7B8A0F2941A5E /* Pods-BreinifyApi-BreinifyApiTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -443,7 +440,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A93944F31EBC7D6E003440C0 /* Build configuration list for PBXNativeTarget "BreinifyApi" */;
 			buildPhases = (
-				E4F891699DCFBCC59AD34E2E /* [CP] Check Pods Manifest.lock */,
+				CAEB913C906B807A5C341A7C /* [CP] Check Pods Manifest.lock */,
 				A93944DA1EBC7D6E003440C0 /* Sources */,
 				A93944DB1EBC7D6E003440C0 /* Frameworks */,
 				A93944DC1EBC7D6E003440C0 /* Headers */,
@@ -462,11 +459,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A93944F61EBC7D6E003440C0 /* Build configuration list for PBXNativeTarget "BreinifyApiTests" */;
 			buildPhases = (
-				AB4D9D34CC17386E56CD0581 /* [CP] Check Pods Manifest.lock */,
+				FBB69C2BA142C031A28E5E3F /* [CP] Check Pods Manifest.lock */,
 				A93944E41EBC7D6E003440C0 /* Sources */,
 				A93944E51EBC7D6E003440C0 /* Frameworks */,
 				A93944E61EBC7D6E003440C0 /* Resources */,
-				17037CED6F625BB0AC1AFFFF /* [CP] Embed Pods Frameworks */,
+				7D2317DE4B1AFFCB4F00537B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -541,7 +538,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17037CED6F625BB0AC1AFFFF /* [CP] Embed Pods Frameworks */ = {
+		7D2317DE4B1AFFCB4F00537B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -561,36 +558,44 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AB4D9D34CC17386E56CD0581 /* [CP] Check Pods Manifest.lock */ = {
+		CAEB913C906B807A5C341A7C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BreinifyApiTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BreinifyApi-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E4F891699DCFBCC59AD34E2E /* [CP] Check Pods Manifest.lock */ = {
+		FBB69C2BA142C031A28E5E3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BreinifyApi-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BreinifyApiTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -729,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -789,7 +794,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -803,7 +808,7 @@
 		};
 		A93944F41EBC7D6E003440C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E94AA6119E82FCAEBB4C9D28 /* Pods-BreinifyApi.debug.xcconfig */;
+			baseConfigurationReference = A162F6BB8836E8BDEBF4D95F /* Pods-BreinifyApi.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -829,7 +834,7 @@
 		};
 		A93944F51EBC7D6E003440C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 898FE60C3133D192CEF7B159 /* Pods-BreinifyApi.release.xcconfig */;
+			baseConfigurationReference = 74E0028CF41285B990AB0A86 /* Pods-BreinifyApi.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -854,7 +859,7 @@
 		};
 		A93944F71EBC7D6E003440C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF569AEE9011D0BA3620A37 /* Pods-BreinifyApiTests.debug.xcconfig */;
+			baseConfigurationReference = ED82866787CE1323EF71EDBA /* Pods-BreinifyApiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -869,7 +874,7 @@
 		};
 		A93944F81EBC7D6E003440C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */;
+			baseConfigurationReference = 9A12AD73570ED8257742153E /* Pods-BreinifyApiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;

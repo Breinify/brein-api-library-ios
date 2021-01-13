@@ -8,22 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="folder removed">
-      <change afterPath="$PROJECT_DIR$/Documentation/img/pushnotification-capabilities.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinBase.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinBase.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinIpInfo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinIpInfo.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinLocationManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinLocationManager.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinLookup.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinLookup.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationHandler.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationServiceExtension.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationServiceExtension.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinRequestManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinRequestManager.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinTemporalData.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinTemporalData.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/Breinify.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/Breinify.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BreinifyApi/engine/BreinEngine.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/engine/BreinEngine.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +49,7 @@
       <recent name="$PROJECT_DIR$/BreinifyApi" />
     </key>
   </component>
-  <component name="RunManager" selected="XCTest.All in TestApi.swift">
+  <component name="RunManager" selected="XCTest.All in TestSecret.swift">
     <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -72,7 +59,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApi" TEST_MODE="PATTERN">
+    <configuration name="All in TestExecutor.swift (1)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift (1)" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -114,19 +101,19 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
+      <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       <item itemvalue="XCTest.All in TestLifecycle.swift" />
       <item itemvalue="XCTest.All in TestLocation.swift" />
       <item itemvalue="XCTest.All in TestNetwork.swift" />
       <item itemvalue="XCTest.All in TestSecret.swift" />
-      <item itemvalue="XCTest.All in TestApi.swift" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="XCTest.All in TestApi.swift" />
         <item itemvalue="XCTest.All in TestSecret.swift" />
         <item itemvalue="XCTest.All in TestNetwork.swift" />
         <item itemvalue="XCTest.All in TestLocation.swift" />
         <item itemvalue="XCTest.All in TestLifecycle.swift" />
+        <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -203,49 +190,7 @@
       <workItem from="1610132765641" duration="2754000" />
       <workItem from="1610366688015" duration="1026000" />
       <workItem from="1610375627794" duration="1023000" />
-      <workItem from="1610532336459" duration="11048000" />
-    </task>
-    <task id="LOCAL-00006" summary="adaptations to Swift 5">
-      <created>1605798103820</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1605798103820</updated>
-    </task>
-    <task id="LOCAL-00007" summary="adaptations to Swift 5">
-      <created>1605798124795</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1605798124795</updated>
-    </task>
-    <task id="LOCAL-00008" summary="adaptations to Swift 5">
-      <created>1605798284076</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1605798284076</updated>
-    </task>
-    <task id="LOCAL-00009" summary="adaptations to Swift 5">
-      <created>1605798346443</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1605798346443</updated>
-    </task>
-    <task id="LOCAL-00010" summary="license update">
-      <created>1605798732748</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1605798732748</updated>
-    </task>
-    <task id="LOCAL-00011" summary="doc update">
-      <created>1606389702447</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1606389702447</updated>
+      <workItem from="1610532336459" duration="15807000" />
     </task>
     <task id="LOCAL-00012" summary="code cleanUp">
       <created>1606651613499</created>
@@ -548,7 +493,49 @@
       <option name="project" value="LOCAL" />
       <updated>1610136757724</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="log output enhancements">
+      <created>1610562908573</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1610562908574</updated>
+    </task>
+    <task id="LOCAL-00056" summary="log output enhancements">
+      <created>1610562929440</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1610562929440</updated>
+    </task>
+    <task id="LOCAL-00057" summary="log output enhancements">
+      <created>1610562968322</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1610562968322</updated>
+    </task>
+    <task id="LOCAL-00058" summary="new version">
+      <created>1610562997859</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1610562997859</updated>
+    </task>
+    <task id="LOCAL-00059" summary="ios version set to 9">
+      <created>1610563016083</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1610563016083</updated>
+    </task>
+    <task id="LOCAL-00060" summary="consideration of iOS9">
+      <created>1610579260456</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1610579260456</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,10 +544,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="additional supporting functions added" />
-    <MESSAGE value="additional sendActivity method added" />
-    <MESSAGE value="additional activity types added" />
-    <MESSAGE value="setUserInfo added" />
     <MESSAGE value="additional test secret added" />
     <MESSAGE value="test secret update" />
     <MESSAGE value="support of setting unixTimestamp" />
@@ -582,40 +565,44 @@
     <MESSAGE value="updated podspec" />
     <MESSAGE value="cleanUp and adaptations for Objective-C support" />
     <MESSAGE value="version 2.0.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 2.0.5" />
+    <MESSAGE value="log output enhancements" />
+    <MESSAGE value="new version" />
+    <MESSAGE value="ios version set to 9" />
+    <MESSAGE value="consideration of iOS9" />
+    <option name="LAST_COMMIT_MESSAGE" value="consideration of iOS9" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610367178894">
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610579260338">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610367178894" />
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1609941285115">
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610579260338" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1610576660296">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1609941285115" />
-    <state width="1750" height="326" key="GridCell.Tab.0.bottom" timestamp="1610562782430">
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1610576660296" />
+    <state width="1750" height="334" key="GridCell.Tab.0.bottom" timestamp="1610577211621">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
+    <state width="1750" height="334" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1750" height="326" key="GridCell.Tab.0.center" timestamp="1610562782429">
+    <state width="1750" height="334" key="GridCell.Tab.0.center" timestamp="1610577211621">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782429" />
+    <state width="1750" height="334" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1750" height="326" key="GridCell.Tab.0.left" timestamp="1610562782428">
+    <state width="1750" height="334" key="GridCell.Tab.0.left" timestamp="1610577211620">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782428" />
+    <state width="1750" height="334" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211620" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1750" height="326" key="GridCell.Tab.0.right" timestamp="1610562782429">
+    <state width="1750" height="334" key="GridCell.Tab.0.right" timestamp="1610577211621">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782429" />
+    <state width="1750" height="334" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
     <state width="1750" height="326" key="GridCell.Tab.1.bottom" timestamp="1610562782431">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -646,10 +633,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1610136758703">
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1610579261801">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1610136758703" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1610579261801" />
     <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -886,11 +873,6 @@
           <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
           <line>251</line>
           <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
-          <line>335</line>
-          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
