@@ -21,6 +21,7 @@
 		62DD238F0B08E8DD913B8686 /* BreinIpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B8149CEC982F6152585 /* BreinIpInfo.swift */; };
 		62DD239CA23D9CCEDA0B4464 /* BreinTemporalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2E9C90973701D2A0B5E5 /* BreinTemporalData.swift */; };
 		62DD23D5B34A02D56F7F55EC /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2F4B45A1CCE1623DB167 /* TestConfig.swift */; };
+		62DD2434AB217A47741441B7 /* objectivec_integration.md in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2148F74374BB717AF2C7 /* objectivec_integration.md */; };
 		62DD249D04AB0512A760FDAF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD258E7D206D4CA66C2812 /* StringExtension.swift */; };
 		62DD24A604D35C8A3E4EEE0D /* BreinActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B8B798FA3ED504EDF4D /* BreinActivityType.swift */; };
 		62DD24C080E6C71CEAFFAA51 /* BreinActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2BC8C08150C037291E8E /* BreinActivity.swift */; };
@@ -63,6 +64,7 @@
 		801C36CC15F94840088A1467 /* Pods_BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2DB5716B655CFB66FCF8F2 /* Pods_BreinifyApi.framework */; };
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
 		A93944EE1EBC7D6E003440C0 /* BreinifyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */; };
+		A93DEE2225AC9A8200511355 /* pushnotification-capabilities.png in Resources */ = {isa = PBXBuildFile; fileRef = A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */; };
 		A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */; };
 		FA65705EA3B753A2DD32E4E8 /* Pods_BreinifyApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,7 @@
 		62DD20895E28908241314619 /* ISecretStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecretStrategy.swift; sourceTree = "<group>"; };
 		62DD20B47A4FBEBFDA5709E4 /* BreinWeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinWeatherResult.swift; sourceTree = "<group>"; };
 		62DD20E18DC42BE59E6FC442 /* TestLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
+		62DD2148F74374BB717AF2C7 /* objectivec_integration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = objectivec_integration.md; sourceTree = "<group>"; };
 		62DD2246CC23728D8061085C /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
 		62DD225D4F2623AE731E4078 /* BreinHolidayResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinHolidayResult.swift; sourceTree = "<group>"; };
 		62DD22C29A65403085ABFE81 /* TestApiWithSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestApiWithSecret.swift; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		A93945DA1EBCAE56003440C0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A93945DB1EBCAE56003440C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A93945F61EBCAF76003440C0 /* BreinifyApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BreinifyApi.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pushnotification-capabilities.png"; sourceTree = "<group>"; };
 		A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		BB0EE7C56E837DA4D97F7C14 /* Pods_BreinifyApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreinifyApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCA5F23C8FAE895A5BFCC2 /* Pods-BreinifyApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreinifyApiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,13 +231,6 @@
 			path = api;
 			sourceTree = "<group>";
 		};
-		62DD2D2E4D8B915A468A69C4 /* support */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = support;
-			sourceTree = "<group>";
-		};
 		799BF2244D5FDAE82607F618 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +272,6 @@
 				A9B8667D259C838D0051EB79 /* engine */,
 				A9B8667C259C83290051EB79 /* domain */,
 				A9B8667B259C831A0051EB79 /* api */,
-				62DD2D2E4D8B915A468A69C4 /* support */,
 				62DD2E0A10AB8F3F64B6C4E4 /* Info.plist */,
 				62DD24C62B96A477A08AAACB /* BreinifyApi-Bridging-Header.h */,
 				62DD2469ED92299331991B92 /* BreinifyApi.h */,
@@ -306,6 +302,7 @@
 				A93945C31EBCAE56003440C0 /* img */,
 				A93945CE1EBCAE56003440C0 /* pushnotification_configuration.md */,
 				A93945CF1EBCAE56003440C0 /* snippets */,
+				62DD2148F74374BB717AF2C7 /* objectivec_integration.md */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
@@ -313,6 +310,7 @@
 		A93945C31EBCAE56003440C0 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */,
 				A93945C41EBCAE56003440C0 /* app_id_setup.png */,
 				A93945C51EBCAE56003440C0 /* app_name.png */,
 				A93945C61EBCAE56003440C0 /* capabilities.png */,
@@ -527,6 +525,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93DEE2225AC9A8200511355 /* pushnotification-capabilities.png in Resources */,
 				62DD204EF6CF0F8FA6697D1A /* geomap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +643,7 @@
 				62DD20E44EAE96245E28253D /* BreinLocationManager.swift in Sources */,
 				62DD264B03FA6D8E5D187477 /* BreinNotificationServiceExtension.swift in Sources */,
 				62DD2F3C76A686A76D772B98 /* Breinify.swift in Sources */,
+				62DD2434AB217A47741441B7 /* objectivec_integration.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

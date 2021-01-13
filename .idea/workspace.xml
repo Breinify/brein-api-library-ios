@@ -7,9 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adaptations to Swift 5">
+    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="folder removed">
+      <change afterPath="$PROJECT_DIR$/Documentation/img/pushnotification-capabilities.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.podspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinBase.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinBase.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinIpInfo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinIpInfo.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinLocationManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinLocationManager.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinLookup.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinLookup.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationHandler.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationServiceExtension.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinNotificationServiceExtension.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinRequestManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinRequestManager.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinTemporalData.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinTemporalData.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/Breinify.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/Breinify.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/engine/BreinEngine.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/engine/BreinEngine.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +47,22 @@
   <component name="PropertiesComponent">
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="BreinifyApiTests" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/BreinifyApi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Documentation/img" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.lonelybytes.swiftlint.Configuration" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Documentation/img" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Documentation/img" />
+      <recent name="$PROJECT_DIR$/Documentation" />
       <recent name="$PROJECT_DIR$/BreinifyApi" />
     </key>
   </component>
-  <component name="RunManager" selected="XCTest.All in TestSecret.swift">
+  <component name="RunManager" selected="XCTest.All in TestApi.swift">
     <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -53,7 +72,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TestExecutor.swift (1)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift (1)" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
+    <configuration name="All in TestApi.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApi.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApi" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -95,19 +114,19 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
-      <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       <item itemvalue="XCTest.All in TestLifecycle.swift" />
       <item itemvalue="XCTest.All in TestLocation.swift" />
       <item itemvalue="XCTest.All in TestNetwork.swift" />
       <item itemvalue="XCTest.All in TestSecret.swift" />
+      <item itemvalue="XCTest.All in TestApi.swift" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="XCTest.All in TestApi.swift" />
         <item itemvalue="XCTest.All in TestSecret.swift" />
         <item itemvalue="XCTest.All in TestNetwork.swift" />
         <item itemvalue="XCTest.All in TestLocation.swift" />
         <item itemvalue="XCTest.All in TestLifecycle.swift" />
-        <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +200,10 @@
       <workItem from="1609861668097" duration="6294000" />
       <workItem from="1609943698449" duration="3498000" />
       <workItem from="1610114626478" duration="4537000" />
-      <workItem from="1610132765641" duration="2212000" />
+      <workItem from="1610132765641" duration="2754000" />
+      <workItem from="1610366688015" duration="1026000" />
+      <workItem from="1610375627794" duration="1023000" />
+      <workItem from="1610532336459" duration="11048000" />
     </task>
     <task id="LOCAL-00006" summary="adaptations to Swift 5">
       <created>1605798103820</created>
@@ -567,53 +589,53 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610136757608">
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610367178894">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610136757608" />
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610367178894" />
     <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1609941285115">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1609941285115" />
-    <state width="1750" height="334" key="GridCell.Tab.0.bottom" timestamp="1610138998535">
+    <state width="1750" height="326" key="GridCell.Tab.0.bottom" timestamp="1610562782430">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998535" />
+    <state width="1750" height="326" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1750" height="334" key="GridCell.Tab.0.center" timestamp="1610138998534">
+    <state width="1750" height="326" key="GridCell.Tab.0.center" timestamp="1610562782429">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998534" />
+    <state width="1750" height="326" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782429" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1750" height="334" key="GridCell.Tab.0.left" timestamp="1610138998533">
+    <state width="1750" height="326" key="GridCell.Tab.0.left" timestamp="1610562782428">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998533" />
+    <state width="1750" height="326" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782428" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1750" height="334" key="GridCell.Tab.0.right" timestamp="1610138998534">
+    <state width="1750" height="326" key="GridCell.Tab.0.right" timestamp="1610562782429">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610138998534" />
+    <state width="1750" height="326" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782429" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1726" height="124" key="GridCell.Tab.1.bottom" timestamp="1607352386959">
+    <state width="1750" height="326" key="GridCell.Tab.1.bottom" timestamp="1610562782431">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="124" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386959" />
+    <state width="1750" height="326" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782431" />
     <state width="1726" height="280" key="GridCell.Tab.1.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
-    <state width="1726" height="124" key="GridCell.Tab.1.center" timestamp="1607352386958">
+    <state width="1750" height="326" key="GridCell.Tab.1.center" timestamp="1610562782430">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="124" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386958" />
+    <state width="1750" height="326" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
     <state width="1726" height="280" key="GridCell.Tab.1.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
-    <state width="1726" height="124" key="GridCell.Tab.1.left" timestamp="1607352386958">
+    <state width="1750" height="326" key="GridCell.Tab.1.left" timestamp="1610562782430">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="124" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386958" />
+    <state width="1750" height="326" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
     <state width="1726" height="280" key="GridCell.Tab.1.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
-    <state width="1726" height="124" key="GridCell.Tab.1.right" timestamp="1607352386959">
+    <state width="1750" height="326" key="GridCell.Tab.1.right" timestamp="1610562782430">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1726" height="124" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1607352386959" />
+    <state width="1750" height="326" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
     <state width="1726" height="280" key="GridCell.Tab.1.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
     <state x="397" y="198" key="SettingsEditor" timestamp="1607157026164">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -632,10 +654,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
-    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1610136398099">
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1610560957595">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610136398099" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610560957595" />
     <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
     <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1610123407700">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -864,6 +886,11 @@
           <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
           <line>251</line>
           <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
+          <line>335</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
