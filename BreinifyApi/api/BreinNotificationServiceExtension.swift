@@ -11,16 +11,16 @@ open class BreinNotificationServiceExtension: UNNotificationServiceExtension {
 
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
+    var receivedRequest: UNNotificationRequest!
 
     open override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         self.contentHandler = contentHandler
+        self.receivedRequest = request
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified chakamalakka]"
-            print("chakakaka")
-
+            Breinify.didReceiveNotificationExtensionRequest(self.receivedRequest, bestAttemptContent: bestAttemptContent)
             contentHandler(bestAttemptContent)
         }
     }
@@ -28,10 +28,10 @@ open class BreinNotificationServiceExtension: UNNotificationServiceExtension {
     open override func serviceExtensionTimeWillExpire() {
         // Called just before the extension will be terminated by the system.
         // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+        if let contentHandler = contentHandler, let bestAttemptContent = bestAttemptContent {
+            Breinify.serviceExtensionTimeWillExpire(bestAttemptContent)
             contentHandler(bestAttemptContent)
         }
     }
-
 
 }

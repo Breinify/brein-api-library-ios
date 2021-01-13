@@ -85,7 +85,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
             do {
                 requestData["signatureType"] = try createSignature() as Any?
             } catch {
-                BreinLogger.shared.log("not possible to generate signature")
+                BreinLogger.shared.log("Breinify not possible to generate signature")
             }
         }
 

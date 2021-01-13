@@ -112,7 +112,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func sendActivity(_ activityType: String, additionalContent: [String: Any]) {
-        BreinLogger.shared.log("sendActivity invoked")
+        BreinLogger.shared.log("Breinify sendActivity invoked")
 
         // create a user you are interested in
         if self.userEmail != nil {
@@ -126,13 +126,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // callback in case of success
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
-            BreinLogger.shared.log("sendActivity success")
+            BreinLogger.shared.log("Breinify sendActivity success")
         }
 
         // callback in case of a failure
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
-            BreinLogger.shared.log("sendActivity failure with error: \(String(describing: error))")
+            BreinLogger.shared.log("Breinify sendActivity failure with error: \(String(describing: error))")
         }
 
         if !additionalContent.isEmpty {
@@ -150,7 +150,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                     successBlock,
                     failureBlock)
         } catch {
-            BreinLogger.shared.log("Error is: \(error)")
+            BreinLogger.shared.log("Breinify activity error is: \(error)")
         }
 
         if !additionalContent.isEmpty {
@@ -160,7 +160,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func sendIdentifyInfo() {
-        BreinLogger.shared.log("sendIdentifyInfo invoked")
+        BreinLogger.shared.log("Breinify sendIdentifyInfo invoked")
         sendActivity(BreinifyManager.kActivityTypeIdentify, additionalContent: [:])
     }
 
@@ -173,7 +173,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     */
     public func sendLocationInfo() {
-        BreinLogger.shared.log("sendLocation called at \(BreinUtil.currentTime())")
+        BreinLogger.shared.log("Breinify sendLocation called at \(BreinUtil.currentTime())")
 
         if hasPermissionToSendLocationUpdates == true {
             sendActivity(BreinifyManager.kActivityTypeSendLocation, additionalContent: [:])
@@ -184,7 +184,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Reads the user defaults
     */
     public func readAndInitUserDefaults() {
-        BreinLogger.shared.log("readAndInitUserDefaults called")
+        BreinLogger.shared.log("Breinify readAndInitUserDefaults called")
 
         let defaults = UserDefaults.standard
         if let email = defaults.string(forKey: BreinifyManager.kUserDefaultUserEmail) {
@@ -202,7 +202,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         // set unique user id
         Breinify.getBreinUser().setUserId(self.userId)
 
-        BreinLogger.shared.log("UserId: \(String(describing: self.userId)) - Email: \(String(describing: self.userEmail))")
+        BreinLogger.shared.log("Breinify readAndInitUserDefault with UserId: \(String(describing: self.userId)) - Email: \(String(describing: self.userEmail))")
     }
 
     /**
@@ -210,7 +210,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Saves the user defaults and sends an identify activity to the engine
     */
     public func saveUserDefaults() {
-        BreinLogger.shared.log("saveUserDefaults called")
+        BreinLogger.shared.log("Breinify saveUserDefaults called")
 
         let defaults = UserDefaults.standard
         defaults.setValue(getUserEmail(), forKey: BreinifyManager.kUserDefaultUserEmail)
@@ -223,21 +223,21 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     // Background Task Handling
     @objc func reinstateBackgroundTask() {
-        BreinLogger.shared.log("reinstateBackgroundTask called")
+        BreinLogger.shared.log("Breinify reinstateBackgroundTask called")
         if updateTimer != nil && (backgroundTask == UIBackgroundTaskIdentifier.invalid) {
             registerBackgroundTask()
         }
     }
 
     func registerBackgroundTask() {
-        BreinLogger.shared.log("registerBackgroundTask called")
+        BreinLogger.shared.log("Breinify registerBackgroundTask called")
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
         }
     }
 
     func endBackgroundTask() {
-        BreinLogger.shared.log("endBackgroundTask called")
+        BreinLogger.shared.log("Breinify endBackgroundTask called")
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = UIBackgroundTaskIdentifier.invalid
     }
@@ -249,12 +249,12 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
                                        willPresent notification: UNNotification,
                                        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        BreinLogger.shared.log("UserNotification willPresent invoked with notification: \(notification)")
+        BreinLogger.shared.log("Breinify UserNotification willPresent invoked with notification: \(notification)")
 
         let aps = notification.request.content.userInfo["aps"] as! [String: Any]
-        
+
         // call BreinNotification-Handler
-        Breinify.getNotificationHandler()?.willPresent(notification)
+        // Breinify.getNotificationHandler()?.willPresent(notification)
 
         completionHandler([.alert, .badge, .sound])
     }
@@ -265,19 +265,19 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                        didReceive response: UNNotificationResponse,
                                        withCompletionHandler completionHandler: @escaping () -> Void) {
         // print("didReceive called with content: \(response)")
-        BreinLogger.shared.log("UserNotification didReceive invoked with response: \(response).")
+        BreinLogger.shared.log("Breinify UserNotification didReceive invoked with response: \(response).")
 
         let aps = response.notification.request.content.userInfo["aps"] as! [String: Any]
         self.sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalContent: aps)
 
         // call BreinNotification-Handler
-        Breinify.getNotificationHandler()?.didReceive(response)
+        // Breinify.getNotificationHandler()?.didReceive(response)
 
         completionHandler()
     }
 
     func registerPushNotifications() {
-        BreinLogger.shared.log("registerNotification invoked")
+        BreinLogger.shared.log("Breinify registerPushNotifications invoked")
 
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
@@ -291,7 +291,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                     options: authOptions,
-                    completionHandler: {_, _ in })
+                    completionHandler: { _, _ in })
 
         } else {
             let settings: UIUserNotificationSettings =
@@ -303,7 +303,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                 title: NSLocalizedString("OPEN", comment: "open"),
                 options: UNNotificationActionOptions.foreground)
 
-        let defaultCategory = UNNotificationCategory(identifier: "myNotificationCategory",
+        let defaultCategory = UNNotificationCategory(identifier: "breinifyOpenIgnoreNotificationCategory",
                 actions: [openAction], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories(Set([defaultCategory]))
 
@@ -312,8 +312,56 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
+            BreinLogger.shared.log("Breinify notification settings: \(settings)")
         }
+    }
+
+    func isBreinifyNotificationExtensionRequest(_ request: UNNotificationRequest) -> Bool {
+        BreinLogger.shared.log("Breinify isBreinifyNotificationExtensionRequest called with request: \(request)")
+
+        // todo
+        //   - check if notification is a Breinify notification
+        return true
+    }
+
+    func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest,
+                                                bestAttemptContent: UNMutableNotificationContent) {
+        BreinLogger.shared.log("Breinify didReceiveNotificationExtensionRequest called with request: \(request)")
+        // todo
+        //   - handle notification request
+
+        bestAttemptContent.title = "\(bestAttemptContent.title) [modified in extensionrequest]"
+
+
+        guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
+            return
+        }
+
+        guard let apnsData = content.userInfo["data"] as? [String: Any] else {
+            return
+        }
+
+        guard let attachmentURL = apnsData["attachment-url"] as? String else {
+            return
+        }
+
+        guard let imageData = NSData(contentsOf: NSURL(string: attachmentURL)! as URL) else {
+            return
+        }
+        guard let attachment = UNNotificationAttachment.create(imageFileIdentifier: "breinify-image.gif", data: imageData, options: nil) else {
+            return
+        }
+
+        bestAttemptContent.attachments = [attachment]
+        bestAttemptContent.title = "\(bestAttemptContent.title) [modified in extensionrequest]"
+        print("chakakaka")
+    }
+
+    func serviceExtensionTimeWillExpire(_ bestAttemptContent: UNMutableNotificationContent) {
+        BreinLogger.shared.log("Breinify serviceExtensionTimeWillExpire called with content: \(bestAttemptContent)")
+
+        // todo
+        //   - handle notification request
     }
 
     // iOS Lifecycle
@@ -348,7 +396,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     // It ensures that background processing is invoked
     public func applicationDidEnterBackground() {
 
-        BreinLogger.shared.log("applicationDidEnterBackground called")
+        BreinLogger.shared.log("Breinify applicationDidEnterBackground called")
 
         // additional stuff
         NotificationCenter.default.removeObserver(self)
@@ -364,7 +412,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //
     public func applicationDidBecomeActive() {
 
-        BreinLogger.shared.log("applicationDidBecomeActive called")
+        BreinLogger.shared.log("Breinify applicationDidBecomeActive called")
 
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask),
                 name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -378,7 +426,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //
     public func applicationWillTerminate() {
 
-        BreinLogger.shared.log("applicationWillTerminate called")
+        BreinLogger.shared.log("Breinify applicationWillTerminate called")
 
         // shutdown the engine
         Breinify.shutdown()
@@ -391,7 +439,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //      didRegisterForRemoteNotificationsWithDeviceToken
     public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) -> String! {
 
-        BreinLogger.shared.log("didRegisterForRemoteNotificationsWithDeviceToken called")
+        BreinLogger.shared.log("Breinify didRegisterForRemoteNotificationsWithDeviceToken called")
 
         // 1. read deviceToken
         self.deviceToken = retrieveDeviceToken(deviceToken)
@@ -409,14 +457,17 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     //      didReceiveRemoteNotification
     //
     public func didReceiveRemoteNotification(_ notification: [AnyHashable: Any]) {
-        BreinLogger.shared.log("didReceiveRemoteNotification called with notification: \(notification)")
+        BreinLogger.shared.log("Breinify didReceiveRemoteNotification called with notification: \(notification)")
+
+        // todo show the notification
+
 
         let notDic = notification["aps"] as! [String: Any]
         self.sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalContent: notDic)
     }
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
-        BreinLogger.shared.log("didFailToRegisterForRemoteNotificationsWithError called")
+        BreinLogger.shared.log("Breinify didFailToRegisterForRemoteNotificationsWithError called")
     }
 
     // Retrieves the device token
@@ -426,5 +477,27 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         })
 
         return apnsToken
+    }
+}
+
+extension UNNotificationAttachment {
+    static func create(imageFileIdentifier: String, data: NSData, options: [NSObject: AnyObject]?) -> UNNotificationAttachment? {
+
+        let fileManager = FileManager.default
+        let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+        let fileURLPath = NSURL(fileURLWithPath: NSTemporaryDirectory())
+        let tmpSubFolderURL = fileURLPath.appendingPathComponent(tmpSubFolderName, isDirectory: true)
+
+        do {
+            try fileManager.createDirectory(at: tmpSubFolderURL!, withIntermediateDirectories: true, attributes: nil)
+            let fileURL = tmpSubFolderURL?.appendingPathComponent(imageFileIdentifier)
+            try data.write(to: fileURL!, options: [])
+            let imageAttachment = try UNNotificationAttachment.init(identifier: imageFileIdentifier, url: fileURL!, options: options)
+            return imageAttachment
+        } catch let error {
+            BreinLogger.shared.log("Breinify notification attachment error \(error)")
+        }
+
+        return nil
     }
 }

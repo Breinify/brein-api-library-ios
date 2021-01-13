@@ -193,7 +193,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
 
         let status = CLLocationManager.authorizationStatus()
-        BreinLogger.shared.log("Status is: \(status)")
+        BreinLogger.shared.log("Breinify CLLocationManager authorizationStatus is: \(status)")
         if status == .restricted
                    || status == .denied {
             // no permissions given, inform BreinifyManager to stop sending sendLoc requests
