@@ -135,7 +135,7 @@ open class BreinBase: NSObject {
                 requestData["signature"] = try self.createSignature() as Any?
                 requestData["signatureType"] = "HmacSHA256" as Any?
             } catch {
-                BreinLogger.shared.log("not possible to generate signature")
+                BreinLogger.shared.log("Breinify not possible to generate signature")
             }
         }
 

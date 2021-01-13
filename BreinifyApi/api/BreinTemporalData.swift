@@ -170,7 +170,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
         do {
             signature = try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
         } catch {
-            BreinLogger.shared.log("Ups: Error while trying to generate signature")
+            BreinLogger.shared.log("Breinify error while trying to generate signature")
         }
 
         return signature

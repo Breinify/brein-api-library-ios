@@ -5,13 +5,13 @@
 
 import Foundation
 
-open class Breinify : NSObject {
+open class Breinify: NSObject {
 
     typealias apiSuccess = (_ result: BreinResult) -> Void
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "2.0.5"
+    static let version: String! = "2.0.6"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -58,6 +58,22 @@ open class Breinify : NSObject {
     public static func registerPushNotification() {
         /// user notification registration
         BreinifyManager.shared.registerPushNotifications()
+    }
+
+    @objc
+    public static func isBreinifyNotificationExtensionRequest(_ request: UNNotificationRequest) -> Bool {
+        BreinifyManager.shared.isBreinifyNotificationExtensionRequest(request)
+    }
+
+    @objc
+    public static func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest,
+                                                              bestAttemptContent: UNMutableNotificationContent) {
+        BreinifyManager.shared.didReceiveNotificationExtensionRequest(request, bestAttemptContent: bestAttemptContent)
+    }
+
+    @objc
+    public static func serviceExtensionTimeWillExpire(_ bestAttemptContent: UNMutableNotificationContent) {
+        BreinifyManager.shared.serviceExtensionTimeWillExpire(bestAttemptContent)
     }
 
     @objc
@@ -121,13 +137,13 @@ open class Breinify : NSObject {
 
     @objc
     public static func sendIdentifyInfo() {
-        BreinLogger.shared.log("sendIdentify called")
+        BreinLogger.shared.log("Breinify sendIdentify called")
         sendUserNotification(activityType: "identify")
     }
 
     @objc
     public static func sendLocationInfo() {
-        BreinLogger.shared.log("sendLocation called")
+        BreinLogger.shared.log("Breinify sendLocation called")
         sendUserNotification(activityType: "sendLoc")
     }
 
@@ -137,7 +153,7 @@ open class Breinify : NSObject {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if result != nil {
-                BreinLogger.shared.log("Breinify Api success")
+                BreinLogger.shared.log("Breinify api success")
             }
         }
 
@@ -145,7 +161,7 @@ open class Breinify : NSObject {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("Breinify Api failure - error is: \(String(describing: val))")
+                BreinLogger.shared.log("Breinify api failure - error is: \(String(describing: val))")
             }
         }
 
@@ -160,10 +176,10 @@ open class Breinify : NSObject {
                         successBlock,
                         failureBlock)
             } catch {
-                BreinLogger.shared.log("sendActivity error is: \(error)")
+                BreinLogger.shared.log("Breinify sendActivity error is: \(error)")
             }
         } else {
-            BreinLogger.shared.log("Activity does not contain an activity type")
+            BreinLogger.shared.log("Breinify activity does not contain an activity type")
         }
     }
 
@@ -184,7 +200,7 @@ open class Breinify : NSObject {
         let successBlock: apiSuccess = {
             (result: BreinResult?) -> Void in
             if result != nil {
-                BreinLogger.shared.log("sendUserNotification - api success")
+                BreinLogger.shared.log("Breinify sendUserNotification - api success")
             }
         }
 
@@ -192,7 +208,7 @@ open class Breinify : NSObject {
         let failureBlock: apiFailure = {
             (error: NSDictionary?) -> Void in
             if let val = error {
-                BreinLogger.shared.log("sendUserNotification - api failure - error is: \(String(describing: val))")
+                BreinLogger.shared.log("Breinify sendUserNotification - api failure - error is: \(String(describing: val))")
             }
         }
 
@@ -208,7 +224,7 @@ open class Breinify : NSObject {
                     successBlock,
                     failureBlock)
         } catch {
-            BreinLogger.shared.log("sendUserNotification Error is: \(error)")
+            BreinLogger.shared.log("Breinify sendUserNotification error is: \(error)")
         }
     }
 
@@ -782,12 +798,15 @@ open class Breinify : NSObject {
                 failure: failure)
     }
 
+    // todo
+    //   - check if willTerminate should be used instead
+
     /// Initiates the shutdown of the engine
     @objc
     public class func shutdown() {
         if getConfig() != nil {
 
-            // save possible unsend requests
+            // save possible unsent requests
             BreinRequestManager.shared.shutdown()
 
             getConfig().shutdownEngine()

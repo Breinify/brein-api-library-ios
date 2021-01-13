@@ -42,14 +42,14 @@ open class BreinIpInfo {
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {
                 // success
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    BreinLogger.shared.log("IP detection response:\n \(dataString)")
+                    BreinLogger.shared.log("Breinify IP detection response:\n \(dataString)")
                     do {
                         let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                         if let myDictionary = dictionary {
                             self.readDataMap = myDictionary
                         }
                     } catch let error as NSError {
-                        BreinLogger.shared.log("IP detection with error: \(error)")
+                        BreinLogger.shared.log("Breinify IP detection with error: \(error)")
                     }
                 }
             }
