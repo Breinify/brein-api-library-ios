@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import IDZSwiftCommonCrypto
 import NetUtils
 
 public class BreinUtil {
