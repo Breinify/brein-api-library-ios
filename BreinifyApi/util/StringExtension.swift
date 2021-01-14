@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import IDZSwiftCommonCrypto
 
 extension String {
     // pre-defined constants for Category
@@ -37,13 +36,13 @@ extension String {
     public static let startPushNotification = "startPushNotification"
     public static let stopPushNotification = "stopPushNotification"
     public static let checkOutEmailEntered = "checkOutEmailEntered"
-    
+
     // used for the signature
     func digestHMac256(_ key: String) -> String! {
         let message = self
         let bytes = message.utf16.count
-        let hmac256 = HMAC(algorithm: .sha256, key: key).update(buffer: message, byteCount: bytes)?.final()
 
+        let hmac256 = BreinCrypto(algorithm: .sha256, key: key).update(buffer: message, byteCount: bytes)?.final()
         if let hmac = hmac256 {
             //Convert [UInt8] to NSData
             let data = NSData(bytes: hmac, length: hmac.count)
@@ -55,5 +54,4 @@ extension String {
         }
         return ""
     }
-
 }
