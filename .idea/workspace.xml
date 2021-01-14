@@ -7,9 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="folder removed">
+    <list default="true" id="776bb682-fcb5-4a0f-8154-9dfeb5faccc5" name="Default" comment="adopted github url">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/util/BreinUtil.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/util/BreinUtil.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreinifyApi/util/StringExtension.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BreinifyApi/util/StringExtension.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +51,7 @@
       <recent name="$PROJECT_DIR$/BreinifyApi" />
     </key>
   </component>
-  <component name="RunManager" selected="XCTest.All in TestSecret.swift">
+  <component name="RunManager" selected="XCTest.All in TestApiWithSecret.swift">
     <configuration name="BreinifyApi" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApi" CONFIG_NAME="Debug" SCHEME_NAME="BreinifyApi" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -59,17 +61,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TestExecutor.swift (1)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift (1)" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestExecutor" TEST_MODE="PATTERN">
+    <configuration name="All in TestApiWithSecret.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestApiWithSecret.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestApiWithSecret" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="All in TestExecutor.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestExecutor.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in TestLifecycle.swift" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="All in TestLifecycle.swift" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_PATTERN="TestLifecycle" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -89,6 +86,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestSecret.testSecretGeneration" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BreinifyApi" TARGET_NAME="BreinifyApiTests" CONFIG_NAME="Debug" SCHEME_NAME="TestSecret.testSecretGeneration" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" TEST_CLASS="TestSecret" TEST_METHOD="testSecretGeneration" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -101,19 +103,19 @@
     <list>
       <item itemvalue="Application.BreinifyApi" />
       <item itemvalue="XCTest.All in TestExecutor.swift" />
-      <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
-      <item itemvalue="XCTest.All in TestLifecycle.swift" />
       <item itemvalue="XCTest.All in TestLocation.swift" />
       <item itemvalue="XCTest.All in TestNetwork.swift" />
       <item itemvalue="XCTest.All in TestSecret.swift" />
+      <item itemvalue="XCTest.TestSecret.testSecretGeneration" />
+      <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="XCTest.All in TestApiWithSecret.swift" />
         <item itemvalue="XCTest.All in TestSecret.swift" />
+        <item itemvalue="XCTest.TestSecret.testSecretGeneration" />
         <item itemvalue="XCTest.All in TestNetwork.swift" />
         <item itemvalue="XCTest.All in TestLocation.swift" />
-        <item itemvalue="XCTest.All in TestLifecycle.swift" />
-        <item itemvalue="XCTest.All in TestExecutor.swift (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -190,42 +192,8 @@
       <workItem from="1610132765641" duration="2754000" />
       <workItem from="1610366688015" duration="1026000" />
       <workItem from="1610375627794" duration="1023000" />
-      <workItem from="1610532336459" duration="15807000" />
-    </task>
-    <task id="LOCAL-00012" summary="code cleanUp">
-      <created>1606651613499</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606651613499</updated>
-    </task>
-    <task id="LOCAL-00013" summary="additional supporting functions added">
-      <created>1606746259100</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1606746259100</updated>
-    </task>
-    <task id="LOCAL-00014" summary="additional sendActivity method added">
-      <created>1606749071409</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606749071409</updated>
-    </task>
-    <task id="LOCAL-00015" summary="additional activity types added">
-      <created>1606772201312</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606772201312</updated>
-    </task>
-    <task id="LOCAL-00016" summary="setUserInfo added">
-      <created>1606772231388</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606772231388</updated>
+      <workItem from="1610532336459" duration="18750000" />
+      <workItem from="1610610290895" duration="4597000" />
     </task>
     <task id="LOCAL-00017" summary="additional test cases added">
       <created>1606772249762</created>
@@ -535,7 +503,42 @@
       <option name="project" value="LOCAL" />
       <updated>1610579260456</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="adopted github url">
+      <created>1610579696933</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1610579696933</updated>
+    </task>
+    <task id="LOCAL-00062" summary="updated doc">
+      <created>1610580294535</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1610580294535</updated>
+    </task>
+    <task id="LOCAL-00063" summary="crypto class added">
+      <created>1610628980425</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1610628980425</updated>
+    </task>
+    <task id="LOCAL-00064" summary="dependency removed">
+      <created>1610629071867</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1610629071867</updated>
+    </task>
+    <task id="LOCAL-00065" summary="version 2.0.7">
+      <created>1610629109330</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1610629109330</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,11 +547,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="additional test secret added" />
-    <MESSAGE value="test secret update" />
-    <MESSAGE value="support of setting unixTimestamp" />
-    <MESSAGE value="user set in sendActivity" />
-    <MESSAGE value="additional test cases added" />
     <MESSAGE value="useInfo enum added" />
     <MESSAGE value="adoption to changed optionals" />
     <MESSAGE value="supporting deviceToken func added" />
@@ -569,82 +567,91 @@
     <MESSAGE value="new version" />
     <MESSAGE value="ios version set to 9" />
     <MESSAGE value="consideration of iOS9" />
-    <option name="LAST_COMMIT_MESSAGE" value="consideration of iOS9" />
+    <MESSAGE value="adopted github url" />
+    <MESSAGE value="updated doc" />
+    <MESSAGE value="crypto class added" />
+    <MESSAGE value="dependency removed" />
+    <MESSAGE value="version 2.0.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 2.0.7" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607343162509">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="634" y="313" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607343162509" />
-    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610579260338">
+    <state x="659" y="281" key="#xdebugger.evaluate" timestamp="1610625180837">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610579260338" />
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1610576660296">
+    <state x="659" y="281" key="#xdebugger.evaluate/0.23.1792.1097@0.23.1792.1097" timestamp="1610625180837" />
+    <state x="358" y="131" key="CommitChangelistDialog2" timestamp="1610629109238">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1610576660296" />
-    <state width="1750" height="334" key="GridCell.Tab.0.bottom" timestamp="1610577211621">
+    <state x="358" y="131" key="CommitChangelistDialog2/0.23.1792.1097@0.23.1792.1097" timestamp="1610629109238" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog" timestamp="1610629209426">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
+    <state x="52" y="37" width="1704" height="1016" key="DiffContextDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1610629209426" />
+    <state width="1750" height="267" key="GridCell.Tab.0.bottom" timestamp="1610626549978">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="267" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549978" />
     <state width="1726" height="280" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590362" />
-    <state width="1750" height="334" key="GridCell.Tab.0.center" timestamp="1610577211621">
+    <state width="1750" height="267" key="GridCell.Tab.0.center" timestamp="1610626549977">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
+    <state width="1750" height="267" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549977" />
     <state width="1726" height="280" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1750" height="334" key="GridCell.Tab.0.left" timestamp="1610577211620">
+    <state width="1750" height="267" key="GridCell.Tab.0.left" timestamp="1610626549977">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211620" />
+    <state width="1750" height="267" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549977" />
     <state width="1726" height="280" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590360" />
-    <state width="1750" height="334" key="GridCell.Tab.0.right" timestamp="1610577211621">
+    <state width="1750" height="267" key="GridCell.Tab.0.right" timestamp="1610626549978">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="334" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610577211621" />
+    <state width="1750" height="267" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549978" />
     <state width="1726" height="280" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590361" />
-    <state width="1750" height="326" key="GridCell.Tab.1.bottom" timestamp="1610562782431">
+    <state width="1750" height="267" key="GridCell.Tab.1.bottom" timestamp="1610626549980">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782431" />
+    <state width="1750" height="267" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549980" />
     <state width="1726" height="280" key="GridCell.Tab.1.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
-    <state width="1750" height="326" key="GridCell.Tab.1.center" timestamp="1610562782430">
+    <state width="1750" height="267" key="GridCell.Tab.1.center" timestamp="1610626549979">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
+    <state width="1750" height="267" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549979" />
     <state width="1726" height="280" key="GridCell.Tab.1.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
-    <state width="1750" height="326" key="GridCell.Tab.1.left" timestamp="1610562782430">
+    <state width="1750" height="267" key="GridCell.Tab.1.left" timestamp="1610626549978">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
+    <state width="1750" height="267" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549978" />
     <state width="1726" height="280" key="GridCell.Tab.1.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590197" />
-    <state width="1750" height="326" key="GridCell.Tab.1.right" timestamp="1610562782430">
+    <state width="1750" height="267" key="GridCell.Tab.1.right" timestamp="1610626549979">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="326" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610562782430" />
+    <state width="1750" height="267" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1610626549979" />
     <state width="1726" height="280" key="GridCell.Tab.1.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581590198" />
     <state x="397" y="198" key="SettingsEditor" timestamp="1607157026164">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="397" y="198" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1607157026164" />
     <state x="397" y="198" key="SettingsEditor/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606578519306" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1605791675194">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1610626170251">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1605791675194" />
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1610579261801">
+    <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1610626170251" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2" timestamp="1610629110553">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1610579261801" />
+    <state x="496" y="299" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1610629110553" />
     <state width="884" height="532" key="XDebugger.FullValuePopup" timestamp="1606644272708">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="884" height="532" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606644272708" />
-    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1610560957595">
+    <state x="99" y="94" width="1642" height="935" key="find.popup" timestamp="1610610682391">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610560957595" />
+    <state x="99" y="94" width="1642" height="935" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610610682391" />
     <state x="99" y="94" width="1642" height="935" key="find.popup/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1606581521032" />
     <state x="561" y="264" width="670" height="676" key="search.everywhere.popup" timestamp="1610123407700">
       <screen x="0" y="23" width="1792" height="1097" />
@@ -873,6 +880,26 @@
           <url>file://$PROJECT_DIR$/BreinifyApi/api/BreinifyManager.swift</url>
           <line>251</line>
           <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/util/StringExtension.swift</url>
+          <line>42</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApiTests/api/TestSecret.swift</url>
+          <line>14</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/util/StringExtension.swift</url>
+          <line>47</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/BreinifyApi/util/StringExtension.swift</url>
+          <line>44</line>
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

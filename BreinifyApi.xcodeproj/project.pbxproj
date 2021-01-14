@@ -66,6 +66,7 @@
 		A93944E91EBC7D6E003440C0 /* BreinifyApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93944DF1EBC7D6E003440C0 /* BreinifyApi.framework */; };
 		A93944EE1EBC7D6E003440C0 /* BreinifyApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93944ED1EBC7D6E003440C0 /* BreinifyApiTests.swift */; };
 		A93DEE2225AC9A8200511355 /* pushnotification-capabilities.png in Resources */ = {isa = PBXBuildFile; fileRef = A93DEE2125AC9A8200511355 /* pushnotification-capabilities.png */; };
+		A93DEFDE25B06B6300511355 /* BreinCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DD2B83DE768FC1C7FD8653 /* BreinCrypto.swift */; };
 		A9A0673825603F5A00C5BBBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A0673725603F5A00C5BBBF /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		62DD2B145CA6B6297B621E1C /* Breinify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breinify.swift; sourceTree = "<group>"; };
 		62DD2B440924AC502194B6A3 /* BreinNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinNotificationHandler.swift; sourceTree = "<group>"; };
 		62DD2B8149CEC982F6152585 /* BreinIpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinIpInfo.swift; sourceTree = "<group>"; };
+		62DD2B83DE768FC1C7FD8653 /* BreinCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinCrypto.swift; sourceTree = "<group>"; };
 		62DD2B8B798FA3ED504EDF4D /* BreinActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivityType.swift; sourceTree = "<group>"; };
 		62DD2BC8C08150C037291E8E /* BreinActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreinActivity.swift; sourceTree = "<group>"; };
 		62DD2C03EE21900AC3DB5D7D /* IRestEngineExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRestEngineExtension.swift; sourceTree = "<group>"; };
@@ -247,7 +249,6 @@
 				ED82866787CE1323EF71EDBA /* Pods-BreinifyApiTests.debug.xcconfig */,
 				9A12AD73570ED8257742153E /* Pods-BreinifyApiTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -417,6 +418,7 @@
 				62DD2246CC23728D8061085C /* JsonRequest.swift */,
 				62DD258E7D206D4CA66C2812 /* StringExtension.swift */,
 				62DD2AC3900F9520050A74BD /* BreinReachability.swift */,
+				62DD2B83DE768FC1C7FD8653 /* BreinCrypto.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -545,12 +547,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BreinifyApiTests/Pods-BreinifyApiTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IDZSwiftCommonCrypto/IDZSwiftCommonCrypto.framework",
 				"${BUILT_PRODUCTS_DIR}/NetUtils/NetUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDZSwiftCommonCrypto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +649,7 @@
 				62DD264B03FA6D8E5D187477 /* BreinNotificationServiceExtension.swift in Sources */,
 				62DD2F3C76A686A76D772B98 /* Breinify.swift in Sources */,
 				62DD2434AB217A47741441B7 /* objectivec_integration.md in Sources */,
+				A93DEFDE25B06B6300511355 /* BreinCrypto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
