@@ -87,7 +87,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
     @discardableResult
     @objc
-    public func setTagsDic(_ tagsDic: [String: Any]) -> BreinActivity {
+    public func setTagsDic(_ tagsDic: [String: Any]?) -> BreinActivity {
         self.tagsDic = tagsDic
         return self
     }
@@ -100,7 +100,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     @objc
     public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
         if self.tagsDic == nil {
-            self.tagsDic = [String : Any] ()
+            self.tagsDic = [String: Any]()
         }
 
         tagsDic?[key] = value
@@ -131,8 +131,10 @@ open class BreinActivity: BreinBase, ISecretStrategy {
                          breinActivityType: String!,
                          _ breinCategoryType: String! = nil,
                          _ description: String! = nil,
-                         _ success: @escaping BreinEngine.apiSuccess = { _ in },
-                         _ failure: @escaping BreinEngine.apiFailure = { _ in }) throws {
+                         _ success: @escaping BreinEngine.apiSuccess = { _ in
+                         },
+                         _ failure: @escaping BreinEngine.apiFailure = { _ in
+                         }) throws {
 
         //  set the values for further usage
         setUser(breinUser)
@@ -221,6 +223,17 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         clonedBreinActivity.cloneBase(self)
 
         return clonedBreinActivity
+    }
+
+    override
+    public func clear() {
+        super.clear()
+
+        self.activityDic?.removeAll()
+        self.tagsDic?.removeAll()
+        self.category = ""
+        self.desc = ""
+        self.activityType = ""
     }
 
     /// Generates the signature for the request
