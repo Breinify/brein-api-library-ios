@@ -68,7 +68,7 @@ open class BreinConfig {
     var locationManagerUsage: Bool = false
 
     // resend failed activities
-    var resendFailedActivities: Bool = true
+    var resendFailedActivities: Bool = false
 
     // standard ctor
     public init() {
