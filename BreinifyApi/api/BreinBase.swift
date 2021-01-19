@@ -225,4 +225,10 @@ open class BreinBase: NSObject {
             self.setBaseDic(clonedBaseDic)
         }
     }
+
+    func clear() {
+        self.unixTimestamp = 0
+        self.ipAddress = ""
+        self.baseDic?.removeAll()
+    }
 }
