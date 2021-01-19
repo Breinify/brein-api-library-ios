@@ -3,11 +3,8 @@ use_frameworks!
 
 target 'BreinifyApi' do
 
-  pod 'NetUtils', '~> 4.2'
-
   target 'BreinifyApiTests' do
     inherit! :search_paths
-    pod 'NetUtils', '~> 4.2'
   end
 
 end
