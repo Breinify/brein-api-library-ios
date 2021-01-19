@@ -6,7 +6,6 @@
 import UIKit
 import XCTest
 @testable import BreinifyApi
-@testable import NetUtils
 
 class TestDomain: XCTestCase {
 
@@ -128,7 +127,6 @@ class TestDomain: XCTestCase {
         let breinUser = BreinUser()
 
         // TimeZone.current
-
         print(breinUser.detectLocalDateTime()!)
 
         // XCTAssertEqual(kUUID, getUserId)
@@ -140,30 +138,4 @@ class TestDomain: XCTestCase {
         print("LocaldateTime is: \(String(describing: localDateTime))")
     }
 
-    func testWifiDetection() {
-
-        // let ip = getWiFiAddress()
-        // print("IP is: \(ip)")
-
-        let interfaces = Interface.allInterfaces()
-
-        for i in interfaces {
-            let running = i.isRunning ? "running" : "not running"
-            let up = i.isUp ? "up" : "down"
-            let loopback = i.isLoopback ? ", loopback" : ""
-            print("\(i.name) (\(running), \(up)\(loopback))")
-            print("    Family: \(i.family.toString())")
-            if let a = i.address {
-                print("    Address: \(a)")
-            }
-            if let nm = i.netmask {
-                print("    Netmask: \(nm)")
-            }
-            if let b = i.broadcastAddress {
-                print("    broadcast: \(b)")
-            }
-            let mc = i.supportsMulticast ? "yes" : "no"
-            print("    multicast: \(mc)")
-        }
-    }
 }

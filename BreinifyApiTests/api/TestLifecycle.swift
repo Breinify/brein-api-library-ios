@@ -185,7 +185,6 @@ class TestLifecycle: XCTestCase {
             "pageId": "otherBalance"
         ] as [String: Any]
 
-
         BreinLogger.shared.setDebug(true)
 
         let breinActivity = Breinify.getBreinActivity()
@@ -195,6 +194,29 @@ class TestLifecycle: XCTestCase {
 
         Breinify.sendActivity(breinActivity)
     }
+
+    func testSendMultiplePageViewActivities() {
+        let jsonDict = [
+            "saldo": 6.902,
+            "recharge": 0,
+            "package": 0,
+            "consumption": 3.498,
+            "disponsible": 2.904,
+            "other": 0,
+            "pageId": "consumptionDetails"
+        ] as [String: Any]
+
+        let breinActivity:BreinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(jsonDict)
+
+        breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+        Breinify.sendActivity(breinActivity)
+
+        breinActivity.clear()
+        Breinify.sendActivity(breinActivity)
+
+    }
+
 }
 
 
