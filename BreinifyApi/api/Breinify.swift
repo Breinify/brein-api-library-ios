@@ -138,7 +138,7 @@ open class Breinify: NSObject {
                 email: email)
 
         // send identify
-        Breinify.sendIdentifyInfo(deviceToken)
+        Breinify.sendIdentifyInfo()
     }
 
     @objc
@@ -151,20 +151,9 @@ open class Breinify: NSObject {
     }
 
     @objc
-    public static func sendIdentifyInfo(_ deviceToken: String) {
+    public static func sendIdentifyInfo() {
         BreinLogger.shared.log("Breinify sendIdentify called")
-
-        let breinActivity = Breinify.getBreinActivity()
-        let previousDic = breinActivity.getTagsDic()
-
-        var tagsDic = [String: Any]()
-        tagsDic["deviceToken"] = deviceToken
-        tagsDic["deviceKind"] = "iOS"
-        breinActivity.setTagsDic(tagsDic)
-
         sendUserNotification(activityType: "identify")
-
-        breinActivity.setTagsDic(previousDic)
     }
 
     @objc
