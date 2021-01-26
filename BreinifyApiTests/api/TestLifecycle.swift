@@ -217,6 +217,24 @@ class TestLifecycle: XCTestCase {
 
     }
 
+    func testCheckOut() {
+        let jsonDict = [
+            "productPrices": [10000],
+            "productIds": ["packageOption"],
+            "productQuantities": [1],
+            "transactionPriceTotal": 10000,
+            "transactionTotal": 10000
+        ] as [String: Any]
+
+        let breinActivity = Breinify.getBreinActivity()
+        breinActivity.setTagsDic(jsonDict)
+
+        Breinify.setLogging(true)
+        breinActivity.setActivityType(BreinActivityType.CHECKOUT.rawValue)
+        Breinify.sendActivity(breinActivity)
+
+    }
+
 }
 
 
