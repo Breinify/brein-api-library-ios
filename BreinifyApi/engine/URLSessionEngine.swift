@@ -104,8 +104,7 @@ public class URLSessionEngine: IRestEngine {
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = jsonData
-
-        // Alamofire.request(url, method: .post,
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let error = error {
