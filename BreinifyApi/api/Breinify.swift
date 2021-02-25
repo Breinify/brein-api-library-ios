@@ -65,6 +65,8 @@ open class Breinify: NSObject {
         if #available(iOS 10.0, *) {
             let notificationRequest = request as! UNNotificationRequest
             return BreinifyManager.shared.isBreinifyNotificationExtensionRequest(notificationRequest)
+        } else {
+            BreinLogger.shared.log("NotificationExtension only support from iOS 10 and above")
         }
         return false
     }
@@ -72,13 +74,13 @@ open class Breinify: NSObject {
     @objc
     public static func didReceiveNotificationExtensionRequest(_ request: Any,
                                                               bestAttemptContent: Any) {
-
         if #available(iOS 10.0, *) {
             let notificationRequest = request as! UNNotificationRequest
             let notificationContent = bestAttemptContent as! UNMutableNotificationContent
             BreinifyManager.shared.didReceiveNotificationExtensionRequest(notificationRequest, bestAttemptContent: notificationContent)
+        } else {
+            BreinLogger.shared.log("NotificationExtension only support from iOS 10 and above")
         }
-
     }
 
     @objc
@@ -87,8 +89,9 @@ open class Breinify: NSObject {
         if #available(iOS 10.0, *) {
             let notificationContent = bestAttemptContent as! UNMutableNotificationContent
             BreinifyManager.shared.serviceExtensionTimeWillExpire(notificationContent)
+        } else {
+            BreinLogger.shared.log("NotificationExtension only support from iOS 10 and above")
         }
-
     }
 
     @objc
