@@ -62,6 +62,9 @@ open class Breinify: NSObject {
 
     @objc
     public static func isBreinifyNotificationExtensionRequest(_ request: Any) -> Bool {
+
+        BreinLogger.shared.log("isBreinifyNotificationExtensionRequest invoked with request: \(request)")
+
         if #available(iOS 10.0, *) {
             let notificationRequest = request as! UNNotificationRequest
             return BreinifyManager.shared.isBreinifyNotificationExtensionRequest(notificationRequest)
@@ -74,6 +77,8 @@ open class Breinify: NSObject {
     @objc
     public static func didReceiveNotificationExtensionRequest(_ request: Any,
                                                               bestAttemptContent: Any) {
+
+        BreinLogger.shared.log("didReceiveNotificationExtensionRequest REQUEST is: \(request)")
         if #available(iOS 10.0, *) {
             let notificationRequest = request as! UNNotificationRequest
             let notificationContent = bestAttemptContent as! UNMutableNotificationContent
@@ -373,13 +378,17 @@ open class Breinify: NSObject {
         let breinAct = getBreinActivity()
         breinAct.setUser(user)
 
-        try activity(breinAct,
-                user: user,
-                activityType: activityType,
-                nil,
-                nil,
-                success,
-                failure)
+        do {
+            try activity(breinAct,
+                    user: user,
+                    activityType: activityType,
+                    nil,
+                    nil,
+                    success,
+                    failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -414,13 +423,17 @@ open class Breinify: NSObject {
         let breinAct = getBreinActivity()
         breinAct.setUser(user)
 
-        try activity(breinAct,
-                user: user,
-                activityType: activityType,
-                category,
-                description,
-                success,
-                failure)
+        do {
+            try activity(breinAct,
+                    user: user,
+                    activityType: activityType,
+                    category,
+                    description,
+                    success,
+                    failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -451,13 +464,17 @@ open class Breinify: NSObject {
         // firstly check if user is valid
         let user = self.getBreinUser()
 
-        try activity(getBreinActivity(),
-                user: user,
-                activityType: activityType,
-                category,
-                description,
-                success,
-                failure)
+        do {
+            try activity(getBreinActivity(),
+                    user: user,
+                    activityType: activityType,
+                    category,
+                    description,
+                    success,
+                    failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -501,10 +518,14 @@ open class Breinify: NSObject {
 
         let clonedActivity = activity.clone()
 
-        // invoke the activity call
-        try clonedActivity.getBreinEngine()?.sendActivity(clonedActivity,
-                success: success,
-                failure: failure)
+        do {
+            // invoke the activity call
+            try clonedActivity.getBreinEngine()?.sendActivity(clonedActivity,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -538,9 +559,13 @@ open class Breinify: NSObject {
         // clone breinActivity
         let clonedBreinActivity = breinActivity.clone()
 
-        try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
-                success: success,
-                failure: failure)
+        do {
+            try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
 
@@ -590,9 +615,13 @@ open class Breinify: NSObject {
         // clone breinActivity
         let clonedBreinActivity = breinActivity.clone()
 
-        try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
-                success: success,
-                failure: failure)
+        do {
+            try clonedBreinActivity.getBreinEngine()?.sendActivity(clonedBreinActivity,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -624,9 +653,13 @@ open class Breinify: NSObject {
         clonedBreinRecommendation.setSuccessBlock(success)
         clonedBreinRecommendation.setFailureBlock(failure)
 
-        return try clonedBreinRecommendation.getBreinEngine()!.invokeRecommendation(clonedBreinRecommendation,
-                success: success,
-                failure: failure)
+        do {
+            return try clonedBreinRecommendation.getBreinEngine()!.invokeRecommendation(clonedBreinRecommendation,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -649,9 +682,13 @@ open class Breinify: NSObject {
 
         self.breinTemporalData.setUser(user)
 
-        return try temporalData(breinTemporalData,
-                success,
-                failure)
+        do {
+            return try temporalData(breinTemporalData,
+                    success,
+                    failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -679,9 +716,13 @@ open class Breinify: NSObject {
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
 
-        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
-                success: success,
-                failure: failure)
+        do {
+            return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -714,9 +755,13 @@ open class Breinify: NSObject {
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
 
-        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
-                success: success,
-                failure: failure)
+        do {
+            return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -754,9 +799,13 @@ open class Breinify: NSObject {
         // apply the current configuration
         clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
 
-        return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
-                success: success,
-                failure: failure)
+        do {
+            return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -777,11 +826,15 @@ open class Breinify: NSObject {
                              _ failure: @escaping BreinEngine.apiFailure = { _ in
                              }) throws {
 
-        return try lookup(breinLookup,
-                user: user,
-                dimension: dimension,
-                success,
-                failure)
+        do {
+            return try lookup(breinLookup,
+                    user: user,
+                    dimension: dimension,
+                    success,
+                    failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -811,13 +864,14 @@ open class Breinify: NSObject {
         breinLookup.setUser(user)
         breinLookup.setBreinDimension(dimension)
 
-        return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
-                success: success,
-                failure: failure)
+        do {
+            return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
-
-    // todo
-    //   - check if willTerminate should be used instead
 
     /// Initiates the shutdown of the engine
     @objc

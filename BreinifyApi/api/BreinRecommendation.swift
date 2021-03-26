@@ -22,22 +22,22 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
 
     public init(numberOfRecommendation: Int!) {
         super.init()
-        self.setNumberOfRecommendations(numberOfRecommendation)
+        setNumberOfRecommendations(numberOfRecommendation)
     }
 
     public init(breinUser: BreinUser?) {
         super.init()
-        self.setUser(breinUser)
+        setUser(breinUser)
     }
 
     public init(breinUser: BreinUser?, numberOfRecommendation: Int!) {
         super.init()
-        self.setUser(breinUser)
-        self.setNumberOfRecommendations(numberOfRecommendations)
+        setUser(breinUser)
+        setNumberOfRecommendations(numberOfRecommendations)
     }
 
     public func getCategory() -> String! {
-        self.category
+        category
     }
 
     @discardableResult
@@ -47,12 +47,12 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
     }
 
     public func getNumberOfRecommendations() -> Int {
-        self.numberOfRecommendations
+        numberOfRecommendations
     }
 
     @discardableResult
     public func setNumberOfRecommendations(_ numOfRecommendations: Int) -> BreinRecommendation {
-        self.numberOfRecommendations = numOfRecommendations
+        numberOfRecommendations = numOfRecommendations
         return self
     }
 
@@ -77,7 +77,7 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
         // firstly user data
         if let breinUser = getUser() {
             var userData = [String: Any]()
-            breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
+            breinUser.prepareUserRequest(&userData, breinConfig: getConfig())
             requestData["user"] = userData as Any?
         }
 
@@ -85,12 +85,12 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
         var recommendationData = [String: Any]()
 
         // optional field
-        if let category = self.getCategory() {
+        if let category = getCategory() {
             recommendationData["recommendationCategory"] = category as Any?
         }
 
         // mandatory field
-        recommendationData["numRecommendations"] = self.getNumberOfRecommendations() as Any?
+        recommendationData["numRecommendations"] = getNumberOfRecommendations() as Any?
 
         requestData["recommendation"] = recommendationData as Any?;
 
@@ -110,8 +110,8 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
 
         // create a new recommendation object
         let clonedBreinRecommendation = BreinRecommendation()
-                .setNumberOfRecommendations(self.getNumberOfRecommendations())
-                .setCategory(self.getCategory())
+                .setNumberOfRecommendations(getNumberOfRecommendations())
+                .setCategory(getCategory())
 
         // clone from base class
         clonedBreinRecommendation.cloneBase(self)
@@ -124,6 +124,11 @@ open class BreinRecommendation: BreinBase, ISecretStrategy {
     */
     public override func createSignature() throws -> String! {
         let message = String(getUnixTimestamp())
-        return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
+        do {
+            return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+            return ""
+        }
     }
 }

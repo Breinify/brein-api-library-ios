@@ -23,10 +23,12 @@ public extension Breinify {
         BreinifyManager.shared.didFinishLaunchingWithOptions(apiKey: apiKey,
                 secret: secret, backgroundInterval: backgroundInterval)
     }
+
     /**
 
         This method is invoked when the app is moving to background mode. 
     */
+    @objc
     class func applicationDidEnterBackground() {
         BreinifyManager.shared.applicationDidEnterBackground()
     }
@@ -36,6 +38,7 @@ public extension Breinify {
         This method is invoked when the app is going to terminate.
 
     */
+    @objc
     class func applicationWillTerminate() {
         BreinifyManager.shared.applicationWillTerminate()
     }
@@ -46,7 +49,8 @@ public extension Breinify {
         device token for the iOS device
 
     */
-    class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) ->  String! {
+    @objc
+    class func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) -> String! {
         let token = BreinifyManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
         return token
     }
@@ -56,6 +60,7 @@ public extension Breinify {
         This method is invoked when it was not possible to register for remote notifications
 
     */
+    @objc
     class func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
         BreinifyManager.shared.didFailToRegisterForRemoteNotificationsWithError(error)
     }
@@ -65,6 +70,7 @@ public extension Breinify {
         This method is invoked when a remove notification is triggered
 
     */
+    @objc
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
         BreinifyManager.shared.didReceiveRemoteNotification(userInfo)
     }
@@ -74,6 +80,7 @@ public extension Breinify {
         This method is invoked when the App becomes active again.
 
     */
+    @objc
     class func applicationDidBecomeActive() {
         BreinifyManager.shared.applicationDidBecomeActive()
     }
@@ -83,10 +90,12 @@ public extension Breinify {
         the settings of userId. The userId is part of the request.
 
     */
+    @objc
     class func setUserId(_ userId: String) {
         BreinifyManager.shared.setUserId(userId)
     }
 
+    @objc
     class func getUserId() -> String? {
         return BreinifyManager.shared.getUserId()
     }
@@ -96,10 +105,12 @@ public extension Breinify {
         the settings of user email. The user email is part of the request.
 
     */
+    @objc
     class func setEmail(_ email: String) {
         BreinifyManager.shared.setEmail(email)
     }
 
+    @objc
     class func getEmail() -> String? {
         return BreinifyManager.shared.getUserEmail()
     }

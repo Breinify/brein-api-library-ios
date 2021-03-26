@@ -60,7 +60,7 @@ open class BreinRequestManager {
 
     @objc
     public func sendActivityRequests() {
-        BreinLogger.shared.log("Breinify sendActivityRequests invoked - number of missed requests are: \(self.missedRequests.count)")
+        BreinLogger.shared.log("Breinify sendActivityRequests invoked - number of missed requests are: \(missedRequests.count)")
 
         if missedRequests.count > 0 {
             BreinLogger.shared.log("Breinify invoking saved activity requests")
@@ -82,15 +82,15 @@ open class BreinRequestManager {
     }
 
     public func getMissedRequests() -> [String: JsonRequest] {
-        self.missedRequests
+        missedRequests
     }
 
     public func clearMissedRequests() {
-        self.missedRequests = [String: JsonRequest]()
+        missedRequests = [String: JsonRequest]()
     }
 
     public func status() -> String {
-        let numberOfRequests = "# :\(self.missedRequests.count)"
+        let numberOfRequests = "# :\(missedRequests.count)"
         return numberOfRequests
     }
 
@@ -129,7 +129,8 @@ open class BreinRequestManager {
 
     */
     public func shutdown() {
-        safeMissedRequests()
+        // deactivated now
+        // safeMissedRequests()
     }
 
     /**
@@ -144,8 +145,7 @@ open class BreinRequestManager {
     */
     public func safeMissedRequests() {
 
-        if self.missedRequests.count > 0 {
-
+        if missedRequests.count > 0 {
             let fileURL = try! FileManager.default.url(for: .documentDirectory,
                             in: .userDomainMask, appropriateFor: nil, create: false)
                     .appendingPathComponent(kRequestFullFileName)
@@ -155,7 +155,7 @@ open class BreinRequestManager {
 
                 var output = ""
 
-                for (_, jsonElement) in self.missedRequests {
+                for (_, jsonElement) in missedRequests {
                     output = output
                             + "\(jsonElement.creationTime!)"
                             + kDelimiter
@@ -178,7 +178,7 @@ open class BreinRequestManager {
         }
 
         // delete file if no entries exists
-        if self.missedRequests.count == 0 {
+        if missedRequests.count == 0 {
 
             let fileManager = FileManager.default
             let fileName = kRequestFileName
@@ -209,7 +209,7 @@ open class BreinRequestManager {
     */
     public func loadMissedRequests() {
 
-        if self.missedRequests.count == 0 {
+        if missedRequests.count == 0 {
 
             let fileName = kRequestFileName
             let docDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask,

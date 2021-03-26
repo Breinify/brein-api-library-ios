@@ -15,7 +15,7 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     let kShapeTypesField = "shapeTypes"
 
     public func setLocation(key: String, value: AnyObject) -> BreinTemporalData {
-        _ = self.getUser()?.setAdditionalLocationEntry(key: key, value: value)
+        _ = getUser()?.setAdditionalLocationEntry(key: key, value: value)
         return self
     }
 
@@ -36,23 +36,23 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
     }
 
     public func setLocalDateTime(_ localDateTime: String) -> BreinTemporalData {
-        _ = self.getUser()?.setLocalDateTime(localDateTime)
+        _ = getUser()?.setLocalDateTime(localDateTime)
         return self
     }
 
     public func setTimezone(_ timezone: String) -> BreinTemporalData {
-        _ = self.getUser()?.setTimezone(timezone)
+        _ = getUser()?.setTimezone(timezone)
         return self
     }
 
     // Lookup ip is part of the user.additional section
     public func setLookUpIpAddress(_ ipAddress: String) -> BreinTemporalData {
-        _ = self.getUser()?.setIpAddress(ipAddress)
+        _ = getUser()?.setIpAddress(ipAddress)
         return self
     }
 
     public func getLookUpIpAddress() -> String? {
-        self.getUser()?.getIpAddress()
+        getUser()?.getIpAddress()
     }
 
     /**
@@ -103,9 +103,13 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         setUser(breinUser)
 
-        return try getBreinEngine()!.performTemporalDataRequest(self,
-                success: success,
-                failure: failure)
+        do {
+            return try getBreinEngine()!.performTemporalDataRequest(self,
+                    success: success,
+                    failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     override public func prepareJsonRequest() -> [String: Any]! {
@@ -116,12 +120,12 @@ open class BreinTemporalData: BreinBase, ISecretStrategy {
 
         if let breinUser = getUser() {
             var userData = [String: Any]()
-            breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
+            breinUser.prepareUserRequest(&userData, breinConfig: getConfig())
             requestData["user"] = userData as Any?
         }
 
         // base level data...
-        self.prepareBaseRequestData(&requestData)
+        prepareBaseRequestData(&requestData)
 
         return requestData
     }

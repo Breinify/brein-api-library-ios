@@ -41,7 +41,11 @@ open class BreinLookup: BreinBase, ISecretStrategy {
         setUser(breinUser)
         setBreinDimension(breinDimension)
 
-        return try getBreinEngine()!.performLookUp(self, success: successBlock, failure: failureBlock)
+        do {
+            return try getBreinEngine()!.performLookUp(self, success: successBlock, failure: failureBlock)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /**
@@ -85,7 +89,7 @@ open class BreinLookup: BreinBase, ISecretStrategy {
             do {
                 requestData["signatureType"] = try createSignature() as Any?
             } catch {
-                BreinLogger.shared.log("Breinify not possible to generate signature")
+                BreinLogger.shared.log("Breinify not possible to generate signature.")
             }
         }
 

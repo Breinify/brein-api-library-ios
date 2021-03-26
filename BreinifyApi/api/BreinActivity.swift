@@ -146,7 +146,12 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         if nil == getBreinEngine() {
             throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine.")
         }
-        try getBreinEngine()?.sendActivity(self, success: success, failure: failure)
+
+        do {
+            try getBreinEngine()?.sendActivity(self, success: success, failure: failure)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /// Creates a dictionary that will be used for the request.
