@@ -49,13 +49,17 @@ open class BreinifyExecutor {
                          success successBlock: @escaping BreinEngine.apiSuccess,
                          failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
-        try activity(breinActivity,
-                user: user,
-                activityType: activityType,
-                category: category,
-                description: description,
-                success: successBlock,
-                failure: failureBlock)
+        do {
+            try activity(breinActivity,
+                    user: user,
+                    activityType: activityType,
+                    category: category,
+                    description: description,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /// Invokes an activity request
@@ -87,7 +91,11 @@ open class BreinifyExecutor {
         breinActivity.setCategory(category)
         breinActivity.setDescription(description)
 
-        try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
+        do {
+            try breinActivity.getBreinEngine()?.sendActivity(breinActivity, success: successBlock, failure: failureBlock)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /// Invokes a lookup request
@@ -103,11 +111,15 @@ open class BreinifyExecutor {
                        success successBlock: @escaping BreinEngine.apiSuccess,
                        failure failureBlock: @escaping BreinEngine.apiFailure) throws {
 
-        return try lookup(breinLookup,
-                user: user,
-                dimension: dimension,
-                success: successBlock,
-                failure: failureBlock)
+        do {
+            return try lookup(breinLookup,
+                    user: user,
+                    dimension: dimension,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /// Invokes a lookup request
@@ -133,9 +145,13 @@ open class BreinifyExecutor {
         breinLookup.setUser(user)
         breinLookup.setBreinDimension(dimension)
 
-        return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
-                success: successBlock,
-                failure: failureBlock)
+        do {
+            return try breinLookup.getBreinEngine()!.performLookUp(breinLookup,
+                    success: successBlock,
+                    failure: failureBlock)
+        } catch {
+            BreinLogger.shared.log(error.localizedDescription)
+        }
     }
 
     /// shutdown of the engine
