@@ -136,7 +136,7 @@ open class Breinify: NSObject {
         setDeviceToken(deviceToken)
 
         let firstName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
-        let lastName: String = userInfo?[BreinUser.UserInfo.firstName] ?? ""
+        let lastName: String = userInfo?[BreinUser.UserInfo.lastName] ?? ""
         let phone: String = userInfo?[BreinUser.UserInfo.phoneNumber] ?? ""
         let email: String = userInfo?[BreinUser.UserInfo.email] ?? ""
 
