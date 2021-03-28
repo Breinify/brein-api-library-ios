@@ -166,7 +166,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
         if let breinUser = getUser() {
             var userData = [String: Any]()
-            breinUser.prepareUserRequest(&userData, breinConfig: self.getConfig())
+            breinUser.prepareUserRequest(&userData, breinConfig: getConfig())
             requestData["user"] = userData as Any?
         }
 
@@ -188,7 +188,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         }
 
         // activity dic
-        if let aActivityDic = self.getActivityDic() {
+        if let aActivityDic = getActivityDic() {
             if aActivityDic.count > 0 {
                 BreinMapUtil.fillMap(aActivityDic, requestStructure: &activityData)
             }
@@ -198,7 +198,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
         requestData["activity"] = activityData as Any?
 
         // add base stuff
-        self.prepareBaseRequestData(&requestData)
+        prepareBaseRequestData(&requestData)
 
         return requestData
     }
@@ -220,7 +220,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
             clonedBreinActivity.setActivityDic(clonedActivityDic)
         }
 
-        if let clonedTagsDic = self.getTagsDic() {
+        if let clonedTagsDic = getTagsDic() {
             clonedBreinActivity.setTagsDic(clonedTagsDic)
         }
 
@@ -234,11 +234,11 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     public func clear() {
         super.clear()
 
-        self.activityDic?.removeAll()
-        self.tagsDic?.removeAll()
-        self.category = ""
-        self.desc = ""
-        self.activityType = ""
+        activityDic?.removeAll()
+        tagsDic?.removeAll()
+        category = ""
+        desc = ""
+        activityType = ""
     }
 
     /// Generates the signature for the request
