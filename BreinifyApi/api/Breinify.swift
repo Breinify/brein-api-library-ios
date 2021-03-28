@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "2.0.6"
+    static let version: String! = "2.0.11"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -152,7 +152,7 @@ open class Breinify: NSObject {
     @objc
     public class func setDeviceToken(_ token: String) {
 
-        let breinUser = self.getBreinUser()
+        let breinUser = getBreinUser()
         breinUser.setDeviceToken(token)
 
         BreinifyManager.shared.setDeviceToken(token)
@@ -280,7 +280,7 @@ open class Breinify: NSObject {
     }
 
     public static func getNotificationHandler() -> BreinNotificationHandler? {
-        self.notification
+        notification
     }
 
     /// returns the brein recommendation instance
@@ -312,13 +312,13 @@ open class Breinify: NSObject {
 
     /// set config to work with
     public static func setConfig(_ breinConfig: BreinConfig!) {
-        self.config = breinConfig
+        config = breinConfig
 
         // apply the configuration to all instances
-        self.getBreinActivity().setConfig(breinConfig)
-        self.getBreinLookup().setConfig(breinConfig)
-        self.getBreinRecommendation().setConfig(breinConfig)
-        self.breinTemporalData.setConfig(breinConfig)
+        getBreinActivity().setConfig(breinConfig)
+        getBreinLookup().setConfig(breinConfig)
+        getBreinRecommendation().setConfig(breinConfig)
+        breinTemporalData.setConfig(breinConfig)
     }
 
     /// retrieves the configuration
@@ -335,13 +335,13 @@ open class Breinify: NSObject {
     @objc
     public static func setBreinUser(_ user: BreinUser?) {
         if user != nil {
-            self.breinUser = user!
+            breinUser = user!
         }
     }
 
     /// returns the brein user
     public static func getBreinUser() -> BreinUser {
-        self.breinUser
+        breinUser
     }
 
     public static func retrieveDeviceToken(_ deviceToken: Data) -> String {
@@ -372,7 +372,7 @@ open class Breinify: NSObject {
                                }) throws {
 
         // set user in class Breinify ...
-        self.setBreinUser(user)
+        setBreinUser(user)
 
         // ...and in class BreinActivity (will be used later when cloning)
         let breinAct = getBreinActivity()
@@ -417,7 +417,7 @@ open class Breinify: NSObject {
                                }) throws {
 
         // set user in class Breinify ...
-        self.setBreinUser(user)
+        setBreinUser(user)
 
         // ...and in class BreinActivity (will be used later when cloning)
         let breinAct = getBreinActivity()
@@ -462,7 +462,7 @@ open class Breinify: NSObject {
                                }) throws {
 
         // firstly check if user is valid
-        let user = self.getBreinUser()
+        let user = getBreinUser()
 
         do {
             try activity(getBreinActivity(),
@@ -546,7 +546,7 @@ open class Breinify: NSObject {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
-            breinActivity?.setConfig(self.getConfig())
+            breinActivity?.setConfig(getConfig())
         }
 
         guard breinActivity?.getBreinEngine() != nil else {
@@ -598,7 +598,7 @@ open class Breinify: NSObject {
 
         if breinActivity?.getConfig() == nil {
             // apply previous config
-            breinActivity?.setConfig(self.getConfig())
+            breinActivity?.setConfig(getConfig())
         }
 
         guard breinActivity?.getBreinEngine() != nil else {
@@ -645,7 +645,7 @@ open class Breinify: NSObject {
         }
 
         // apply the current configuration
-        aBreinRecommendation.setConfig(self.getConfig())
+        aBreinRecommendation.setConfig(getConfig())
 
         // clone given instance
         let clonedBreinRecommendation = aBreinRecommendation.clone()
@@ -680,7 +680,7 @@ open class Breinify: NSObject {
                                    _ failure: @escaping BreinEngine.apiFailure = { _ in
                                    }) throws {
 
-        self.breinTemporalData.setUser(user)
+        breinTemporalData.setUser(user)
 
         do {
             return try temporalData(breinTemporalData,
@@ -708,13 +708,13 @@ open class Breinify: NSObject {
                                    }) throws {
 
         // clone breinTemporalData
-        let clonedBreinTemporalData = self.getBreinTemporalData().clone()
+        let clonedBreinTemporalData = getBreinTemporalData().clone()
 
         clonedBreinTemporalData.setSuccessBlock(success)
         clonedBreinTemporalData.setFailureBlock(failure)
 
         // apply the current configuration
-        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+        clonedBreinTemporalData.setConfig(getBreinTemporalData().getConfig())
 
         do {
             return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
@@ -744,16 +744,16 @@ open class Breinify: NSObject {
                                    }) throws {
 
         // set ipAddress
-        _ = self.getBreinTemporalData().setLookUpIpAddress(ipAddress)
+        _ = getBreinTemporalData().setLookUpIpAddress(ipAddress)
 
         // clone breinTemporalData
-        let clonedBreinTemporalData = self.getBreinTemporalData().clone()
+        let clonedBreinTemporalData = getBreinTemporalData().clone()
 
         clonedBreinTemporalData.setSuccessBlock(success)
         clonedBreinTemporalData.setFailureBlock(failure)
 
         // apply the current configuration
-        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+        clonedBreinTemporalData.setConfig(getBreinTemporalData().getConfig())
 
         do {
             return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
@@ -784,20 +784,20 @@ open class Breinify: NSObject {
 
         if breinTemporalData?.getBreinEngine() == nil {
             // apply the Breinify config
-            breinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+            breinTemporalData.setConfig(getBreinTemporalData().getConfig())
             guard breinTemporalData?.getBreinEngine() != nil else {
                 throw BreinError.BreinRuntimeError("Rest engine not initialized. You have to configure BreinConfig with a valid engine")
             }
         }
 
         // clone breinTemporalData
-        let clonedBreinTemporalData = self.getBreinTemporalData().clone()
+        let clonedBreinTemporalData = getBreinTemporalData().clone()
 
         clonedBreinTemporalData.setSuccessBlock(success)
         clonedBreinTemporalData.setFailureBlock(failure)
 
         // apply the current configuration
-        clonedBreinTemporalData.setConfig(self.getBreinTemporalData().getConfig())
+        clonedBreinTemporalData.setConfig(getBreinTemporalData().getConfig())
 
         do {
             return try breinTemporalData.getBreinEngine()!.performTemporalDataRequest(breinTemporalData,
