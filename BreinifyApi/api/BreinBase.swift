@@ -36,12 +36,12 @@ open class BreinBase: NSObject {
 
     override
     public init() {
-        self.unixTimestamp = 0
+        unixTimestamp = 0
     }
 
     public init(user: BreinUser) {
-        self.unixTimestamp = 0
-        self.breinUser = user
+        unixTimestamp = 0
+        breinUser = user
     }
 
     @discardableResult
@@ -51,7 +51,7 @@ open class BreinBase: NSObject {
     }
 
     public func getBaseDic() -> [String: Any]? {
-        self.baseDic
+        baseDic
     }
 
     public func getConfig() -> BreinConfig! {
@@ -74,18 +74,18 @@ open class BreinBase: NSObject {
     @discardableResult
     public func setIpAddress(_ ipAddressPara: String?) -> BreinBase {
         if let ipAdr = ipAddressPara {
-            self.ipAddress = ipAdr
+            ipAddress = ipAdr
         }
         return self
     }
 
     /// IpAddress for base level
     public func getIpAddress() -> String? {
-        self.ipAddress
+        ipAddress
     }
 
     public func getBreinEngine() -> BreinEngine? {
-        self.getConfig()?.getBreinEngine()
+        getConfig()?.getBreinEngine()
     }
 
     public func getSuccessBlock() -> BreinBase.apiSuccess? {
@@ -94,7 +94,7 @@ open class BreinBase: NSObject {
 
     @discardableResult
     public func setSuccessBlock(_ success: @escaping BreinBase.apiSuccess) -> BreinBase {
-        self.successBlock = success
+        successBlock = success
         return self
     }
 
@@ -104,7 +104,7 @@ open class BreinBase: NSObject {
 
     @discardableResult
     public func setFailureBlock(_ failure: @escaping BreinBase.apiFailure) -> BreinBase {
-        self.failureBlock = failure
+        failureBlock = failure
         return self
     }
 
@@ -132,7 +132,7 @@ open class BreinBase: NSObject {
         // if sign is active
         if isSign() {
             do {
-                requestData["signature"] = try self.createSignature() as Any?
+                requestData["signature"] = try createSignature() as Any?
                 requestData["signatureType"] = "HmacSHA256" as Any?
             } catch {
                 BreinLogger.shared.log("Breinify not possible to generate signature")
@@ -140,7 +140,7 @@ open class BreinBase: NSObject {
         }
 
         // check if an ip address has been set or if it should be detected
-        if let ipAddress = BreinUtil.containsValue(self.getIpAddress()!) {
+        if let ipAddress = BreinUtil.containsValue(getIpAddress()!) {
             requestData["ipAddress"] = ipAddress as Any?
         } else {
             // detect ip
@@ -150,7 +150,7 @@ open class BreinBase: NSObject {
             }
         }
 
-        if let bMap = self.getBaseDic() {
+        if let bMap = getBaseDic() {
             if bMap.count > 0 {
                 BreinMapUtil.fillMap(bMap, requestStructure: &requestData)
             }
@@ -199,36 +199,36 @@ open class BreinBase: NSObject {
     public func cloneBase(_ source: BreinBase) {
 
         // set further data...
-        self.setIpAddress(source.getIpAddress());
-        self.unixTimestamp = source.unixTimestamp
+        setIpAddress(source.getIpAddress());
+        unixTimestamp = source.unixTimestamp
 
         // callback_s
         if let suc = source.getSuccessBlock() {
-            self.setSuccessBlock(suc)
+            setSuccessBlock(suc)
         }
 
         if let fail = source.getFailureBlock() {
-            self.setFailureBlock(fail)
+            setFailureBlock(fail)
         }
 
         // configuration
-        self.setConfig(source.getConfig());
+        setConfig(source.getConfig());
 
         // clone user
         if let sourceUser = source.getUser() {
             let clonedUser = BreinUser.clone(sourceUser);
-            self.setUser(clonedUser);
+            setUser(clonedUser);
         }
 
         // clone maps
         if let clonedBaseDic = source.getBaseDic() {
-            self.setBaseDic(clonedBaseDic)
+            setBaseDic(clonedBaseDic)
         }
     }
 
     func clear() {
-        self.unixTimestamp = 0
-        self.ipAddress = ""
-        self.baseDic?.removeAll()
+        unixTimestamp = 0
+        ipAddress = ""
+        baseDic?.removeAll()
     }
 }
