@@ -140,6 +140,7 @@ open class BreinBase: NSObject {
         }
 
         // check if an ip address has been set or if it should be detected
+        /*
         if let ipAddress = BreinUtil.containsValue(getIpAddress()!) {
             requestData["ipAddress"] = ipAddress as Any?
         } else {
@@ -149,6 +150,7 @@ open class BreinBase: NSObject {
                 requestData["ipAddress"] = ip as Any?
             }
         }
+         */
 
         if let bMap = getBaseDic() {
             if bMap.count > 0 {
