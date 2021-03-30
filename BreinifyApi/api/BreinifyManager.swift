@@ -281,7 +281,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     func registerPushNotifications() {
         BreinLogger.shared.log("Breinify registerPushNotifications invoked")
 
-        let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as! UIApplication
+        guard let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as? UIApplication else {
+            return
+        }
 
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
