@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "2.0.11"
+    static let version: String! = "2.0.13"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -145,7 +145,6 @@ open class Breinify: NSObject {
                 phone: phone,
                 email: email)
 
-        // send identify
         Breinify.sendIdentifyInfo()
     }
 
@@ -607,8 +606,20 @@ open class Breinify: NSObject {
 
         breinActivity.setUser(user)
         breinActivity.setActivityType(activityType)
-        breinActivity.setCategory(category)
-        breinActivity.setDescription(description)
+
+        // optionals
+        if category != nil {
+            if !category.isEmpty {
+                breinActivity.setCategory(category)
+            }
+        }
+
+        if description != nil {
+            if !description.isEmpty {
+                breinActivity.setDescription(description)
+            }
+        }
+
         breinActivity.setSuccessBlock(success)
         breinActivity.setFailureBlock(failure)
 
