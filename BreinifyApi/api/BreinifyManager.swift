@@ -251,10 +251,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("Breinify UserNotification willPresent invoked with notification: \(notification)")
 
         // due to a possible URLSession connection time out we wait half a second to send a message
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [self] in
-//            let campaignNotificationDic = getCampaignContent(notification.request.content.userInfo)
-//            sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
-//        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) { [self] in
+            let campaignNotificationDic = getCampaignContent(notification.request.content.userInfo)
+            sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
+        }
 
         completionHandler([.alert, .badge, .sound])
     }
@@ -515,7 +515,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("Breinify didReceiveRemoteNotification called with notification: \(notification)")
 
         // due to a possible URLSession connection time out we wait half a second to send a message
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) { [self] in
             let campaignNotificationDic = getCampaignContent(notification)
             sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
         }
@@ -533,31 +533,36 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             return nil
         }
 
-        var retVal: Dictionary<String, Any> = [:]
-        let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
-        notiDic?.forEach {
-            let key = ($0)
-            if key.contains("breinify") {
-                BreinLogger.shared.log("Breinify Tag detected in notification")
-                if let innerValue = ($1) as? String {
-                    if innerValue != nil {
-                        let innerDic = BreinUtil.convertToDictionary(text: innerValue)
-                        innerDic?.forEach {
-                            let key = $0
-                            let val = $1
-                            if key.contains("campaign") {
-                                if let campaignDic = val as? Dictionary<String, Any> {
-                                    retVal = campaignDic
-                                    BreinLogger.shared.log("Breinify Campaign content is \(campaignDic)")
+        do {
+            var retVal: Dictionary<String, Any> = [:]
+            let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
+            notiDic?.forEach {
+                let key = ($0)
+                if key.contains("breinify") {
+                    BreinLogger.shared.log("Breinify Tag detected in notification")
+                    if let innerValue = ($1) as? String {
+                        if innerValue != nil {
+                            let innerDic = BreinUtil.convertToDictionary(text: innerValue)
+                            innerDic?.forEach {
+                                let key = $0
+                                let val = $1
+                                if key.contains("campaign") {
+                                    if let campaignDic = val as? Dictionary<String, Any> {
+                                        retVal = campaignDic
+                                        BreinLogger.shared.log("Breinify Campaign content is \(campaignDic)")
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
+
+            return retVal
+        } catch {
+            return nil
         }
 
-        return retVal
     }
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
