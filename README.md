@@ -422,6 +422,22 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
   Breinify.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
 }
 
+// Firebase integration
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+   						let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
+              print("APNS registration token: \(apnsToken)")
+
+              Breinify.initWithDeviceTokens(apnsToken: apnsToken,
+                        fcmToken: token,
+                        userInfo: userInfoDic)
+            }
+        }
+}
 ```
 
 #### Method didReceiveRemoteNotification
