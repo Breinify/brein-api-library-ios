@@ -45,7 +45,7 @@ It is recommended to use signed messages when utilizing the iOS library. A signe
 
 ### Installation 
 
-Please follow this [link](Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment.
+Please follow this [link](Documentation/cocoapods_instructions.md) if you're new to Cocoapods and need some information how to setup the environment (please use always the latest available verison on Cocoapods).
 
 #### Including the Library
 
@@ -53,14 +53,14 @@ Add in your pod file:
 
 ```
 ...
-pod 'BreinifyApi', '~> 2.0.2'
+pod 'BreinifyApi', '~> 2.0.14'
 ...
 
 ```
 
-#### Consideration of  Firebase Libraries
+#### Consideration of Firebase Libraries
 
-In case of Firebase Message support the following Firebase Libraries needs to be included as well:
+In case of Firebase Message support (only used for sending PushNotifications by using Firebase Cloud Message Service) the following Firebase Libraries needs to be included as well:
 
 ```
 ...
@@ -108,9 +108,9 @@ The Breinify SDK needs some permission in order to retrieve the appropriate info
 
 
 
-### Configuring the Library with APNS Service
+### Configuring the Library 
 
-In case the push notifications will come from APNS add the following statements in your `AppDelegate.swift` file:
+Whenever the library is used, it needs to be configured once with the correct API key and secret. The best place to do this is within the `didFinishLaunchingWithOptions` method like this: 
 
 ```Swift
 import BreinifyApi
@@ -124,78 +124,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
         Breinify.initialize(apiKey: validApiKey, secret: validSecret)
         return true
     }
-
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) { 
-        var userInfoDic = [String: String]()
-        userInfoDic["firstName"] = "Elvis"
-        userInfoDic["lastName"] = "Presley"
-        userInfoDic["phone"] = "0123456789"
-        userInfoDic["email"] = "elvis.presly@mail.com"
-
-        let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
-
-        Breinify.initWithDeviceTokens(apnsToken: apnsToken,
-                        fcmToken: nil,
-                        userInfo: userInfoDic)
-             
-   }
 ```
 
-Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret (if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
 
-
-
-
-### Configuring the Library with Firebase Cloud Message Service
-
-In case the Push Notifications will come from Firebase add the following statements in your `AppDelegate.swift` file:
-
-```Swift
-import Firebase
-import BreinifyApi
-
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Firebase configuration
-        FirebaseApp.configure()
-
-        /// constants iOS KEY with secret
-        let validApiKey = "938D-3120-64DD-413F-BB55-6573-90CE-473A"
-        let validSecret = "utakxp7sm6weo5gvk7cytw=="
-
-        Breinify.initialize(apiKey: validApiKey, secret: validSecret)
-        return true
-    }
-
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Firebase Message to retrieve the token
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-
-                var userInfoDic = [String: String]()
-                userInfoDic["firstName"] = "Elvis"
-                userInfoDic["lastName"] = "Presley"
-                userInfoDic["phone"] = "0123456789"
-                userInfoDic["email"] = "elvis.presly@mail.com"
-
-                let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
-
-                Breinify.initWithDeviceTokens(apnsToken: apnsToken,
-                        fcmToken: token,
-                        userInfo: userInfoDic)
-         }
-      }
-   }
-```
-
-Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret (if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
 
 ### Clean-Up after Usage
 
-Whenever the library is not used anymore, it is recommended to clean-up and release the resources held. To do so, the `Breinify.shutdown()`
-method is used. A typical framework may look like that:
+Whenever the library is not used anymore, it is recommended to clean-up and release the resources held. To do so, the `Breinify.applicationWillTerminate()` method is used.  Add the call to the `applicationWillTerminate` method like this:
 
 ```swift
 func applicationWillTerminate(_ application: UIApplication) {
@@ -211,33 +146,44 @@ The `/activity` endpoint is used to track the usage of, e.g., an application, an
 
 ### Sending Login 
 
-The example shows, how to send a login activity, reading the data from an request. In general, activities are added to the interesting measure points within your applications process (e.g., `login`, `addToCart`, `readArticle`). The endpoint offers analytics and insights through Breinify's dashboard.
+The example shows, how to send a login activity, reading the data from an request. In general, activities are added to the interesting measure points within your applications process (e.g., `login`, `addToCart`, `pageVisit`). The endpoint offers analytics and insights through Breinify's dashboard.
+
+Add the `Breinify.setUserInfo(...)` as soon as user information are available and before the first of any `activities`.
 
 ```swift
 // create a user you're interested in
-let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
-        
-// invoke activity call
-Breinify.activity(breinUser, activityType: "login")
+Breinify.setUserInfo(firstName: "Fred", 
+                     lastName: "Feuerstein",
+                     phone: "+1223344556677",
+                     email: "fred.feuerstein@stoneage.com")
 
 ```
 
-### Sending readArticle
 
-Instead of sending an activity utilizing the `Breinify.activity(...)` method, it is also possible to create an instance of a `BreinActivity` and pass this later on to the `Breinify.activity(...)` method.
+
+### Sending pageVisit Activity
+
+Sending an activity is done by applying the following 4 steps:
+
+1. get the activity object
+2. set the activity type
+3. set additional activity type related data
+4. send the activity 
 
 ```Swift
-// create a user you're interested in
-let breinUser = BreinUser(firstName: "Fred", lastName: "Firestone")
+// get the activity object
+let breinActivity = Breinify.getBreinActivity()
 
-// create activity object with collected data        
-let breinActivity = BreinActivity(user: breinUser)
-            .setActivityType("readArticle")
-            .setDescription("A Homebody President Sits Out His Honeymoon Period")
-        
+// set the activity type
+breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
+       
+// add additional activity type related data 
+let tagsDic = [String: Any]()
+tagsDic["pageId"] = "userDetailsPage" as Any
+breinActivity.setTagsDic(tagsDic)
+ 
 // invoke activity call
-Breinify.activity(breinActivity)
-
+Breinify.sendActivity(breinActivity)
 ```
 
 
@@ -288,10 +234,7 @@ example of the returned values can be found <a target="_blank" href="https://www
 
 ### Geocoding (resolve Free-Text to Locations)
 
-Sometimes it is necessary to resolve a textual representation to a specific geo-location. The textual representation can be
-structured and even partly unstructured, e.g., the textual representation `the Big Apple` is considered to be unstructured,
-whereby a structured location would be, e.g., `{ city: 'Seattle', state: 'Washington', country: 'USA' }`. It is also possible
-to pass in partial information and let the system try to resolve/complete the location, e.g., `{ city: 'New York', country: 'USA' }`.
+Sometimes it is necessary to resolve a textual representation to a specific geo-location. The textual representation can be structured and even partly unstructured, e.g., the textual representation `the Big Apple` is considered to be unstructured, whereby a structured location would be, e.g., `{ city: 'Seattle', state: 'Washington', country: 'USA' }`. It is also possible to pass in partial information and let the system try to resolve/complete the location, e.g., `{ city: 'New York', country: 'USA' }`.
 
 ```swift
 	do {
@@ -332,12 +275,9 @@ Or shown as an Apple Map result:
 </p>
 
 
-
-
 ### Reverse Geocoding (retrieve GeoJsons for, e.g., Cities, Neighborhoods, or Zip-Codes)
 
-The library also offers the feature of reverse geocoding. Having a specific geo-location and resolving the coordinates
-to a specific city or neighborhood (i.e., names of neighborhood, city, state, country, and optionally GeoJson shapes). 
+The library also offers the feature of reverse geocoding. Having a specific geo-location and resolving the coordinates to a specific city or neighborhood (i.e., names of neighborhood, city, state, country, and optionally GeoJson shapes). 
 
 A possible request if you're interesed in events might look like this:
 
@@ -374,121 +314,104 @@ do {
 ```
 
 
+
 ## PushNotifications: Selected Usage Example
 
-
 Let's integrate Breinify's PushNotifications within an iOS App. Follow this [link](Documentation/pushnotification_configuration.md) to see how you can configure your app for receiving push notifications.
+
+
+
+### Configuring the Library with APNS Service
+
+In case the push notifications will come from APNS add the following statements in your `AppDelegate.swift` file:
+
+```swift
+import BreinifyApi
+
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) { 
+        var userInfoDic = [String: String]()
+        userInfoDic["firstName"] = "Fred"
+        userInfoDic["lastName"] = "Firestone"
+        userInfoDic["phone"] = "+1223344556677"
+        userInfoDic["email"] = "fred.firestone@stoneage.com"
+
+        let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
+
+        Breinify.initWithDeviceTokens(apnsToken: apnsToken,
+                        fcmToken: nil,
+                        userInfo: userInfoDic)
+             
+   }
+```
+
+
+
+### Configuring the Library with Firebase Cloud Message Service
+
+In case the Push Notifications will come from Firebase Cloud Message Service add the following statements in your `AppDelegate.swift` file:
+
+```swift
+import Firebase
+import BreinifyApi
+
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Firebase Message to retrieve the token
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+
+                var userInfoDic = [String: String]()
+                userInfoDic["firstName"] = "Fred"
+                userInfoDic["lastName"] = "Firestone"
+                userInfoDic["phone"] = "+1223344556677"
+                userInfoDic["email"] = "fred.firestone@stoneage.com"
+
+                let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
+
+                Breinify.initWithDeviceTokens(apnsToken: apnsToken,
+                        fcmToken: token,
+                        userInfo: userInfoDic)
+         }
+      }
+   }
+
+```
+
+
 
 ### Integration
 
 
-Using Breinify Push Notifications in iOS apps is straightforward. The Breinify API integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the following lifecycle functions:
-
-- didFinishLaunchingWithOptions
-- applicationDidEnterBackground
-- applicationDidBecomeActive
-- applicationWillTerminate
-- didRegisterForRemoteNotificationsWithDeviceToken
-- didReceiveRemoteNotification
+Using Breinify Push Notifications in iOS apps is straightforward. The Breinify API integrates smoothly within the iOS Application Lifecycle. Simply invoke the appropriate Breinify functions within the `didReceiveRemoteNotification`  lifecycle functions:
 
 Add the following statements to your delegate swift file (e.g `AppDelegate.swift`):
 
 ```Swift
 import BreinifyApi
 ```
-#### Method didFinishLaunchingWithOptions
-The entry point `didFinishLaunchingWithOptions` is used to configure the Breinify SDK. 
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
-  // configure the BreinifySDK and remote notification handling    
-  Breinify.didFinishLaunchingWithOptions(apiKey: "938D-3120-64DD-413F-BB55-6573-90CE-473A", 
-                                         secret: "utakxp7sm6weo5gvk7cytw==")
-  return true
-}
-```
-
-**Note:** using `didFinishLaunchingWithOptions` will configure the Breinify-SDK like the  method `Breinify.setConfig(...)`. So no further call of `Breinify.setConfig(...)` is necessary.
-
-Perfect, the BreinifyApi is now configured, a default BreinUser is created and the communication to the Breinify Engine is now possible.
-
-#### Method didRegisterForRemoteNotificationsWithDeviceToken
-
-Now we need to provide the device token to the Breinify Engine as well. We do this by simply adding the following call to the `didRegisterForRemoteNotificationsWithDeviceToken` method.
-
-```Swift
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-  // register device Token within the API
-  Breinify.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
-}
-
-// Firebase integration
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-   						let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
-              print("APNS registration token: \(apnsToken)")
-
-              Breinify.initWithDeviceTokens(apnsToken: apnsToken,
-                        fcmToken: token,
-                        userInfo: userInfoDic)
-            }
-        }
-}
-```
-
 #### Method didReceiveRemoteNotification
 
-This method is invoked when the remote notification is send from APNS (Apple Push Notification Service). Add the following lines to the function `didReceiveRemoteNotification`. 
+There are two different methods named `didReceiveRemoteNotification` that needs to be enhanced by sending the userInfo to the Breinify SDK like this:
 
 ```Swift
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
    // inform the Breinify API      
    Breinify.didReceiveRemoteNotification(userInfo)
-   completionHandler(.newData)  
+   completionHandlerUIBackgroundFetchResult.newData)  
+}
+```
+
+And this one without the completionHandler parameter.
+
+```swift
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+  Breinify.didReceiveRemoteNotification(userInfo)     
 }
 ```
 
 
-#### Method applicationDidEnterBackground
-
-Now we need to cover the situation when the app goes into background mode. So we add the lifecycle information to the BreinifyApi as well.
-
-
-```Swift
-func applicationDidEnterBackground(_ application: UIApplication) { 
-   // App is now in background
-   Breinify.applicationDidEnterBackground()
-}
-
-```
-
-#### Method applicationDidBecomeActive
-
-Whenever the App is active again we need to tell this the BreinifyApi as well. So we 
-simply pass this information as well. 
-
-```Swift
-func applicationDidBecomeActive(_ application: UIApplication) {   
-   // App is now active again      
-   Breinify.applicationDidBecomeActive()
-}
-
-```
-
-#### Method applicationWillTerminate
-
-When the App terminates we provide this information in order to do some housekeeping. 
-
-```Swift
-func applicationWillTerminate(_ application: UIApplication) {
-        Breinify.applicationWillTerminate()
-}
-
-```
 
 ### Notification Sample Screens
 
