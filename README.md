@@ -415,8 +415,6 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 ### Notification Sample Screens
 
-The complete code for the sample application can be found [here](Example/Sample/Sample.swift). It assumes that you have configured the pushnotification as described [here](Documentation/pushnotification_configuration.md).
-
 The Breinify engine will trigger a notification that will be send through Apple Notification Service and will trigger notification to the user.
 
 
