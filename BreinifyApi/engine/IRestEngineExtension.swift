@@ -16,9 +16,29 @@ extension IRestEngine {
 
     /// validates the config
     func validateConfig(_ breinBase: BreinBase!) throws {
+
         guard breinBase?.getConfig() != nil else {
             throw BreinError.BreinRuntimeError("Breinconfig not set!")
         }
+
+        let config = breinBase.getConfig()
+
+        if let apiKey = config?.getApiKey() {
+            if apiKey.isEmpty {
+                throw BreinError.BreinRuntimeError("apiKey is empty!")
+            }
+        } else {
+            throw BreinError.BreinRuntimeError("apiKey not set!")
+        }
+
+        if let secret = config?.getSecret() {
+            if secret.isEmpty {
+                throw BreinError.BreinRuntimeError("secret is empty!")
+            }
+        } else {
+            throw BreinError.BreinRuntimeError("secret not set!")
+        }
+
     }
 
     /// returns the url depending of the request type (e.g. activity, recommendation...)
