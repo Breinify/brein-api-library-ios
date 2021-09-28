@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the usage library
-    static let version: String! = "2.0.13"
+    static let version: String! = "2.0.15"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -78,7 +78,7 @@ open class Breinify: NSObject {
     public static func didReceiveNotificationExtensionRequest(_ request: Any,
                                                               bestAttemptContent: Any) {
 
-        BreinLogger.shared.log("didReceiveNotificationExtensionRequest REQUEST is: \(request)")
+        BreinLogger.shared.log("didReceiveNotificationExtensionRequest request is: \(request)")
         if #available(iOS 10.0, *) {
             let notificationRequest = request as! UNNotificationRequest
             let notificationContent = bestAttemptContent as! UNMutableNotificationContent
@@ -167,6 +167,17 @@ open class Breinify: NSObject {
     public static func sendLocationInfo() {
         BreinLogger.shared.log("Breinify sendLocation called")
         sendUserNotification(activityType: "sendLoc")
+    }
+
+    @objc
+    public static func sendActivity(_ activityType: String, tagsDic: [String: Any]) {
+
+        let breinActivity = getBreinActivity()
+
+        breinActivity.setTagsDic(tagsDic)
+        breinActivity.setActivityType(activityType)
+
+        Breinify.sendActivity(breinActivity)
     }
 
     @objc
