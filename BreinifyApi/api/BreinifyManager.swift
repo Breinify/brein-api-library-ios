@@ -250,7 +250,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                                        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         BreinLogger.shared.log("Breinify UserNotification willPresent invoked with notification: \(notification)")
 
-        // due to a possible URLSession connection time out we wait half a second to send a message
+        // due to a possible URLSession connection time out we wait half a little bit before message is sent
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) { [self] in
             let campaignNotificationDic = getCampaignContent(notification.request.content.userInfo)
             sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
@@ -264,12 +264,140 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
                                        didReceive response: UNNotificationResponse,
                                        withCompletionHandler completionHandler: @escaping () -> Void) {
-        BreinLogger.shared.log("Breinify UserNotification didReceive invoked with response: \(response).")
+        BreinLogger.shared.log("Breinify UserNotification didReceive invoked with response: \(response)")
 
         let campaignNotificationDic = getCampaignContent(response.notification.request.content.userInfo)
         sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
 
+        handleIncomingNotificationContent(response.notification.request.content.userInfo)
+
         completionHandler()
+    }
+
+    private func handleIncomingNotificationContent(_ notification: [AnyHashable: Any]) {
+        BreinLogger.shared.log("Breinify handleIncomingNotificationContent invoked with notification: \(notification)")
+
+        let actionNotificationDic = getActionContent(notification)
+        guard let unwrappedDic = actionNotificationDic else {
+            return
+        }
+
+        if unwrappedDic.isEmpty == false {
+
+            for (action, parameter) in unwrappedDic {
+                BreinLogger.shared.log("Breinify action: \(action) with parameter: \(parameter)")
+
+                if action == "openUrl" {
+                    let sharedSelector = NSSelectorFromString("sharedApplication")
+                    let openSelector = NSSelectorFromString("openURL:")
+
+                    let urlStr = getUrl(parameter)
+                    if urlStr.isEmpty == false {
+
+                        DispatchQueue.main.async {
+                            if let urlToOpen = URL(string: urlStr), UIApplication.responds(to: sharedSelector),
+                               let shared = UIApplication.perform(sharedSelector)?.takeRetainedValue() as? UIApplication, shared.responds(to: openSelector) {
+                                shared.perform(openSelector, with: urlToOpen)
+                            }
+                        }
+                    }
+                } else if action == "sendActivity" {
+                    // send activity
+                    let activityName = getActivityName(parameter)
+                    if activityName.isEmpty == false {
+                        let tags = getTags(parameter)
+                        if tags?.isEmpty == false {
+                            // send the activity
+                            BreinifyManager.shared.sendActivity(activityName, additionalActivityTagContent: tags)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /// returns the activity name
+    private func getActivityName(_ parameter: Any) -> String {
+        if let dict = parameter as? [String: Any] {
+            BreinLogger.shared.log("Breinify working on parameter \(parameter)")
+
+            guard let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted),
+                  let prettyPrinted = String(data: data, encoding: .utf8) else {
+                return ""
+            }
+
+            let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
+            var retVal = ""
+            notiDic?.forEach {
+                let key = ($0)
+                let value = ($1)
+
+                if key.contains("activity") {
+                    BreinLogger.shared.log("Breinify activity detected - value is:  \(value)")
+                    retVal = value as! String
+                }
+            }
+            return retVal
+        }
+
+        return ""
+    }
+
+    private func getTags(_ parameter: Any) -> Dictionary<String, Any>? {
+
+        var retVal: Dictionary<String, Any> = [:]
+        if let dict = parameter as? [String: Any] {
+            BreinLogger.shared.log("Breinify working on parameter \(parameter)")
+
+            guard let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted),
+                  let prettyPrinted = String(data: data, encoding: .utf8) else {
+                return retVal
+            }
+
+            let tagsDic = BreinUtil.convertToDictionary(text: prettyPrinted)
+            tagsDic?.forEach {
+                let key = ($0)
+                let value = ($1)
+
+                if key.contains("tags") {
+                    BreinLogger.shared.log("Breinify tags detected - value is:  \(value)")
+                    retVal = value as! Dictionary<String, Any>
+                }
+            }
+            return retVal
+        }
+
+        return retVal
+    }
+
+    private func getUrl(_ parameter: Any) -> String {
+
+        if let dict = parameter as? [String: Any] {
+            BreinLogger.shared.log("Breinify working on parameter \(parameter)")
+
+            guard let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted),
+                  let prettyPrinted = String(data: data, encoding: .utf8) else {
+                return ""
+            }
+
+            let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
+            var retVal = ""
+            notiDic?.forEach {
+                let key = ($0)
+                let value = ($1)
+
+                if key.contains("url") {
+                    BreinLogger.shared.log("Breinify url detected - value is:  \(value)")
+                    retVal = value as! String
+                }
+            }
+            return retVal
+        } else {
+            /// it is not a dictionary
+            return ""
+        }
+
+        return ""
     }
 
     func registerPushNotifications() {
@@ -559,11 +687,51 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             }
 
             return retVal
-        } catch {
-            return nil
         }
 
     }
+
+    /// Provides the action related content as a dictionary
+    ///
+    /// - Parameter notification: contains the userInfo from the notification
+    /// - Returns: dictionary contains all elements from the action node
+    private func getActionContent(_ notification: [AnyHashable: Any]) -> Dictionary<String, Any>? {
+
+        guard let data = try? JSONSerialization.data(withJSONObject: notification, options: .prettyPrinted),
+              let prettyPrinted = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+
+        do {
+            var retVal: Dictionary<String, Any> = [:]
+            let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
+            notiDic?.forEach {
+                let key = ($0)
+                if key.contains("breinify") {
+                    BreinLogger.shared.log("Breinify Tag detected in notification")
+                    if let innerValue = ($1) as? String {
+                        if innerValue != nil {
+                            let innerDic = BreinUtil.convertToDictionary(text: innerValue)
+                            innerDic?.forEach {
+                                let key = $0
+                                let val = $1
+                                if key.contains("action") {
+                                    if let actionDic = val as? Dictionary<String, Any> {
+                                        retVal = actionDic
+                                        BreinLogger.shared.log("Breinify action content is \(actionDic)")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return retVal
+        }
+
+    }
+
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
         BreinLogger.shared.log("Breinify didFailToRegisterForRemoteNotificationsWithError called")
