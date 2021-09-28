@@ -117,7 +117,7 @@ import BreinifyApi
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        /// constants iOS KEY with secret
+        /// constants for ApiKey and secret
         let validApiKey = "938D-3120-64DD-413F-BB55-6573-90CE-473A"
         let validSecret = "utakxp7sm6weo5gvk7cytw=="
 
@@ -165,25 +165,16 @@ Breinify.setUserInfo(firstName: "Fred",
 
 Sending an activity is done by applying the following 4 steps:
 
-1. get the activity object
-2. set the activity type
-3. set additional activity type related data
-4. send the activity 
+1. create additional activity type related data
+4. call activity endpoint with the activity type and additional tags
 
 ```Swift
-// get the activity object
-let breinActivity = Breinify.getBreinActivity()
-
-// set the activity type
-breinActivity.setActivityType(BreinActivityType.PAGE_VISIT.rawValue)
-       
-// add additional activity type related data 
+// create additional activity type related data 
 let tagsDic = [String: Any]()
 tagsDic["pageId"] = "userDetailsPage" as Any
-breinActivity.setTagsDic(tagsDic)
  
 // invoke activity call
-Breinify.sendActivity(breinActivity)
+Breinify.sendActivity(BreinActivityType.PAGE_VISIT.rawValue, tagsDic: tagsDic)
 ```
 
 
