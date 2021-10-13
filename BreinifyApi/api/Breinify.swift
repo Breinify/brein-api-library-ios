@@ -10,7 +10,7 @@ open class Breinify: NSObject {
     typealias apiSuccess = (_ result: BreinResult) -> Void
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
-    ///  contains the current version of the usage library
+    ///  contains the current version of the library
     static let version: String! = "2.0.16"
 
     /// contains the configuration
