@@ -11,10 +11,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     typealias apiSuccess = (_ result: BreinResult?) -> Void
     typealias apiFailure = (_ error: NSDictionary?) -> Void
 
-    static let kViewAction = "VIEW_IDENTIFIER"
-    static let kNewsCategory = "NEWS_CATEGORY"
-    static let kBreinifyPushNotificationCategory = "BreinifyPushNotificationCategory"
-
     /// some constants
     static let kActivityTypeIdentify = "identify"
     static let kActivityTypeSendLocation = "sendLoc"
@@ -158,7 +154,35 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     public func sendIdentifyInfo() {
         BreinLogger.shared.log("Breinify sendIdentifyInfo invoked")
-        sendActivity(BreinifyManager.kActivityTypeIdentify, additionalActivityTagContent: [:])
+        var tagsDic = collectAdditionalTagInformation()
+        sendActivity(BreinifyManager.kActivityTypeIdentify, additionalActivityTagContent: tagsDic)
+    }
+
+    public func collectAdditionalTagInformation() -> [String: Any] {
+
+        var dictionary = [String: Any]()
+
+        // collect time of app installation
+        let urlToDocumentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+        let installDate = (try! FileManager.default.attributesOfItem(atPath: urlToDocumentsFolder.path)[FileAttributeKey.creationDate])
+        BreinLogger.shared.log("Breinify - this app was installed by the user on \(installDate ?? "not provided")")
+
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let installDateAsString = df.string(from: installDate as! Date)
+        dictionary["appInstallation"] = installDateAsString
+
+        // collect version of app
+        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"]!
+        dictionary["appVersion"] = version
+
+        let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String]!
+        dictionary["appName"] = appName
+
+        // collect version of Breinify SDK
+        dictionary["Breinify-SDK"] = Breinify.getVersion()
+
+        return dictionary
     }
 
     /**

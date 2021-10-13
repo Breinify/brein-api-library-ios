@@ -16,6 +16,7 @@ open class BreinUser: NSObject {
         static let lastName = "lastName"
         static let phoneNumber = "phone"
         static let email = "email"
+        static let userId = "userId"
     }
 
     /// user email
