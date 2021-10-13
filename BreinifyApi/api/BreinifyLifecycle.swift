@@ -97,7 +97,7 @@ public extension Breinify {
 
     @objc
     class func getUserId() -> String? {
-        return BreinifyManager.shared.getUserId()
+        BreinifyManager.shared.getUserId()
     }
 
     /**
@@ -112,6 +112,6 @@ public extension Breinify {
 
     @objc
     class func getEmail() -> String? {
-        return BreinifyManager.shared.getUserEmail()
+        BreinifyManager.shared.getUserEmail()
     }
 }
