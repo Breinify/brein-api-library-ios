@@ -154,7 +154,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     public func sendIdentifyInfo() {
         BreinLogger.shared.log("Breinify sendIdentifyInfo invoked")
-        var tagsDic = collectAdditionalTagInformation()
+        let tagsDic = collectAdditionalTagInformation()
         sendActivity(BreinifyManager.kActivityTypeIdentify, additionalActivityTagContent: tagsDic)
     }
 
@@ -420,8 +420,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             /// it is not a dictionary
             return ""
         }
-
-        return ""
+        
     }
 
     func registerPushNotifications() {
