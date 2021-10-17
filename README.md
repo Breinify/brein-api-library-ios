@@ -53,7 +53,7 @@ Add in your pod file:
 
 ```
 ...
-pod 'BreinifyApi', '~> 2.0.14'
+pod 'BreinifyApi', '~> 2.0.16'
 ...
 
 ```
