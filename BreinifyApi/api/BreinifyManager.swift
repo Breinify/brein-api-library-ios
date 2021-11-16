@@ -690,7 +690,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             notiDic?.forEach {
                 let key = ($0)
                 if key.contains("breinify") {
-                    BreinLogger.shared.log("Breinify Tag detected in notification")
+                    BreinLogger.shared.log("Breinify Tag detected in notification (CampaignContent)")
                     if let innerValue = ($1) as? String {
                         if innerValue != nil {
                             let innerDic = BreinUtil.convertToDictionary(text: innerValue)
@@ -731,7 +731,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             notiDic?.forEach {
                 let key = ($0)
                 if key.contains("breinify") {
-                    BreinLogger.shared.log("Breinify Tag detected in notification")
+                    BreinLogger.shared.log("Breinify Tag detected in notification (actionContent)")
                     if let innerValue = ($1) as? String {
                         if innerValue != nil {
                             let innerDic = BreinUtil.convertToDictionary(text: innerValue)
