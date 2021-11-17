@@ -40,7 +40,7 @@ open class BreinNotificationHandler : NSObject {
                 preferredStyle: UIAlertController.Style.alert)
 
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            BreinLogger.shared.log("Handle Ok logic here")
+            BreinLogger.shared.log("Breinify Ok logic here")
         }))
     }
 

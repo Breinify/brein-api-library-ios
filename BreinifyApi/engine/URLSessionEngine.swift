@@ -31,7 +31,7 @@ public class URLSessionEngine: IRestEngine {
         BreinLogger.shared.log("Breinify number of elements in queue is: \(missedRequests.count)")
 
         for (uuid, entry) in (missedRequests) {
-            BreinLogger.shared.log("Working on UUID: \(uuid)")
+            BreinLogger.shared.log("Breinify working on UUID: \(uuid)")
 
             // 1. is this entry in time range?
             let considerEntry = BreinRequestManager.shared.checkIfValid(currentEntry: entry)

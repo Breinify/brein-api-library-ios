@@ -272,6 +272,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
                                        willPresent notification: UNNotification,
                                        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
         BreinLogger.shared.log("Breinify UserNotification willPresent invoked with notification: \(notification)")
 
         // due to a possible URLSession connection time out we wait half a little bit before message is sent
@@ -296,6 +297,28 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         handleIncomingNotificationContent(response.notification.request.content.userInfo)
 
         completionHandler()
+    }
+
+    public func handleDidReceiveNotification(_ userInfo: [AnyHashable: Any]) {
+
+        BreinLogger.shared.log("Breinify handleDidReceiveNotification invoked with notification: \(userInfo)")
+
+        let campaignNotificationDic = getCampaignContent(userInfo)
+        sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
+
+        handleIncomingNotificationContent(userInfo)
+    }
+
+    public func handleWillPresentNotification(_ userInfo: [AnyHashable: Any]) {
+
+        BreinLogger.shared.log("Breinify handleWillPresentNotification invoked with notification: \(userInfo)")
+
+        // due to a possible URLSession connection time out we wait half a little bit before message is sent
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) { [self] in
+            let campaignNotificationDic = getCampaignContent(userInfo)
+            sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
+        }
+
     }
 
     private func handleIncomingNotificationContent(_ notification: [AnyHashable: Any]) {
@@ -420,7 +443,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             /// it is not a dictionary
             return ""
         }
-        
+
     }
 
     func registerPushNotifications() {
@@ -465,42 +488,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         application.registerForRemoteNotifications()
     }
 
-    func registerPushNotificationsOrg() {
-        BreinLogger.shared.log("Breinify registerPushNotifications invoked")
-
-        let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as! UIApplication
-
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-
-            center.removeAllDeliveredNotifications()
-            center.removeAllPendingNotificationRequests()
-            center.delegate = self
-
-            let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as! UIApplication
-            application.applicationIconBadgeNumber = 0
-
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                    options: authOptions,
-                    completionHandler: { _, _ in })
-
-            let openAction = UNNotificationAction(identifier: "OpenNotification",
-                    title: NSLocalizedString("OPEN", comment: "open"),
-                    options: UNNotificationActionOptions.foreground)
-
-            let defaultCategory = UNNotificationCategory(identifier: "breinifyOpenIgnoreNotificationCategory",
-                    actions: [openAction], intentIdentifiers: [], options: [])
-            UNUserNotificationCenter.current().setNotificationCategories(Set([defaultCategory]))
-        } else {
-            let settings: UIUserNotificationSettings =
-                    UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-
-        application.registerForRemoteNotifications()
-    }
-
     func getNotificationSettings() {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -514,7 +501,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         BreinLogger.shared.log("Breinify isBreinifyNotificationExtensionRequest called with request: \(request)")
 
         guard let data = try? JSONSerialization.data(withJSONObject: request, options: .prettyPrinted),
-              let stringRequest = String(data: data, encoding: .utf8) else {
+              let stringRequest = String(data: data, encoding: .utf8)?.lowercased() else {
             return false
         }
 
@@ -539,7 +526,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             guard let content = (notificationRequest.content.mutableCopy() as? UNMutableNotificationContent) else {
                 return
             }
-            BreinLogger.shared.log("Content is: \(content)")
+            BreinLogger.shared.log("Breinify content is: \(content)")
 
             guard let apnsData = notificationContent.userInfo["data"] as? [String: Any] else {
                 return
@@ -557,7 +544,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             }
 
             notificationContent.attachments = [attachment]
-//            notificationContent.title = "\(notificationContent.title) [modified in extensionrequest]"
         }
     }
 
@@ -678,40 +664,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// - Parameter notification: contains the userInfo from the notification
     /// - Returns: dictionary contains all elements from the campaign node
     private func getCampaignContent(_ notification: [AnyHashable: Any]) -> Dictionary<String, Any>? {
-
-        guard let data = try? JSONSerialization.data(withJSONObject: notification, options: .prettyPrinted),
-              let prettyPrinted = String(data: data, encoding: .utf8) else {
-            return nil
-        }
-
-        do {
-            var retVal: Dictionary<String, Any> = [:]
-            let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
-            notiDic?.forEach {
-                let key = ($0)
-                if key.contains("breinify") {
-                    BreinLogger.shared.log("Breinify Tag detected in notification (CampaignContent)")
-                    if let innerValue = ($1) as? String {
-                        if innerValue != nil {
-                            let innerDic = BreinUtil.convertToDictionary(text: innerValue)
-                            innerDic?.forEach {
-                                let key = $0
-                                let val = $1
-                                if key.contains("campaign") {
-                                    if let campaignDic = val as? Dictionary<String, Any> {
-                                        retVal = campaignDic
-                                        BreinLogger.shared.log("Breinify Campaign content is \(campaignDic)")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            return retVal
-        }
-
+        getContent(notification, content: "campaign")
     }
 
     /// Provides the action related content as a dictionary
@@ -719,6 +672,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// - Parameter notification: contains the userInfo from the notification
     /// - Returns: dictionary contains all elements from the action node
     private func getActionContent(_ notification: [AnyHashable: Any]) -> Dictionary<String, Any>? {
+        getContent(notification, content: "action")
+    }
+
+    private func getContent(_ notification: [AnyHashable: Any], content: String) -> Dictionary<String, Any>? {
 
         guard let data = try? JSONSerialization.data(withJSONObject: notification, options: .prettyPrinted),
               let prettyPrinted = String(data: data, encoding: .utf8) else {
@@ -729,23 +686,23 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             var retVal: Dictionary<String, Any> = [:]
             let notiDic = BreinUtil.convertToDictionary(text: prettyPrinted)
             notiDic?.forEach {
-                let key = ($0)
+                let key = ($0).lowercased()
                 if key.contains("breinify") {
-                    BreinLogger.shared.log("Breinify Tag detected in notification (actionContent)")
+                    BreinLogger.shared.log("Breinify Tag detected in notification")
                     if let innerValue = ($1) as? String {
-                        if innerValue != nil {
-                            let innerDic = BreinUtil.convertToDictionary(text: innerValue)
-                            innerDic?.forEach {
-                                let key = $0
-                                let val = $1
-                                if key.contains("action") {
-                                    if let actionDic = val as? Dictionary<String, Any> {
-                                        retVal = actionDic
-                                        BreinLogger.shared.log("Breinify action content is \(actionDic)")
-                                    }
+
+                        let innerDic = BreinUtil.convertToDictionary(text: innerValue)
+                        innerDic?.forEach {
+                            let key = $0
+                            let val = $1
+                            if key.contains(content) {
+                                if let contentDic = val as? Dictionary<String, Any> {
+                                    retVal = contentDic
+                                    BreinLogger.shared.log("Breinify content is \(contentDic)")
                                 }
                             }
                         }
+
                     }
                 }
             }
@@ -754,6 +711,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
 
     }
+
 
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
