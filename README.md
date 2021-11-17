@@ -53,7 +53,7 @@ Add in your pod file:
 
 ```
 ...
-pod 'BreinifyApi', '~> 2.0.16'
+pod 'BreinifyApi', '~> 2.0.17'
 ...
 
 ```
@@ -324,7 +324,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
         userInfoDic["firstName"] = "Fred"
         userInfoDic["lastName"] = "Firestone"
         userInfoDic["phone"] = "+1223344556677"
-        userInfoDic["email"] = "fred.firestone@stoneage.com"
+        userInfoDic["email"] = "fred.firestone@stoneage.com" // mandatory
 
         let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
 
@@ -357,7 +357,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
                 userInfoDic["firstName"] = "Fred"
                 userInfoDic["lastName"] = "Firestone"
                 userInfoDic["phone"] = "+1223344556677"
-                userInfoDic["email"] = "fred.firestone@stoneage.com"
+                userInfoDic["email"] = "fred.firestone@stoneage.com" // mandatory
 
                 let apnsToken = Breinify.retrieveDeviceToken(deviceToken)
 
