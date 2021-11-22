@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the library
-    static let version: String! = "2.0.16"
+    static let version: String! = "2.0.18"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -151,7 +151,6 @@ open class Breinify: NSObject {
         let lastName: String = userInfo?[BreinUser.UserInfo.lastName] ?? ""
         let phone: String = userInfo?[BreinUser.UserInfo.phoneNumber] ?? ""
         let email: String = userInfo?[BreinUser.UserInfo.email] ?? ""
-//        let userId: String = userInfo?[BreinUser.UserInfo.userId] ?? ""
 
         Breinify.setUserInfo(firstName: firstName,
                 lastName: lastName,
@@ -269,7 +268,6 @@ open class Breinify: NSObject {
 
         activity.setTagsDic(tagsDic)
 
-        // invoke activity call
         do {
             try Breinify.activity(activity,
                     successBlock,

@@ -294,6 +294,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         let campaignNotificationDic = getCampaignContent(response.notification.request.content.userInfo)
         sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
 
+        BreinLogger.shared.log("Breinify invoking handleIncomingNotificationContent from didReceive method")
         handleIncomingNotificationContent(response.notification.request.content.userInfo)
 
         completionHandler()
@@ -318,7 +319,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             let campaignNotificationDic = getCampaignContent(userInfo)
             sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
         }
-
     }
 
     private func handleIncomingNotificationContent(_ notification: [AnyHashable: Any]) {
@@ -326,6 +326,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         let actionNotificationDic = getActionContent(notification)
         guard let unwrappedDic = actionNotificationDic else {
+            BreinLogger.shared.log("Breinify handleIncomingNotificationContent - no action content detected on: \(notification)")
             return
         }
 
@@ -335,26 +336,30 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                 BreinLogger.shared.log("Breinify action: \(action) with parameter: \(parameter)")
 
                 if action == "openUrl" {
+                    BreinLogger.shared.log("Breinify openUrl action detected")
                     let sharedSelector = NSSelectorFromString("sharedApplication")
                     let openSelector = NSSelectorFromString("openURL:")
 
                     let urlStr = getUrl(parameter)
                     if urlStr.isEmpty == false {
-
+                        BreinLogger.shared.log("Breinify trying to open url: \(urlStr)")
                         DispatchQueue.main.async {
                             if let urlToOpen = URL(string: urlStr), UIApplication.responds(to: sharedSelector),
                                let shared = UIApplication.perform(sharedSelector)?.takeRetainedValue() as? UIApplication, shared.responds(to: openSelector) {
+                                BreinLogger.shared.log("Breinify performing action - urlToOpen is: \(urlToOpen)")
                                 shared.perform(openSelector, with: urlToOpen)
                             }
                         }
                     }
                 } else if action == "sendActivity" {
+                    BreinLogger.shared.log("Breinify sendActivity action detected")
                     // send activity
                     let activityName = getActivityName(parameter)
                     if activityName.isEmpty == false {
                         let tags = getTags(parameter)
                         if tags?.isEmpty == false {
                             // send the activity
+                            BreinLogger.shared.log("Breinify sending action detected with name: \(activityName) and tags: \(tags)")
                             BreinifyManager.shared.sendActivity(activityName, additionalActivityTagContent: tags)
                         }
                     }
@@ -656,7 +661,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             let campaignNotificationDic = getCampaignContent(notification)
             sendActivity(BreinActivityType.RECEIVED_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
         }
-
     }
 
     /// Provides the campaign related content as a dictionary
@@ -688,7 +692,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             notiDic?.forEach {
                 let key = ($0).lowercased()
                 if key.contains("breinify") {
-                    BreinLogger.shared.log("Breinify Tag detected in notification")
+                    BreinLogger.shared.log("Breinify Tag detected in notification for content: \(content)")
                     if let innerValue = ($1) as? String {
 
                         let innerDic = BreinUtil.convertToDictionary(text: innerValue)
@@ -698,11 +702,10 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
                             if key.contains(content) {
                                 if let contentDic = val as? Dictionary<String, Any> {
                                     retVal = contentDic
-                                    BreinLogger.shared.log("Breinify content is \(contentDic)")
+                                    BreinLogger.shared.log("Breinify content (\(content)) is \(contentDic)")
                                 }
                             }
                         }
-
                     }
                 }
             }
@@ -711,8 +714,6 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         }
 
     }
-
-
 
     public func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
         BreinLogger.shared.log("Breinify didFailToRegisterForRemoteNotificationsWithError called")
