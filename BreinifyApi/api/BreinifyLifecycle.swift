@@ -67,7 +67,7 @@ public extension Breinify {
 
     /**
     
-        This method is invoked when a remove notification is triggered
+        This method is invoked when a remote notification is triggered
 
     */
     @objc
