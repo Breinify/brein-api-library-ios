@@ -60,7 +60,7 @@ open class Breinify: NSObject {
     }
 
     @objc
-    public static func registerPushNotification() {
+    public static func registerPushNotifications() {
         /// user notification registration
         BreinifyManager.shared.registerPushNotifications()
     }
