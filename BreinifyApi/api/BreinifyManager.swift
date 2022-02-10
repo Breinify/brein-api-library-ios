@@ -38,6 +38,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     /// permission to send locationUpdate
     var hasPermissionToSendLocationUpdates = true
 
+    /// should register push notification
+    var shouldRegisterPushNotification: Bool = true
+
     /// singleton
     public static let shared: BreinifyManager = {
         let instance = BreinifyManager()
@@ -55,6 +58,14 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
         return instance
     }()
+
+    public func willRegisterPushNotification(_ shouldRegister: Bool) {
+        self.shouldRegisterPushNotification = shouldRegister
+    }
+
+    public func hasRegisteredPushNotification() -> Bool {
+        self.shouldRegisterPushNotification
+    }
 
     // Can't init the singleton
     override
@@ -468,17 +479,15 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
             let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as! UIApplication
             application.applicationIconBadgeNumber = 0
 
-            //GENERAL Category
-            let generalCategory = UNNotificationCategory(identifier: "GENERAL", actions: [], intentIdentifiers: [], options: .customDismissAction)
+            let generalCategory = UNNotificationCategory(identifier: "general", actions: [], intentIdentifiers: [], options: .customDismissAction)
 
-            //INVITATION Category
             let remindLaterAction = UNNotificationAction(identifier: "remindLater", title: "Remind me later", options: UNNotificationActionOptions(rawValue: 0))
             let acceptAction = UNNotificationAction(identifier: "accept", title: "Accept", options: .foreground)
             let declineAction = UNNotificationAction(identifier: "decline", title: "Decline", options: .destructive)
             let commentAction = UNTextInputNotificationAction(identifier: "comment", title: "Comment", options: .authenticationRequired, textInputButtonTitle: "Send", textInputPlaceholder: "Share your thoughts..")
-            let invitationCategory = UNNotificationCategory(identifier: "INVITATION", actions: [remindLaterAction, acceptAction, declineAction, commentAction], intentIdentifiers: [], options: UNNotificationCategoryOptions(rawValue: 0))
+            let breinifyCategory = UNNotificationCategory(identifier: "breinify", actions: [remindLaterAction, acceptAction, declineAction, commentAction], intentIdentifiers: [], options: UNNotificationCategoryOptions(rawValue: 0))
 
-            center.setNotificationCategories([generalCategory, invitationCategory])
+            center.setNotificationCategories([generalCategory, breinifyCategory])
             center.requestAuthorization(options: [.badge, .sound, .alert]) { (granted, error) in
                 //granted = yes, if app is authorized for all of the requested interaction types
                 //granted = no, if one or more interaction type is disallowed
@@ -576,7 +585,9 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         Breinify.readUserDefaults()
 
         // register PushNotifications
-        registerPushNotifications()
+        if hasRegisteredPushNotification() == true {
+            registerPushNotifications()
+        }
 
         let locUsage = Breinify.getConfig().getWithLocationManagerUsage()
         if locUsage == true {
