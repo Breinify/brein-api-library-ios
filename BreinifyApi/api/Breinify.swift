@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the library
-    static let version: String! = "2.0.18"
+    static let version: String! = "2.0.19"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -37,6 +37,11 @@ open class Breinify: NSObject {
     @objc
     public static func setLogging(_ isDebug: Bool) {
         BreinLogger.shared.setDebug(isDebug)
+    }
+
+    @objc
+    public static func setShouldRegisterPushNotification(_ shouldRegister: Bool) {
+        BreinifyManager.shared.willRegisterPushNotification(shouldRegister)
     }
 
     @objc
@@ -70,6 +75,21 @@ open class Breinify: NSObject {
     public static func willPresentNotification(_ notification: [AnyHashable : Any]) {
         BreinLogger.shared.log("Breinify willPresentNotification invoked")
         BreinifyManager.shared.handleWillPresentNotification(notification)
+    }
+
+    @objc
+    public static func isBreinifyNotification(_ userInfo: [AnyHashable : Any]) -> Bool {
+        return userInfo.keys.contains("breinify")
+    }
+
+    @objc
+    public static func willRegisterPushNotification(_ shouldRegister: Bool) {
+        BreinifyManager.shared.willRegisterPushNotification(shouldRegister)
+    }
+
+    @objc
+    public static func hasRegisteredPushNotification() -> Bool {
+        BreinifyManager.shared.hasRegisteredPushNotification()
     }
 
     @objc
