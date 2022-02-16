@@ -25,6 +25,6 @@ open class BreinTemporalDataResult: BreinResult {
     }
 
     public func getDataList() -> [NSDictionary] {
-        self.dataList
+        dataList
     }
 }

@@ -10,19 +10,19 @@ open class BreinResult {
     var dic = NSDictionary()
 
     public init(dictResult: NSDictionary) {
-        self.dic = dictResult
+        dic = dictResult
     }
 
     public func setDictionary(_ dictionary: NSDictionary) {
-        self.dic = dictionary
+        dic = dictionary
     }
 
     public func get(_ key: String) -> Any? {
-        self.dic.object(forKey: key) as Any?
+        dic.object(forKey: key) as Any?
     }
 
     public func getDictionary() -> NSDictionary {
-        self.dic
+        dic
     }
 
     public func getResult() -> String {

@@ -21,7 +21,7 @@ open class BreinHolidayResult: BreinTemporalDataResult {
     }
 
     public func getHolidayList() -> [NSDictionary] {
-        self.getDataList()
+        getDataList()
     }
 
     public func getTypes(_ entry: NSDictionary) -> String? {

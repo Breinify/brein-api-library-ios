@@ -31,45 +31,45 @@ open class BreinWeatherResult: BreinResult {
     }
 
     public func getDescription() -> String? {
-        self.get(BreinWeatherResult.kDescriptionKey) as? String
+        get(BreinWeatherResult.kDescriptionKey) as? String
     }
 
     public func getTemperature() -> Double? {
-        let value = self.get(BreinWeatherResult.kTemperatureKey)
+        let value = get(BreinWeatherResult.kTemperatureKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getTemperatureCelsius() -> Double? {
-        let value = self.get(BreinWeatherResult.kTemperatureCelsiusKey)
+        let value = get(BreinWeatherResult.kTemperatureCelsiusKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getTemperatureFahrenheit() -> Double? {
-        let value = self.get(BreinWeatherResult.kTemperatureFahrenheitKey)
+        let value = get(BreinWeatherResult.kTemperatureFahrenheitKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getTemperatureKelvin() -> Double? {
-        if let celsius = self.getTemperatureCelsius() {
+        if let celsius = getTemperatureCelsius() {
             return celsius + 273.15
         }
         return nil
     }
 
     public func getCloudCover() -> Int? {
-        self.get(BreinWeatherResult.kCloudCoverKey) as? Int
+        get(BreinWeatherResult.kCloudCoverKey) as? Int
     }
 
     public func getWindStrength() -> Double? {
-        self.get(BreinWeatherResult.kWindStrengthKey) as? Double
+        get(BreinWeatherResult.kWindStrengthKey) as? Double
     }
 
     public func getLastMeasured() -> Int? {
-        self.get(BreinWeatherResult.kLastMeasuredKey) as? Int
+        get(BreinWeatherResult.kLastMeasuredKey) as? Int
     }
 
     public func getPrecipitationType() -> String? {
-        if let preDic = self.get(BreinWeatherResult.kPrecipitationKey) as? NSDictionary {
+        if let preDic = get(BreinWeatherResult.kPrecipitationKey) as? NSDictionary {
             if let preType = preDic.object(forKey: BreinWeatherResult.kPrecipitationTypeKey) {
                 return preType as? String
             }
@@ -79,7 +79,7 @@ open class BreinWeatherResult: BreinResult {
     }
 
     public func getPrecipitationAmount() -> Int? {
-        if let preDic = self.get(BreinWeatherResult.kPrecipitationKey) as? NSDictionary {
+        if let preDic = get(BreinWeatherResult.kPrecipitationKey) as? NSDictionary {
             if let preAmount = preDic.object(forKey: BreinWeatherResult.kPrecipitationAmountKey) {
                 return preAmount as? Int
             }

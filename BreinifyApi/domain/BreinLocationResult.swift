@@ -30,33 +30,33 @@ open class BreinLocationResult: BreinResult {
     }
 
     public func getCountry() -> String? {
-        self.get(BreinLocationResult.kCountryKey) as? String
+        get(BreinLocationResult.kCountryKey) as? String
     }
 
     public func getState() -> String? {
-        self.get(BreinLocationResult.kStateKey) as? String
+        get(BreinLocationResult.kStateKey) as? String
     }
 
     public func getCity() -> String? {
-        self.get(BreinLocationResult.kCityKey) as? String
+        get(BreinLocationResult.kCityKey) as? String
     }
 
     public func getGranularity() -> String? {
-        self.get(BreinLocationResult.kGranularityKey) as? String
+        get(BreinLocationResult.kGranularityKey) as? String
     }
 
     public func getLatitude() -> Double? {
-        let value = self.get(BreinLocationResult.kLatKey)
+        let value = get(BreinLocationResult.kLatKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getLongitude() -> Double? {
-        let value = self.get(BreinLocationResult.kLonKey)
+        let value = get(BreinLocationResult.kLonKey)
         return BreinUtil.getDoubleValue(value)
     }
 
     public func getZipCode() -> String? {
-        self.get(BreinLocationResult.kZipCode) as? String
+        get(BreinLocationResult.kZipCode) as? String
     }
 
 }

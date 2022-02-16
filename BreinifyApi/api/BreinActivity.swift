@@ -74,7 +74,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     @discardableResult
     @objc
     public func setDescription(_ description: String!) -> BreinActivity {
-        self.desc = description
+        desc = description
         return self
     }
 
@@ -93,14 +93,14 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     public func getTagsDic() -> [String: Any]? {
-        self.tagsDic
+        tagsDic
     }
 
     @discardableResult
     @objc
     public func setTag(_ key: String, _ value: AnyObject) -> BreinActivity {
-        if self.tagsDic == nil {
-            self.tagsDic = [String: Any]()
+        if tagsDic == nil {
+            tagsDic = [String: Any]()
         }
 
         tagsDic?[key] = value
@@ -114,7 +114,7 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     }
 
     public func getActivityDic() -> [String: Any]? {
-        self.activityDic
+        activityDic
     }
 
     /// Sends an activity to the Breinify server.
@@ -211,12 +211,12 @@ open class BreinActivity: BreinBase, ISecretStrategy {
 
         // create a new activity object
         let clonedBreinActivity = BreinActivity()
-                .setActivityType(self.getActivityType())
-                .setCategory(self.getCategory())
-                .setDescription(self.getDescription())
+                .setActivityType(getActivityType())
+                .setCategory(getCategory())
+                .setDescription(getDescription())
 
         // clone dictionaries => simple copy is enough
-        if let clonedActivityDic = self.getActivityDic() {
+        if let clonedActivityDic = getActivityDic() {
             clonedBreinActivity.setActivityDic(clonedActivityDic)
         }
 
@@ -247,8 +247,8 @@ open class BreinActivity: BreinBase, ISecretStrategy {
     /// - Throws: BreinRuntimeError
     public override func createSignature() throws -> String! {
 
-        let breinActivityType = self.getActivityType() ?? ""
-        let unixTimestamp = self.getUnixTimestamp()
+        let breinActivityType = getActivityType() ?? ""
+        let unixTimestamp = getUnixTimestamp()
         let message = breinActivityType + String(unixTimestamp) + "1"
 
         return try BreinUtil.generateSignature(message, secret: getConfig()?.getSecret())

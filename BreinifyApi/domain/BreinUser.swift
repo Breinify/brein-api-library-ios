@@ -161,7 +161,7 @@ open class BreinUser: NSObject {
         if case 1...12 = month {
             if case 1...31 = day {
                 if case 1900...2100 = year {
-                    self.dateOfBirth = "\(month)/\(day)/\(year)"
+                    dateOfBirth = "\(month)/\(day)/\(year)"
                 }
             }
         }
@@ -170,12 +170,12 @@ open class BreinUser: NSObject {
 
     /// set date of birth as string
     public func setDateOfBirthString(_ birth: String!) {
-        self.dateOfBirth = birth
+        dateOfBirth = birth
     }
 
     /// this will reset the value of dateOfBirth to ""
     public func resetDateOfBirth() {
-        self.dateOfBirth = ""
+        dateOfBirth = ""
     }
 
     /// returns imei
@@ -216,7 +216,7 @@ open class BreinUser: NSObject {
 
     /// returns userId
     public func getUserId() -> String! {
-        self.userId
+        userId
     }
 
     /// sets userId
@@ -228,7 +228,7 @@ open class BreinUser: NSObject {
 
     /// returns phone
     public func getPhone() -> String! {
-        self.phone
+        phone
     }
 
     /// sets phone
@@ -269,7 +269,7 @@ open class BreinUser: NSObject {
     /// -return
     public func getLocalDateTime() -> String! {
 
-        if (self.localDateTime ?? "").isEmpty {
+        if (localDateTime ?? "").isEmpty {
             return detectLocalDateTime()
         }
 
@@ -279,7 +279,7 @@ open class BreinUser: NSObject {
     /// sets timezone
     @discardableResult
     public func setTimezone(_ timeZone: String!) -> BreinUser! {
-        self.timezone = timeZone
+        timezone = timeZone
         return self
     }
 
@@ -288,7 +288,7 @@ open class BreinUser: NSObject {
     /// - return
     public func getTimezone() -> String! {
 
-        if (self.timezone ?? "").isEmpty {
+        if (timezone ?? "").isEmpty {
             return detectCurrentTimezone()
         }
 
@@ -304,31 +304,31 @@ open class BreinUser: NSObject {
 
     /// returns deviceToken
     public func getDeviceToken() -> String! {
-        self.deviceToken
+        deviceToken
     }
 
     /// set apns token
     @discardableResult
     public func setApnsToken(_ token: String!) -> BreinUser! {
-        self.apnsToken = token
+        apnsToken = token
         return self
     }
 
     /// returns apns token
     public func getApnsToken() -> String! {
-        self.apnsToken
+        apnsToken
     }
 
     /// set fcmToken
     @discardableResult
     public func setFcmToken(_ token: String!) -> BreinUser! {
-        self.fcmToken = token
+        fcmToken = token
         return self
     }
 
     /// returns fcm token
     public func getFcmToken() -> String! {
-        self.fcmToken
+        fcmToken
     }
 
     /// sets url
@@ -382,42 +382,42 @@ open class BreinUser: NSObject {
     /// sets the user.additional dic for additional fields within the user.additional structure
     @discardableResult
     public func setAdditionalDic(_ dic: [String: Any]) -> BreinUser! {
-        self.additional = dic
+        additional = dic
         return self
     }
 
     /// returns additional dic
     public func getAdditionalDic() -> [String: Any]? {
-         self.additional
+         additional
     }
 
     /// sets the user map for for additional fields
     @discardableResult
     public func setUserDic(_ map: [String: Any]) -> BreinUser! {
-        self.userDic = map
+        userDic = map
         return self
     }
 
     /// returns the optional user dic
     public func getUserDic() -> [String: Any]? {
-        self.userDic
+        userDic
     }
 
     /// sets the user.additional dic for additional fields within the user.additional structure
     @discardableResult
     public func setAdditionalLocationDic(_ dic: [String: Any]) -> BreinUser! {
-        self.additionalLocation = dic
+        additionalLocation = dic
         return self
     }
 
     /// returns the additionalLocationDic
     public func getAdditionalLocationDic() -> [String: Any]? {
-        self.additionalLocation
+        additionalLocation
     }
 
     /// set an additional location entry in location dictionry
     public func setAdditionalLocationEntry(key: String, value: AnyObject) -> BreinUser {
-        self.additionalLocation[key] = value
+        additionalLocation[key] = value
         return self
     }
 
@@ -444,44 +444,44 @@ open class BreinUser: NSObject {
     /// prepares user related map for json request
     public func prepareUserRequest(_ userData: inout [String: Any], breinConfig: BreinConfig!) {
 
-        if let dateOfBirth = BreinUtil.containsValue(self.getDateOfBirth()) {
+        if let dateOfBirth = BreinUtil.containsValue(getDateOfBirth()) {
             userData["dateOfBirth"] = dateOfBirth as Any?
         }
 
-        if let imei = BreinUtil.containsValue(self.getImei()) {
+        if let imei = BreinUtil.containsValue(getImei()) {
             userData["imei"] = imei as Any?
         }
 
-        if let deviceId = BreinUtil.containsValue(self.getDeviceId()) {
+        if let deviceId = BreinUtil.containsValue(getDeviceId()) {
             userData["deviceId"] = deviceId as Any?
         }
 
-        if let email = BreinUtil.containsValue(self.getEmail()) {
+        if let email = BreinUtil.containsValue(getEmail()) {
             userData["email"] = email as Any?
         }
 
-        if let session = BreinUtil.containsValue(self.getSessionId()) {
+        if let session = BreinUtil.containsValue(getSessionId()) {
             userData["sessionId"] = session as Any?
         }
 
-        if let userid = BreinUtil.containsValue(self.getUserId()) {
+        if let userid = BreinUtil.containsValue(getUserId()) {
             userData["userId"] = userid as Any?
         }
 
-        if let phone = BreinUtil.containsValue(self.getPhone()) {
+        if let phone = BreinUtil.containsValue(getPhone()) {
             userData["phone"] = phone as Any?
         }
 
-        if let firstName = BreinUtil.containsValue(self.getFirstName()) {
+        if let firstName = BreinUtil.containsValue(getFirstName()) {
             userData["firstName"] = firstName as Any?
         }
 
-        if let user = BreinUtil.containsValue(self.getLastName()) {
+        if let user = BreinUtil.containsValue(getLastName()) {
             userData["lastName"] = user as Any?
         }
 
         // add possible further fields coming from user dictionary
-        if let userDataDic = self.getUserDic() {
+        if let userDataDic = getUserDic() {
             if userDataDic.count > 0 {
                 BreinMapUtil.fillMap(userDataDic, requestStructure: &userData)
             }
@@ -503,7 +503,7 @@ open class BreinUser: NSObject {
         var locData = [String: Any]()
 
         // check location values
-        if self.locationData != nil {
+        if locationData != nil {
             // only a valid location will be taken into consideration
             // this is the case when the coordinates are different from 0
             if locationData?.coordinate.latitude != 0 {
@@ -515,7 +515,7 @@ open class BreinUser: NSObject {
         }
 
         // loop thru locationDic 
-        for (key, value) in self.additionalLocation {
+        for (key, value) in additionalLocation {
             locData[key] = value
         }
 
@@ -523,41 +523,41 @@ open class BreinUser: NSObject {
             additionalData["location"] = locData as Any?
         }
 
-        if let userAgentValue = self.getUserAgent() {
+        if let userAgentValue = getUserAgent() {
             additionalData["userAgent"] = userAgentValue as Any?
         }
 
-        if let referrerValue = self.getReferrer() {
+        if let referrerValue = getReferrer() {
             additionalData["referrer"] = referrerValue as Any?
         }
 
-        if let urlValue = self.getUrl() {
+        if let urlValue = getUrl() {
             additionalData["url"] = urlValue as Any?
         }
 
         /// use the one that may be defined
-        if let localDateTimeValue = self.getLocalDateTime() {
+        if let localDateTimeValue = getLocalDateTime() {
             additionalData["localDateTime"] = localDateTimeValue as Any?
         }
 
-        if let timezoneValue = self.getTimezone() {
+        if let timezoneValue = getTimezone() {
             additionalData["timezone"] = timezoneValue as Any?
         }
 
         // deviceToken for pushNotifications
-        if let devToken = self.getDeviceToken() {
+        if let devToken = getDeviceToken() {
             var identifierData = [String: Any]()
             identifierData["iosPushDeviceToken"] = devToken as Any?
             additionalData["identifiers"] = identifierData as Any?
         }
 
         // ipAddress
-        if let additionalIpAddress = self.getIpAddress() {
+        if let additionalIpAddress = getIpAddress() {
             additionalData["ipAddress"] = additionalIpAddress as Any?
         }
 
         // add possible further fields coming from additional dictionary
-        if let userAdditionalDataDic = self.getAdditionalDic() {
+        if let userAdditionalDataDic = getAdditionalDic() {
             if userAdditionalDataDic.count > 0 {
                 BreinMapUtil.fillMap(userAdditionalDataDic, requestStructure: &additionalData)
             }

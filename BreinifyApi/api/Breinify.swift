@@ -11,7 +11,7 @@ open class Breinify: NSObject {
     typealias apiFailure = (_ error: NSDictionary) -> Void
 
     ///  contains the current version of the library
-    static let version: String! = "2.0.19"
+    static let version: String! = "2.0.20"
 
     /// contains the configuration
     static var config: BreinConfig?
@@ -71,6 +71,19 @@ open class Breinify: NSObject {
         BreinifyManager.shared.handleDidReceiveNotification(notification)
     }
 
+    @available(iOS 10, *)
+    @objc
+    public static func didReceiveNotificationResponse(_ response: UNNotificationResponse) {
+        BreinLogger.shared.log("Breinify didReceiveNNotificationResponse invoked")
+        BreinifyManager.shared.handleDidReceiveNotificationResponse(response)
+    }
+
+    @objc
+    public static func didReceive(_ notification: [AnyHashable : Any]) {
+        BreinLogger.shared.log("Breinify didReceive invoked")
+        BreinifyManager.shared.handleDidReceiveNotification(notification)
+    }
+
     @objc
     public static func willPresentNotification(_ notification: [AnyHashable : Any]) {
         BreinLogger.shared.log("Breinify willPresentNotification invoked")
@@ -79,7 +92,7 @@ open class Breinify: NSObject {
 
     @objc
     public static func isBreinifyNotification(_ userInfo: [AnyHashable : Any]) -> Bool {
-        return userInfo.keys.contains("breinify")
+        userInfo.keys.contains("breinify")
     }
 
     @objc
@@ -626,7 +639,7 @@ open class Breinify: NSObject {
         - Parameter activityType:  The type of the activity collected, i.e., one of search, login, logout, addToCart,
                                    removeFromCart, checkOut, selectProduct, or other. if not specified, the default other will
                                    be used
-        - Parameter categoryType:  The category of the platform/service/products, i.e., one of apparel, home, education, family,
+        - Parameter category:      The category of the platform/service/products, i.e., one of apparel, home, education, family,
                                    food, health, job, services, or other
         - Parameter description:   A string with further information about the activity performed
         - Parameter success:       A callback function that is invoked in case of success.
@@ -789,7 +802,7 @@ open class Breinify: NSObject {
 
        Furthermore it uses the internal instance of BreinTemporalData.
 
-       - parameter ipAddress: Contains an ipAddress to resolve.
+       - Parameter ipAddress: Contains an ipAddress to resolve.
        - Parameter success:   A callback function that is invoked in case of success.
        - Parameter failure:   A callback function that is invoked in case of an error.
 
@@ -828,7 +841,7 @@ open class Breinify: NSObject {
 
         Furthermore it uses the internal instance of BreinTemporalData.
 
-        - parameter breinTemporalData: Contains a breinTemporalData object.
+        - Parameter breinTemporalData: Contains a breinTemporalData object.
         - Parameter success:           A callback function that is invoked in case of success.
         - Parameter failure:           A callback function that is invoked in case of an error.
 
@@ -870,8 +883,8 @@ open class Breinify: NSObject {
       Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
       This request is synchronous.
 
-        - parameter user:       A plain object specifying information about the user to retrieve data for.
-        - parameter dimension:  An object (with an array) containing the names of the dimensions to lookup.
+        - Parameter user:       A plain object specifying information about the user to retrieve data for.
+        - Parameter dimension:  An object (with an array) containing the names of the dimensions to lookup.
         - Parameter success:    A callback function that is invoked in case of success.
         - Parameter failure:    A callback function that is invoked in case of an error.
 
@@ -899,9 +912,9 @@ open class Breinify: NSObject {
        Retrieves a lookup result from the engine. The function needs a valid API-key to be configured to succeed.
        This request is synchronous.
 
-         - parameter breinLookup: An instance of BreinLookup.
-         - parameter user:        A plain object specifying information about the user to retrieve data for.
-         - parameter dimension:   An object (with an array) containing the names of the dimensions to lookup.
+         - Parameter breinLookup: An instance of BreinLookup.
+         - Parameter user:        A plain object specifying information about the user to retrieve data for.
+         - Parameter dimension:   An object (with an array) containing the names of the dimensions to lookup.
          - Parameter success:     A callback function that is invoked in case of success.
          - Parameter failure:     A callback function that is invoked in case of an error.
 

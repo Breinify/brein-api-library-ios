@@ -60,11 +60,11 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     }()
 
     public func willRegisterPushNotification(_ shouldRegister: Bool) {
-        self.shouldRegisterPushNotification = shouldRegister
+        shouldRegisterPushNotification = shouldRegister
     }
 
     public func hasRegisteredPushNotification() -> Bool {
-        self.shouldRegisterPushNotification
+        shouldRegisterPushNotification
     }
 
     // Can't init the singleton
@@ -300,6 +300,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
                                        didReceive response: UNNotificationResponse,
                                        withCompletionHandler completionHandler: @escaping () -> Void) {
+
         BreinLogger.shared.log("Breinify UserNotification didReceive invoked with response: \(response)")
 
         let campaignNotificationDic = getCampaignContent(response.notification.request.content.userInfo)
@@ -318,7 +319,13 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
         let campaignNotificationDic = getCampaignContent(userInfo)
         sendActivity(BreinActivityType.OPEN_PUSH_NOTIFICATION.rawValue, additionalActivityTagContent: campaignNotificationDic)
 
+        BreinLogger.shared.log("Breinify invoking handleIncomingNotificationContent from handleDidReceiveNotification method")
         handleIncomingNotificationContent(userInfo)
+    }
+
+    @available(iOS 10, *)
+    public func handleDidReceiveNotificationResponse(_ response: UNNotificationResponse) {
+        BreinLogger.shared.log("Breinify handleDidReceiveNotificationResponse invoked with response: \(response)")
     }
 
     public func handleWillPresentNotification(_ userInfo: [AnyHashable: Any]) {
@@ -462,7 +469,7 @@ open class BreinifyManager: NSObject, UNUserNotificationCenterDelegate {
 
     }
 
-    func registerPushNotifications() {
+    public func registerPushNotifications() {
         BreinLogger.shared.log("Breinify registerPushNotifications invoked")
 
         guard let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as? UIApplication else {

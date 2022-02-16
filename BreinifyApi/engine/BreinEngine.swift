@@ -31,13 +31,13 @@ public class BreinEngine {
      Creates the BreinEngine instance with a given breinEngineType
     */
     public init(engineType: BreinEngineType) {
-        self.restEngine = URLSessionEngine()
+        restEngine = URLSessionEngine()
     }
 
     /**
      Sends an activity to the Breinify server
 
-       - parameter activity: data to be send
+       - Parameter activity: data to be send
        - Parameter successBlock : A callback function that is invoked in case of success.
        - Parameter failureBlock : A callback function that is invoked in case of an error.
 
@@ -77,7 +77,7 @@ public class BreinEngine {
                 }
             } else {
                 do {
-                    try self.restEngine.doRequest(activity,
+                    try restEngine.doRequest(activity,
                             success: successBlock,
                             failure: failureBlock)
                 } catch {
@@ -91,7 +91,7 @@ public class BreinEngine {
     /**
      Performs a temporalData request
 
-       - parameter breinTemporalData: contains the appropriate data in order to perform the request
+       - Parameter breinTemporalData: contains the appropriate data in order to perform the request
        - Parameter successBlock : A callback function that is invoked in case of success.
        - Parameter failureBlock : A callback function that is invoked in case of an error.
       
@@ -131,7 +131,7 @@ public class BreinEngine {
     /**
      Performs a lookup. This will be delegated to the configured restEngine.
 
-       - parameter breinLookup: contains the appropriate data for the lookup request
+       - Parameter breinLookup: contains the appropriate data for the lookup request
        - Parameter successBlock : A callback function that is invoked in case of success.
        - Parameter failureBlock : A callback function that is invoked in case of an error.
      
@@ -174,7 +174,7 @@ public class BreinEngine {
     /**
      Invokes the recommendation request
 
-      - parameter breinRecommendation: contains the breinRecommendation object
+      - Parameter breinRecommendation: contains the breinRecommendation object
       - Parameter successBlock : A callback function that is invoked in case of success.
       - Parameter failureBlock : A callback function that is invoked in case of an error.
 

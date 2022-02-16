@@ -60,11 +60,11 @@ open class BreinIpInfo {
     /// provides external ipAddress
     public func getExternalIp() -> String? {
         
-        guard self.readDataMap != nil else {
+        guard readDataMap != nil else {
             return ""
         }
         
-       if let ip = self.readDataMap?[BreinIpInfo.kIpField] as? String {
+       if let ip = readDataMap?[BreinIpInfo.kIpField] as? String {
           return ip
        }
        
@@ -74,8 +74,8 @@ open class BreinIpInfo {
     /// provides timezone
     public func getTimezone() -> String? {
         
-        if self.readDataMap != nil {
-            if let timeZone = self.readDataMap?[BreinIpInfo.kTimezoneField] as? String {
+        if readDataMap != nil {
+            if let timeZone = readDataMap?[BreinIpInfo.kTimezoneField] as? String {
                 return timeZone
             }
             return ""

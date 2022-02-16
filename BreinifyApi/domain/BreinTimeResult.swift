@@ -36,70 +36,70 @@ open class BreinTimeResult: BreinResult {
     }
 
     public func getLocalMinute() -> Int? {
-        self.get(BreinTimeResult.kLocalMinute) as? Int
+        get(BreinTimeResult.kLocalMinute) as? Int
     }
 
     public func getLocalMonth() -> Int? {
-        self.get(BreinTimeResult.kLocalMonth) as? Int
+        get(BreinTimeResult.kLocalMonth) as? Int
     }
 
     public func getLocalHour() -> Int? {
-        self.get(BreinTimeResult.kLocalHour) as? Int
+        get(BreinTimeResult.kLocalHour) as? Int
     }
 
     public func getLocalYear() -> Int? {
-        self.get(BreinTimeResult.kLocalYear) as? Int
+        get(BreinTimeResult.kLocalYear) as? Int
     }
 
     public func getLocalSecond() -> Int? {
-        self.get(BreinTimeResult.kLocalSecond) as? Int
+        get(BreinTimeResult.kLocalSecond) as? Int
     }
 
     public func getLocalDayName() -> String? {
-        self.get(BreinTimeResult.kLocalDayName) as? String
+        get(BreinTimeResult.kLocalDayName) as? String
     }
 
     public func getLocalDay() -> Int? {
-        self.get(BreinTimeResult.kLocalDay) as? Int
+        get(BreinTimeResult.kLocalDay) as? Int
     }
 
     public func getLocalFormatIso8601() -> String? {
-        self.get(BreinTimeResult.kLocalFormatIso8601) as? String
+        get(BreinTimeResult.kLocalFormatIso8601) as? String
     }
 
     public func getEpochMinute() -> Int? {
-        self.get(BreinTimeResult.kEpochMinute) as? Int
+        get(BreinTimeResult.kEpochMinute) as? Int
     }
 
     public func getEpochMonth() -> Int? {
-        self.get(BreinTimeResult.kEpochMonth) as? Int
+        get(BreinTimeResult.kEpochMonth) as? Int
     }
 
     public func getEpochHour() -> Int? {
-        self.get(BreinTimeResult.kEpochHour) as? Int
+        get(BreinTimeResult.kEpochHour) as? Int
     }
 
     public func getEpochYear() -> Int? {
-        self.get(BreinTimeResult.kEpochYear) as? Int
+        get(BreinTimeResult.kEpochYear) as? Int
     }
 
     public func getEpochSecond() -> Int? {
-        self.get(BreinTimeResult.kEpochSecond) as? Int
+        get(BreinTimeResult.kEpochSecond) as? Int
     }
 
     public func getEpochDayName() -> String? {
-        self.get(BreinTimeResult.kEpochDayName) as? String
+        get(BreinTimeResult.kEpochDayName) as? String
     }
 
     public func getEpochDay() -> Int? {
-        self.get(BreinTimeResult.kEpochDay) as? Int
+        get(BreinTimeResult.kEpochDay) as? Int
     }
 
     public func getEpochFormatIso8601() -> String? {
-        self.get(BreinTimeResult.kEpochFormatIso8601) as? String
+        get(BreinTimeResult.kEpochFormatIso8601) as? String
     }
 
     public func getTimezone() -> String? {
-        self.get(BreinTimeResult.kTimezone) as? String
+        get(BreinTimeResult.kTimezone) as? String
     }
 }

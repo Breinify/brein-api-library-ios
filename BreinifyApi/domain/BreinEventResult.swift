@@ -31,31 +31,31 @@ open class BreinEventResult: BreinTemporalDataResult {
     }
 
     public func getEventList() -> [NSDictionary] {
-        self.getDataList()
+        getDataList()
     }
 
     public func getStartTime() -> Double? {
-        self.get(BreinEventResult.kStartTimeKey) as! Double?
+        get(BreinEventResult.kStartTimeKey) as! Double?
     }
 
     public func getEndTime() -> Double? {
-        self.get(BreinEventResult.kEndTimeKey) as! Double?
+        get(BreinEventResult.kEndTimeKey) as! Double?
     }
 
     public func getName() -> String? {
-        self.get(BreinEventResult.kNameKey) as! String?
+        get(BreinEventResult.kNameKey) as! String?
     }
 
     public func getSize() -> Int? {
-        self.get(BreinEventResult.kSizeKey) as! Int?
+        get(BreinEventResult.kSizeKey) as! Int?
     }
 
     public func getCategory() -> Double? {
-        self.get(BreinEventResult.kCategoryKey) as! Double?
+        get(BreinEventResult.kCategoryKey) as! Double?
     }
 
     public func getLocationResult() -> BreinLocationResult {
-        let locDic = self.get(BreinEventResult.kLocationKey) as! NSDictionary
+        let locDic = get(BreinEventResult.kLocationKey) as! NSDictionary
         let locObject = BreinLocationResult(locDic)
         return locObject
     }

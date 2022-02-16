@@ -73,23 +73,23 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     ///
     public override init() {
         super.init()
-        self.ignoreLocationRequestState = false
+        ignoreLocationRequestState = false
     }
 
     // ctor with option to ignore request
     public init(ignoreLocationRequest: Bool) {
         super.init()
-        self.ignoreLocationRequestState = ignoreLocationRequest
+        ignoreLocationRequestState = ignoreLocationRequest
     }
 
     // ignore request
     public func ignoreLocationRequest() -> Bool {
-        self.ignoreLocationRequestState
+        ignoreLocationRequestState
     }
 
     // ignore request
     public func setIgnoreLocationRequest(ignoreLocationRequest: Bool) -> BreinLocationManager {
-        self.ignoreLocationRequestState = ignoreLocationRequest
+        ignoreLocationRequestState = ignoreLocationRequest
         return self
     }
 
@@ -102,28 +102,26 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     /// location authorization status changed
-    @nonobjc
     public func locationManager(_ manager: CLLocationManager,
-                                didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+                                didChangeAuthorization status: CLAuthorizationStatus) {
         
         switch status {
         case .authorizedWhenInUse,
              .authorizedAlways,
              .notDetermined:
-            self.locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
 
             // it's fine to send sendLoc information
             BreinifyManager.shared.hasPermissionToSendLocationUpdates = true
 
         default:
-            completionHandler(location: dummyLocation, error: NSError(domain: self.classForCoder.description(),
+            completionHandler(location: dummyLocation, error: NSError(domain: classForCoder.description(),
                     code: BreinLocationManagerErrors.AuthorizationDenied.rawValue,
                     userInfo: nil))
         }
     }
 
     // invoked in case of a failure
-    @nonobjc
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         completionHandler(location: dummyLocation, error: error)
     }
@@ -151,7 +149,7 @@ public class BreinLocationManager: NSObject, CLLocationManagerDelegate {
         didComplete = completion
 
         // check if location request should be ignored
-        if self.ignoreLocationRequest() == true {
+        if ignoreLocationRequest() == true {
             completionHandler(location: dummyLocation, error: NSError(domain: "BreinLocationManager", code: 103, userInfo: nil))
         }
 

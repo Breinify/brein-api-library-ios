@@ -19,7 +19,7 @@ open class BreinLogger {
     }
 
     func log(_ message: String?) {
-        if self.isDebug {
+        if isDebug {
             debugPrint(message ?? "empty");
         }
     }
